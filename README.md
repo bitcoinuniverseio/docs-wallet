@@ -38,6 +38,10 @@ recognized. A completed hardware signature is accepted only through the
 wallet's explicit signed-result flow; it is never replaced with an empty
 fallback result.
 
+Reviewer-only Frontier previews remain inaccessible in production builds even
+if local storage is modified. Disabled previews show an unavailable state and
+cannot be enabled from the wallet interface.
+
 Universe Wallet does not guarantee the identity of a counterparty, the value of
 an asset, or the accuracy of off-chain marketplace content. The approval screen
 is the final place to verify the network, asset, amount, destination, and fee.
