@@ -42,6 +42,10 @@ Reviewer-only Frontier previews remain inaccessible in production builds even
 if local storage is modified. Disabled previews show an unavailable state and
 cannot be enabled from the wallet interface.
 
+Developer Tools shows the current account's live, asset-aware UTXO inventory.
+It includes protected assets and wallet locks instead of sample entries, and it
+is read-only; use Coin Control when choosing inputs for a transaction.
+
 Universe Wallet does not guarantee the identity of a counterparty, the value of
 an asset, or the accuracy of off-chain marketplace content. The approval screen
 is the final place to verify the network, asset, amount, destination, and fee.
