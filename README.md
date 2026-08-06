@@ -50,6 +50,17 @@ Transaction-producing protocol forms never inject demo tickers, identifiers,
 amounts, or recipient addresses. Enter and review the intended values before
 creating an order.
 
+Batch send accepts only recipients entered or pasted by the user. It never
+loads a pre-filled mainnet or testnet recipient list into a real send queue.
+Address Labels likewise saves only entries supplied by the user.
+
+Dogecoin actions use the selected account's address for the active Dogecoin
+network. If the wallet cannot derive it, the form stays empty and disabled
+instead of substituting a sample address or ticker.
+
+Contact management remains in the controller-backed Settings flow. Contacts
+Pro does not expose a CSV import that merely validates data without saving it.
+
 Universe Wallet does not guarantee the identity of a counterparty, the value of
 an asset, or the accuracy of off-chain marketplace content. The approval screen
 is the final place to verify the network, asset, amount, destination, and fee.
