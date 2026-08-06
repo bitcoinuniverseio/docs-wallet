@@ -33,6 +33,11 @@ The extension rejects malformed or unknown internal commands before they can
 reach wallet operations. This validation also blocks inherited properties and
 property accessors from being treated as callable wallet actions.
 
+Hardware-wallet signing stops safely when a signing request type is not
+recognized. A completed hardware signature is accepted only through the
+wallet's explicit signed-result flow; it is never replaced with an empty
+fallback result.
+
 Universe Wallet does not guarantee the identity of a counterparty, the value of
 an asset, or the accuracy of off-chain marketplace content. The approval screen
 is the final place to verify the network, asset, amount, destination, and fee.
