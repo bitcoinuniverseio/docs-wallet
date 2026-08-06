@@ -46,6 +46,10 @@ Developer Tools shows the current account's live, asset-aware UTXO inventory.
 It includes protected assets and wallet locks instead of sample entries, and it
 is read-only; use Coin Control when choosing inputs for a transaction.
 
+Transaction-producing protocol forms never inject demo tickers, identifiers,
+amounts, or recipient addresses. Enter and review the intended values before
+creating an order.
+
 Universe Wallet does not guarantee the identity of a counterparty, the value of
 an asset, or the accuracy of off-chain marketplace content. The approval screen
 is the final place to verify the network, asset, amount, destination, and fee.
