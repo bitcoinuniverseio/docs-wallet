@@ -17,6 +17,18 @@ extension.
 - Sign supported marketplace transactions with transaction-specific approval.
 - Explore protocol experiences while retaining self-custody.
 
+Universe Wallet 1.7.5.4 exposes protocol actions only from an explicit release
+allowlist. Bitcoin, Ordinals, BRC-20, Runes, Alkanes, TAP, SRC-20, Stamps,
+DUST-20, UNAT, Bitmap, BLOCK-20, OP_RETURN, OP-20, OP Names, Mezcal, Dogecoin,
+Doginals, and DRC-20 retain their reviewed wallet flows. ChainBloom, Patina,
+Witness Circles, and DROPS are read-only wallet integrations; they cannot
+originate protocol transactions.
+
+Atomicals/ARC-20, CAT-20, CAT-721, DMT, Blockdrop, OP_DROP, and TAP-DOGE are
+hidden and disabled in this release because their complete production runtime
+contract has not passed the wallet release gate. BRC-110 is not supported.
+Unknown protocol identifiers never receive a default mint or explorer action.
+
 ## Start safely
 
 Read [Getting started](guides/getting-started.md) before creating or importing a
