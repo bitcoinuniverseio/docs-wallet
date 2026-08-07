@@ -29,6 +29,38 @@ Universe Wallet will never ask you to paste a seed phrase into a website,
 support chat, email, or social message. Review every approval carefully.
 Blockchain transactions are difficult to reverse once broadcast.
 
+The extension rejects malformed or unknown internal commands before they can
+reach wallet operations. This validation also blocks inherited properties and
+property accessors from being treated as callable wallet actions.
+
+Hardware-wallet signing stops safely when a signing request type is not
+recognized. A completed hardware signature is accepted only through the
+wallet's explicit signed-result flow; it is never replaced with an empty
+fallback result.
+
+Reviewer-only Frontier previews remain inaccessible in production builds even
+if local storage is modified. Disabled previews show an unavailable state and
+cannot be enabled from the wallet interface.
+
+Developer Tools shows the current account's live, asset-aware UTXO inventory.
+It includes protected assets and wallet locks instead of sample entries, and it
+is read-only; use Coin Control when choosing inputs for a transaction.
+
+Transaction-producing protocol forms never inject demo tickers, identifiers,
+amounts, or recipient addresses. Enter and review the intended values before
+creating an order.
+
+Batch send accepts only recipients entered or pasted by the user. It never
+loads a pre-filled mainnet or testnet recipient list into a real send queue.
+Address Labels likewise saves only entries supplied by the user.
+
+Dogecoin actions use the selected account's address for the active Dogecoin
+network. If the wallet cannot derive it, the form stays empty and disabled
+instead of substituting a sample address or ticker.
+
+Contact management remains in the controller-backed Settings flow. Contacts
+Pro does not expose a CSV import that merely validates data without saving it.
+
 Universe Wallet does not guarantee the identity of a counterparty, the value of
 an asset, or the accuracy of off-chain marketplace content. The approval screen
 is the final place to verify the network, asset, amount, destination, and fee.
