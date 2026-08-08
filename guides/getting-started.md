@@ -35,3 +35,11 @@ requests must still be reviewed separately.
 
 If anything differs from the intended action, reject the request and return to
 the application.
+
+## Explore DROPS and OP_DROP
+
+Version 1.7.5.5 adds the verified DROPS read-only explorer and OP_DROP deploy,
+mint, transfer, and explorer tools. These surfaces use the Bitcoin Universe
+Inscribe service and its unified production indexer. Review the network,
+ticker, amount, recipient, funding output, and fee before approving any
+OP_DROP transaction.
