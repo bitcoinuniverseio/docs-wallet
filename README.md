@@ -31,6 +31,14 @@ CAT-20, CAT-721, DMT, Blockdrop, and TAP-DOGE remain hidden and disabled;
 BRC-110 is not supported. Unknown protocol identifiers never receive a default
 mint or explorer action.
 
+The 1.7.5.6 candidate adds stricter release verification without changing that
+published protocol allowlist. Before a candidate can be promoted, it must prove
+that the Universe and Inscribe APIs report fresh, network-specific indexer
+checkpoints, compare those checkpoints with independent chain tips, and verify
+authenticated Dogecoin infrastructure without placing service credentials in
+the extension package. A missing credential, wrong network, stale checkpoint,
+or excessive indexer lag keeps the affected feature and release fail-closed.
+
 ## Start safely
 
 Read [Getting started](guides/getting-started.md) before creating or importing a
@@ -71,6 +79,11 @@ Address Labels likewise saves only entries supplied by the user.
 Dogecoin actions use the selected account's address for the active Dogecoin
 network. If the wallet cannot derive it, the form stays empty and disabled
 instead of substituting a sample address or ticker.
+
+Dogecoin infrastructure credentials are never compiled into the browser
+extension. A user may configure a locally stored provider key for an explicit
+wallet integration, while release-monitoring credentials remain in protected
+server-side automation only.
 
 Contact management remains in the controller-backed Settings flow. Contacts
 Pro does not expose a CSV import that merely validates data without saving it.
