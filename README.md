@@ -38,6 +38,8 @@ checkpoints, compare those checkpoints with independent chain tips, and verify
 authenticated Dogecoin infrastructure without placing service credentials in
 the extension package. A missing credential, wrong network, stale checkpoint,
 or excessive indexer lag keeps the affected feature and release fail-closed.
+The packaged Chrome archive is also opened and tested as the actual MV3
+extension on both Windows development hosts and Linux release runners.
 
 ## Start safely
 
@@ -91,6 +93,8 @@ Pro does not expose a CSV import that merely validates data without saving it.
 Universe Wallet does not guarantee the identity of a counterparty, the value of
 an asset, or the accuracy of off-chain marketplace content. The approval screen
 is the final place to verify the network, asset, amount, destination, and fee.
+Trusted Universe listing requests use a clear **List** action label, but they do
+not bypass transaction-risk warnings or the normal PSBT review.
 
 ## Documentation scope
 
