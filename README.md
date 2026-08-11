@@ -17,19 +17,12 @@ extension.
 - Sign supported marketplace transactions with transaction-specific approval.
 - Explore protocol experiences while retaining self-custody.
 
-Universe Wallet 1.7.5.5 exposes protocol actions only from an explicit release
-allowlist. Bitcoin, Ordinals, BRC-20, Runes, Alkanes, TAP, SRC-20, Stamps,
-DUST-20, UNAT, Bitmap, BLOCK-20, OP_RETURN, OP-20, OP Names, Mezcal, Dogecoin,
-Doginals, and DRC-20 retain their reviewed wallet flows. ChainBloom, Patina,
-and Witness Circles are read-only wallet integrations; they cannot originate
-protocol transactions.
-
-OP_DROP is enabled for deploy, mint, transfer, and explorer workflows after its
-combined indexer, Inscribe facade, clean-host restore, and independent review
-gates passed. DROPS provides a verified read-only explorer. Atomicals/ARC-20,
-CAT-20, CAT-721, DMT, Blockdrop, and TAP-DOGE remain hidden and disabled;
-BRC-110 is not supported. Unknown protocol identifiers never receive a default
-mint or explorer action.
+Universe Wallet exposes protocol actions only from an explicit, evidence-backed
+release allowlist. The current candidate keeps every protocol mutation blocked
+until immutable Wallet, API, indexer, browser, network, confirmation, and
+reconciliation evidence is complete. Existing implementation code or a healthy
+reader does not by itself authorize signing or broadcasting. Unknown protocol
+identifiers never receive a default mint or explorer action.
 
 The 1.7.5.6 candidate adds stricter release verification without changing that
 published protocol allowlist. Before a candidate can be promoted, it must prove
@@ -40,6 +33,12 @@ the extension package. A missing credential, wrong network, stale checkpoint,
 or excessive indexer lag keeps the affected feature and release fail-closed.
 The packaged Chrome archive is also opened and tested as the actual MV3
 extension on both Windows development hosts and Linux release runners.
+
+Every PSBT path uses the same request-bound approval decision. A pending or
+failed safety check, stale coin inventory, invalid manual selection, blocked
+BIP-110 analysis, unsafe ChainBloom carrier, phishing finding, or replaced
+request keeps confirmation unavailable. Hardware and secondary confirmation
+dialogs cannot bypass that decision.
 
 ## Start safely
 
