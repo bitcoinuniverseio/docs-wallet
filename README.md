@@ -33,6 +33,9 @@ the extension package. A missing credential, wrong network, stale checkpoint,
 or excessive indexer lag keeps the affected feature and release fail-closed.
 The packaged Chrome archive is also opened and tested as the actual MV3
 extension on both Windows development hosts and Linux release runners.
+The live health gate installs the exact lockfile dependencies before loading
+its versioned health-contract package, so a clean runner cannot silently skip
+the same contract used by the wallet.
 
 Every PSBT path uses the same request-bound approval decision. A pending or
 failed safety check, stale coin inventory, invalid manual selection, blocked
