@@ -37,6 +37,14 @@ The live health gate installs the exact lockfile dependencies before loading
 its versioned health-contract package, so a clean runner cannot silently skip
 the same contract used by the wallet.
 
+Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
+infrastructure. Asset-aware wallet summaries continue to use the compatible
+wallet API so Atomicals and inscription-bearing outputs are never mistaken for
+spendable bitcoin. Public explorers are not automatic API fallbacks. If an
+authoritative provider is unavailable, the affected view reports the failure
+instead of displaying an invented empty result. Public explorer links remain
+optional links that a user may open explicitly.
+
 Every PSBT path uses the same request-bound approval decision. A pending or
 failed safety check, stale coin inventory, invalid manual selection, blocked
 BIP-110 analysis, unsafe ChainBloom carrier, phishing finding, or replaced
