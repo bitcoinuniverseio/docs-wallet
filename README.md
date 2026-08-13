@@ -24,6 +24,13 @@ reconciliation evidence is complete. Existing implementation code or a healthy
 reader does not by itself authorize signing or broadcasting. Unknown protocol
 identifiers never receive a default mint or explorer action.
 
+This protection also applies to saved and manually entered extension URLs.
+Blocked transaction, explorer, mint, inscription, transfer, signing, and
+broadcast screens do not open merely because old implementation code is still
+present. The wallet hides unauthorized protocol tabs and shortcuts, or shows a
+clear unavailable message where a chain-specific wallet view must remain
+visible.
+
 The 1.7.5.6 candidate adds stricter release verification without changing that
 published protocol allowlist. Before a candidate can be promoted, it must prove
 that the Universe and Inscribe APIs report fresh, network-specific indexer
