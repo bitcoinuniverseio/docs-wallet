@@ -24,6 +24,13 @@ reconciliation evidence is complete. Existing implementation code or a healthy
 reader does not by itself authorize signing or broadcasting. Unknown protocol
 identifiers never receive a default mint or explorer action.
 
+The release matrix also distinguishes code that exists from functionality the
+product intends to restore. Implemented CAT-20, CAT-721, Atomicals, ARC-20,
+DMT, BlockDrop, Doge TAP, and Dogecoin Marketplace paths are classified as
+blocked work—not described as intentionally unsupported. A release cannot be
+approved with zero or partial intended-operation coverage, even if its build
+and safety tests are green.
+
 This protection also applies to saved and manually entered extension URLs.
 Blocked transaction, explorer, mint, inscription, transfer, signing, and
 broadcast screens do not open merely because old implementation code is still
@@ -40,6 +47,11 @@ the extension package. A missing credential, wrong network, stale checkpoint,
 or excessive indexer lag keeps the affected feature and release fail-closed.
 The packaged Chrome archive is also opened and tested as the actual MV3
 extension on both Windows development hosts and Linux release runners.
+The verified archive is retained under an immutable candidate-SHA artifact
+name and its checksum is included in machine-generated readiness evidence.
+If a direct push leaves `develop` red, an independent monitor opens an alert
+bound to the failed commit and workflow run; no failed run can authorize a
+release.
 The live health gate installs the exact lockfile dependencies before loading
 its versioned health-contract package, so a clean runner cannot silently skip
 the same contract used by the wallet.
