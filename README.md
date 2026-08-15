@@ -59,6 +59,11 @@ The live health gate installs the exact lockfile dependencies before loading
 its versioned health-contract package, so a clean runner cannot silently skip
 the same contract used by the wallet.
 
+Routine development checks and protected production health checks are kept
+separate. A successful development build never claims a production release:
+missing protected infrastructure credentials or unhealthy live dependencies
+continue to keep production promotion unavailable.
+
 Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
 infrastructure. Asset-aware wallet summaries continue to use the compatible
 wallet API so Atomicals and inscription-bearing outputs are never mistaken for
