@@ -64,6 +64,12 @@ separate. A successful development build never claims a production release:
 missing protected infrastructure credentials or unhealthy live dependencies
 continue to keep production promotion unavailable.
 
+If GitHub Actions artifact storage is temporarily unavailable, routine
+development validation reports retained-evidence capacity clearly without
+misclassifying verified product checks as a release failure. A `main` or manual
+release candidate remains blocked until its immutable extension archive is
+retained and retrieved successfully.
+
 Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
 infrastructure. Asset-aware wallet summaries continue to use the compatible
 wallet API so Atomicals and inscription-bearing outputs are never mistaken for
