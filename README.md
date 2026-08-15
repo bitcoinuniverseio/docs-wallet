@@ -52,9 +52,10 @@ name, downloaded again in the same release run, compared byte for byte, and
 accepted only when its post-download SHA-256 matches the build checksum.
 Machine readiness records build/E2E, candidate binding, preservation, and
 retrieval as separate mandatory results.
-If a direct push leaves `develop` red, an independent monitor opens an alert
-bound to the failed commit and workflow run; no failed run can authorize a
-release.
+If a direct push leaves `develop` red, one fingerprinted alert is bound to the
+failed commit, root gate, and workflow run. Retries update the same alert,
+while later successful commits reconcile stale alerts without rewriting the
+historical failure. No failed run can authorize a release.
 The live health gate installs the exact lockfile dependencies before loading
 its versioned health-contract package, so a clean runner cannot silently skip
 the same contract used by the wallet.
@@ -69,6 +70,10 @@ development validation reports retained-evidence capacity clearly without
 misclassifying verified product checks as a release failure. A `main` or manual
 release candidate remains blocked until its immutable extension archive is
 retained and retrieved successfully.
+
+Release evidence has priority over dependency acceleration. Builds always use
+the exact lockfile, and CI does not consume release-artifact capacity with
+large dependency caches.
 
 Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
 infrastructure. Asset-aware wallet summaries continue to use the compatible
