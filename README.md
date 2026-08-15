@@ -48,7 +48,10 @@ or excessive indexer lag keeps the affected feature and release fail-closed.
 The packaged Chrome archive is also opened and tested as the actual MV3
 extension on both Windows development hosts and Linux release runners.
 The verified archive is retained under an immutable candidate-SHA artifact
-name and its checksum is included in machine-generated readiness evidence.
+name, downloaded again in the same release run, compared byte for byte, and
+accepted only when its post-download SHA-256 matches the build checksum.
+Machine readiness records build/E2E, candidate binding, preservation, and
+retrieval as separate mandatory results.
 If a direct push leaves `develop` red, an independent monitor opens an alert
 bound to the failed commit and workflow run; no failed run can authorize a
 release.
