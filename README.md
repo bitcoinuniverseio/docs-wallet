@@ -76,7 +76,9 @@ the exact lockfile, and CI does not consume release-artifact capacity with
 large dependency caches.
 
 Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
-infrastructure. Asset-aware wallet summaries continue to use the compatible
+infrastructure through the TLS gateway on `api.bitcoinuniverse.io`; the wallet
+does not connect to raw backend IP addresses or private application ports.
+Asset-aware wallet summaries continue to use the compatible
 wallet API so Atomicals and inscription-bearing outputs are never mistaken for
 spendable bitcoin. Public explorers are not automatic API fallbacks. If an
 authoritative provider is unavailable, the affected view reports the failure
