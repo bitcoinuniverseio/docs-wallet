@@ -133,9 +133,17 @@ network. If the wallet cannot derive it, the form stays empty and disabled
 instead of substituting a sample address or ticker.
 
 Dogecoin infrastructure credentials are never compiled into the browser
-extension. A user may configure a locally stored provider key for an explicit
-wallet integration, while release-monitoring credentials remain in protected
-server-side automation only.
+extension. Universe-operated service credentials remain in protected
+server-side configuration only.
+
+Production DOGE balances and transaction inputs do not use Dogechain,
+Blockchair, BlockCypher, or Maestro as automatic data sources. Universe Wallet
+requests a confirmed-cardinal spendable summary from the Universe-operated
+Dogecoin authority through `api.bitcoinuniverse.io`, then independently checks
+every raw previous transaction, txid, output value, and locking script. Outputs
+that carry Doginals, Dunes, another canonical Marketplace asset, or an active
+reservation are excluded. A response containing more than the bounded UTXO page
+is clearly labelled partial rather than presented as a complete balance.
 
 Contact management remains in the controller-backed Settings flow. Contacts
 Pro does not expose a CSV import that merely validates data without saving it.
