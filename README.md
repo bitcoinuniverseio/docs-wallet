@@ -47,6 +47,8 @@ the extension package. A missing credential, wrong network, stale checkpoint,
 or excessive indexer lag keeps the affected feature and release fail-closed.
 The packaged Chrome archive is also opened and tested as the actual MV3
 extension on both Windows development hosts and Linux release runners.
+Visual checks use the exact Playwright Chromium engine installed for the gate,
+so a runner's preinstalled browser cannot silently change extension behavior.
 The verified archive is retained under an immutable candidate-SHA artifact
 name, downloaded again in the same release run, compared byte for byte, and
 accepted only when its post-download SHA-256 matches the build checksum.
