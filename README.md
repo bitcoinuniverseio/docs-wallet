@@ -24,6 +24,20 @@ reconciliation evidence is complete. Existing implementation code or a healthy
 reader does not by itself authorize signing or broadcasting. Unknown protocol
 identifiers never receive a default mint or explorer action.
 
+The release matrix also distinguishes code that exists from functionality the
+product intends to restore. Implemented CAT-20, CAT-721, Atomicals, ARC-20,
+DMT, BlockDrop, Doge TAP, and Dogecoin Marketplace paths are classified as
+blocked work—not described as intentionally unsupported. A release cannot be
+approved with zero or partial intended-operation coverage, even if its build
+and safety tests are green.
+
+This protection also applies to saved and manually entered extension URLs.
+Blocked transaction, explorer, mint, inscription, transfer, signing, and
+broadcast screens do not open merely because old implementation code is still
+present. The wallet hides unauthorized protocol tabs and shortcuts, or shows a
+clear unavailable message where a chain-specific wallet view must remain
+visible.
+
 The 1.7.5.6 candidate adds stricter release verification without changing that
 published protocol allowlist. Before a candidate can be promoted, it must prove
 that the Universe and Inscribe APIs report fresh, network-specific indexer
@@ -33,12 +47,38 @@ the extension package. A missing credential, wrong network, stale checkpoint,
 or excessive indexer lag keeps the affected feature and release fail-closed.
 The packaged Chrome archive is also opened and tested as the actual MV3
 extension on both Windows development hosts and Linux release runners.
+The verified archive is retained under an immutable candidate-SHA artifact
+name, downloaded again in the same release run, compared byte for byte, and
+accepted only when its post-download SHA-256 matches the build checksum.
+Machine readiness records build/E2E, candidate binding, preservation, and
+retrieval as separate mandatory results.
+If a direct push leaves `develop` red, one fingerprinted alert is bound to the
+failed commit, root gate, and workflow run. Retries update the same alert,
+while later successful commits reconcile stale alerts without rewriting the
+historical failure. No failed run can authorize a release.
 The live health gate installs the exact lockfile dependencies before loading
 its versioned health-contract package, so a clean runner cannot silently skip
 the same contract used by the wallet.
 
+Routine development checks and protected production health checks are kept
+separate. A successful development build never claims a production release:
+missing protected infrastructure credentials or unhealthy live dependencies
+continue to keep production promotion unavailable.
+
+If GitHub Actions artifact storage is temporarily unavailable, routine
+development validation reports retained-evidence capacity clearly without
+misclassifying verified product checks as a release failure. A `main` or manual
+release candidate remains blocked until its immutable extension archive is
+retained and retrieved successfully.
+
+Release evidence has priority over dependency acceleration. Builds always use
+the exact lockfile, and CI does not consume release-artifact capacity with
+large dependency caches.
+
 Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
-infrastructure. Asset-aware wallet summaries continue to use the compatible
+infrastructure through the TLS gateway on `api.bitcoinuniverse.io`; the wallet
+does not connect to raw backend IP addresses or private application ports.
+Asset-aware wallet summaries continue to use the compatible
 wallet API so Atomicals and inscription-bearing outputs are never mistaken for
 spendable bitcoin. Public explorers are not automatic API fallbacks. If an
 authoritative provider is unavailable, the affected view reports the failure
@@ -93,9 +133,17 @@ network. If the wallet cannot derive it, the form stays empty and disabled
 instead of substituting a sample address or ticker.
 
 Dogecoin infrastructure credentials are never compiled into the browser
-extension. A user may configure a locally stored provider key for an explicit
-wallet integration, while release-monitoring credentials remain in protected
-server-side automation only.
+extension. Universe-operated service credentials remain in protected
+server-side configuration only.
+
+Production DOGE balances and transaction inputs do not use Dogechain,
+Blockchair, BlockCypher, or Maestro as automatic data sources. Universe Wallet
+requests a confirmed-cardinal spendable summary from the Universe-operated
+Dogecoin authority through `api.bitcoinuniverse.io`, then independently checks
+every raw previous transaction, txid, output value, and locking script. Outputs
+that carry Doginals, Dunes, another canonical Marketplace asset, or an active
+reservation are excluded. A response containing more than the bounded UTXO page
+is clearly labelled partial rather than presented as a complete balance.
 
 Contact management remains in the controller-backed Settings flow. Contacts
 Pro does not expose a CSV import that merely validates data without saving it.

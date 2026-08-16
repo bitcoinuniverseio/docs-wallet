@@ -20,6 +20,13 @@ These checks reduce the risk of signing a substituted transaction or unintended
 input. They do not replace your own review of the asset, price, recipient,
 network, and fee.
 
+Funding inputs come from Universe-operated Dogecoin Core and Doginals/DRC-20
+indexers. Before signing, the wallet recalculates every supplied previous
+transaction ID and confirms the exact output value and script. Protocol-bearing
+or currently reserved outputs are not offered as ordinary funding. If the
+authority is stale, disagrees with Core, or cannot provide enough verified
+cardinal DOGE, the transaction remains unavailable.
+
 ## Review and sign
 
 1. Start the marketplace action in the connected application.
