@@ -7,8 +7,15 @@ in as data arrives.
 
 - The home screen shows your wallet, account and network in one row, your
   balance and actions next, then the assets of the selected protocol.
-  Activity and network context follow; on a wide window they move beside the
-  balance.
+  Receive and Send carry the accent; History and Buy stay neutral. Activity
+  and network context follow; on a wide window they move beside the balance.
+- The balance expands into Spendable, Protected and Pending. Protected is
+  bitcoin held inside outputs that also carry inscriptions, runes or other
+  assets. The Portfolio screen repeats the Spendable and Protected split next
+  to the BTC total.
+- The protocol picker lists the protocols you hold first ("Your assets"),
+  then each group; protocols with nothing held stay reachable but step back.
+  Search, arrow keys, Enter and Shift+Enter (pin) work from the keyboard.
 - Balances and holdings render from the last known state while a refresh
   runs, and the amount dims until the refresh lands. The wallet never presents
   stale spendable state as fresh.
@@ -36,7 +43,10 @@ Universe Ord proxy and the derivative is prepared for the next time.
 
 - A tile that says "Media unavailable" means every source failed; other tiles
   keep loading.
-- Pull down on the home screen to refresh balances and holdings.
+- Pull down on the home screen to refresh balances and holdings. A manual
+  refresh always asks the network again.
+- Counts that come from the last known portfolio while the service is
+  unreachable are dimmed and labelled as last known.
 - The "Wallet API unreachable" notice appears only after a health check
   failed. Retry it from the notice; it checks again every minute and backs
   off while the service stays down.
