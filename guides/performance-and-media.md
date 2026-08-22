@@ -37,5 +37,8 @@ Universe Ord proxy and the derivative is prepared for the next time.
 - A tile that says "Media unavailable" means every source failed; other tiles
   keep loading.
 - Pull down on the home screen to refresh balances and holdings.
+- The "Wallet API unreachable" notice appears only after a health check
+  failed. Retry it from the notice; it checks again every minute and backs
+  off while the service stays down.
 - The filters behind the sliders button above an inscription grid control
   density, sort order, sats visibility and the minimum-sats filter.
