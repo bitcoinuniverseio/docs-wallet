@@ -16,6 +16,8 @@ extension.
   private keys.
 - Sign supported marketplace transactions with transaction-specific approval.
 - Explore protocol experiences while retaining self-custody.
+- See balances and collectibles fast: right-sized media, windowed galleries and
+  cached reads. Read [Speed, media and large portfolios](guides/performance-and-media.md).
 
 Universe Wallet exposes protocol actions only from an explicit, evidence-backed
 release allowlist. The current candidate keeps every protocol mutation blocked
