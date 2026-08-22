@@ -12,6 +12,7 @@ extension.
 
 - Manage supported Bitcoin and Dogecoin accounts from one extension.
 - Review transaction destinations, amounts, network, and fees before signing.
+  Read [Reviewing a transaction](guides/reviewing-a-transaction.md).
 - Connect to Bitcoin Universe applications without sharing seed phrases or
   private keys.
 - Sign supported marketplace transactions with transaction-specific approval.
