@@ -12,10 +12,13 @@ extension.
 
 - Manage supported Bitcoin and Dogecoin accounts from one extension.
 - Review transaction destinations, amounts, network, and fees before signing.
+  Read [Reviewing a transaction](guides/reviewing-a-transaction.md).
 - Connect to Bitcoin Universe applications without sharing seed phrases or
   private keys.
 - Sign supported marketplace transactions with transaction-specific approval.
 - Explore protocol experiences while retaining self-custody.
+- See balances and collectibles fast: right-sized media, windowed galleries and
+  cached reads. Read [Speed, media and large portfolios](guides/performance-and-media.md).
 
 Universe Wallet exposes protocol actions only from an explicit, evidence-backed
 release allowlist. The current candidate keeps every protocol mutation blocked
