@@ -34,7 +34,8 @@ requests must still be reviewed separately.
 - Never continue because a support account pressures you to act quickly.
 
 If anything differs from the intended action, reject the request and return to
-the application.
+the application. The review screen is described in
+[Reviewing a transaction](reviewing-a-transaction.md).
 
 ## Explore DROPS and OP_DROP
 
