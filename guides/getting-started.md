@@ -26,10 +26,19 @@ identity before importing an existing wallet.
 A connection does not authorize every future transaction. Signing and broadcast
 requests must still be reviewed separately.
 
+Connections that remain idle expire automatically. Reconnect from the
+application when the wallet asks for permission again. The Connected Sites
+screen shows the remaining connection lifetime and lets you disconnect a site
+immediately.
+
 ## Before every approval
 
 - Confirm the active network and account.
 - Compare the asset, quantity, recipient, and fee with the action you requested.
+- Treat a recipient warning as a reason to compare the full address again. The
+  wallet warns when the displayed address is difficult to distinguish from a
+  recently used address, and it refreshes the warning whenever the recipient
+  changes.
 - Reject unexplained inputs, outputs, warnings, or changed terms.
 - Never continue because a support account pressures you to act quickly.
 
