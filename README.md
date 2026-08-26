@@ -83,6 +83,9 @@ large dependency caches.
 Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
 infrastructure through the TLS gateway on `api.bitcoinuniverse.io`; the wallet
 does not connect to raw backend IP addresses or private application ports.
+The fee summary used by the wallet is served through the versioned Universe
+Wallet API on the same gateway. Wallet network requests do not fall back to
+third-party data providers.
 Asset-aware wallet summaries continue to use the compatible
 wallet API so Atomicals and inscription-bearing outputs are never mistaken for
 spendable bitcoin. Public explorers are not automatic API fallbacks. If an
