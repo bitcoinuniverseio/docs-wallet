@@ -39,3 +39,8 @@ cardinal DOGE, the transaction remains unavailable.
 
 Do not retry blindly after an error. Refresh the marketplace state first so you
 do not approve a stale or duplicate action.
+
+## Next
+
+- [Reviewing a transaction](../using-wallet/reviewing-a-transaction.md)
+- [Supported protocols](supported-protocols.md)
