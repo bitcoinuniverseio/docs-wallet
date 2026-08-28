@@ -52,3 +52,8 @@ Universe Ord proxy and the derivative is prepared for the next time.
   off while the service stays down.
 - The filters behind the sliders button above an inscription grid control
   density, sort order, sats visibility and the minimum-sats filter.
+
+## Next
+
+- [Balances](balances.md)
+- [Protected outputs](../assets-and-protocols/protected-outputs.md)
