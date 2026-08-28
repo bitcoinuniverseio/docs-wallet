@@ -43,3 +43,8 @@ bottom; the most important facts come first.
 - Compare asset, amount, destination and fee with what you asked for.
 - Treat `UNKNOWN` and `Review` as a reason to stop and read the details.
 - Reject anything you did not request. The application can send a new request.
+
+## Next
+
+- [Signing a message](signing-a-message.md)
+- [Coin control](coin-control.md)
