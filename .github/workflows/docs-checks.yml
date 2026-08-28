@@ -1,0 +1,16 @@
+name: Documentation checks
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+
+jobs:
+  check:
+    name: links, anchors, prohibited characters
+    runs-on: [self-hosted, universe-ci]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run documentation checks
+        run: node scripts/check-docs.mjs

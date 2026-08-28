@@ -1,169 +1,54 @@
 # Universe Wallet
 
-**One wallet for Bitcoin and the protocols built around it.**
+**Universe Wallet shows what your Bitcoin addresses own, protects it from accidental spending, and signs only what you can read and approve.**
 
-Universe Wallet is a self-custody browser extension for discovering assets,
-reviewing requests, and signing supported Bitcoin and Dogecoin transactions.
-The wallet keeps approval in the user’s hands: connected applications propose
-an action, the wallet presents it for review, and keys remain inside the
-extension.
+Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, and Zcash. It reads Bitcoin-native protocols such as Ordinals, BRC-20, Runes, Stamps, and TAP, keeps asset-bearing coins out of ordinary payments, and puts a plain-language review in front of every signature. Your keys never leave the extension.
 
-## What you can do
+## Install
 
-- Manage supported Bitcoin and Dogecoin accounts from one extension.
-- Review transaction destinations, amounts, network, and fees before signing.
-  Read [Reviewing a transaction](guides/reviewing-a-transaction.md).
-- Connect to Bitcoin Universe applications without sharing seed phrases or
-  private keys.
-- Sign supported marketplace transactions with transaction-specific approval.
-- Explore protocol experiences while retaining self-custody.
-- See balances and collectibles fast: right-sized media, windowed galleries and
-  cached reads. Read [Speed, media and large portfolios](guides/performance-and-media.md).
+Install [Universe Bitcoin Wallet from the Chrome Web Store](https://chromewebstore.google.com/detail/universe-bitcoin-wallet/fjalkkkbjffhgdoheannkodafhemfdba). The publisher is **Universe**. The extension works in Chromium browsers with Chrome 88 or newer.
 
-Universe Wallet exposes protocol actions only from an explicit, evidence-backed
-release allowlist. The current candidate keeps every protocol mutation blocked
-until immutable Wallet, API, indexer, browser, network, confirmation, and
-reconciliation evidence is complete. Existing implementation code or a healthy
-reader does not by itself authorize signing or broadcasting. Unknown protocol
-identifiers never receive a default mint or explorer action.
+Setup takes about two minutes: [Install](getting-started/install.md), then [create a wallet](getting-started/create-a-wallet.md) or [import one](getting-started/import-a-wallet.md).
 
-The release matrix also distinguishes code that exists from functionality the
-product intends to restore. Implemented CAT-20, CAT-721, Atomicals, ARC-20,
-DMT, BlockDrop, Doge TAP, and Dogecoin Marketplace paths are classified as
-blocked work—not described as intentionally unsupported. A release cannot be
-approved with zero or partial intended-operation coverage, even if its build
-and safety tests are green.
+## What makes it different
 
-This protection also applies to saved and manually entered extension URLs.
-Blocked transaction, explorer, mint, inscription, transfer, signing, and
-broadcast screens do not open merely because old implementation code is still
-present. The wallet hides unauthorized protocol tabs and shortcuts, or shows a
-clear unavailable message where a chain-specific wallet view must remain
-visible.
+- **Asset-aware spending.** Coins that carry inscriptions, tokens, or other indexed assets are shown as **Protected** and never fund a plain payment. You spend them only through a flow built for that asset. See [Protected outputs](assets-and-protocols/protected-outputs.md).
+- **Readable approvals.** Every signature request shows what leaves your wallet, what comes back, the fee, and how sure the wallet is about each fact, marked `EXACT`, `ESTIMATED`, or `UNKNOWN`. A request the wallet cannot verify says so and stays blocked. See [Reviewing a transaction](using-wallet/reviewing-a-transaction.md).
+- **Evidence-gated releases.** A protocol action appears in the product only when the release that shipped it carries current, verified evidence for the full path: wallet, API, indexer, network, and reconciliation. Code existing is not treated as support. See [Supported protocols](assets-and-protocols/supported-protocols.md).
+- **Connections that expire.** A connected site sees one address, must ask again to sign, and loses access after the idle window you choose. See [Connections](using-wallet/connections.md).
+- **Expert control without expert risk.** Coin control, transaction inspection, address whitelists, spending limits, and a security dashboard are built in and off by default. See [Coin control](using-wallet/coin-control.md).
 
-The 1.7.5.6 candidate adds stricter release verification without changing that
-published protocol allowlist. Before a candidate can be promoted, it must prove
-that the Universe and Inscribe APIs report fresh, network-specific indexer
-checkpoints, compare those checkpoints with independent chain tips, and verify
-authenticated Dogecoin infrastructure without placing service credentials in
-the extension package. A missing credential, wrong network, stale checkpoint,
-or excessive indexer lag keeps the affected feature and release fail-closed.
-The packaged Chrome archive is also opened and tested as the actual MV3
-extension on both Windows development hosts and Linux release runners.
-Visual checks use the exact Playwright Chromium engine installed for the gate,
-so a runner's preinstalled browser cannot silently change extension behavior.
-The verified archive is retained under an immutable candidate-SHA artifact
-name, downloaded again in the same release run, compared byte for byte, and
-accepted only when its post-download SHA-256 matches the build checksum.
-Machine readiness records build/E2E, candidate binding, preservation, and
-retrieval as separate mandatory results.
-If a direct push leaves `develop` red, one fingerprinted alert is bound to the
-failed commit, root gate, and workflow run. Retries update the same alert,
-while later successful commits reconcile stale alerts without rewriting the
-historical failure. No failed run can authorize a release.
-The live health gate installs the exact lockfile dependencies before loading
-its versioned health-contract package, so a clean runner cannot silently skip
-the same contract used by the wallet.
+## Networks
 
-Routine development checks and protected production health checks are kept
-separate. A successful development build never claims a production release:
-missing protected infrastructure credentials or unhealthy live dependencies
-continue to keep production promotion unavailable.
+| Network | Unit | Also available |
+| --- | --- | --- |
+| Bitcoin | BTC | Testnet, Testnet4, Signet |
+| Dogecoin | DOGE | Testnet |
+| Zcash | ZEC | Testnet |
+| Fractal Bitcoin | FB | Testnet |
 
-If GitHub Actions artifact storage is temporarily unavailable, routine
-development validation reports retained-evidence capacity clearly without
-misclassifying verified product checks as a release failure. A `main` or manual
-release candidate remains blocked until its immutable extension archive is
-retained and retrieved successfully.
+Address types on Bitcoin: Native SegWit (default), Nested SegWit, Taproot, and Legacy. Details in [Accounts and networks](wallet-basics/accounts-and-networks.md).
 
-Release evidence has priority over dependency acceleration. Builds always use
-the exact lockfile, and CI does not consume release-artifact capacity with
-large dependency caches.
+## Self-custody, in plain words
 
-Mainnet node, fee, broadcast, and Ordinals data is served by Universe-operated
-infrastructure through the TLS gateway on `api.bitcoinuniverse.io`; the wallet
-does not connect to raw backend IP addresses or private application ports.
-The fee summary used by the wallet is served through the versioned Universe
-Wallet API on the same gateway. Wallet network requests do not fall back to
-third-party data providers.
-Asset-aware wallet summaries continue to use the compatible
-wallet API so Atomicals and inscription-bearing outputs are never mistaken for
-spendable bitcoin. Public explorers are not automatic API fallbacks. If an
-authoritative provider is unavailable, the affected view reports the failure
-instead of displaying an invented empty result. Public explorer links remain
-optional links that a user may open explicitly.
+You hold the keys. Universe cannot move your funds, cannot reverse a confirmed transaction, and cannot restore a lost recovery phrase. Write your 12 words down offline before you deposit anything, and read [Backup](security-and-recovery/backup.md) and [Restore](security-and-recovery/restore.md) so you know the exit works before you need it.
 
-Every PSBT path uses the same request-bound approval decision. A pending or
-failed safety check, stale coin inventory, invalid manual selection, blocked
-BIP-110 analysis, unsafe ChainBloom carrier, phishing finding, or replaced
-request keeps confirmation unavailable. Hardware and secondary confirmation
-dialogs cannot bypass that decision.
+## Documentation
 
-## Start safely
+| Section | Start here |
+| --- | --- |
+| Getting started | [Install](getting-started/install.md) · [Create a wallet](getting-started/create-a-wallet.md) · [Import a wallet](getting-started/import-a-wallet.md) · [Hardware wallets](getting-started/connect-hardware.md) · [First receive](getting-started/first-receive.md) · [First send](getting-started/first-send.md) |
+| Wallet basics | [Accounts and networks](wallet-basics/accounts-and-networks.md) · [Balances](wallet-basics/balances.md) · [Fees](wallet-basics/fees.md) · [Activity](wallet-basics/activity.md) · [Speed and media](wallet-basics/performance-and-media.md) |
+| Assets and protocols | [Overview](assets-and-protocols/overview.md) · [Protected outputs](assets-and-protocols/protected-outputs.md) · [Supported protocols](assets-and-protocols/supported-protocols.md) · [Dogecoin marketplace](assets-and-protocols/dogecoin-marketplace.md) |
+| Using the wallet | [Reviewing a transaction](using-wallet/reviewing-a-transaction.md) · [Signing a message](using-wallet/signing-a-message.md) · [Connections](using-wallet/connections.md) · [Coin control](using-wallet/coin-control.md) |
+| Security and recovery | [Security model](security-and-recovery/security-model.md) · [Backup](security-and-recovery/backup.md) · [Restore](security-and-recovery/restore.md) · [Watch-only wallets](security-and-recovery/watch-only.md) · [If your wallet is compromised](security-and-recovery/compromised-wallet.md) · [Privacy](security-and-recovery/privacy.md) |
+| Reference | [Supported features](reference/supported-features.md) · [Glossary](reference/glossary.md) · [Known limitations](reference/known-limitations.md) |
+| Help | [Troubleshooting](troubleshooting/README.md) · [Support](support/README.md) |
 
-Read [Getting started](guides/getting-started.md) before creating or importing a
-wallet. For a Dogecoin marketplace transaction, follow the
-[marketplace signing guide](guides/dogecoin-marketplace-signing.md).
+## Support and security reporting
 
-## Security comes first
+Bug reports and feature requests: [GitHub issues](https://github.com/bitcoinuniverseio/wallet/issues). Suspected vulnerabilities: email `legal@bitcoinuniverse.io` and do not open a public issue. More paths in [Support](support/README.md).
 
-Universe Wallet will never ask you to paste a seed phrase into a website,
-support chat, email, or social message. Review every approval carefully.
-Blockchain transactions are difficult to reverse once broadcast.
+## Version
 
-The extension rejects malformed or unknown internal commands before they can
-reach wallet operations. This validation also blocks inherited properties and
-property accessors from being treated as callable wallet actions.
-
-Hardware-wallet signing stops safely when a signing request type is not
-recognized. A completed hardware signature is accepted only through the
-wallet's explicit signed-result flow; it is never replaced with an empty
-fallback result.
-
-Reviewer-only Frontier previews remain inaccessible in production builds even
-if local storage is modified. Disabled previews show an unavailable state and
-cannot be enabled from the wallet interface.
-
-Developer Tools shows the current account's live, asset-aware UTXO inventory.
-It includes protected assets and wallet locks instead of sample entries, and it
-is read-only; use Coin Control when choosing inputs for a transaction.
-
-Transaction-producing protocol forms never inject demo tickers, identifiers,
-amounts, or recipient addresses. Enter and review the intended values before
-creating an order.
-
-Batch send accepts only recipients entered or pasted by the user. It never
-loads a pre-filled mainnet or testnet recipient list into a real send queue.
-Address Labels likewise saves only entries supplied by the user.
-
-Dogecoin actions use the selected account's address for the active Dogecoin
-network. If the wallet cannot derive it, the form stays empty and disabled
-instead of substituting a sample address or ticker.
-
-Dogecoin infrastructure credentials are never compiled into the browser
-extension. Universe-operated service credentials remain in protected
-server-side configuration only.
-
-Production DOGE balances and transaction inputs do not use Dogechain,
-Blockchair, BlockCypher, or Maestro as automatic data sources. Universe Wallet
-requests a confirmed-cardinal spendable summary from the Universe-operated
-Dogecoin authority through `api.bitcoinuniverse.io`, then independently checks
-every raw previous transaction, txid, output value, and locking script. Outputs
-that carry Doginals, Dunes, another canonical Marketplace asset, or an active
-reservation are excluded. A response containing more than the bounded UTXO page
-is clearly labelled partial rather than presented as a complete balance.
-
-Contact management remains in the controller-backed Settings flow. Contacts
-Pro does not expose a CSV import that merely validates data without saving it.
-
-Universe Wallet does not guarantee the identity of a counterparty, the value of
-an asset, or the accuracy of off-chain marketplace content. The approval screen
-is the final place to verify the network, asset, amount, destination, and fee.
-Trusted Universe listing requests use a clear **List** action label, but they do
-not bypass transaction-risk warnings or the normal PSBT review.
-
-## Documentation scope
-
-This repository contains public, user-facing documentation. Engineering setup,
-CI, deployment, and operator procedures are maintained separately in the
-private developer documentation repository.
+This documentation describes Universe Wallet 1.7.5.8. Release notes ship with each version on the [releases page](https://github.com/bitcoinuniverseio/wallet/releases). Terms: [bitcoinuniverse.io/terms](https://bitcoinuniverse.io/terms). Privacy policy: [bitcoinuniverse.io/privacy](https://bitcoinuniverse.io/privacy).
