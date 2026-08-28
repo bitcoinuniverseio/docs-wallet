@@ -44,6 +44,14 @@ bottom; the most important facts come first.
 - Treat `UNKNOWN` and `Review` as a reason to stop and read the details.
 - Reject anything you did not request. The application can send a new request.
 
+## Zcash inscriptions
+
+A Zerdinals reveal writes its content through a transaction input. The review
+names the input, byte length, and SHA-256 content hash before signing, so an
+empty-looking output list cannot hide what will be written permanently. When a
+transaction funds a new commit, the wallet rederives that commit from its own
+reveal key and refuses an address it could not spend later.
+
 ## Next
 
 - [Signing a message](signing-a-message.md)

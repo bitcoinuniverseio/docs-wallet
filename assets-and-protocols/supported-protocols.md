@@ -5,7 +5,7 @@ This page lists every protocol the wallet knows, with its networks and operation
 ## How to read this
 
 - **Operations** are what the product implements and intends to offer: `read` (see holdings), `explore`, `deploy`, `mint`, `etch`, `transfer`, `inscribe`, `send`, `sign`, `broadcast`, `marketplace`.
-- An operation is **live in your build only when that release authorized it with current evidence** for wallet, API, indexer, network, and reconciliation. Anything not authorized stays hidden or shows **Protocol operation unavailable**. See [the release rule](overview.md#the-release-rule).
+- An operation is **live in your build only when that release authorized it with current evidence** for wallet, API, indexer, network, and reconciliation. Anything not authorized stays hidden or shows **Protocol operation unavailable**. See [the release rule](overview.md).
 - Networks named are the ones the registry covers; test networks share the mainnet entry.
 
 ## Bitcoin
