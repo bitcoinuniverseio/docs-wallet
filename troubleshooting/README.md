@@ -25,7 +25,7 @@ Work top to bottom inside the section that matches your problem. Each fix states
 
 - **"Wallet API unreachable."** Appears only after a failed health check; it retries every minute and backs off while the service is down. Your keys and coins are unaffected; reads resume when the service does.
 - **Fee rates will not load.** Sending pauses rather than guessing. Retry from the screen.
-- **A protocol tab or action is missing.** The release you run has not authorized it, or its production dependency is unhealthy; the screen states the reason. See [the release rule](../assets-and-protocols/overview.md#the-release-rule).
+- **A protocol tab or action is missing.** The release you run has not authorized it, or its production dependency is unhealthy; the screen states the reason. See [the release rule](../assets-and-protocols/overview.md).
 - **Media tiles read "Media unavailable".** Every source for that one asset failed; other tiles keep loading, and a refresh retries.
 
 ## Hardware and cold wallet errors
