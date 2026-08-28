@@ -1,0 +1,53 @@
+# Universe Wallet
+
+> Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, and Zcash. It reads Bitcoin-native protocols (Ordinals, BRC-20, Runes, Stamps, TAP, and more), keeps asset-bearing coins out of ordinary payments, and puts a plain-language review in front of every signature. This file indexes the public documentation; every path is a Markdown file in this repository.
+
+Version context: documentation for Universe Wallet 1.7.5.8. Install: https://chromewebstore.google.com/detail/universe-bitcoin-wallet/fjalkkkbjffhgdoheannkodafhemfdba
+
+## Getting started
+
+- [Install](getting-started/install.md): install and verify the extension
+- [Create a wallet](getting-started/create-a-wallet.md): password, 12-word phrase, backup quiz, address type
+- [Import a wallet](getting-started/import-a-wallet.md): restore from phrase or private key
+- [Connect hardware](getting-started/connect-hardware.md): Keystone over USB or QR
+- [First receive](getting-started/first-receive.md): addresses, QR, payment requests
+- [First send](getting-started/first-send.md): recipient, amount, fee, review, sign
+
+## Wallet basics
+
+- [Accounts and networks](wallet-basics/accounts-and-networks.md): wallets, accounts, 10 networks, 4 address types
+- [Balances](wallet-basics/balances.md): Total, Available, Protected, Pending
+- [Fees](wallet-basics/fees.md): presets, custom sat/vB, RBF
+- [Activity](wallet-basics/activity.md): history and transaction states
+- [Speed and media](wallet-basics/performance-and-media.md): large portfolios, media sources
+
+## Assets and protocols
+
+- [Overview](assets-and-protocols/overview.md): protocol tabs and the release-evidence rule
+- [Protected outputs](assets-and-protocols/protected-outputs.md): asset-bearing coins never fund plain sends
+- [Supported protocols](assets-and-protocols/supported-protocols.md): all 40 protocols, networks, operations
+- [Dogecoin marketplace](assets-and-protocols/dogecoin-marketplace.md): marketplace signing checks
+
+## Using the wallet
+
+- [Reviewing a transaction](using-wallet/reviewing-a-transaction.md): the review screen, card by card
+- [Signing a message](using-wallet/signing-a-message.md): text signatures, raw-data gating
+- [Connections](using-wallet/connections.md): scope, idle expiry, audit, revoke
+- [Coin control](using-wallet/coin-control.md): inspector, freezing, manual selection, consolidation
+
+## Security and recovery
+
+- [Security model](security-and-recovery/security-model.md): what Universe can and cannot do
+- [Backup](security-and-recovery/backup.md): the recovery phrase, verification, storage
+- [Restore](security-and-recovery/restore.md): lost devices, migration, service outages
+- [Watch-only](security-and-recovery/watch-only.md): cold wallets and external signing
+- [Compromised wallet](security-and-recovery/compromised-wallet.md): the emergency procedure
+- [Privacy](security-and-recovery/privacy.md): what leaves the device and what never does
+
+## Reference and help
+
+- [Supported features](reference/supported-features.md): capability tables
+- [Glossary](reference/glossary.md): every term the product uses
+- [Known limitations](reference/known-limitations.md): current honest limits
+- [Troubleshooting](troubleshooting/README.md): unlock, balances, pending, network, hardware
+- [Support](support/README.md): bugs, security reporting, FAQ
