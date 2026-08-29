@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">What a connected site gets, and how that access ends</title>
+  <desc id="desc">A site requests a connection. You choose which single address it may see. The site can read that address and ask for signatures, but every signature is a separate approval it cannot skip. Access ends in three ways: the idle window you chose expires, you revoke the site from the connections screen, or you revoke every site at once. A site that lost access must ask again from the beginning; it cannot reconnect silently.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .step { fill: #fbf7fa; stroke: #e6dde6; }
+    .grant { fill: #f2fbf5; stroke: #b9e3c8; }
+    .deny { fill: #fdf3f8; stroke: #f3c2da; }
+    .t { fill: #1a1119; font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .dim { fill: #5f5262; }
+    .h { font-weight: 700; font-size: 17px; }
+    .lbl { font-weight: 600; font-size: 13px; }
+    .sm { font-size: 11px; }
+    .xs { font-size: 10px; }
+    .num { fill: #b3006f; font-weight: 700; font-size: 11px; }
+    .hold { fill: #b3006f; }
+    .safe { fill: #1a7f43; }
+    .link { stroke: #cfc4d0; stroke-width: 2; fill: none; }
+    .head { fill: #cfc4d0; }
+    .rule { stroke: #e6dde6; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0e0a13; }
+      .step { fill: #16101d; stroke: #372b47; }
+      .grant { fill: #0f1a13; stroke: #2c5a3c; }
+      .deny { fill: #1d0f1a; stroke: #6b2350; }
+      .t { fill: #f3edf5; }
+      .dim { fill: #a9a0b3; }
+      .num { fill: #ff7ab8; }
+      .hold { fill: #ff7ab8; }
+      .safe { fill: #5fd18b; }
+      .link { stroke: #4a3b59; }
+      .head { fill: #4a3b59; }
+      .rule { stroke: #372b47; }
+    }
+  </style>
+  <rect class="bg" width="880" height="400"/>
+
+  <text class="t h" x="32" y="40">A connection is one address, for a while, revocable at any time.</text>
+  <line class="rule" x1="32" y1="56" x2="848" y2="56"/>
+
+  <!-- 1 request -->
+  <rect class="step" x="32" y="84" width="188" height="112" rx="12"/>
+  <text class="num" x="50" y="106">1</text>
+  <text class="t lbl" x="50" y="126">The site asks</text>
+  <text class="dim xs" x="50" y="146">market.example requests a</text>
+  <text class="dim xs" x="50" y="162">connection. Nothing is shared</text>
+  <text class="dim xs" x="50" y="178">until you answer.</text>
+
+  <path class="link" d="M 220 140 H 246"/>
+  <path class="head" d="M 246 134 L 258 140 L 246 146 Z"/>
+
+  <!-- 2 grant -->
+  <rect class="grant" x="258" y="84" width="188" height="112" rx="12"/>
+  <text class="num" x="276" y="106">2</text>
+  <text class="t lbl" x="276" y="126">You choose the scope</text>
+  <text class="dim xs" x="276" y="146">One address, one network,</text>
+  <text class="dim xs" x="276" y="162">and the idle window after</text>
+  <text class="dim xs" x="276" y="178">which access lapses.</text>
+
+  <path class="link" d="M 446 140 H 472"/>
+  <path class="head" d="M 472 134 L 484 140 L 472 146 Z"/>
+
+  <!-- 3 use -->
+  <rect class="step" x="484" y="84" width="364" height="112" rx="12"/>
+  <text class="num" x="502" y="106">3</text>
+  <text class="t lbl" x="502" y="126">What it can and cannot do</text>
+  <text class="safe xs" x="502" y="148" style="font-weight:600">Can read the one address you granted</text>
+  <text class="safe xs" x="502" y="164" style="font-weight:600">Can ask you to sign</text>
+  <text class="hold xs" x="502" y="180" style="font-weight:600">Cannot sign anything without a fresh approval from you</text>
+
+  <!-- Endings -->
+  <text class="t lbl" x="32" y="238">Three ways access ends</text>
+  <line class="rule" x1="32" y1="250" x2="848" y2="250"/>
+
+  <rect class="deny" x="32" y="266" width="260" height="90" rx="12"/>
+  <text class="t lbl" x="52" y="292">The idle window expires</text>
+  <text class="dim xs" x="52" y="312">You set it when you connected.</text>
+  <text class="dim xs" x="52" y="328">Time passes with no use, and the</text>
+  <text class="dim xs" x="52" y="344">grant lapses on its own.</text>
+
+  <rect class="deny" x="310" y="266" width="260" height="90" rx="12"/>
+  <text class="t lbl" x="330" y="292">You revoke one site</text>
+  <text class="dim xs" x="330" y="312">Connections lists every site, what</text>
+  <text class="dim xs" x="330" y="328">it can see, when it last used the</text>
+  <text class="dim xs" x="330" y="344">grant, and a control to end it.</text>
+
+  <rect class="deny" x="588" y="266" width="260" height="90" rx="12"/>
+  <text class="t lbl" x="608" y="292">You revoke everything</text>
+  <text class="dim xs" x="608" y="312">One action clears every grant.</text>
+  <text class="dim xs" x="608" y="328">Useful when you are not sure what</text>
+  <text class="dim xs" x="608" y="344">you connected to.</text>
+
+  <text class="hold xs" x="32" y="384" style="font-weight:600">A site that lost access starts again at step 1. There is no silent reconnect and no grant that comes back on its own.</text>
+</svg>

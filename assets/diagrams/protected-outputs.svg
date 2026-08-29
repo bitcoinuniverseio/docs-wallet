@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430" role="img" aria-labelledby="title desc">
+  <title id="title">How Universe Wallet keeps asset-bearing coins out of an ordinary payment</title>
+  <desc id="desc">Six coins in one account are sorted into two lanes. Three plain coins are marked Available and flow into an ordinary send. Three coins carrying an inscription, a rune balance and an unverified rare sat are marked Protected and are held back. A plain send can only draw from the Available lane.</desc>
+  <style>
+    :root { color-scheme: light dark; }
+    .bg { fill: #ffffff; }
+    .panel { fill: #fbf7fa; stroke: #e6dde6; }
+    .lane-safe { fill: #f2fbf5; stroke: #b9e3c8; }
+    .lane-held { fill: #fdf3f8; stroke: #f3c2da; }
+    .coin { fill: #ffffff; stroke: #d9cfd9; }
+    .coin-held { fill: #ffffff; stroke: #e10098; }
+    .t { fill: #1a1119; font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .dim { fill: #5f5262; }
+    .h { font-weight: 700; font-size: 17px; }
+    .lbl { font-weight: 600; font-size: 13px; }
+    .sm { font-size: 12px; }
+    .xs { font-size: 11px; }
+    .ok { fill: #1a7f43; }
+    .hold { fill: #b3006f; }
+    .flow { stroke: #1a7f43; fill: none; stroke-width: 2.5; }
+    .arrowhead-ok { fill: #1a7f43; }
+    .blocked { stroke: #b3006f; fill: none; stroke-width: 2.5; stroke-dasharray: 6 5; }
+    .stop { stroke: #b3006f; fill: none; stroke-width: 2.5; }
+    .rule { stroke: #e6dde6; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0e0a13; }
+      .panel { fill: #16101d; stroke: #372b47; }
+      .lane-safe { fill: #0f1a13; stroke: #2c5a3c; }
+      .lane-held { fill: #1d0f1a; stroke: #6b2350; }
+      .coin { fill: #1c1526; stroke: #423351; }
+      .coin-held { fill: #1c1526; stroke: #ff2a85; }
+      .t { fill: #f3edf5; }
+      .dim { fill: #a9a0b3; }
+      .ok { fill: #5fd18b; }
+      .hold { fill: #ff7ab8; }
+      .flow { stroke: #5fd18b; }
+      .arrowhead-ok { fill: #5fd18b; }
+      .blocked { stroke: #ff7ab8; }
+      .stop { stroke: #ff7ab8; }
+      .rule { stroke: #372b47; }
+    }
+  </style>
+  <rect class="bg" width="880" height="430"/>
+
+  <text class="t h" x="32" y="40">One account. Two lanes. A plain send can only reach one of them.</text>
+  <line class="rule" x1="32" y1="56" x2="848" y2="56"/>
+
+  <!-- Available lane -->
+  <rect class="lane-safe" x="32" y="80" width="360" height="150" rx="14"/>
+  <text class="t lbl" x="52" y="108">Available</text>
+  <text class="ok xs" x="52" y="126" style="font-weight:600">Plain bitcoin. Free to spend.</text>
+
+  <g>
+    <rect class="coin" x="52" y="146" width="98" height="62" rx="10"/>
+    <text class="t sm" x="66" y="172" style="font-weight:600">0.0400 BTC</text>
+    <text class="dim xs" x="66" y="190">plain coin</text>
+  </g>
+  <g>
+    <rect class="coin" x="164" y="146" width="98" height="62" rx="10"/>
+    <text class="t sm" x="178" y="172" style="font-weight:600">0.0150 BTC</text>
+    <text class="dim xs" x="178" y="190">plain coin</text>
+  </g>
+  <g>
+    <rect class="coin" x="276" y="146" width="98" height="62" rx="10"/>
+    <text class="t sm" x="290" y="172" style="font-weight:600">0.0025 BTC</text>
+    <text class="dim xs" x="290" y="190">plain coin</text>
+  </g>
+
+  <!-- Protected lane -->
+  <rect class="lane-held" x="32" y="248" width="360" height="150" rx="14"/>
+  <text class="t lbl" x="52" y="276">Protected</text>
+  <text class="hold xs" x="52" y="294" style="font-weight:600">Carries something a payment would destroy.</text>
+
+  <g>
+    <rect class="coin-held" x="52" y="314" width="98" height="62" rx="10"/>
+    <text class="t sm" x="66" y="340" style="font-weight:600">0.0000 546</text>
+    <text class="hold xs" x="66" y="358">inscription</text>
+  </g>
+  <g>
+    <rect class="coin-held" x="164" y="314" width="98" height="62" rx="10"/>
+    <text class="t sm" x="178" y="340" style="font-weight:600">0.0000 546</text>
+    <text class="hold xs" x="178" y="358">rune balance</text>
+  </g>
+  <g>
+    <rect class="coin-held" x="276" y="314" width="98" height="62" rx="10"/>
+    <text class="t sm" x="290" y="340" style="font-weight:600">0.0010 000</text>
+    <text class="hold xs" x="290" y="358">rare sat unverified</text>
+  </g>
+
+  <!-- Flow arrows. Arrowheads are explicit paths rather than markers, because a
+       marker cannot inherit the referencing path's colour across a theme switch. -->
+  <path class="flow" d="M 392 155 H 470 V 196 H 548"/>
+  <path class="arrowhead-ok" d="M 548 189 L 562 196 L 548 203 Z"/>
+  <path class="blocked" d="M 392 345 H 470 V 302"/>
+  <circle class="stop" cx="470" cy="286" r="13"/>
+  <line class="stop" x1="461" y1="277" x2="479" y2="295"/>
+  <text class="hold xs" x="396" y="250" style="font-weight:600">Never funds a payment</text>
+
+  <!-- Send panel -->
+  <rect class="panel" x="560" y="120" width="288" height="152" rx="14"/>
+  <text class="t lbl" x="582" y="150">Send 0.05 BTC</text>
+  <line class="rule" x1="582" y1="162" x2="826" y2="162"/>
+  <text class="dim sm" x="582" y="186">Spendable balance</text>
+  <text class="t sm" x="826" y="186" text-anchor="end" style="font-weight:600">0.0575 BTC</text>
+  <text class="dim sm" x="582" y="210">Held back</text>
+  <text class="hold sm" x="826" y="210" text-anchor="end" style="font-weight:600">3 coins</text>
+  <text class="dim sm" x="582" y="234">Inputs chosen</text>
+  <text class="t sm" x="826" y="234" text-anchor="end" style="font-weight:600">2 plain coins</text>
+  <text class="ok xs" x="582" y="258" style="font-weight:600">No asset can leave by accident.</text>
+
+  <text class="dim xs" x="560" y="310">To move a protected coin you open the flow built for that</text>
+  <text class="dim xs" x="560" y="328">asset, or pass a confirmation that names what you are moving.</text>
+  <text class="dim xs" x="560" y="352">A coin whose rare-sat status could not be checked stays</text>
+  <text class="dim xs" x="560" y="370">protected, because unknown is not the same as safe.</text>
+</svg>

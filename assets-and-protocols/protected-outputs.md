@@ -2,6 +2,8 @@
 
 This page explains the single most important safety feature for asset holders: the wallet never spends an asset-bearing coin as ordinary bitcoin.
 
+![How Universe Wallet keeps asset-bearing coins out of an ordinary payment](../assets/diagrams/protected-outputs.svg)
+
 ## The problem it solves
 
 On Bitcoin, an inscription or token lives inside a regular coin (a UTXO). A wallet that treats every coin as plain bitcoin can select that coin to fund a payment and destroy the asset, spending a collectible as pocket change. This is the classic way inscriptions get lost.
