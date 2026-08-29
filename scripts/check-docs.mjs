@@ -55,7 +55,7 @@ for (const file of mdFiles) {
 
   // 1. Prohibited character U+2014.
   text.split('\n').forEach((line, i) => {
-    if (line.includes('—')) {
+    if (line.includes('\u2014')) {
       problems.push(`${rel}:${i + 1} contains the prohibited U+2014 character`);
     }
   });
