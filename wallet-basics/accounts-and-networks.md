@@ -1,5 +1,7 @@
 # Accounts and networks
 
+![One recovery phrase, several addresses, and what each one is for](../assets/diagrams/address-lanes.svg)
+
 This page explains how wallets, accounts, networks, and address types fit together, so the header of the app always makes sense.
 
 ## Wallets and accounts

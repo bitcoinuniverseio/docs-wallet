@@ -1,5 +1,7 @@
 # Connections
 
+![What a connected site gets, and how that access ends](../assets/diagrams/connection-lifecycle.svg)
+
 This page explains what a site can and cannot do once connected, how access expires, and how to audit or revoke it.
 
 ## What connecting means

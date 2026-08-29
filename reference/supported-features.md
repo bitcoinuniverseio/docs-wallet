@@ -51,7 +51,7 @@ Bitcoin (mainnet, Testnet, Testnet4, Signet), Dogecoin (mainnet, Testnet), Zcash
 
 ## Protocols
 
-40 protocols in the registry across Bitcoin, Dogecoin, Zcash, Fractal, and Babylon. Per-protocol operations and the release-evidence rule: [Supported protocols](../assets-and-protocols/supported-protocols.md).
+42 protocols in the registry across Bitcoin, Dogecoin, Zcash, Fractal, and Babylon. That is the size of the registry, not a list of what your build can do. Which of them your release authorized, and the evidence rule behind it: [Supported protocols](../assets-and-protocols/supported-protocols.md).
 
 ## Security
 
