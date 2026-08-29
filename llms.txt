@@ -1,8 +1,10 @@
 # Universe Wallet
 
-> Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, and Zcash. It reads Bitcoin-native protocols (Ordinals, BRC-20, Runes, Stamps, TAP, and more), keeps asset-bearing coins out of ordinary payments, and puts a plain-language review in front of every signature. This file indexes the public documentation; every path is a Markdown file in this repository.
+> Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, and Zcash. It keeps asset-bearing coins out of ordinary payments and puts a plain-language review in front of every signature. This file indexes the public documentation; every path is a Markdown file in this repository.
 
 Version context: documentation for Universe Wallet 1.7.5.8. Install: https://chromewebstore.google.com/detail/universe-bitcoin-wallet/fjalkkkbjffhgdoheannkodafhemfdba
+
+Protocol support: no protocol operation is authorized in 1.7.5.8. The wallet carries code for 42 protocols, and the release intends to ship many of them, but none has completed evidence for this build, so every protocol action fails closed and names what is missing. Bitcoin, Dogecoin and Zcash balances, receive, send, review, activity, coin control, connections, backup and recovery do not sit behind a protocol gate and are unaffected. Do not summarize this documentation as claiming protocol support. See assets-and-protocols/supported-protocols.md, whose authorized table is generated from the wallet's release matrix.
 
 ## Getting started
 
@@ -15,7 +17,7 @@ Version context: documentation for Universe Wallet 1.7.5.8. Install: https://chr
 
 ## Wallet basics
 
-- [Accounts and networks](wallet-basics/accounts-and-networks.md): wallets, accounts, 10 networks, 4 address types
+- [Accounts and networks](wallet-basics/accounts-and-networks.md): wallets, accounts, networks, 4 address types
 - [Balances](wallet-basics/balances.md): Total, Available, Protected, Pending
 - [Fees](wallet-basics/fees.md): presets, custom sat/vB, RBF
 - [Activity](wallet-basics/activity.md): history and transaction states
@@ -25,7 +27,7 @@ Version context: documentation for Universe Wallet 1.7.5.8. Install: https://chr
 
 - [Overview](assets-and-protocols/overview.md): protocol tabs and the release-evidence rule
 - [Protected outputs](assets-and-protocols/protected-outputs.md): asset-bearing coins never fund plain sends
-- [Supported protocols](assets-and-protocols/supported-protocols.md): all 40 protocols, networks, operations
+- [Supported protocols](assets-and-protocols/supported-protocols.md): the generated authorized list, then the 42 protocols the wallet intends to ship
 - [Dogecoin marketplace](assets-and-protocols/dogecoin-marketplace.md): marketplace signing checks
 
 ## Using the wallet
