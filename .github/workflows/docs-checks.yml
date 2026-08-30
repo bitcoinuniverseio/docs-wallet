@@ -6,9 +6,16 @@ on:
   pull_request:
 
 jobs:
+  route:
+    uses: bitcoinuniverseio/.github-private/.github/workflows/route.yml@develop
+    secrets: inherit
+    with:
+      plan: '{"check_2":"light"}'
+
   check:
+    needs: route
     name: links, anchors, prohibited characters
-    runs-on: [self-hosted, universe-ci]
+    runs-on: ${{ fromJSON(needs.route.outputs.targets).check_2 }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
