@@ -21,7 +21,7 @@ On the send screen these appear as **Protected** rather than **Available**. A pl
 
 ## Inspecting and freeing coins
 
-- **Settings → Tools → Coin control** opens **Locked asset UTXOs**, where every held-back coin is listed with why: **Frozen**, **Locked**, **Reserved**, **Inscription**, **Protocol asset**, **CAT asset**, **Rare sat**, or **Provider asset**. Plain coins read **Cardinal BTC**.
+- **Settings → Tools → Coin control** opens **Protected outputs**. It leads with how many coins are held back, how much bitcoin they hold, and what an ordinary send does about them, then lists each coin with why: **Frozen**, **Locked**, **Reserved**, **Inscription**, **Protocol asset**, **CAT asset**, **Rare sat**, or **Provider asset**. Plain coins read **Cardinal BTC**.
 - The **Unlock** control next to **Protected** on the send screen goes to the same inspection.
 - The cleanup tool merges selected plain outputs back to your own address in one transaction; the send screen switches to a merge mode and states: selected outputs will be merged back to your own address. Review fees before signing.
 

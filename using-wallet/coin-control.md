@@ -8,7 +8,7 @@ A wallet balance is really a set of discrete coins (UTXOs). Which coins fund a p
 
 ## The coin inspector
 
-**Settings → Tools → Coin control** opens **Locked asset UTXOs**: every output the wallet holds back from ordinary spending, each labelled with the reason: **Frozen**, **Locked**, **Reserved**, **Inscription**, **Protocol asset**, **CAT asset**, **Rare sat**, or **Provider asset**. Plain spendable coins read **Cardinal BTC**. Freezing an output there excludes it from all automatic selection until you unfreeze it.
+**Settings → Tools → Coin control** opens **Protected outputs**. It opens with a plain summary of what is held back and why, above the list of every output the wallet keeps out of ordinary spending, each labelled with the reason: **Frozen**, **Locked**, **Reserved**, **Inscription**, **Protocol asset**, **CAT asset**, **Rare sat**, or **Provider asset**. Plain spendable coins read **Cardinal BTC**. Freezing an output there excludes it from all automatic selection until you unfreeze it.
 
 ## Choosing coins for a transaction
 
@@ -29,7 +29,7 @@ The **Security Dashboard** (Settings → Security dashboard) adds optional limit
 ## What can go wrong
 
 - **A send fails after manual selection.** The selected coins no longer cover amount plus fee, or an input was spent elsewhere; the review screen names the problem, for example *"Fix coin selection"*, and offers a re-check.
-- **You froze a coin and forgot.** The coin sits in **Locked asset UTXOs** marked **Frozen** until you release it. Frozen value counts in Total, not in Available.
+- **You froze a coin and forgot.** The coin sits in **Protected outputs** marked **Frozen** until you release it. Frozen value counts in Total, not in Available.
 
 ## Next
 
