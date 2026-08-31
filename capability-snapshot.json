@@ -260,10 +260,8 @@
       "id": "cat-20",
       "name": "CAT-20",
       "networks": [
-        "bitcoin:mainnet",
-        "bitcoin:signet",
-        "bitcoin:testnet",
-        "bitcoin:testnet4"
+        "fractal:mainnet",
+        "fractal:testnet"
       ],
       "intendedOperations": [
         "broadcast",
@@ -279,10 +277,8 @@
       "id": "cat-721",
       "name": "CAT-721",
       "networks": [
-        "bitcoin:mainnet",
-        "bitcoin:signet",
-        "bitcoin:testnet",
-        "bitcoin:testnet4"
+        "fractal:mainnet",
+        "fractal:testnet"
       ],
       "intendedOperations": [
         "broadcast",

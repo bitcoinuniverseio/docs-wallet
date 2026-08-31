@@ -92,8 +92,6 @@ Everything below describes implementation and intent, not availability.
 | Mezcal | mainnet, testnet, testnet4, signet | read, explore, mint, etch, sign, broadcast |
 | Atomicals | mainnet, testnet, testnet4, signet | read, mint, transfer, sign, broadcast |
 | ARC-20 | mainnet, testnet, testnet4, signet | read, explore, deploy, mint, transfer, sign, broadcast |
-| CAT-20 | mainnet, testnet, testnet4, signet | read, explore, transfer, sign, broadcast |
-| CAT-721 | mainnet, testnet, testnet4, signet | read, explore, transfer, sign, broadcast |
 | DMT | mainnet, testnet, testnet4, signet | read, explore, deploy, mint, transfer, sign, broadcast |
 | BlockDrop | mainnet, testnet, testnet4, signet | read, explore, deploy, mint, transfer, sign, broadcast |
 | OP-DROP | mainnet, testnet, testnet4, signet | read, explore, deploy, mint, transfer, sign, broadcast |
@@ -126,11 +124,20 @@ Marketplace signing details: [Dogecoin marketplace](dogecoin-marketplace.md).
 
 Market listing signing details: [Zcash market listings](zcash-market-listings.md).
 
-## Other
+## Fractal Bitcoin
 
 | Protocol | Networks | Operations |
 | --- | --- | --- |
 | Fractal Bitcoin | mainnet, testnet | read, explore |
+| CAT-20 | mainnet, testnet | read, explore, transfer, sign, broadcast |
+| CAT-721 | mainnet, testnet | read, explore, transfer, sign, broadcast |
+
+CAT balances, collections, and transfers are available only while the wallet is connected to Fractal Bitcoin. They are never queried or offered on Bitcoin mainnet, testnet, testnet4, or signet.
+
+## Other
+
+| Protocol | Networks | Operations |
+| --- | --- | --- |
 | Babylon | bbn-1 | read, explore |
 
 ## Version
