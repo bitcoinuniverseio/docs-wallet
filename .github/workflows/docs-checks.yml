@@ -7,10 +7,15 @@ on:
 
 jobs:
   check:
-    name: links, anchors, prohibited characters
+    name: links, images, copy rules, capability claims
     runs-on: [self-hosted, universe-ci]
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - name: Run documentation checks
         run: node scripts/check-docs.mjs
+      # A capability block that has drifted from the snapshot is claiming
+      # something about a build the build does not support, so it fails here
+      # rather than reaching a reader.
+      - name: Verify generated capability blocks are current
+        run: node scripts/sync-capability.mjs --check

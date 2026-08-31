@@ -1,5 +1,7 @@
 # Reviewing a transaction
 
+![Anatomy of the transaction review screen](../assets/diagrams/transaction-review.svg)
+
 Every signing request, whether it comes from a connected application or from
 the wallet's own Send flow, opens the same review screen. Read it top to
 bottom; the most important facts come first.
