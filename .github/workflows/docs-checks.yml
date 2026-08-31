@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   route:
-    uses: bitcoinuniverseio/.github-private/.github/workflows/route.yml@c52f86b591ad7eea62280a956112a3048aaf75cc
+    uses: bitcoinuniverseio/.github-private/.github/workflows/route.yml@6205db9d04b51e006a4ff6363a583b101d4d0715
     secrets: inherit
     with:
       plan: '{"docs":"light"}'
