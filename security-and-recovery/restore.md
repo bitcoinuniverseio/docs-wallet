@@ -1,5 +1,7 @@
 # Restore
 
+![Which recovery path applies to which loss](../assets/diagrams/recovery-paths.svg)
+
 This page proves the exits work: how to get your wallet back after a lost device, a wiped browser, or a move to different software.
 
 ## What you need

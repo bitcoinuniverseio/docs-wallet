@@ -2,6 +2,8 @@
 
 This page explains the single most important safety feature for asset holders: the wallet never spends an asset-bearing coin as ordinary bitcoin.
 
+![How Universe Wallet keeps asset-bearing coins out of an ordinary payment](../assets/diagrams/protected-outputs.svg)
+
 ## The problem it solves
 
 On Bitcoin, an inscription or token lives inside a regular coin (a UTXO). A wallet that treats every coin as plain bitcoin can select that coin to fund a payment and destroy the asset, spending a collectible as pocket change. This is the classic way inscriptions get lost.
@@ -19,7 +21,7 @@ On the send screen these appear as **Protected** rather than **Available**. A pl
 
 ## Inspecting and freeing coins
 
-- **Settings → Tools → Coin control** opens **Locked asset UTXOs**, where every held-back coin is listed with why: **Frozen**, **Locked**, **Reserved**, **Inscription**, **Protocol asset**, **CAT asset**, **Rare sat**, or **Provider asset**. Plain coins read **Cardinal BTC**.
+- **Settings → Tools → Coin control** opens **Protected outputs**. It leads with how many coins are held back, how much bitcoin they hold, and what an ordinary send does about them, then lists each coin with why: **Frozen**, **Locked**, **Reserved**, **Inscription**, **Protocol asset**, **CAT asset**, **Rare sat**, or **Provider asset**. Plain coins read **Cardinal BTC**.
 - The **Unlock** control next to **Protected** on the send screen goes to the same inspection.
 - The cleanup tool merges selected plain outputs back to your own address in one transaction; the send screen switches to a merge mode and states: selected outputs will be merged back to your own address. Review fees before signing.
 

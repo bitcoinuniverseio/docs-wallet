@@ -1,12 +1,72 @@
 # Supported protocols
 
-This page lists every protocol the wallet knows, with its networks and operations. It mirrors the wallet's protocol registry, the same table the release process enforces; it is not maintained by hand.
+There are two different lists on this page, and the difference between them matters more than either one.
 
-## How to read this
+The **authorized** list is what you can actually use. It is generated from the release matrix of the build this documentation describes, so it cannot claim something the build does not permit.
 
-- **Operations** are what the product implements and intends to offer: `read` (see holdings), `explore`, `deploy`, `mint`, `etch`, `transfer`, `inscribe`, `send`, `sign`, `broadcast`, `marketplace`.
-- An operation is **live in your build only when that release authorized it with current evidence** for wallet, API, indexer, network, and reconciliation. Anything not authorized stays hidden or shows **Protocol operation unavailable**. See [the release rule](overview.md).
+The **intent** list further down is what the wallet implements and means to ship. An operation on the intent list still fails closed until evidence authorizes it.
+
+![Why a protocol appears in the product only when evidence proves it](../assets/diagrams/release-evidence.svg)
+
+## Authorized in this release
+
+<!-- capability:protocols start -->
+
+| Protocol | State in this release | Operations you can use |
+| --- | --- | --- |
+| Alkanes | Not in this release | None |
+| ARC-20 | Not in this release | None |
+| Atomicals | Not in this release | None |
+| Babylon | Not in this release | None |
+| BIP-110 | Not in this release | None |
+| Bitcoin | Not in this release | None |
+| Bitmap | Not in this release | None |
+| BLOCK-20 | Not in this release | None |
+| BlockDrop | Not in this release | None |
+| BRC-110 | Not in this release | None |
+| BRC-20 | Not in this release | None |
+| CAT-20 | Not in this release | None |
+| CAT-721 | Not in this release | None |
+| ChainBloom | Not in this release | None |
+| DMT | Not in this release | None |
+| Doge TAP | Not in this release | None |
+| Dogecoin | Not in this release | None |
+| Dogecoin marketplace | Not in this release | None |
+| Doginals | Not in this release | None |
+| DRC-20 | Not in this release | None |
+| DROPS | Not in this release | None |
+| DUST-20 | Not in this release | None |
+| Fractal Bitcoin | Not in this release | None |
+| Mezcal | Not in this release | None |
+| OP Inscriptions | Not in this release | None |
+| OP Names | Not in this release | None |
+| OP_RETURN | Not in this release | None |
+| OP-20 | Not in this release | None |
+| OP-DROP | Not in this release | None |
+| Ordinals | Not in this release | None |
+| Patina | Not in this release | None |
+| Runes | Not in this release | None |
+| SRC-101 | Not in this release | None |
+| SRC-20 | Not in this release | None |
+| Stamps | Not in this release | None |
+| TAP | Not in this release | None |
+| UNAT | Not in this release | None |
+| Witness Circles | Not in this release | None |
+| Zerdinals | Not in this release | None |
+| ZRC-20 (Zecscriptions) | Not in this release | None |
+| ZRC-20 (Zord) | Not in this release | None |
+| ZRunes | Not in this release | None |
+
+<!-- capability:protocols end -->
+
+## What the wallet intends to ship
+
+Everything below describes implementation and intent, not availability.
+
+- **Operations** are what the product implements and intends to offer: `read` (see holdings), `explore`, `deploy`, `mint`, `etch`, `transfer`, `inscribe`, `send`, `sign`, `broadcast`, `marketplace`, `market-list`, `market-buy`.
+- An operation is **live in your build only when that release authorized it with current evidence** for wallet, API, indexer, network, and reconciliation. Anything not authorized shows **Protocol operation unavailable** and names what is missing. See [the release rule](overview.md).
 - Networks named are the ones the registry covers; test networks share the mainnet entry.
+- These tables are maintained by hand against the registry. The authorized table above is generated, so where the two disagree, the generated one is correct.
 
 ## Bitcoin
 
@@ -61,8 +121,10 @@ Marketplace signing details: [Dogecoin marketplace](dogecoin-marketplace.md).
 
 | Protocol | Networks | Operations |
 | --- | --- | --- |
-| Zerdinals | mainnet, testnet | read, explore, inscribe, transfer, sign, broadcast |
+| Zerdinals | mainnet, testnet | read, explore, inscribe, transfer, market-list, market-buy, sign, broadcast |
 | ZRunes | mainnet, testnet | read, explore, etch, mint, transfer, sign, broadcast |
+
+Market listing signing details: [Zcash market listings](zcash-market-listings.md).
 
 ## Other
 
@@ -73,4 +135,4 @@ Marketplace signing details: [Dogecoin marketplace](dogecoin-marketplace.md).
 
 ## Version
 
-Generated for Universe Wallet 1.7.5.8 from the protocol registry (40 protocols). If your build shows fewer actions than this table, your release did not authorize them; the product states the reason on the affected screen.
+The intent tables above cover the 42 protocols in the registry. They are not a support claim. Your build offers only what the generated authorized table at the top of this page lists, and the product states the reason on any screen whose operation was not authorized.
