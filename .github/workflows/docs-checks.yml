@@ -9,19 +9,12 @@ permissions:
   contents: read
 
 jobs:
-  route:
-    uses: bitcoinuniverseio/.github-private/.github/workflows/route.yml@6205db9d04b51e006a4ff6363a583b101d4d0715
-    secrets: inherit
-    with:
-      plan: '{"docs":"light"}'
-
   check:
     name: links, images, copy rules, capability claims
-    needs: route
     if: >-
       github.event_name != 'pull_request' ||
       github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ${{ fromJSON(needs.route.outputs.targets).docs }}
+    runs-on: runs-on=${{ github.run_id }}-docs/runner=universe-cheap/cpu=2+8/env=production
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
