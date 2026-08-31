@@ -5,13 +5,26 @@ on:
     branches: [develop, main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
+  route:
+    uses: bitcoinuniverseio/.github-private/.github/workflows/route.yml@c52f86b591ad7eea62280a956112a3048aaf75cc
+    secrets: inherit
+    with:
+      plan: '{"docs":"light"}'
+
   check:
     name: links, images, copy rules, capability claims
-    runs-on: [self-hosted, universe-ci]
+    needs: route
+    if: >-
+      github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ${{ fromJSON(needs.route.outputs.targets).docs }}
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Run documentation checks
         run: node scripts/check-docs.mjs
       # A capability block that has drifted from the snapshot is claiming
