@@ -63,7 +63,7 @@ The **intent** list further down is what the wallet implements and means to ship
 
 Everything below describes implementation and intent, not availability.
 
-- **Operations** are what the product implements and intends to offer: `read` (see holdings), `explore`, `deploy`, `mint`, `etch`, `transfer`, `inscribe`, `send`, `sign`, `broadcast`, `marketplace`.
+- **Operations** are what the product implements and intends to offer: `read` (see holdings), `explore`, `deploy`, `mint`, `etch`, `transfer`, `inscribe`, `send`, `sign`, `broadcast`, `marketplace`, `market-list`, `market-buy`.
 - An operation is **live in your build only when that release authorized it with current evidence** for wallet, API, indexer, network, and reconciliation. Anything not authorized shows **Protocol operation unavailable** and names what is missing. See [the release rule](overview.md).
 - Networks named are the ones the registry covers; test networks share the mainnet entry.
 - These tables are maintained by hand against the registry. The authorized table above is generated, so where the two disagree, the generated one is correct.
@@ -121,8 +121,10 @@ Marketplace signing details: [Dogecoin marketplace](dogecoin-marketplace.md).
 
 | Protocol | Networks | Operations |
 | --- | --- | --- |
-| Zerdinals | mainnet, testnet | read, explore, inscribe, transfer, sign, broadcast |
+| Zerdinals | mainnet, testnet | read, explore, inscribe, transfer, market-list, market-buy, sign, broadcast |
 | ZRunes | mainnet, testnet | read, explore, etch, mint, transfer, sign, broadcast |
+
+Market listing signing details: [Zcash market listings](zcash-market-listings.md).
 
 ## Other
 
