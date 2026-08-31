@@ -29,6 +29,7 @@ Protocol support: no protocol operation is authorized in 1.7.5.8. The wallet car
 - [Protected outputs](assets-and-protocols/protected-outputs.md): asset-bearing coins never fund plain sends
 - [Supported protocols](assets-and-protocols/supported-protocols.md): the generated authorized list, then the 42 protocols the wallet intends to ship
 - [Dogecoin marketplace](assets-and-protocols/dogecoin-marketplace.md): marketplace signing checks
+- [Zcash market listings](assets-and-protocols/zcash-market-listings.md): what a listing signature does, the blocked states, the three consequences; not authorized in any release
 
 ## Using the wallet
 
