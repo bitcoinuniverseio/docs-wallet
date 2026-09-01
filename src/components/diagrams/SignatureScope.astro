@@ -1,0 +1,80 @@
+---
+// What a signature actually authorizes.
+// The three shapes of approval a wallet can be asked for, and the boundary of
+// each. Values are invented.
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 560"
+  role="img"
+  aria-labelledby="dg-sig-t dg-sig-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-sig-t">Four kinds of approval, and exactly what each one authorizes</title>
+  <desc id="dg-sig-d">
+    Four blocks compare what different approvals authorize. First, connecting a
+    site: it authorizes the site to see one address on one network and to ask for
+    signatures later. It authorizes no movement of funds at all. Second, a
+    message signature: it proves control of an address, pays no fee, and can move
+    nothing on chain, but a message can still be a promise, so the text matters.
+    Third, a complete transaction signature covering every input: it authorizes
+    exactly the listed inputs to become exactly the listed outputs, and once
+    broadcast and confirmed it cannot be reversed by anyone. Fourth, a partial
+    signature that commits only to one input and one output and leaves the rest of
+    the transaction open: it authorizes anyone holding that signature to complete
+    the transaction on their own terms for as long as the input remains unspent,
+    which is how a fixed price sale offer works and why cancelling one is only
+    advisory until the coin is moved.
+  </desc>
+
+  <text class="dg-kicker" x="0" y="14">A SIGNATURE IS A SCOPE, NOT A BUTTON</text>
+
+  <!-- 1. Connection -->
+  <rect class="dg-panel" x="0.75" y="26.75" width="638.5" height="112.5" rx="4" />
+  <text class="dg-h" x="16" y="50">1. Connecting a site</text>
+  <text class="dg-sm dg-dim" x="16" y="70">Approved once, in the Connect screen.</text>
+  <path class="dg-rule" d="M300 40 L300 126" />
+  <text class="dg-kicker" x="316" y="52">AUTHORIZES</text>
+  <text class="dg-sm" x="316" y="74">Seeing one address, on one network.</text>
+  <text class="dg-sm" x="316" y="94">Asking you for signatures later.</text>
+  <text class="dg-sm dg-strong" x="316" y="120">Moves nothing. Not a payment approval.</text>
+
+  <!-- 2. Message -->
+  <rect class="dg-panel" x="0.75" y="150.75" width="638.5" height="112.5" rx="4" />
+  <text class="dg-h" x="16" y="174">2. Signing a message</text>
+  <text class="dg-sm dg-dim" x="16" y="194">Text or raw data. No fee, no broadcast.</text>
+  <path class="dg-rule" d="M300 164 L300 250" />
+  <text class="dg-kicker" x="316" y="176">AUTHORIZES</text>
+  <text class="dg-sm" x="316" y="198">Proof that you control the address.</text>
+  <text class="dg-sm" x="316" y="218">Nothing on chain. No coin can move.</text>
+  <text class="dg-sm dg-alert-text" x="316" y="244">A message can still be a promise. Read it.</text>
+
+  <!-- 3. Full transaction -->
+  <rect class="dg-panel" x="0.75" y="274.75" width="638.5" height="132.5" rx="4" />
+  <text class="dg-h" x="16" y="298">3. Signing a whole transaction</text>
+  <text class="dg-sm dg-dim" x="16" y="318">Every input signed by you.</text>
+  <text class="dg-mono dg-dim" x="16" y="342">2 inputs</text>
+  <text class="dg-mono dg-dim" x="16" y="362">2 outputs</text>
+  <text class="dg-mono dg-dim" x="16" y="382">1 fee</text>
+  <path class="dg-rule" d="M300 288 L300 394" />
+  <text class="dg-kicker" x="316" y="300">AUTHORIZES</text>
+  <text class="dg-sm" x="316" y="322">Exactly these inputs becoming exactly</text>
+  <text class="dg-sm" x="316" y="342">these outputs, at exactly this fee.</text>
+  <text class="dg-sm" x="316" y="362">Change any one of them and the</text>
+  <text class="dg-sm" x="316" y="382">signature stops being valid.</text>
+
+  <!-- 4. Partial -->
+  <rect class="dg-alert-panel" x="0.75" y="418.75" width="638.5" height="140.5" rx="4" />
+  <text class="dg-h" x="16" y="442">4. Signing part of a transaction</text>
+  <text class="dg-sm dg-dim" x="16" y="462">One input and one output only.</text>
+  <text class="dg-mono dg-dim" x="16" y="486">SIGHASH_SINGLE</text>
+  <text class="dg-mono dg-dim" x="16" y="506">| ANYONECANPAY</text>
+  <text class="dg-sm dg-alert-text" x="16" y="534">The dangerous shape</text>
+  <path class="dg-rule" d="M300 432 L300 546" />
+  <text class="dg-kicker" x="316" y="444">AUTHORIZES</text>
+  <text class="dg-sm" x="316" y="466">Anyone at all to finish the rest of the</text>
+  <text class="dg-sm" x="316" y="486">transaction on their own terms, at any</text>
+  <text class="dg-sm" x="316" y="506">time, while that coin stays unspent.</text>
+  <text class="dg-sm dg-alert-text" x="316" y="534">Deleting the offer does not revoke it.</text>
+</svg>

@@ -1,0 +1,89 @@
+---
+// What a connected site gets, and how that access ends.
+// Site names and addresses are invented.
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 520"
+  role="img"
+  aria-labelledby="dg-conn-t dg-conn-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-conn-t">What a connected site is granted, what it is never granted, and how access ends</title>
+  <desc id="dg-conn-d">
+    A site asks to connect. You approve once. The grant is drawn as a boundary
+    with two sides. Inside the boundary the site is granted three things: it can
+    read one selected address on one network, it can read that address's public
+    balance and assets, and it can put a signature request in front of you. Outside
+    the boundary, permanently, sit five things it is never granted: your recovery
+    phrase, your private keys, the ability to move a coin without a fresh
+    approval, your other accounts and other networks, and the contents of pages
+    you visit. A timeline below shows the life of the grant. Approval starts an
+    idle window, chosen from twenty four hours, seven days, thirty days which is
+    the default, or until you disconnect. Each use of the site resets that window,
+    so a site you use daily never expires. A site left alone past the window loses
+    access and has to ask again from the beginning. Disconnecting ends it
+    immediately.
+  </desc>
+
+  <text class="dg-kicker" x="0" y="14">ONE APPROVAL, A NARROW GRANT, AND AN END DATE</text>
+
+  <!-- Request -->
+  <rect class="dg-panel-2" x="0.75" y="26.75" width="638.5" height="52.5" rx="4" />
+  <text class="dg-sm" x="16" y="50">
+    <tspan class="dg-mono">app.example</tspan> asks to connect. You approve once, in the wallet, not on the page.
+  </text>
+  <text class="dg-sm dg-dim" x="16" y="70">The browser reports the origin. The wallet shows you that origin, not a name the page chose.</text>
+
+  <path class="dg-arrow" d="M320 80 L320 98" />
+  <path class="dg-head" d="M315 98 L320 110 L325 98 Z" />
+
+  <!-- Granted -->
+  <rect class="dg-panel" x="0.75" y="116.75" width="310.5" height="176.5" rx="4" />
+  <text class="dg-h" x="16" y="140">Granted</text>
+  <path class="dg-rule" d="M16 152 L296 152" />
+  <text class="dg-sm" x="16" y="176">One address, on one network.</text>
+  <text class="dg-mono dg-dim" x="16" y="196">bc1q...4tzq</text>
+  <text class="dg-sm" x="16" y="226">Public balance and assets at that</text>
+  <text class="dg-sm" x="16" y="246">address, which anyone can read anyway.</text>
+  <text class="dg-sm" x="16" y="276">The right to ask you for a signature.</text>
+
+  <!-- Never granted -->
+  <rect class="dg-alert-panel" x="328.75" y="116.75" width="310.5" height="176.5" rx="4" />
+  <text class="dg-h" x="344" y="140">Never granted</text>
+  <path class="dg-rule" d="M344 152 L624 152" />
+  <text class="dg-sm" x="344" y="176">Your recovery phrase.</text>
+  <text class="dg-sm" x="344" y="200">Your private keys.</text>
+  <text class="dg-sm" x="344" y="224">Moving a coin without a new approval.</text>
+  <text class="dg-sm" x="344" y="248">Your other accounts and networks.</text>
+  <text class="dg-sm" x="344" y="272">The contents of the pages you visit.</text>
+
+  <!-- Per-request -->
+  <rect class="dg-panel-2" x="0.75" y="310.75" width="638.5" height="66.5" rx="4" />
+  <text class="dg-kicker" x="16" y="334">EVERY SIGNATURE IS ASKED FOR SEPARATELY</text>
+  <text class="dg-sm" x="16" y="360">
+    Being connected is permission to ask. It is never permission to sign. Each request is its own screen.
+  </text>
+
+  <!-- Timeline -->
+  <text class="dg-h" x="0" y="408">How the grant ends</text>
+  <path class="dg-arrow" d="M8 440 L632 440" />
+  <path class="dg-head" d="M626 435 L638 440 L626 445 Z" />
+
+  <path class="dg-rule" d="M40 428 L40 452" />
+  <text class="dg-sm" x="16" y="472">Approved</text>
+  <text class="dg-sm dg-dim" x="16" y="492">idle window starts</text>
+
+  <path class="dg-rule" d="M232 428 L232 452" />
+  <text class="dg-sm" x="200" y="472">Used again</text>
+  <text class="dg-sm dg-dim" x="200" y="492">window resets</text>
+
+  <path class="dg-rule" d="M424 428 L424 452" />
+  <text class="dg-sm" x="380" y="472">Left idle</text>
+  <text class="dg-sm dg-dim" x="380" y="492">24h / 7d / 30d</text>
+
+  <path class="dg-rule" d="M576 428 L576 452" />
+  <text class="dg-sm dg-alert-text" x="520" y="472">Access ends</text>
+  <text class="dg-sm dg-dim" x="520" y="492">must ask again</text>
+</svg>

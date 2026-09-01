@@ -1,0 +1,79 @@
+---
+// Anatomy of the review that appears before a signature.
+// A written description of the screen's structure. Not a screenshot, and every
+// value shown is invented.
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 542"
+  role="img"
+  aria-labelledby="dg-rev-t dg-rev-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-rev-t">The order in which a signature request is presented, top to bottom</title>
+  <desc id="dg-rev-d">
+    The approval screen is stacked in a fixed order and is read from the top. First,
+    anything blocking: a check that failed hard, which cannot be clicked through
+    and leaves the approve control disabled. Second, the impact summary: what
+    leaves your wallet, what returns, the resulting net change, and any assets
+    touched, each carrying a confidence mark of exact, estimated or unknown. Third,
+    the overall status, which is ready, review or blocked, and which can never be
+    ready while any fact is unknown. Fourth, warnings that do not block, such as
+    address reputation notes and decoded risk rows. Fifth, the details: network,
+    destination, the single fee statement, the full input and output list, and the
+    raw transaction. Reject sits beside approve at the same size, and rejecting
+    costs nothing. A footnote states the two rules that matter: a fact the wallet
+    could not read is shown as unknown rather than rounded to zero or hidden, and a
+    request that changes after you looked at it is refused rather than signed.
+  </desc>
+
+  <text class="dg-kicker" x="0" y="14">READ IT FROM THE TOP. THE ORDER IS THE ARGUMENT.</text>
+
+  <!-- 1 blocking -->
+  <rect class="dg-alert-panel" x="0.75" y="26.75" width="638.5" height="62.5" rx="3" />
+  <text class="dg-kicker" x="16" y="48">1. BLOCKING</text>
+  <text class="dg-sm" x="16" y="72">A check that failed hard. Approve stays disabled. This is not a warning you can click past.</text>
+  <text class="dg-mono dg-dim" x="500" y="48">Blocked</text>
+
+  <!-- 2 impact -->
+  <rect class="dg-panel" x="0.75" y="98.75" width="638.5" height="122.5" rx="3" />
+  <text class="dg-kicker" x="16" y="120">2. IMPACT</text>
+  <text class="dg-sm" x="16" y="146">Leaves your wallet</text>
+  <text class="dg-mono" x="300" y="146">0.03450000 BTC</text>
+  <text class="dg-mono dg-dim" x="500" y="146">EXACT</text>
+  <text class="dg-sm" x="16" y="170">Comes back to you</text>
+  <text class="dg-mono" x="300" y="170">0.01446152 BTC</text>
+  <text class="dg-mono dg-dim" x="500" y="170">EXACT</text>
+  <text class="dg-sm" x="16" y="194">Token balance moved</text>
+  <text class="dg-mono" x="300" y="194">250 TOKEN out</text>
+  <text class="dg-mono dg-dim" x="500" y="194">ESTIMATED</text>
+  <text class="dg-sm dg-dim" x="16" y="214">Every line carries its own confidence. The screen takes the worst one.</text>
+
+  <!-- 3 status -->
+  <rect class="dg-panel" x="0.75" y="230.75" width="638.5" height="62.5" rx="3" />
+  <text class="dg-kicker" x="16" y="252">3. STATUS</text>
+  <text class="dg-sm" x="16" y="276">Ready, Review, or Blocked. It can never read Ready while any fact is unknown.</text>
+
+  <!-- 4 warnings -->
+  <rect class="dg-panel" x="0.75" y="302.75" width="638.5" height="62.5" rx="3" />
+  <text class="dg-kicker" x="16" y="324">4. WARNINGS</text>
+  <text class="dg-sm" x="16" y="348">Things worth knowing that do not block: address reputation, decoded risk rows, advisories.</text>
+
+  <!-- 5 details -->
+  <rect class="dg-panel" x="0.75" y="374.75" width="638.5" height="106.5" rx="3" />
+  <text class="dg-kicker" x="16" y="396">5. DETAILS</text>
+  <text class="dg-sm dg-dim" x="16" y="420">Network and account</text>
+  <text class="dg-sm dg-dim" x="16" y="440">Destination, marked external when it is not yours</text>
+  <text class="dg-sm dg-dim" x="16" y="460">The fee, stated once, in one place</text>
+  <text class="dg-sm dg-dim" x="340" y="420">Every input and every output</text>
+  <text class="dg-sm dg-dim" x="340" y="440">Which inputs are protected</text>
+  <text class="dg-sm dg-dim" x="340" y="460">The raw transaction, copyable</text>
+
+  <!-- footer rules -->
+  <rect class="dg-panel-2" x="0.75" y="490.75" width="638.5" height="50.5" rx="3" />
+  <text class="dg-sm" x="16" y="514">
+    Reject sits beside Approve, the same size. Rejecting costs nothing and can always be repeated.
+  </text>
+  <text class="dg-sm dg-alert-text" x="16" y="534">A request that changes after you looked at it is refused, not signed.</text>
+</svg>

@@ -1,46 +1,111 @@
 {
   "schemaVersion": 1,
   "id": "docs-wallet",
-  "name": "Universe Wallet documentation",
+  "name": "Universe Wallet",
   "classification": "product-docs",
   "repository": "bitcoinuniverseio/docs-wallet",
-  "documentationUrl": "https://docs.bitcoinuniverse.io/products/wallet/",
-  "docsRoot": ".",
-  "sourceRef": "main",
-  "releasedRef": "50cecbb79906a5e51ccbf4244deabf9e0ab305b9",
-  "releaseVersion": "1.7.5.8",
-  "lifecycle": "stable",
+  "documentationUrl": "https://bitcoinuniverseio.github.io/docs-wallet",
+  "docsRoot": "src/content/docs",
+  "sourceRef": "develop",
+  "lifecycle": "experimental",
   "chains": [
     {
       "chain": "bitcoin",
-      "networks": [
-        "mainnet"
-      ]
+      "networks": ["mainnet", "testnet", "testnet4", "signet"]
     },
     {
       "chain": "dogecoin",
-      "networks": [
-        "mainnet"
-      ]
+      "networks": ["mainnet", "testnet"]
     },
     {
       "chain": "zcash",
-      "networks": [
-        "mainnet"
-      ]
+      "networks": ["mainnet", "testnet"]
     }
   ],
-  "audiences": [
-    "user",
-    "collector",
-    "app-developer"
+  "protocols": [
+    "alkanes",
+    "arc-20",
+    "atomicals",
+    "babylon",
+    "bip-110",
+    "bitcoin",
+    "bitmap",
+    "block-20",
+    "blockdrop",
+    "brc-110",
+    "brc-20",
+    "cat-20",
+    "cat-721",
+    "chainbloom",
+    "dmt",
+    "doge-tap",
+    "dogecoin",
+    "dogecoin-marketplace",
+    "doginals",
+    "drc-20",
+    "drops",
+    "dust-20",
+    "fractal",
+    "mezcal",
+    "op-20",
+    "op-drop",
+    "op-inscriptions",
+    "op-names",
+    "op-return",
+    "ordinals",
+    "patina",
+    "runes",
+    "src-101",
+    "src-20",
+    "stamps",
+    "tap",
+    "unat",
+    "witness-circles",
+    "zerdinals",
+    "zrc-20-zecscriptions",
+    "zrc-20-zord",
+    "zrunes"
   ],
-  "owners": [
-    "bitcoinuniverseio"
+  "audiences": ["user", "collector", "app-developer", "security-verifier"],
+  "capabilityManifest": "capability-snapshot.json",
+  "owners": ["bitcoinuniverseio"],
+  "securityClassification": "public",
+  "redirects": [
+    { "from": "/getting-started/install", "to": "/start/install" },
+    { "from": "/getting-started/create-a-wallet", "to": "/start/create-a-wallet" },
+    { "from": "/getting-started/import-a-wallet", "to": "/start/import-a-wallet" },
+    { "from": "/getting-started/first-receive", "to": "/start/first-receive" },
+    { "from": "/getting-started/first-send", "to": "/start/first-send" },
+    { "from": "/getting-started/connect-hardware", "to": "/tasks/hardware-wallet" },
+    { "from": "/wallet-basics/accounts-and-networks", "to": "/concepts/chains-and-networks" },
+    { "from": "/wallet-basics/balances", "to": "/concepts/inputs-outputs-fees" },
+    { "from": "/wallet-basics/fees", "to": "/tasks/choose-a-fee" },
+    { "from": "/wallet-basics/activity", "to": "/tasks/activity" },
+    { "from": "/wallet-basics/performance-and-media", "to": "/assets/media-and-performance" },
+    { "from": "/using-wallet/reviewing-a-transaction", "to": "/tasks/review-a-transaction" },
+    { "from": "/using-wallet/signing-a-message", "to": "/tasks/sign-a-message" },
+    { "from": "/using-wallet/connections", "to": "/concepts/connections" },
+    { "from": "/using-wallet/coin-control", "to": "/tasks/coin-control" },
+    { "from": "/assets-and-protocols/overview", "to": "/assets/support-state" },
+    { "from": "/assets-and-protocols/supported-protocols", "to": "/assets/protocol-registry" },
+    { "from": "/assets-and-protocols/protected-outputs", "to": "/concepts/protected-outputs" },
+    { "from": "/assets-and-protocols/dogecoin-marketplace", "to": "/assets/dogecoin-marketplace" },
+    { "from": "/assets-and-protocols/zcash-market-listings", "to": "/assets/zcash-market-listings" },
+    { "from": "/security-and-recovery/security-model", "to": "/safety/security-model" },
+    { "from": "/security-and-recovery/backup", "to": "/start/back-up" },
+    { "from": "/security-and-recovery/restore", "to": "/concepts/backup-and-recovery" },
+    { "from": "/security-and-recovery/compromised-wallet", "to": "/safety/compromised-wallet" },
+    { "from": "/security-and-recovery/privacy", "to": "/safety/privacy" },
+    { "from": "/security-and-recovery/watch-only", "to": "/tasks/watch-only" },
+    { "from": "/reference/supported-features", "to": "/reference/supported-features" },
+    { "from": "/reference/known-limitations", "to": "/reference/known-limitations" },
+    { "from": "/reference/glossary", "to": "/reference/glossary" },
+    { "from": "/developers/provider-api", "to": "/developers/provider-api" },
+    { "from": "/support", "to": "/help/support" },
+    { "from": "/troubleshooting", "to": "/help/troubleshooting" }
   ],
   "lastVerified": {
     "commit": "50cecbb79906a5e51ccbf4244deabf9e0ab305b9",
-    "timestamp": "2026-09-01T02:00:00Z"
-  },
-  "securityClassification": "public"
+    "timestamp": "2026-09-01T00:00:00Z"
+  }
 }

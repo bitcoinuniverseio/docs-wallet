@@ -1,0 +1,70 @@
+---
+title: Dogecoin marketplace
+description: What the wallet verifies before signing an integrated Dogecoin marketplace transaction, and what it still leaves for you to check.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: backend/shared/utils/dogecoin-marketplace.ts, frontend/ui/pages/Approval/components/DogecoinMarketplace.tsx
+chain: [dogecoin]
+lifecycle: not-released
+lastVerified: 2026-09-01
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import snapshot from '../../../../capability-snapshot.json';
+
+Universe Wallet implements transaction-specific approval for integrated Dogecoin marketplace flows. The
+application supplies a prepared transaction together with a marketplace intent. The wallet validates
+the request and signs only the inputs explicitly assigned to the connected account.
+
+<Aside type="danger" title="Not available in any released build">
+The `dogecoin-marketplace` entry authorizes nothing in {snapshot.walletVersion}, along with every
+other protocol in the registry. A marketplace request fails closed and names what is missing. See
+[What this release authorizes](/docs-wallet/assets/support-state).
+</Aside>
+
+## What the wallet checks
+
+For a supported marketplace request, the wallet verifies that:
+
+- the request identifies the intended marketplace action;
+- the transaction matches the approved template;
+- the listed signing inputs match the transaction inputs assigned to the connected account;
+- the signature mode commits to the **complete** transaction;
+- the returned signed transaction is bound to the same intent and input list.
+
+These checks reduce the risk of signing a substituted transaction or an unintended input. They do not
+replace your own review of the asset, price, recipient, network, and fee.
+
+## Where the funding comes from
+
+Funding inputs come from Universe-operated Dogecoin Core and Doginals or DRC-20 indexers. Before
+signing, the wallet recalculates every supplied previous transaction id and confirms the exact output
+value and script.
+
+Protocol-bearing or currently reserved outputs are not offered as ordinary funding. If the data
+authority is stale, disagrees with Core, or cannot provide enough verified plain DOGE, the transaction
+remains unavailable rather than proceeding on partial information.
+
+## Review and sign
+
+1. Start the marketplace action in the connected application.
+2. When the wallet opens, verify the account and the Dogecoin network are correct.
+3. Compare the marketplace summary, amount, recipient, and fee with the order you intended to create
+   or accept.
+4. Approve only if every field is expected. Otherwise reject.
+5. Return to the application and wait for its broadcast or confirmation status.
+
+<Aside type="caution" title="Do not retry blindly after an error">
+Refresh the marketplace state first, so that you do not approve a stale or duplicate action. A retry
+against stale state is how the same trade gets signed twice.
+</Aside>
+
+## The one difference from a Zcash listing
+
+A Dogecoin marketplace signature commits to the **complete** transaction. A Zcash listing signature
+deliberately does not, which is why a listing stays an open offer and a marketplace approval does not.
+See [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes).
+
+## Related
+
+- [Review a PSBT](/docs-wallet/tasks/review-a-psbt)
+- [The protocol registry](/docs-wallet/assets/protocol-registry)

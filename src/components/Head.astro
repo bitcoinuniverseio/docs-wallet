@@ -1,0 +1,52 @@
+---
+// Starlight head override, adding structured metadata per page.
+//
+// The portal at docs.bitcoinuniverse.io and any other consumer should be able
+// to read what a page is, which release it describes, and when a human last
+// checked it, without parsing prose.
+import Default from '@astrojs/starlight/components/Head.astro';
+import snapshot from '../../capability-snapshot.json';
+
+const { entry } = Astro.locals.starlightRoute;
+const data = entry.data as Record<string, any>;
+const site = Astro.site?.href.replace(/\/$/, '') ?? '';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const url = `${site}${Astro.url.pathname}`;
+
+const verified =
+  data.lastVerified instanceof Date
+    ? data.lastVerified.toISOString().slice(0, 10)
+    : (data.lastVerified ?? undefined);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: data.title,
+  description: data.description,
+  url,
+  inLanguage: 'en',
+  isPartOf: {
+    '@type': 'TechArticle',
+    name: 'Universe Wallet documentation',
+    url: `${site}${base}/`,
+  },
+  about: {
+    '@type': 'SoftwareApplication',
+    name: 'Universe Wallet',
+    applicationCategory: 'BrowserApplication',
+    operatingSystem: 'Chrome 88 or later',
+    softwareVersion: snapshot.walletVersion,
+  },
+  publisher: { '@type': 'Organization', name: 'Bitcoin Universe' },
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  ...(verified ? { dateModified: verified } : {}),
+};
+---
+
+<Default />
+<meta name="universe:wallet-version" content={snapshot.walletVersion} />
+<meta name="universe:lifecycle" content={data.lifecycle ?? 'experimental'} />
+{data.sourceRepo && <meta name="universe:source-repo" content={data.sourceRepo} />}
+{data.sourcePath && <meta name="universe:source-path" content={data.sourcePath} />}
+{verified && <meta name="universe:last-verified" content={verified} />}
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />

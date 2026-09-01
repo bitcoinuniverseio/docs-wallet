@@ -1,130 +1,86 @@
-![Universe Wallet: see what you own, understand what you are approving, act without fear](assets/diagrams/hero.svg)
+# docs-wallet
 
-# Universe Wallet
+Public user documentation for **Universe Wallet**, the self-custody browser extension for Bitcoin,
+Dogecoin, Zcash, and Fractal Bitcoin.
 
-**Universe Wallet shows what your Bitcoin addresses own, protects it from accidental spending, and signs only what you can read and approve.**
+**Read the documentation: <https://bitcoinuniverseio.github.io/docs-wallet>**
 
-Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, and Zcash. It keeps asset-bearing coins out of ordinary payments and puts a plain-language review in front of every signature. Your keys never leave the extension.
+This repository holds the source of that site. The site is the thing to read: it has search,
+navigation, diagrams, and provenance on every page. Reading the Markdown here works, and you will miss
+the diagrams.
 
-## Install
+## The two facts that govern this repository
 
-Install [Universe Bitcoin Wallet from the Chrome Web Store](https://chromewebstore.google.com/detail/universe-bitcoin-wallet/fjalkkkbjffhgdoheannkodafhemfdba). The publisher is **Universe**. The extension works in Chromium browsers with Chrome 88 or newer.
+1. **The published Chrome Web Store build is 1.0.13, from 15 April 2025.** This documentation is
+   written against the 1.7.5.8 source tree, which has not been submitted or published. Where the
+   documentation and a reader's wallet disagree, the wallet is correct.
+2. **The committed protocol baseline authorizes 0 of 42 protocols.** Authorization is attached at
+   release time from evidence covering the whole path behind an operation. Nothing here may present an
+   unreleased operation as available.
 
-Setup takes about two minutes: [Install](getting-started/install.md), then [create a wallet](getting-started/create-a-wallet.md) or [import one](getting-started/import-a-wallet.md).
+Both are stated on every relevant page, not buried here.
 
-> The listing currently serves an older build than this documentation describes. Check the version shown on `chrome://extensions` against the version below before relying on anything on this page.
+## Rules this repository enforces in CI
 
-## Protocol support in this release
+- **No capability claim that does not come from `capability-snapshot.json`**, which is a copy of the
+  wallet's generated public capability summary. Counts are rendered from it at build time rather than
+  typed into prose, so they cannot drift. `npm run check:capability`.
+- **No em dash, no emoji, no unverifiable superlative, no filler.** `npm run check:copy`.
+- **No private hostname, address, credential shape, or full-length example address.**
+  `npm run check:public-safety`.
+- **Every diagram carries a title and a description, uses no hard-coded colour, and no marker
+  elements.** `npm run check:diagrams`.
+- **Every material page carries provenance and a unique description**, and the manifest matches the
+  shared schema. `npm run check:manifest`.
+- **Every internal link and anchor resolves**, checked by the build itself.
 
-<!-- capability:support-state start -->
+## Working on it
 
-**No protocol operation is authorized in 1.7.5.8.**
+Requires Node 24.
 
-The wallet carries code for 42 protocols, and the release intends to ship many of
-them. None of them has completed evidence for this build, so every protocol action fails closed:
-the screen loads, states that the operation is unavailable, and names what is missing. Bitcoin,
-Dogecoin and Zcash balances, receive, send, review, activity, coin control, connections, backup and
-recovery are unaffected, because they do not sit behind a protocol gate.
+```bash
+npm ci
+npm run dev      # local preview at http://localhost:4321/docs-wallet
+npm test         # every check above
+npm run build    # static build into dist/, validates links
+```
 
-See [why a protocol appears only when evidence proves it](assets-and-protocols/supported-protocols.md).
+Refresh the capability snapshot after regenerating it in the wallet repository:
 
-<!-- capability:support-state end -->
+```bash
+npm run capability:pull
+```
 
-## What makes it different
+## Layout
 
-### Asset-aware spending
-
-Coins that carry inscriptions, tokens, or other indexed assets are shown as **Protected** and never fund a plain payment. You spend them only through a flow built for that asset.
-
-![How Universe Wallet keeps asset-bearing coins out of an ordinary payment](assets/diagrams/protected-outputs.svg)
-
-Read [Protected outputs](assets-and-protocols/protected-outputs.md).
-
-### Readable approvals
-
-Every signature request shows what leaves your wallet, what comes back, the fee, and how sure the wallet is about each fact, marked `EXACT`, `ESTIMATED`, or `UNKNOWN`. A request the wallet cannot verify says so and stays blocked.
-
-![Anatomy of the transaction review screen](assets/diagrams/transaction-review.svg)
-
-Read [Reviewing a transaction](using-wallet/reviewing-a-transaction.md).
-
-### Evidence-gated releases
-
-A protocol action appears in the product only when the release that shipped it carries current, verified evidence for the full path: wallet, API, indexer, network, and reconciliation. Code existing is not treated as support, which is why the supported list can be shorter than the protocol list.
-
-![Why a protocol appears in the product only when evidence proves it](assets/diagrams/release-evidence.svg)
-
-Read [Supported protocols](assets-and-protocols/supported-protocols.md).
-
-### Connections that expire
-
-A connected site sees one address, must ask again to sign, and loses access after the idle window you choose.
-
-![What a connected site gets, and how that access ends](assets/diagrams/connection-lifecycle.svg)
-
-Read [Connections](using-wallet/connections.md).
-
-### Expert control without expert risk
-
-Coin control, transaction inspection, address whitelists, spending limits, and a security dashboard are built in and off by default. Read [Coin control](using-wallet/coin-control.md).
-
-## Networks
-
-<!-- capability:networks start -->
-
-| Chain | Unit | Networks |
-| --- | --- | --- |
-| Bitcoin | BTC | Mainnet, Signet, Testnet, Testnet4 |
-| Cosmos | BABY | bbn-1 |
-| Dogecoin | DOGE | Mainnet, Testnet |
-| Fractal Bitcoin | FB | Mainnet, Testnet |
-| Zcash | ZEC | Mainnet, Testnet |
-
-<!-- capability:networks end -->
-
-Address types on Bitcoin: Native SegWit (default), Nested SegWit, Taproot, and Legacy.
-
-Bitcoin, Dogecoin and Zcash are chains you switch between. Fractal Bitcoin is a separate chain with its own network. The Cosmos network belongs to Babylon staking and is reached from that flow rather than from the network switcher.
-
-![One recovery phrase, several addresses, and what each one is for](assets/diagrams/address-lanes.svg)
-
-Details in [Accounts and networks](wallet-basics/accounts-and-networks.md).
-
-## Self-custody, in plain words
-
-You hold the keys. Universe cannot move your funds, cannot reverse a confirmed transaction, and cannot restore a lost recovery phrase. Write your 12 words down offline before you deposit anything.
-
-![Which recovery path applies to which loss](assets/diagrams/recovery-paths.svg)
-
-Read [Backup](security-and-recovery/backup.md) and [Restore](security-and-recovery/restore.md) so you know the exit works before you need it.
-
-## Documentation
-
-| Section | Start here |
+| Path | Contents |
 | --- | --- |
-| Getting started | [Install](getting-started/install.md) · [Create a wallet](getting-started/create-a-wallet.md) · [Import a wallet](getting-started/import-a-wallet.md) · [Hardware wallets](getting-started/connect-hardware.md) · [First receive](getting-started/first-receive.md) · [First send](getting-started/first-send.md) |
-| Wallet basics | [Accounts and networks](wallet-basics/accounts-and-networks.md) · [Balances](wallet-basics/balances.md) · [Fees](wallet-basics/fees.md) · [Activity](wallet-basics/activity.md) · [Speed and media](wallet-basics/performance-and-media.md) |
-| Assets and protocols | [Overview](assets-and-protocols/overview.md) · [Protected outputs](assets-and-protocols/protected-outputs.md) · [Supported protocols](assets-and-protocols/supported-protocols.md) · [Dogecoin marketplace](assets-and-protocols/dogecoin-marketplace.md) · [Zcash market listings](assets-and-protocols/zcash-market-listings.md) |
-| Using the wallet | [Reviewing a transaction](using-wallet/reviewing-a-transaction.md) · [Signing a message](using-wallet/signing-a-message.md) · [Connections](using-wallet/connections.md) · [Coin control](using-wallet/coin-control.md) |
-| Security and recovery | [Security model](security-and-recovery/security-model.md) · [Backup](security-and-recovery/backup.md) · [Restore](security-and-recovery/restore.md) · [Watch-only wallets](security-and-recovery/watch-only.md) · [If your wallet is compromised](security-and-recovery/compromised-wallet.md) · [Privacy](security-and-recovery/privacy.md) |
-| Developers | [Provider API](developers/provider-api.md) |
-| Reference | [Supported features](reference/supported-features.md) · [Glossary](reference/glossary.md) · [Known limitations](reference/known-limitations.md) |
-| Help | [Troubleshooting](troubleshooting/README.md) · [Support](support/README.md) |
+| `src/content/docs/` | Every page, as Markdown or MDX |
+| `src/components/diagrams/` | Hand-authored inline SVG diagrams |
+| `src/components/` | Approval panel, diagram frame, protocol table, provenance footer |
+| `src/styles/theme.css` | The design system, with its intent written down |
+| `scripts/` | The checks listed above |
+| `capability-snapshot.json` | Generated by the wallet repository. Do not edit by hand. |
+| `docs.manifest.json` | Portal ingestion manifest |
 
-Diagrams on this page are hand-authored SVG. Their conventions and palette are in the [diagram style guide](assets/diagrams/_shared-style.md).
+## Contributing
 
-## Support and security reporting
+See [CONTRIBUTING.md](CONTRIBUTING.md). The short version: an undocumented limitation is a bug in the
+documentation, and a claim that cannot be verified in the wallet source does not go in.
 
-Bug reports and feature requests: [GitHub issues](https://github.com/bitcoinuniverseio/wallet/issues). Suspected vulnerabilities: email `legal@bitcoinuniverse.io` and do not open a public issue. More paths in [Support](support/README.md).
+## Security
 
-## Version
+Report vulnerabilities privately to `legal@bitcoinuniverse.io`. See [SECURITY.md](SECURITY.md).
 
-<!-- capability:version start -->
+**Nobody will ever ask for your recovery phrase.** Not in an issue, not in a reply, not to help you
+recover funds.
 
-This documentation describes Universe Wallet 1.7.5.8.
+## Related
 
-<!-- capability:version end -->
+- Product source: [bitcoinuniverseio/wallet](https://github.com/bitcoinuniverseio/wallet)
+- Every Bitcoin Universe component: [docs.bitcoinuniverse.io](https://docs.bitcoinuniverse.io)
 
-The version, the network table, and the protocol support state above are generated from the wallet's own release matrix, so this page cannot claim a capability the build does not authorize.
+## License
 
-Release notes ship with each version on the [releases page](https://github.com/bitcoinuniverseio/wallet/releases). Terms: [bitcoinuniverse.io/terms](https://bitcoinuniverse.io/terms). Privacy policy: [bitcoinuniverse.io/privacy](https://bitcoinuniverse.io/privacy).
+Documentation is licensed under [CC BY 4.0](LICENSE). Site source code in `scripts/`,
+`src/components/`, and `src/styles/` is MIT, as stated in that file.

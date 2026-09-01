@@ -1,0 +1,5 @@
+# The site is built on Linux in CI and edited on Windows. Without this, a
+# checkout rewrites line endings and every generated file looks stale.
+* text=auto eol=lf
+*.png binary
+*.woff2 binary
