@@ -4,7 +4,7 @@
   "name": "Universe Wallet",
   "classification": "product-docs",
   "repository": "bitcoinuniverseio/docs-wallet",
-  "documentationUrl": "https://bitcoinuniverseio.github.io/docs-wallet",
+  "documentationUrl": "https://docs.bitcoinuniverse.io/products/wallet/",
   "docsRoot": "src/content/docs",
   "sourceRef": "develop",
   "lifecycle": "experimental",
