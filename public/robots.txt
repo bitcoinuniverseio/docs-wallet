@@ -1,0 +1,5 @@
+# Universe Wallet documentation
+User-agent: *
+Allow: /
+
+Sitemap: https://bitcoinuniverseio.github.io/docs-wallet/sitemap-index.xml

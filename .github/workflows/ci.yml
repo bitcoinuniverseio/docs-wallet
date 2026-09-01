@@ -1,0 +1,67 @@
+name: ci
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+
+# This repository is public, so checks run on the organization's public-safe
+# capacity preset. A fork pull request must never reach self-hosted
+# infrastructure.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: runs-on=${{ github.run_id }}-checks/runner=universe-hosted/cpu=2+8/env=production
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: bitcoinuniverseio/universe-ci-actions/universe-node-env@main
+
+      - name: Install
+        run: npm ci
+
+      # Copy rules, public-safety scan, capability claims against the generated
+      # snapshot, manifest and per-page provenance, the shared platform schema,
+      # diagram accessibility, llms.txt freshness, and markdown lint.
+      - name: Content and truthfulness gates
+        run: npm test
+
+      - name: Build (validates every internal link and anchor)
+        run: npm run build
+
+      - name: Search index exists
+        run: test -f dist/pagefind/pagefind.js
+
+      - name: Sitemap exists
+        run: test -f dist/sitemap-index.xml
+
+      - name: A helpful 404 exists
+        run: test -f dist/404.html
+
+      - name: Install a browser for the accessibility audit
+        run: npx playwright install --with-deps chromium
+
+      # A plain static server rather than the dev toolchain, so the audit tests
+      # exactly the bytes that will be deployed and does not depend on a dev
+      # server starting inside a fixed window.
+      - name: Serve the built site
+        run: npm run serve:dist &
+
+      - name: Accessibility and horizontal overflow, every page, both themes
+        run: npx wait-on http://localhost:4323/docs-wallet/ && npm run check:a11y
+
+      - name: Secret scan (full history)
+        uses: trufflesecurity/trufflehog@v3.90.5
+        with:
+          base: ''
+          head: ''
+          extra_args: --only-verified

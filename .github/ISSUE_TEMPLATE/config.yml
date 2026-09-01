@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/bitcoinuniverseio/docs-wallet/blob/main/SECURITY.md
+    about: Report privately to legal@bitcoinuniverse.io, never in a public issue.
+  - name: A problem with the wallet itself
+    url: https://github.com/bitcoinuniverseio/wallet/issues
+    about: Behaviour that does not match the documentation belongs on the product repository.
+  - name: Lost funds
+    url: https://bitcoinuniverseio.github.io/docs-wallet/safety/compromised-wallet
+    about: Nobody can recover lost funds. Read this first, and act quickly.

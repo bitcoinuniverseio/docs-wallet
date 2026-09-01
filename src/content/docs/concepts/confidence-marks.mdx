@@ -1,0 +1,61 @@
+---
+title: Confidence marks
+description: Every interpreted fact on an approval screen carries EXACT, ESTIMATED, or UNKNOWN. What each one means, and why unknown is never rounded to zero.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: docs/STORE-LISTING.md, frontend/ui/pages/Approval/components
+lifecycle: experimental
+lastVerified: 2026-09-01
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+An approval screen has to tell you what a transaction does. Some of that is arithmetic the wallet can
+do with certainty. Some of it is interpretation that depends on an indexer, a decoder, or data the
+wallet does not have.
+
+Rather than presenting both with the same authority, every interpreted fact carries a mark.
+
+| Mark | Meaning | How to read it |
+| --- | --- | --- |
+| <span class="u-mark">EXACT</span> | Computed from the transaction itself. | Trust the number. It is arithmetic. |
+| <span class="u-mark">ESTIMATED</span> | Derived from data that could be stale or approximate. | Directionally right. Do not treat the last digits as precise. |
+| <span class="u-mark u-mark--unknown">UNKNOWN</span> | The wallet could not determine this. | Treat as a reason to stop, not as zero. |
+
+## Why unknown is not zero
+
+<Aside type="caution" title="A fact the wallet cannot verify is shown as unknown, not hidden and not rounded to zero">
+This is the difference between a wallet that is honest about its limits and one that looks
+reassuring. An unreadable field means something happened that the wallet could not interpret. Blank
+space where that field should be would look like nothing happening, which is the opposite of the
+truth.
+</Aside>
+
+The overall status of a request takes the **worst** mark present. A request cannot read as ready while
+any fact on it is unknown.
+
+## What to do with each
+
+**Everything exact.** The arithmetic is complete. Read the amounts and decide.
+
+**Something estimated.** Usually fine. Common with protocol balances, where the amount depends on an
+indexer's reading of the chain. Check that the direction and the rough size match what you expect.
+
+**Anything unknown.** Stop and find out why before approving.
+
+- If a protocol balance is unknown, an indexer probably could not be reached. Retry later rather than
+  approving blind.
+- If an output is unknown, the wallet could not tell whose it is or what it does. That is the shape of
+  a request that is not what it appears to be.
+- If the whole request is unknown, reject it. There is no cost to rejecting.
+
+## The related rule about mutation
+
+Approval authority is computed once per request and re-checked at every signing entry point. A request
+that changed after you looked at it fails closed rather than being signed. You do not have to catch
+that yourself, and the marks are not the mechanism that catches it, but knowing it exists is worth
+something when you are deciding how much of the screen to trust.
+
+## Related
+
+- [Review a transaction](/docs-wallet/tasks/review-a-transaction)
+- [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes)

@@ -1,0 +1,19 @@
+---
+// The one element on this site allowed to look heavier than the page around it.
+//
+// It represents what the wallet puts in front of you before a signature. It is
+// a written description of a screen, not a screenshot, and every value inside
+// it is invented. No page here shows a real wallet.
+interface Props {
+  /** Label above the panel. Say what kind of approval this is. */
+  label?: string;
+}
+const { label = 'What you are about to sign' } = Astro.props;
+---
+
+<section class="u-approval not-content" aria-label={label}>
+  <span class="u-approval__label">{label}</span>
+  <div class="u-approval__body">
+    <slot />
+  </div>
+</section>
