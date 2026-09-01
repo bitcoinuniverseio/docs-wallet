@@ -1,0 +1,105 @@
+---
+title: Supported features
+description: What is present with no gate, what is present behind a release gate, and what does not exist at all in Universe Wallet 1.7.5.8.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: docs/ROUTE-INVENTORY.json, docs/PUBLIC-CAPABILITY-SUMMARY.json
+lifecycle: experimental
+lastVerified: 2026-09-01
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import snapshot from '../../../../capability-snapshot.json';
+
+Three columns matter here, and mixing them up is how documentation misleads people.
+
+- **Present** means the screen exists with no protocol gate. It is in every build.
+- **Gated** means the screen exists behind a protocol gate. Whether it works depends on what your
+  build authorized. In the {snapshot.walletVersion} baseline, nothing is authorized.
+- **Not available** means it is not in this build at all. Not hidden, not disabled: absent.
+
+## Platform
+
+| Item | State |
+| --- | --- |
+| Browser | Chrome 88 or later, Manifest V3. Other Chromium browsers run the same package. |
+| Firefox | Not available. Build targets exist; no listing is published. |
+| Safari and mobile | Not available. |
+| Views | Popup, side panel, and full-tab. All 112 routes lay out at all three widths. |
+| Languages in the picker | English, Chinese, Japanese, Spanish. Seven locale files ship in the artifact. |
+
+## Keys and accounts
+
+| Capability | State |
+| --- | --- |
+| Create wallet | Present. 12-word BIP-39 phrase with a confirmation check. |
+| Import phrase | Present. Presets for Unisat, Sparrow, Xverse, Ordinals Wallet, and others. Optional BIP-39 passphrase and custom derivation path. |
+| Import private key | Present. WIF and hex. |
+| Address types | Present. Native SegWit, Nested SegWit, Taproot, Legacy, plus two BIP-44 compatibility variants. |
+| Multiple wallets and accounts | Present, with renaming. |
+| Keystone hardware | Present. Air-gapped QR and USB. Marked experimental in the product. |
+| Ledger, Trezor | **Not available.** Listed, disabled, shown as coming soon. |
+| Watch-only, cold wallet | Present, behind developer mode. Extended public key by QR. No paste-an-address flow. |
+
+## Transactions
+
+| Capability | State |
+| --- | --- |
+| Send | Gated on `bitcoin/send` and `bitcoin/broadcast`. |
+| Batch send | Gated on `bitcoin/send`. |
+| Consolidation | Gated on `bitcoin/send`. |
+| Fee control | Present. Live presets and a custom sat/vB rate. |
+| Mark transaction replaceable | Present. Off by default, stated on the review screen. |
+| **Fee bump, speed up, RBF replacement, CPFP** | **Not available.** No flow exists to replace or accelerate a broadcast transaction. |
+| Manual coin selection | Present inside the PSBT approval flow. No standalone coin control screen. |
+| Locked coins list | Present, no gate. |
+| Coin health | Present, no gate. |
+| Asset protection | Present. Asset-bearing outputs never fund plain sends. |
+| Payment requests | Present. Amount and note in the QR and a copyable link. |
+| Transaction review | Present. Impact summary with EXACT, ESTIMATED, and UNKNOWN marks, inputs, outputs, fee, and raw transaction. |
+| Transaction inspector | Present. Looks up an existing transaction by id. **It does not decode a PSBT.** |
+| Spending limits and whitelist | Present, off by default. |
+
+<Aside type="danger" title="The two rows worth re-reading">
+There is **no fee bump and no child-pays-for-parent** anywhere in this build. And **ordinary sending
+is behind a release gate**, like every protocol operation. Neither of these is what people assume.
+</Aside>
+
+## Connected applications
+
+| Capability | State |
+| --- | --- |
+| Connection scope | Present. One selected account per site, per network. |
+| Per-request approval | Present. Every signature is approved separately. |
+| Expiry | Present. Idle windows of 24 hours, 7 days, 30 days as default, or until disconnected. |
+| Connection audit and revoke | Present. Local risk scoring, one-step revoke. |
+| Message signing, site initiated | Present, as an approval. Text with scam-language scanning. |
+| Message signing, user initiated | **Not available.** No screen for composing your own message. |
+| Raw data signing | Present, off by default, typed confirmation to enable. |
+| PSBT signing | Present, as an approval. Single and multiple. |
+| Chain and network switch requests | Present, as approvals. |
+| Phishing filtering | Present. Local blocking rules shipped in the extension. |
+
+## Protocols
+
+{snapshot.protocolCount} protocols across Bitcoin, Dogecoin, Zcash, Fractal, and a Cosmos entry. This
+release authorizes {snapshot.supportedProtocolCount} of them. That is the size of the registry, not a
+list of what your build can do. See [The protocol registry](/docs-wallet/assets/protocol-registry) and
+[What this release authorizes](/docs-wallet/assets/support-state).
+
+**Babylon and Cosmos** are not selectable in the network picker and their routes carry a design
+obligation of not intended. Treat them as unavailable.
+
+## Security
+
+| Capability | State |
+| --- | --- |
+| Auto-lock | Present. 30 seconds to 4 hours, default 30 minutes. |
+| Immediate lock | Present. |
+| Password change | Present. |
+| Security dashboard | Present, no gate. Recovery tracking, login history, session log, phishing URL checker. |
+| Request integrity | Present. A request that changed after you saw it is blocked as Request replaced. |
+
+## Related
+
+- [Known limitations](/docs-wallet/reference/known-limitations)
+- [Why an action is unavailable](/docs-wallet/assets/why-unavailable)

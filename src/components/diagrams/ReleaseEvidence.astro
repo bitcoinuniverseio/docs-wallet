@@ -1,0 +1,102 @@
+---
+// Why an action appears in the product only when evidence proves the whole path.
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 470"
+  role="img"
+  aria-labelledby="dg-ev-t dg-ev-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-ev-t">Why an action appears only when evidence covers the whole path behind it</title>
+  <desc id="dg-ev-d">
+    A protocol action such as transferring a token has six links behind it: the
+    wallet code that builds and signs the transaction, the Universe API that
+    serves the data, the indexer that decides what the transaction meant, the
+    network the transaction is broadcast to, the confirmation that it was
+    accepted, and reconciliation showing that the indexer and the wallet agree
+    afterwards. A release authorizes that action only when current evidence exists
+    for every link, bound to the exact source commit of that build. If a single
+    link lacks evidence, the action is not authorized. An unauthorized action does
+    not fail when you press it: the screen loads and states that the operation is
+    not available in this build, and names what is missing, rather than offering
+    an action that would break. Two outcomes are shown side by side, the
+    authorized path leading to a usable action and the unauthorized path leading to
+    the not available screen. A closing note records the state of the committed
+    baseline, which authorizes nothing at all on purpose.
+  </desc>
+
+  <text class="dg-kicker" x="0" y="14">CODE EXISTING IS NOT SUPPORT</text>
+
+  <!-- Chain -->
+  <text class="dg-h" x="0" y="42">Every link needs current evidence</text>
+
+  <rect class="dg-panel" x="0.75" y="54.75" width="100.5" height="60.5" rx="3" />
+  <text class="dg-sm" x="14" y="80">Wallet</text>
+  <text class="dg-sm dg-dim" x="14" y="100">code</text>
+
+  <rect class="dg-panel" x="108.75" y="54.75" width="100.5" height="60.5" rx="3" />
+  <text class="dg-sm" x="122" y="80">Universe</text>
+  <text class="dg-sm dg-dim" x="122" y="100">API</text>
+
+  <rect class="dg-panel" x="216.75" y="54.75" width="100.5" height="60.5" rx="3" />
+  <text class="dg-sm" x="230" y="80">Indexer</text>
+  <text class="dg-sm dg-dim" x="230" y="100">meaning</text>
+
+  <rect class="dg-panel" x="324.75" y="54.75" width="100.5" height="60.5" rx="3" />
+  <text class="dg-sm" x="338" y="80">Network</text>
+  <text class="dg-sm dg-dim" x="338" y="100">broadcast</text>
+
+  <rect class="dg-panel" x="432.75" y="54.75" width="100.5" height="60.5" rx="3" />
+  <text class="dg-sm" x="446" y="80">Confirm</text>
+  <text class="dg-sm dg-dim" x="446" y="100">accepted</text>
+
+  <rect class="dg-panel" x="540.75" y="54.75" width="98.5" height="60.5" rx="3" />
+  <text class="dg-sm" x="554" y="80">Reconcile</text>
+  <text class="dg-sm dg-dim" x="554" y="100">agrees</text>
+
+  <path class="dg-arrow" d="M102 85 L107 85" />
+  <path class="dg-arrow" d="M210 85 L215 85" />
+  <path class="dg-arrow" d="M318 85 L323 85" />
+  <path class="dg-arrow" d="M426 85 L431 85" />
+  <path class="dg-arrow" d="M534 85 L539 85" />
+
+  <path class="dg-dash" d="M50 116 L50 138 L590 138 L590 116" />
+  <path class="dg-arrow" d="M320 138 L320 158" />
+  <path class="dg-head" d="M315 158 L320 170 L325 158 Z" />
+
+  <!-- Decision -->
+  <rect class="dg-panel-2" x="150.75" y="174.75" width="338.5" height="52.5" rx="4" />
+  <text class="dg-sm" x="168" y="198">Is every link proved, for this exact build?</text>
+  <text class="dg-sm dg-dim" x="168" y="218">Checked per protocol, per network, per operation.</text>
+
+  <path class="dg-arrow" d="M240 228 L240 250 L160 250 L160 268" />
+  <path class="dg-head" d="M155 268 L160 280 L165 268 Z" />
+  <path class="dg-arrow-alert" d="M400 228 L400 250 L480 250 L480 268" />
+  <path class="dg-head-alert" d="M475 268 L480 280 L485 268 Z" />
+
+  <text class="dg-sm" x="180" y="246">yes</text>
+  <text class="dg-sm dg-alert-text" x="410" y="246">no</text>
+
+  <!-- Outcomes -->
+  <rect class="dg-panel" x="0.75" y="284.75" width="310.5" height="86.5" rx="4" />
+  <text class="dg-h" x="16" y="308">The action is there</text>
+  <text class="dg-sm dg-dim" x="16" y="332">Authorized for this build, this protocol,</text>
+  <text class="dg-sm dg-dim" x="16" y="352">this network, this operation. Nothing wider.</text>
+
+  <rect class="dg-alert-panel" x="328.75" y="284.75" width="310.5" height="86.5" rx="4" />
+  <text class="dg-h" x="344" y="308">Not available in this build</text>
+  <text class="dg-sm dg-dim" x="344" y="332">The screen opens, says so, and names</text>
+  <text class="dg-sm dg-dim" x="344" y="352">what is missing. It does not half work.</text>
+
+  <!-- Baseline -->
+  <rect class="dg-panel-2" x="0.75" y="392.75" width="638.5" height="76.5" rx="4" />
+  <text class="dg-kicker" x="16" y="416">WHERE THE COMMITTED SOURCE STANDS</text>
+  <text class="dg-sm" x="16" y="440">
+    The baseline in the repository authorizes nothing, deliberately. Authorization is attached at release
+  </text>
+  <text class="dg-sm" x="16" y="460">
+    time, to one exact build. So the only honest answer to "is it supported" is: look at your own screen.
+  </text>
+</svg>

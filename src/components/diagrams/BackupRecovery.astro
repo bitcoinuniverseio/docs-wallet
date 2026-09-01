@@ -1,0 +1,85 @@
+---
+// Backup and recovery: which loss the phrase covers, and which it does not.
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 556"
+  role="img"
+  aria-labelledby="dg-rec-t dg-rec-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-rec-t">Which loss the recovery phrase covers, and the one it does not</title>
+  <desc id="dg-rec-d">
+    The recovery phrase is drawn as the root of everything. From it are derived
+    every account, on every network, in every address type, on any device and in
+    any compatible wallet. Settings are drawn separately and outside it: connected
+    sites, address labels, contacts, frozen coins and spending limits live on the
+    device only and are not carried by the phrase. Five situations are then mapped
+    to outcomes. Forgetting the password is recoverable: the password unlocks one
+    installation and is not the backup, so you reinstall and restore from the
+    phrase. Losing or breaking the device is recoverable the same way. Deleting the
+    extension is recoverable the same way. Having someone see the phrase is not a
+    loss of access but a loss of secrecy: the funds must be moved to a wallet made
+    from a new phrase, because the old phrase cannot be made secret again. Losing
+    the phrase while still able to unlock the wallet is urgent but survivable:
+    reveal and write down the phrase now, or move the funds to a wallet you do
+    have the phrase for. Losing the phrase while locked out is the one case with no
+    recovery path at all, by anyone, including Universe.
+  </desc>
+
+  <text class="dg-kicker" x="0" y="14">WHAT THE PHRASE COVERS</text>
+
+  <!-- Root -->
+  <rect class="dg-panel-2" x="0.75" y="26.75" width="310.5" height="150.5" rx="4" />
+  <text class="dg-h" x="16" y="50">The phrase carries</text>
+  <path class="dg-rule" d="M16 62 L296 62" />
+  <text class="dg-sm" x="16" y="86">Every account in the wallet</text>
+  <text class="dg-sm" x="16" y="110">Every network</text>
+  <text class="dg-sm" x="16" y="134">Every address type</text>
+  <text class="dg-sm dg-dim" x="16" y="162">On any device, in any BIP-39 wallet</text>
+
+  <rect class="dg-panel" x="328.75" y="26.75" width="310.5" height="150.5" rx="4" />
+  <text class="dg-h" x="344" y="50">The phrase does not carry</text>
+  <path class="dg-rule" d="M344 62 L624 62" />
+  <text class="dg-sm" x="344" y="86">Connected sites, labels, contacts</text>
+  <text class="dg-sm" x="344" y="110">Frozen coins and spending limits</text>
+  <text class="dg-sm" x="344" y="134">Your password</text>
+  <text class="dg-sm dg-dim" x="344" y="162">These are device settings, not funds</text>
+
+  <text class="dg-kicker" x="0" y="212">WHICH LOSS YOU ARE HAVING</text>
+
+  <!-- Cases -->
+  <rect class="dg-panel" x="0.75" y="224.75" width="638.5" height="52.5" rx="3" />
+  <text class="dg-sm" x="16" y="248">You forgot the password</text>
+  <text class="dg-sm dg-dim" x="16" y="268">The password unlocks one installation. It is not the backup.</text>
+  <path class="dg-rule" d="M356 234 L356 268" />
+  <text class="dg-sm" x="372" y="256">Reinstall, then restore from the phrase.</text>
+
+  <rect class="dg-panel" x="0.75" y="286.75" width="638.5" height="52.5" rx="3" />
+  <text class="dg-sm" x="16" y="310">The device is lost, stolen or broken</text>
+  <text class="dg-sm dg-dim" x="16" y="330">Your coins were never on the device. They are on the chain.</text>
+  <path class="dg-rule" d="M356 296 L356 330" />
+  <text class="dg-sm" x="372" y="318">Restore from the phrase, elsewhere.</text>
+
+  <rect class="dg-panel" x="0.75" y="348.75" width="638.5" height="52.5" rx="3" />
+  <text class="dg-sm" x="16" y="372">The extension was removed</text>
+  <text class="dg-sm dg-dim" x="16" y="392">Reinstalling gives you an empty wallet, not your wallet.</text>
+  <path class="dg-rule" d="M356 358 L356 392" />
+  <text class="dg-sm" x="372" y="380">Restore from the phrase.</text>
+
+  <rect class="dg-alert-panel" x="0.75" y="410.75" width="638.5" height="52.5" rx="3" />
+  <text class="dg-sm" x="16" y="434">Someone else has seen the phrase</text>
+  <text class="dg-sm dg-dim" x="16" y="454">A phrase cannot be made secret again.</text>
+  <path class="dg-rule" d="M356 420 L356 454" />
+  <text class="dg-sm dg-alert-text" x="372" y="442">Move everything to a new phrase now.</text>
+
+  <rect class="dg-alert-panel" x="0.75" y="472.75" width="638.5" height="82.5" rx="3" />
+  <text class="dg-sm" x="16" y="496">The phrase is gone and you are locked out</text>
+  <text class="dg-sm dg-dim" x="16" y="516">There is no account, no reset email, and no</text>
+  <text class="dg-sm dg-dim" x="16" y="536">support override that can help here.</text>
+  <path class="dg-rule" d="M356 482 L356 544" />
+  <text class="dg-sm dg-alert-text" x="372" y="506">No recovery path exists.</text>
+  <text class="dg-sm" x="372" y="528">Anyone who says otherwise is</text>
+  <text class="dg-sm" x="372" y="546">selling you a second theft.</text>
+</svg>

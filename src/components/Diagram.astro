@@ -1,0 +1,25 @@
+---
+// Wrapper for every hand-authored diagram.
+//
+// The SVG scrolls inside this frame on a narrow screen rather than shrinking
+// until its labels are unreadable, and the frame is keyboard reachable so a
+// reader who cannot use a pointer can still pan it.
+interface Props {
+  /** Accessible name for the scroll region. Repeat the diagram title. */
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<figure class="u-figure not-content">
+  <div class="u-figure__scroll" tabindex="0" role="group" aria-label={title}>
+    <slot />
+  </div>
+  {
+    Astro.slots.has('caption') && (
+      <figcaption>
+        <slot name="caption" />
+      </figcaption>
+    )
+  }
+</figure>

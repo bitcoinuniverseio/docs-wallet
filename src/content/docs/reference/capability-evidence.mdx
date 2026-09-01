@@ -1,0 +1,79 @@
+---
+title: Capability evidence
+description: The rule that decides whether an operation ships, what counts as evidence, and how to check a claim yourself instead of taking anyone's word.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: docs/RELEASE-READINESS-POLICY.md, docs/PROTOCOL-RELEASE-MATRIX.md
+lifecycle: experimental
+lastVerified: 2026-09-01
+---
+
+import Diagram from '../../../components/Diagram.astro';
+import ReleaseEvidence from '../../../components/diagrams/ReleaseEvidence.astro';
+import snapshot from '../../../../capability-snapshot.json';
+
+Most wallets describe support by listing what the code can do. Universe Wallet does not, because a
+list of what the code can do is a list of things that might work, presented as things that do.
+
+## The rule
+
+**Code existing is not support. A route existing is not availability. A parser existing is not wallet
+support.**
+
+An operation is authorized only when the exact build carries current, verified evidence for the
+complete path behind it.
+
+<Diagram title="Why an action appears only when evidence covers the whole path behind it">
+  <ReleaseEvidence />
+  <span slot="caption">
+    Six links, all of which must carry evidence bound to the exact source commit of the build. One
+    missing link means the operation is not authorized, and the screen says so.
+  </span>
+</Diagram>
+
+## What is checked
+
+The release matrix carries one row for every protocol, network, and operation combination, with UI,
+provider, API, signer, indexer, health, evidence, and release-state classifications. In
+{snapshot.walletVersion} there are 42 protocols and 1,551 operation rows, and **0** authorized
+operations.
+
+Authorization is produced for an immutable workflow run, not copied by hand into a document. The
+generated readiness record contains the exact source commit, the workflow run id, individual gate
+results, the protocol matrix checksum, and the exact extension artifact checksum. A go decision is
+possible only when every gate succeeds, the artifact is checksum-bound, and every intended protocol
+operation is evidence-backed. Zero functional coverage is always a no-go.
+
+## What this means when you read a claim
+
+Any statement that Universe Wallet supports a protocol is checkable, and the way to check it is not to
+ask the person who said it.
+
+1. Open the screen in your own wallet.
+2. If the operation is not authorized in your build, the screen says so and names what is missing.
+3. That screen is authoritative for you. This documentation is not, and neither is a store listing, a
+   social post, or a support reply.
+
+## Why the committed baseline is empty
+
+Deliberately. Authorization is attached at release time to one exact build. If the baseline carried
+authorizations, a build could inherit a claim it never earned, which is precisely the failure the
+system exists to prevent.
+
+So `gated-blocked` in the wallet's own route inventory means "not authorized in the committed
+baseline", not "permanently unreachable".
+
+## The one campaign that has completed
+
+A qualification campaign scoped to Zerdinals and ZRunes completed on 30 August 2026 against one
+candidate commit. Every release gate passed and an authorization covering thirteen operations across
+those two protocols was produced. The matrix regenerated from it authorizes 26 of its 1,595 rows and
+nothing outside that scope.
+
+**That artifact has not been published.** See
+[Which version you are running](/docs-wallet/start/versions).
+
+## Related
+
+- [What this release authorizes](/docs-wallet/assets/support-state)
+- [Why an action is unavailable](/docs-wallet/assets/why-unavailable)
+- [The protocol registry](/docs-wallet/assets/protocol-registry)

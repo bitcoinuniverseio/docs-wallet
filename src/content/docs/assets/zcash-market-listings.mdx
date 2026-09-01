@@ -1,0 +1,88 @@
+---
+title: Zcash market listings
+description: What a Zerdinal listing signature commits you to, why the approval can be blocked outright, and why cancelling a listing is only advisory.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: backend/shared/utils/zcash-tx.ts, frontend/ui/pages/Approval/components/ZcashSignMarketListing.tsx
+chain: [zcash]
+lifecycle: not-released
+lastVerified: 2026-09-01
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import snapshot from '../../../../capability-snapshot.json';
+
+Universe Wallet implements listing signatures for the Universe market's signed-order protocol, ZMarket
+Orders v1: a fixed-price offer to sell a Zerdinal inscription.
+
+<Aside type="danger" title="Not available in any released build">
+`market-list` sits on the Zerdinals intent list, and the release matrix authorizes it nowhere. In
+{snapshot.walletVersion} the authorized count is {snapshot.supportedProtocolCount} of{' '}
+{snapshot.protocolCount}. The build currently served by the Chrome Web Store is older still and
+predates Zcash support entirely, so it cannot sign a Zerdinal under any circumstance. Until a release
+carries the evidence, a listing request fails closed and names what is missing. See
+[Which version you are running](/docs-wallet/start/versions).
+</Aside>
+
+## One signature, one exact outcome
+
+A listing is a single signature under `SIGHASH_SINGLE | ANYONECANPAY` over a Zcash transaction digest
+computed from the listing terms alone. It binds your asset outpoint to exactly one outcome: any
+transaction that spends that outpoint must pay your own address the exact listed price. Everything
+else about the final settlement is the buyer's to build, and your signature deliberately does not
+constrain it.
+
+There is no escrow and no service custody. The market cannot move your asset, and equally your
+signature cannot choose the buyer: anyone holding it can settle the offer by paying you.
+
+## What the wallet checks before showing the approval
+
+- The request contains exactly the listing terms and optional asset evidence. Any other field is
+  rejected before anything is reviewed.
+- The seller address is the connected account's own Zcash address, and the payout script pays that
+  same address, so the wallet never authorizes a sale of someone else's asset or a payout to anyone
+  else.
+- The network in the terms matches the active wallet chain.
+- The pinned consensus branch matches the network's next block, so the listing becomes invalid by
+  construction across a network upgrade.
+- The price is above the relayable floor, and the platform fee amount and fee script are consistent
+  with each other.
+
+## Why the approval can be blocked
+
+The signature sells everything the listed outpoint carries, so the wallet requires an asset verdict
+for that outpoint before it lets you approve.
+
+- An outpoint with **no asset verdict** blocks the approval, because what the signature would sell
+  cannot be shown.
+- A verdict that **does not carry the listed asset** blocks the approval and names the mismatch.
+- An outpoint carrying **more than the listed asset** is shown in full, because a sale delivers all of
+  it together.
+
+Blocked is not a warning you can click through. The approve control stays disabled and the screen
+states the reason in the same words the wallet enforces.
+
+## The three consequences of approving
+
+1. **A listing is a public offer.** Anyone can settle it at exactly these terms.
+2. **Cancellation is advisory.** Cancelling removes the listing from the market. The signature stays
+   valid until the asset moves or the expiry block passes. The only certain revocation is transferring
+   the asset to yourself.
+3. **The ZEC riding on the asset outpoint transfers to the buyer with the asset.** Set the price with
+   that in mind.
+
+The screen also shows the exact amount you are paid, the platform fee, which the buyer pays, the block
+at which the offer dies, the consensus branch, the outpoint being committed, and the digest the
+signature is over.
+
+## After you approve
+
+Approval alone signs nothing. The wallet re-reviews the exact terms after your approval and before any
+key material is touched, and checks the consensus branch against the network again. If the terms no
+longer match what you saw, or the asset can no longer be verified, the wallet refuses instead of
+signing.
+
+## Related
+
+- [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes)
+- [Review a PSBT](/docs-wallet/tasks/review-a-psbt)
+- [What this release authorizes](/docs-wallet/assets/support-state)
