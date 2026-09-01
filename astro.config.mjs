@@ -13,11 +13,45 @@ import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeTableScroll from './scripts/rehype-table-scroll.mjs';
+import { codeBlockAccessibility } from './scripts/ec-code-block-a11y.mjs';
 
 export default defineConfig({
   site: 'https://bitcoinuniverseio.github.io',
   base: '/docs-wallet',
   trailingSlash: 'ignore',
+  // Paths this documentation used before the rebuild. A link someone bookmarked
+  // in a wallet manual is not a link to break casually, so every moved URL keeps
+  // working. The same map is declared in docs.manifest.json for the portal.
+  redirects: {
+    '/getting-started/install': '/docs-wallet/start/install',
+    '/getting-started/create-a-wallet': '/docs-wallet/start/create-a-wallet',
+    '/getting-started/import-a-wallet': '/docs-wallet/start/import-a-wallet',
+    '/getting-started/first-receive': '/docs-wallet/start/first-receive',
+    '/getting-started/first-send': '/docs-wallet/start/first-send',
+    '/getting-started/connect-hardware': '/docs-wallet/tasks/hardware-wallet',
+    '/wallet-basics/accounts-and-networks': '/docs-wallet/concepts/chains-and-networks',
+    '/wallet-basics/balances': '/docs-wallet/concepts/inputs-outputs-fees',
+    '/wallet-basics/fees': '/docs-wallet/tasks/choose-a-fee',
+    '/wallet-basics/activity': '/docs-wallet/tasks/activity',
+    '/wallet-basics/performance-and-media': '/docs-wallet/assets/media-and-performance',
+    '/using-wallet/reviewing-a-transaction': '/docs-wallet/tasks/review-a-transaction',
+    '/using-wallet/signing-a-message': '/docs-wallet/tasks/sign-a-message',
+    '/using-wallet/connections': '/docs-wallet/concepts/connections',
+    '/using-wallet/coin-control': '/docs-wallet/tasks/coin-control',
+    '/assets-and-protocols/overview': '/docs-wallet/assets/support-state',
+    '/assets-and-protocols/supported-protocols': '/docs-wallet/assets/protocol-registry',
+    '/assets-and-protocols/protected-outputs': '/docs-wallet/concepts/protected-outputs',
+    '/assets-and-protocols/dogecoin-marketplace': '/docs-wallet/assets/dogecoin-marketplace',
+    '/assets-and-protocols/zcash-market-listings': '/docs-wallet/assets/zcash-market-listings',
+    '/security-and-recovery/security-model': '/docs-wallet/safety/security-model',
+    '/security-and-recovery/backup': '/docs-wallet/start/back-up',
+    '/security-and-recovery/restore': '/docs-wallet/concepts/backup-and-recovery',
+    '/security-and-recovery/compromised-wallet': '/docs-wallet/safety/compromised-wallet',
+    '/security-and-recovery/privacy': '/docs-wallet/safety/privacy',
+    '/security-and-recovery/watch-only': '/docs-wallet/tasks/watch-only',
+    '/support': '/docs-wallet/help/support',
+    '/troubleshooting': '/docs-wallet/help/troubleshooting',
+  },
   markdown: {
     // A wide table scrolls inside its own frame rather than pushing the page
     // sideways at 320px.
@@ -25,6 +59,7 @@ export default defineConfig({
   },
   integrations: [
     starlight({
+      expressiveCode: { plugins: [codeBlockAccessibility()] },
       title: 'Universe Wallet',
       description:
         'How to hold, receive, send, and protect Bitcoin digital artifacts in Universe Wallet, the self-custody browser wallet. Written so that nothing here can cost you money by being believed.',
@@ -51,6 +86,7 @@ export default defineConfig({
       components: {
         Footer: './src/components/Footer.astro',
         PageTitle: './src/components/PageTitle.astro',
+        Head: './src/components/Head.astro',
       },
       head: [
         {

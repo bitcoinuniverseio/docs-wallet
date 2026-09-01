@@ -50,8 +50,11 @@ jobs:
       - name: Install a browser for the accessibility audit
         run: npx playwright install --with-deps chromium
 
+      # A plain static server rather than the dev toolchain, so the audit tests
+      # exactly the bytes that will be deployed and does not depend on a dev
+      # server starting inside a fixed window.
       - name: Serve the built site
-        run: npx astro preview --port 4323 &
+        run: npm run serve:dist &
 
       - name: Accessibility and horizontal overflow, every page, both themes
         run: npx wait-on http://localhost:4323/docs-wallet/ && npm run check:a11y

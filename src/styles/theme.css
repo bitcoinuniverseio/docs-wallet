@@ -200,6 +200,17 @@
 
 /* ------------------------------------------------------------- tables ----- */
 
+/*
+  Starlight makes a markdown table its own scroll container with
+  `display: block; overflow: auto`. That produces a scrollable region no
+  keyboard can reach, and a second one nested inside the focusable frame this
+  site already wraps every table in. Hand the scrolling back to the frame.
+*/
+.sl-markdown-content table:not(:where(.not-content *)) {
+  display: table;
+  overflow: visible;
+}
+
 .sl-markdown-content table {
   font-size: 0.95rem;
   border-collapse: collapse;
@@ -785,4 +796,8 @@
 
 .u-dg .dg-hatch-fill {
   fill: var(--u-dg-hold-line);
+}
+
+.u-dg .dg-strong {
+  font-weight: 700;
 }

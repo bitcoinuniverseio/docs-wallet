@@ -23,7 +23,8 @@
     "test": "npm run check:copy && npm run check:public-safety && npm run check:capability && npm run check:manifest && npm run check:schema && npm run check:diagrams && npm run check:llms && npm run check:markdown",
     "check:llms": "node scripts/generate-llms.mjs --check",
     "check:schema": "node scripts/validate-manifest-schema.mjs",
-    "llms": "node scripts/generate-llms.mjs"
+    "llms": "node scripts/generate-llms.mjs",
+    "serve:dist": "node scripts/serve-dist.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.0",

@@ -9,6 +9,13 @@ lastVerified: 2026-09-01
 
 import { Aside } from '@astrojs/starlight/components';
 
+{/*
+  Anchor targets kept from the retiring GitBook page, so inbound deep links
+  still land on the right section rather than at the top of a long reference.
+*/}
+<span id="unisat-wallet-api" />
+<span id="getting-started" />
+
 For developers building web applications that integrate Universe Wallet. Every signature below was
 read from the extension source at 1.7.5.8. Where the source declares no return type, the runtime shape
 is given and marked as such.
@@ -18,7 +25,7 @@ before any code.
 
 ## The provider object
 
-<span id="unisat-wallet-api" /><span id="getting-started" /><span id="browser-detection" /><span id="connecting-to-unisat-wallet" />
+<span id="browser-detection" />
 
 With the extension [installed](/docs-wallet/start/install), every page gets a provider object. The
 primary name is **`window.tapwallet`**.
@@ -71,6 +78,8 @@ Properties whose names begin with an underscore return `undefined` through the p
 EventEmitter internals. Do not rely on any of them.
 
 ## Connecting
+
+<span id="connecting-to-unisat-wallet" />
 
 Connecting means asking to see the user's selected account address. It never authorizes spending.
 Every later transaction or message opens its own approval, and idle connections

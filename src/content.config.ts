@@ -26,6 +26,11 @@ export const collections = {
         lastVerified: z.coerce.date().optional(),
         /** Set false on pages that are navigation rather than product facts. */
         provenance: z.boolean().default(true),
+        /**
+         * Suppress the generated page heading. Only for a page that renders its
+         * own h1, so that the document never has two.
+         */
+        hideTitle: z.boolean().default(false),
       }),
     }),
   }),

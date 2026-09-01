@@ -20,6 +20,10 @@ const SECTIONS: Record<string, string> = {
   help: 'Help',
 };
 
+// A page that renders its own h1 suppresses the generated one, so the document
+// never carries two.
+const hideTitle = (entry.data as { hideTitle?: boolean }).hideTitle === true;
+
 const slug = entry.id.replace(/\.mdx?$/, '');
 const dir = slug.includes('/') ? slug.split('/')[0] : null;
 const section = dir ? SECTIONS[dir] : null;
@@ -50,7 +54,7 @@ const sectionHref =
   )
 }
 
-<Default />
+{!hideTitle && <Default />}
 
 <style>
   .u-crumbs {
