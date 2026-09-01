@@ -8,11 +8,23 @@
   "docsRoot": ".",
   "sourceRef": "main",
   "releasedRef": "50cecbb79906a5e51ccbf4244deabf9e0ab305b9",
-  "releaseVersion": "continuous",
+  "releaseVersion": "1.7.5.8",
   "lifecycle": "stable",
   "chains": [
     {
       "chain": "bitcoin",
+      "networks": [
+        "mainnet"
+      ]
+    },
+    {
+      "chain": "dogecoin",
+      "networks": [
+        "mainnet"
+      ]
+    },
+    {
+      "chain": "zcash",
       "networks": [
         "mainnet"
       ]
