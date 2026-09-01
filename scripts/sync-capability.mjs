@@ -1,34 +1,30 @@
 #!/usr/bin/env node
-// Keeps every version and capability claim in this documentation identical to
-// the release it describes.
+// Keeps every version and capability claim on this site identical to the
+// release it describes.
 //
 // The wallet repository generates docs/PUBLIC-CAPABILITY-SUMMARY.json from the
 // version in its package.json and the authorization state in its protocol
 // release matrix. That file is the only place a capability claim may come from.
-// `capability-snapshot.json` here is a copy of it, and the blocks between
-// `<!-- capability:NAME start -->` and `<!-- capability:NAME end -->` markers in
-// the Markdown are generated from that copy.
+// capability-snapshot.json here is a copy of it, and every count on the site is
+// rendered from that copy at build time rather than typed into prose.
 //
-// This exists because a documentation set and a store listing that describe
-// support in prose will drift from the build, and a claim that a protocol works
-// when the release does not authorize it is a false statement about someone's
-// money, not a stale sentence.
+// This exists because a documentation set that describes support in prose will
+// drift from the build, and a claim that a protocol works when the release does
+// not authorize it is a false statement about someone's money, not a stale
+// sentence.
 //
 // Usage:
 //   node scripts/sync-capability.mjs --pull [path]  refresh the snapshot from the wallet repository
-//   node scripts/sync-capability.mjs                rewrite the marked blocks from the snapshot
-//   node scripts/sync-capability.mjs --check        fail if any marked block is stale
+//   node scripts/sync-capability.mjs --check        fail if any page contradicts the snapshot
 
-import { copyFileSync, existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { copyFileSync, existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const here = dirname(fileURLToPath(import.meta.url).replace(/^\/([A-Za-z]:)/, '$1'));
-const root = resolve(here, '..');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const snapshotPath = resolve(root, 'capability-snapshot.json');
 
 const args = process.argv.slice(2);
-const checkOnly = args.includes('--check');
 const pullIndex = args.indexOf('--pull');
 
 if (pullIndex !== -1) {
@@ -51,136 +47,77 @@ if (pullIndex !== -1) {
 }
 
 const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8'));
+const problems = [];
 
-// ---------------------------------------------------------------------------
-// Block builders. Each returns the body that goes between its markers.
-// ---------------------------------------------------------------------------
+// The snapshot has to be internally consistent before it can be trusted.
+const computedSupported = snapshot.protocols.filter((p) => p.supportedOperations.length > 0).length;
+if (computedSupported !== snapshot.supportedProtocolCount) {
+  problems.push(
+    `capability-snapshot.json: supportedProtocolCount is ${snapshot.supportedProtocolCount} but ` +
+      `${computedSupported} protocols carry supported operations.`,
+  );
+}
+if (snapshot.protocols.length !== snapshot.protocolCount) {
+  problems.push(
+    `capability-snapshot.json: protocolCount is ${snapshot.protocolCount} but the array holds ` +
+      `${snapshot.protocols.length}.`,
+  );
+}
+if (snapshot.anyProtocolSupported !== computedSupported > 0) {
+  problems.push('capability-snapshot.json: anyProtocolSupported disagrees with the protocol list.');
+}
 
-const blocks = {
-  version() {
-    return [`This documentation describes Universe Wallet ${snapshot.walletVersion}.`];
-  },
+// No page may state a version or a count that contradicts the snapshot. Counts
+// belong in JSX expressions reading the snapshot, not in typed prose.
+const version = snapshot.walletVersion;
+const versionShape = /\b1\.\d+\.\d+\.\d+\b/g;
+const countShape = /\b(\d{1,3})\s+of\s+(\d{1,3})\s+protocols\b/gi;
 
-  networks() {
-    // Every network the release matrix covers, listed in full. A chain without a
-    // Mainnet row is real: Babylon's Cosmos network is reached through the
-    // staking flow rather than as a wallet-level chain, and splitting the column
-    // into "mainnet plus extras" made that chain read as if it were missing one.
-    const lines = ['| Chain | Unit | Networks |', '| --- | --- | --- |'];
-    for (const chain of snapshot.chains) {
-      lines.push(`| ${chain.name} | ${chain.unit} | ${chain.networks.join(', ')} |`);
-    }
-    return lines;
-  },
-
-  // The one sentence a reader needs about protocol support in the release they
-  // installed. It is generated so it cannot be left behind by a release, and it
-  // is deliberately blunt when nothing is authorized.
-  'support-state'() {
-    if (!snapshot.anyProtocolSupported) {
-      return [
-        `**No protocol operation is authorized in ${snapshot.walletVersion}.**`,
-        '',
-        `The wallet carries code for ${snapshot.protocolCount} protocols, and the release intends to ship many of`,
-        'them. None of them has completed evidence for this build, so every protocol action fails closed:',
-        'the screen loads, states that the operation is unavailable, and names what is missing. Bitcoin,',
-        'Dogecoin and Zcash balances, receive, send, review, activity, coin control, connections, backup and',
-        'recovery are unaffected, because they do not sit behind a protocol gate.',
-        '',
-        'See [why a protocol appears only when evidence proves it](assets-and-protocols/supported-protocols.md).',
-      ];
-    }
-    return [
-      `${snapshot.supportedProtocolCount} of ${snapshot.protocolCount} protocols are authorized in ` +
-        `${snapshot.walletVersion}. Every other protocol fails closed and says what is missing.`,
-    ];
-  },
-
-  protocols() {
-    const state = {
-      supported: 'Supported',
-      'partly-supported': 'Partly supported',
-      'not-in-this-release': 'Not in this release',
-    };
-    const lines = ['| Protocol | State in this release | Operations you can use |', '| --- | --- | --- |'];
-    for (const protocol of snapshot.protocols) {
-      const operations = protocol.supportedOperations.length ? protocol.supportedOperations.join(', ') : 'None';
-      lines.push(`| ${protocol.name} | ${state[protocol.supportState]} | ${operations} |`);
-    }
-    return lines;
-  },
-};
-
-// ---------------------------------------------------------------------------
-// Rewrite
-// ---------------------------------------------------------------------------
-
-function markdownFiles(dir, out = []) {
+function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
-    if (name === '.git' || name === 'node_modules' || name === 'assets') continue;
-    const full = resolve(dir, name);
-    if (statSync(full).isDirectory()) markdownFiles(full, out);
-    else if (name.endsWith('.md') || name === 'llms.txt') out.push(full);
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) walk(full, out);
+    else if (/\.mdx?$/.test(name)) out.push(full);
   }
   return out;
 }
 
-const files = markdownFiles(root);
-const stale = [];
-const rewritten = [];
-const seenBlocks = new Set();
+const contentDir = join(root, 'src', 'content', 'docs');
+const pages = existsSync(contentDir) ? walk(contentDir) : [];
 
-for (const file of files) {
-  const original = readFileSync(file, 'utf8');
-  const eol = original.includes('\r\n') ? '\r\n' : '\n';
-  let updated = original;
-
-  for (const [name, build] of Object.entries(blocks)) {
-    const startMarker = `<!-- capability:${name} start -->`;
-    const endMarker = `<!-- capability:${name} end -->`;
-    const start = updated.indexOf(startMarker);
-    if (start === -1) continue;
-    const end = updated.indexOf(endMarker, start);
-    if (end === -1) {
-      process.stderr.write(`${file} opens capability:${name} but never closes it.\n`);
-      process.exit(1);
+for (const file of pages) {
+  const rel = relative(root, file).split('\\').join('/');
+  const lines = readFileSync(file, 'utf8').split('\n');
+  lines.forEach((line, i) => {
+    const at = `${rel}:${i + 1}`;
+    for (const m of line.matchAll(versionShape)) {
+      // 1.0.13 is the published store build and is deliberately different.
+      if (m[0] !== version && m[0] !== '1.0.13' && !/1\.7\.5\.[456]/.test(m[0])) {
+        problems.push(`${at} names version ${m[0]}, which is neither ${version} nor a documented candidate.`);
+      }
     }
-    seenBlocks.add(name);
-    const body = build().join(eol);
-    const replacement = `${startMarker}${eol}${eol}${body}${eol}${eol}`;
-    updated = updated.slice(0, start) + replacement + updated.slice(end);
-  }
-
-  if (updated === original) continue;
-  if (checkOnly) stale.push(file.slice(root.length + 1).replaceAll('\\', '/'));
-  else {
-    writeFileSync(file, updated);
-    rewritten.push(file.slice(root.length + 1).replaceAll('\\', '/'));
-  }
+    for (const m of line.matchAll(countShape)) {
+      if (Number(m[1]) !== snapshot.supportedProtocolCount || Number(m[2]) !== snapshot.protocolCount) {
+        problems.push(
+          `${at} states "${m[0]}" but the snapshot says ${snapshot.supportedProtocolCount} of ` +
+            `${snapshot.protocolCount}. Render counts from the snapshot instead of typing them.`,
+        );
+      }
+    }
+  });
 }
 
-const unused = Object.keys(blocks).filter((name) => !seenBlocks.has(name));
-if (unused.length) {
+if (problems.length) {
+  process.stderr.write(`Capability claims: ${problems.length} problem(s).\n\n`);
+  for (const p of problems) process.stderr.write(`  ${p}\n`);
   process.stderr.write(
-    `These capability blocks are defined but no page uses them: ${unused.join(', ')}. ` +
-      'Either place the marker or remove the builder, so the generator cannot quietly stop covering a claim.\n',
+    '\nEvery version and capability claim must come from capability-snapshot.json.\n' +
+      'Refresh it with `npm run capability:pull` after regenerating it in the wallet repository.\n',
   );
   process.exit(1);
 }
 
-if (checkOnly) {
-  if (stale.length) {
-    process.stderr.write(
-      `Capability blocks are stale in: ${stale.join(', ')}. Run \`node scripts/sync-capability.mjs\`.\n`,
-    );
-    process.exit(1);
-  }
-  process.stdout.write(`Capability blocks are current for ${snapshot.walletVersion}.\n`);
-  process.exit(0);
-}
-
 process.stdout.write(
-  rewritten.length
-    ? `Updated capability blocks in: ${rewritten.join(', ')}\n`
-    : `Capability blocks already current for ${snapshot.walletVersion}.\n`,
+  `Capability claims pass. Wallet ${version}, ${snapshot.supportedProtocolCount} of ` +
+    `${snapshot.protocolCount} protocols authorized, ${pages.length} pages checked.\n`,
 );

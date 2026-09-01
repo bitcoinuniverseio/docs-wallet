@@ -1,0 +1,63 @@
+---
+title: The protocol registry
+description: Every protocol the wallet knows about, the chains it runs on, the operations the product intends, and what this release actually authorizes.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: docs/PUBLIC-CAPABILITY-SUMMARY.json
+lifecycle: not-released
+lastVerified: 2026-09-01
+---
+
+import ProtocolTable from '../../../components/ProtocolTable.astro';
+import { Aside } from '@astrojs/starlight/components';
+import snapshot from '../../../../capability-snapshot.json';
+
+This table is generated from the wallet's own capability summary. It is not written by hand and it is
+not a wish list.
+
+<Aside type="caution" title="Read the two operation columns separately">
+**Intended operations** is what the product is built to do for that protocol. **Authorized here** is
+what this release actually permits. In {snapshot.walletVersion} the second column reads `none` for
+every row, because the committed baseline authorizes nothing. See
+[What this release authorizes](/docs-wallet/assets/support-state).
+</Aside>
+
+## What the operation names mean
+
+| Operation | Meaning |
+| --- | --- |
+| `read` | The wallet can display balances or holdings for the protocol |
+| `explore` | The wallet can browse the protocol's data |
+| `deploy` | Create a new token or collection |
+| `mint` | Create new units of an existing token |
+| `etch` | Define a new rune |
+| `inscribe` | Write new data to the chain |
+| `transfer` | Move an existing holding to another address |
+| `marketplace` | Take part in that protocol's trading flow |
+| `send` | Move the chain's own currency |
+| `sign` | Produce a signature for the protocol's transaction shape |
+| `broadcast` | Submit the signed transaction to the network |
+
+A protocol with only `read` and `explore` is one you can look at and not trade. That is a deliberate
+state, not an incomplete one.
+
+## Every protocol
+
+<ProtocolTable />
+
+## Notes on individual entries
+
+- **BRC-110** declares no intended operations and is recorded as intentionally out of scope. It is in
+  the registry so that the list is complete, not because it is planned.
+- **Babylon** appears on a Cosmos network and is **not selectable in the network picker**. Its screens
+  carry a design obligation recorded as not intended, meaning only the unavailable state ships. Treat
+  it as unavailable.
+- **Fractal Bitcoin** appears both as a chain in the picker and as a protocol row with `read` and
+  `explore`.
+- Aliases matter when you read other documentation. `ordinals` covers inscriptions, rare sats, media,
+  text, and names. `zerdinals` and `zrunes` are the Zcash entries.
+
+## Related
+
+- [What this release authorizes](/docs-wallet/assets/support-state)
+- [Why an action is unavailable](/docs-wallet/assets/why-unavailable)
+- [Chains and networks](/docs-wallet/concepts/chains-and-networks)

@@ -1,0 +1,83 @@
+---
+// Payment addresses and asset addresses.
+// Every address, path and value below is invented. Nothing here comes from a
+// real wallet.
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 486"
+  role="img"
+  aria-labelledby="dg-lanes-t dg-lanes-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-lanes-t">One recovery phrase, four address lanes, and what each lane is for</title>
+  <desc id="dg-lanes-d">
+    A single twelve word recovery phrase sits at the top. Below it, key derivation
+    produces four Bitcoin address lanes from the same phrase. Native SegWit at
+    derivation path m slash 84, addresses beginning bc1q, is the default payment
+    lane. Nested SegWit at m slash 49, addresses beginning 3, exists for older
+    services that cannot pay a bech32 address. Taproot at m slash 86, addresses
+    beginning bc1p, is the lane where inscriptions and most protocol assets are
+    conventionally held. Legacy at m slash 44, addresses beginning 1, is the
+    oldest format and costs the most to spend. A closing note states that no
+    address type is an asset address at the protocol level: an artifact lives on
+    a specific output, and moving that output is what moves the artifact.
+  </desc>
+
+  <text class="dg-kicker" x="0" y="14">ONE PHRASE, FOUR LANES</text>
+
+  <!-- Source of everything -->
+  <rect class="dg-panel-2" x="0.75" y="26" width="638.5" height="56" rx="4" />
+  <text class="dg-h" x="16" y="49">Secret Recovery Phrase (12 words)</text>
+  <text class="dg-sm dg-dim" x="16" y="69">
+    Every address below is derived from these words. Nothing else is needed to recreate them.
+  </text>
+
+  <!-- Spine -->
+  <path class="dg-arrow" d="M40 82 L40 424" />
+  <path class="dg-arrow" d="M40 128 L64 128" />
+  <path class="dg-arrow" d="M40 202 L64 202" />
+  <path class="dg-arrow" d="M40 276 L64 276" />
+  <path class="dg-arrow" d="M40 350 L64 350" />
+
+  <!-- Lane 1: Native SegWit -->
+  <rect class="dg-panel" x="64.75" y="98.75" width="574.5" height="58.5" rx="4" />
+  <text class="dg-h" x="80" y="122">Native SegWit</text>
+  <text class="dg-mono dg-dim" x="80" y="142">m/84'/0'/0'</text>
+  <text class="dg-mono" x="266" y="122">bc1q...</text>
+  <text class="dg-sm dg-dim" x="266" y="142">Default lane. Plain payments in and out. Cheapest to spend.</text>
+  <text class="dg-kicker" x="266" y="112" style="letter-spacing:0.09em">PAYMENT LANE</text>
+
+  <!-- Lane 2: Taproot -->
+  <rect class="dg-panel" x="64.75" y="172.75" width="574.5" height="58.5" rx="4" />
+  <text class="dg-h" x="80" y="196">Taproot</text>
+  <text class="dg-mono dg-dim" x="80" y="216">m/86'/0'/0'</text>
+  <text class="dg-mono" x="266" y="196">bc1p...</text>
+  <text class="dg-sm dg-dim" x="266" y="216">Where inscriptions and most protocol assets are held by convention.</text>
+  <text class="dg-kicker" x="266" y="186" style="letter-spacing:0.09em">ARTIFACT LANE</text>
+
+  <!-- Lane 3: Nested SegWit -->
+  <rect class="dg-panel" x="64.75" y="246.75" width="574.5" height="58.5" rx="4" />
+  <text class="dg-h" x="80" y="270">Nested SegWit</text>
+  <text class="dg-mono dg-dim" x="80" y="290">m/49'/0'/0'</text>
+  <text class="dg-mono" x="266" y="270">3...</text>
+  <text class="dg-sm dg-dim" x="266" y="290">Compatibility lane, for a service that cannot pay a bc1 address.</text>
+
+  <!-- Lane 4: Legacy -->
+  <rect class="dg-panel" x="64.75" y="320.75" width="574.5" height="58.5" rx="4" />
+  <text class="dg-h" x="80" y="344">Legacy</text>
+  <text class="dg-mono dg-dim" x="80" y="364">m/44'/0'/0'</text>
+  <text class="dg-mono" x="266" y="344">1...</text>
+  <text class="dg-sm dg-dim" x="266" y="364">Oldest format. Largest transactions, so the highest fee to spend.</text>
+
+  <!-- The correction -->
+  <rect class="dg-panel-2" x="0.75" y="400.75" width="638.5" height="84.5" rx="4" />
+  <text class="dg-kicker" x="16" y="422">THE PART PEOPLE GET WRONG</text>
+  <text class="dg-sm" x="16" y="446">
+    Bitcoin has no "asset address". An inscription or a token balance lives on one specific output,
+  </text>
+  <text class="dg-sm" x="16" y="466">
+    not on an address. Spending that output is what moves the artifact, whatever lane it sits in.
+  </text>
+</svg>

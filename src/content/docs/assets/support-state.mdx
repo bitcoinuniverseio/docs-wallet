@@ -1,0 +1,66 @@
+---
+title: What this release authorizes
+description: The generated answer to which protocol operations Universe Wallet 1.7.5.8 authorizes, and why the number is what it is.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: docs/PUBLIC-CAPABILITY-SUMMARY.json
+lifecycle: not-released
+lastVerified: 2026-09-01
+---
+
+import Diagram from '../../../components/Diagram.astro';
+import ReleaseEvidence from '../../../components/diagrams/ReleaseEvidence.astro';
+import { Aside } from '@astrojs/starlight/components';
+import snapshot from '../../../../capability-snapshot.json';
+
+<Aside type="danger" title="The number, first">
+Universe Wallet **{snapshot.walletVersion}** carries **{snapshot.protocolCount}** protocols in its
+registry and authorizes **{snapshot.supportedProtocolCount}** of them. No protocol operation is
+available in the committed baseline. Do not plan around a protocol action working.
+</Aside>
+
+That figure comes from the wallet's own generated capability summary, which is the only source this
+documentation is permitted to make a version or capability claim from. It is copied into this
+repository as `capability-snapshot.json` and every count on this site is rendered from it, so the two
+cannot drift apart.
+
+## Why zero
+
+<Diagram title="Why an action appears only when evidence covers the whole path behind it">
+  <ReleaseEvidence />
+  <span slot="caption">
+    An operation is authorized only when current evidence exists for <b>every</b> link behind it, bound
+    to the exact commit of the build. The baseline in the repository carries none, on purpose, so that
+    a build can never inherit an authorization it did not earn.
+  </span>
+</Diagram>
+
+The rule the product applies is: **code existing is not support**. A route existing is not
+availability. A parser existing is not wallet support. Authorization is attached at release time, per
+protocol, per network, per operation, from evidence covering the wallet, the API, the indexer, the
+network, confirmation, and reconciliation.
+
+One qualification campaign has completed, scoped to Zerdinals and ZRunes, producing an authorization
+covering thirteen operations across those two protocols against one candidate commit. That artifact
+has not been published. See [Which version you are running](/docs-wallet/start/versions).
+
+## What is still true with zero authorized
+
+The parts of the wallet that carry no protocol gate work regardless: creating and importing wallets,
+receiving, addresses and address types, network switching, connections, the security dashboard,
+locked-coin and coin-health views, the address book, and activity.
+
+The parts that carry a protocol gate, including **ordinary Bitcoin sending**, depend on what your
+build authorized. The screen tells you. See
+[Why an action is unavailable](/docs-wallet/assets/why-unavailable).
+
+## How to read a claim anywhere else
+
+If a page, a listing, a social post, or a person tells you a protocol action works in Universe Wallet,
+the way to check is not to ask them. Open the screen. If the operation is not authorized in your
+build, the screen says so and names what is missing.
+
+## Related
+
+- [The protocol registry](/docs-wallet/assets/protocol-registry), all {snapshot.protocolCount} of them
+- [Capability evidence](/docs-wallet/reference/capability-evidence)
+- [Why an action is unavailable](/docs-wallet/assets/why-unavailable)

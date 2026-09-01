@@ -1,0 +1,92 @@
+---
+title: If your wallet is compromised
+description: What to do first, in order, when you think your phrase was seen, a signature went wrong, or coins moved without you.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: docs/STORE-LISTING.md
+lifecycle: experimental
+lastVerified: 2026-09-01
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+This page is written to be read quickly, by someone who is not calm. Start at the situation that
+matches yours.
+
+<Aside type="danger" title="Before anything else">
+Do not enter your recovery phrase into any site, tool, or person offering to help. Every recovery
+service is a second theft. There is no legitimate one, anywhere, for any wallet.
+</Aside>
+
+## Your recovery phrase may have been seen
+
+This is the most serious case, because access cannot be taken back.
+
+**A phrase cannot be made secret again.** Changing your password does nothing. Locking the wallet does
+nothing. Uninstalling does nothing. The only fix is to move everything to keys that person has never
+seen.
+
+1. **Create a brand new wallet, from a new phrase.** On a device you believe is clean. Write the new
+   phrase down on paper.
+2. **Move your plain currency first.** It is the easiest to sweep and the most likely to be taken.
+3. **Move your assets next**, using the flow built for each asset type. If those flows are not
+   available in your build, you cannot move assets from inside this wallet, and you should still move
+   the currency. See [Why an action is unavailable](/docs-wallet/assets/why-unavailable).
+4. **Do not send anything back to the old wallet**, ever, including change from an unrelated
+   transaction.
+5. **Assume anything left behind will be taken.** Prioritise by value, not by convenience.
+
+If your holdings are large and the exposure is recent, moving currency in a single high-fee
+transaction is usually worth it. An attacker who is watching will race you.
+
+## You approved something and now regret it
+
+1. **Open [Connected sites](/docs-wallet/tasks/manage-connections) and disconnect the site.** This
+   stops further requests. It does not undo what you already signed.
+2. **Check [Activity](/docs-wallet/tasks/activity)** for what actually happened.
+3. **Work out what the signature was.** A payment is done. A message signature moved nothing. A
+   partial signature may still be outstanding and completable by someone else. See
+   [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes).
+4. **If a partial signature is outstanding**, the only certain revocation is to spend the committed
+   coin yourself, into a transaction you control, so the offer can no longer be completed.
+
+## Coins moved without you
+
+1. **Check whether it was really unauthorized.** A change output returning to your own address looks
+   like an outgoing transaction to a stranger. Check whether the destination is one of yours.
+2. **If it genuinely was not you, your keys are compromised.** Follow the phrase-exposed procedure
+   above immediately. Do not investigate first.
+3. **Record the transaction ids** before you do anything else. They are the only evidence, and they
+   are public.
+
+## You installed something that was not the real wallet
+
+1. Remove it.
+2. If you entered your phrase into it, treat the phrase as fully exposed and follow the first
+   procedure above.
+3. If you never entered a phrase into it, no key material was ever there and you are fine.
+
+## What nobody can do for you
+
+- Reverse a confirmed transaction.
+- Freeze funds at another address.
+- Recover a lost phrase.
+- Identify who took the coins in a way that gets them back.
+
+<Aside type="caution" title="The second wave">
+People who lose funds publicly are targeted immediately by recovery scams. If you post about a loss,
+expect messages from accounts impersonating support, offering blockchain forensics, or claiming to
+know a validator who can reverse it. All of them are the same scam. Post the transaction id if you
+want, and never post an address you still use, and never speak to anyone who contacts you first.
+</Aside>
+
+## Afterwards
+
+- Review [Security model](/docs-wallet/safety/security-model) and decide what you would do
+  differently.
+- Consider [hardware signing](/docs-wallet/tasks/hardware-wallet) for long-term holdings.
+- Keep experimenting money in a separate wallet from savings.
+
+## Reporting
+
+If you believe the loss came from a flaw in the product rather than from an exposed phrase, report it
+to `legal@bitcoinuniverse.io`. See [Support and reporting](/docs-wallet/help/support).

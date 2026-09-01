@@ -1,0 +1,86 @@
+---
+title: Back up your recovery phrase
+description: How to record the phrase so it survives fire, theft, moving house, and your own memory, and how to prove the backup actually works.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: frontend/ui/pages/Settings/ExportMnemonicsScreen.tsx
+lifecycle: experimental
+lastVerified: 2026-09-01
+---
+
+import Diagram from '../../../components/Diagram.astro';
+import BackupRecovery from '../../../components/diagrams/BackupRecovery.astro';
+
+**Intended reader:** anyone whose wallet holds, or will hold, anything they would mind losing.
+**Goal:** a physical record of the phrase that you can find in five years.
+**Prerequisites:** the wallet, your password, pen and paper, a private room.
+**Safety:** this is the highest-risk routine action in the whole product. Everything else can be
+retried.
+
+## The rule
+
+Your recovery phrase is the wallet. Not a hint, not a reset code. Whoever has the words has the coins.
+
+<Diagram title="Which loss the recovery phrase covers, and the one it does not">
+  <BackupRecovery />
+  <span slot="caption">
+    <b>What the phrase carries:</b> every account, every network, every address type, on any device and
+    in any BIP-39 compatible wallet. <b>What it does not carry:</b> your password, your connected
+    sites, your labels, contacts, frozen coins, and spending limits. Those are device settings and
+    have to be set up again after a restore.
+  </span>
+</Diagram>
+
+## Where to write it
+
+| Do | Do not |
+| --- | --- |
+| Pen on paper, or stamped metal | Photograph it |
+| Two copies, in two separate places | Store it in cloud notes, email, or chat |
+| Numbered, in order | Type it into any website, ever |
+| Somewhere a house fire or a burglary would not reach both copies | Store it in a password manager you do not control the sync of |
+| Somewhere someone you trust could find it if you could not | Split it across services and hope |
+
+Order is part of the secret. Twelve correct words in the wrong order is not your wallet.
+
+## Steps
+
+1. Open **Settings**, then **Export recovery phrase**.
+2. Enter your password.
+3. Write the words on paper, numbered, in order.
+4. Close the screen before you do anything else.
+5. Put the paper where you decided it goes, now, not later.
+
+## How to verify the backup works
+
+A backup you have never tested is a hope, not a backup.
+
+1. Note the first receiving address of your wallet.
+2. In a separate browser profile, install the extension and restore from the paper copy alone. Do not
+   look at the screen version.
+3. Confirm the same first address appears.
+4. Remove that test wallet from the second profile.
+
+If the address matches, your paper copy is correct and complete. If it does not, fix it while you can.
+
+## Expected result
+
+You can reconstruct the wallet from paper alone, with no device, no password, and no help.
+
+## Common failures
+
+| What happens | What it means |
+| --- | --- |
+| The restored wallet shows a different address | Usually a different address type, not a wrong phrase. Compare all four. See [Address types](/docs-wallet/concepts/address-types). |
+| A word is illegible on the paper | Rewrite the whole phrase from the wallet now, while you still can unlock it. |
+| You used a BIP-39 passphrase and did not record it | The phrase alone is not enough. Record the passphrase separately, in a different place. |
+
+## Recovery path
+
+While you can still unlock the wallet, every backup problem is fixable: open the export screen and
+write it again. Once you cannot unlock it and the paper is wrong, there is no path. That asymmetry is
+the whole reason to do this today.
+
+## Related
+
+- [Backup and recovery](/docs-wallet/concepts/backup-and-recovery)
+- [If your wallet is compromised](/docs-wallet/safety/compromised-wallet)

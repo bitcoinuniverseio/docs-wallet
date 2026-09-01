@@ -1,0 +1,124 @@
+---
+// How asset-bearing coins are kept out of an ordinary payment.
+// Outpoints and values are invented.
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 534"
+  role="img"
+  aria-labelledby="dg-prot-t dg-prot-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-prot-t">How asset-bearing coins are kept out of an ordinary payment</title>
+  <desc id="dg-prot-d">
+    Five coins owned by one wallet enter a classifier. The classifier asks, for
+    each coin, whether it carries an inscription, an indexed protocol balance, a
+    rare satoshi candidate, or a user lock. Two coins carry nothing and are
+    placed in the spendable pool, which is what a plain payment may draw from. Two
+    coins carry an artifact or a token balance and are placed in the protected
+    pool, drawn with a hatched fill and labelled Protected. A fifth coin could not
+    be checked because the rare satoshi service did not answer, and it is placed
+    in the protected pool as well, because unknown is treated as unsafe rather
+    than as safe. A plain send is drawn taking a single arrow from the spendable
+    pool only. Spending a protected coin requires the flow built for that asset
+    plus a named confirmation, drawn as a separate path.
+  </desc>
+
+  <defs>
+    <pattern id="dg-hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="2.2" height="7" class="dg-hatch-fill" />
+    </pattern>
+  </defs>
+
+  <text class="dg-kicker" x="0" y="14">CLASSIFY BEFORE YOU SELECT</text>
+
+  <!-- Column heads -->
+  <text class="dg-h" x="0" y="42">Your coins</text>
+  <text class="dg-h" x="228" y="42">Checked</text>
+  <text class="dg-h" x="392" y="42">Sorted into two pools</text>
+
+  <!-- Coins -->
+  <rect class="dg-panel" x="0.75" y="54.75" width="196.5" height="42.5" rx="3" />
+  <text class="dg-mono" x="14" y="74">a1f2...:0</text>
+  <text class="dg-sm dg-dim" x="14" y="90">0.01200000 BTC, plain</text>
+
+  <rect class="dg-panel" x="0.75" y="104.75" width="196.5" height="42.5" rx="3" />
+  <text class="dg-mono" x="14" y="124">a1f2...:1</text>
+  <text class="dg-sm dg-dim" x="14" y="140">0.00330000 BTC, plain</text>
+
+  <rect class="dg-panel" x="0.75" y="154.75" width="196.5" height="42.5" rx="3" />
+  <text class="dg-mono" x="14" y="174">7c9b...:0</text>
+  <text class="dg-sm dg-dim" x="14" y="190">0.00000546 BTC, inscription</text>
+
+  <rect class="dg-panel" x="0.75" y="204.75" width="196.5" height="42.5" rx="3" />
+  <text class="dg-mono" x="14" y="224">be31...:2</text>
+  <text class="dg-sm dg-dim" x="14" y="240">0.00000330 BTC, token</text>
+
+  <rect class="dg-panel" x="0.75" y="254.75" width="196.5" height="42.5" rx="3" />
+  <text class="dg-mono" x="14" y="274">4d70...:0</text>
+  <text class="dg-sm dg-dim" x="14" y="290">0.00051000 BTC, unchecked</text>
+
+  <!-- Classifier -->
+  <rect class="dg-panel-2" x="222.75" y="54.75" width="146.5" height="242.5" rx="4" />
+  <text class="dg-sm" x="236" y="80">Does this coin carry</text>
+  <text class="dg-sm dg-dim" x="236" y="102">an inscription?</text>
+  <text class="dg-sm dg-dim" x="236" y="122">a token balance?</text>
+  <text class="dg-sm dg-dim" x="236" y="142">a rare-sat candidate?</text>
+  <text class="dg-sm dg-dim" x="236" y="162">a lock you set?</text>
+  <path class="dg-rule" d="M236 178 L356 178" />
+  <text class="dg-sm" x="236" y="200">If a check cannot</text>
+  <text class="dg-sm" x="236" y="220">finish, the answer</text>
+  <text class="dg-sm" x="236" y="240">is treated as yes.</text>
+  <text class="dg-sm dg-dim" x="236" y="272">Unknown is not safe.</text>
+
+  <path class="dg-arrow" d="M198 76 L221 76" />
+  <path class="dg-arrow" d="M198 126 L221 126" />
+  <path class="dg-arrow" d="M198 176 L221 176" />
+  <path class="dg-arrow" d="M198 226 L221 226" />
+  <path class="dg-arrow" d="M198 276 L221 276" />
+
+  <!-- Spendable pool -->
+  <rect class="dg-panel" x="392.75" y="54.75" width="246.5" height="94.5" rx="4" />
+  <text class="dg-h" x="406" y="78">Spendable</text>
+  <text class="dg-mono dg-dim" x="406" y="100">a1f2...:0</text>
+  <text class="dg-mono dg-dim" x="406" y="120">a1f2...:1</text>
+  <text class="dg-sm dg-dim" x="406" y="140">A plain payment may use these.</text>
+
+  <!-- Protected pool -->
+  <rect class="dg-hold" x="392.75" y="164.75" width="246.5" height="132.5" rx="4" />
+  <rect x="392.75" y="164.75" width="246.5" height="132.5" rx="4" fill="url(#dg-hatch)" opacity="0.16" />
+  <text class="dg-h" x="406" y="188">Protected</text>
+  <text class="dg-mono dg-dim" x="406" y="210">7c9b...:0</text>
+  <text class="dg-mono dg-dim" x="406" y="230">be31...:2</text>
+  <text class="dg-mono dg-dim" x="406" y="250">4d70...:0</text>
+  <text class="dg-sm dg-dim" x="406" y="272">Never selected to fund a</text>
+  <text class="dg-sm dg-dim" x="406" y="288">plain payment.</text>
+
+  <path class="dg-arrow" d="M370 100 L391 100" />
+  <path class="dg-arrow" d="M370 230 L391 230" />
+
+  <!-- Outcomes -->
+  <rect class="dg-panel" x="0.75" y="326.75" width="310.5" height="98.5" rx="4" />
+  <text class="dg-kicker" x="16" y="350">FROM SPENDABLE</text>
+  <text class="dg-sm" x="16" y="374">Send 0.005 BTC to a friend.</text>
+  <text class="dg-sm dg-dim" x="16" y="396">Nothing is asked about assets, because</text>
+  <text class="dg-sm dg-dim" x="16" y="412">no asset can be reached from this pool.</text>
+
+  <rect class="dg-panel" x="328.75" y="326.75" width="310.5" height="98.5" rx="4" />
+  <text class="dg-kicker" x="344" y="350">FROM PROTECTED</text>
+  <text class="dg-sm" x="344" y="374">Move the inscription itself.</text>
+  <text class="dg-sm dg-dim" x="344" y="396">Uses the flow built for that asset, and</text>
+  <text class="dg-sm dg-dim" x="344" y="412">asks you to confirm by name first.</text>
+
+  <!-- Closing rule -->
+  <rect class="dg-panel-2" x="0.75" y="440.75" width="638.5" height="92.5" rx="4" />
+  <text class="dg-kicker" x="16" y="464">WHY THIS EXISTS</text>
+  <text class="dg-sm" x="16" y="488">
+    An inscription lives inside an ordinary coin. A wallet that treats every coin as plain bitcoin can
+  </text>
+  <text class="dg-sm" x="16" y="508">
+    spend a collectible as pocket change. Holding those coins back is the point, not a bug. Frozen value
+  </text>
+  <text class="dg-sm" x="16" y="528">still counts in your total balance; it just does not count as available.</text>
+</svg>

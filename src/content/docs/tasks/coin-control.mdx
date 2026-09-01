@@ -1,0 +1,89 @@
+---
+title: Coin control
+description: Where manual coin selection actually exists in this build, what the locked-coins and coin-health screens show, and what is not available.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: frontend/ui/services/manualUtxoSelectionService.ts, frontend/ui/pages/Utxo
+lifecycle: experimental
+lastVerified: 2026-09-01
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+**Intended reader:** someone who wants to decide which coins fund a transaction.
+**Goal:** control over selection, or a clear understanding of where you do not have it.
+**Prerequisites:** an unlocked wallet.
+**Safety:** selecting the wrong coin is how an artifact gets spent. The protection described in
+[Protected outputs](/docs-wallet/concepts/protected-outputs) is what stops that on the default path.
+
+<Aside type="caution" title="Where manual selection exists, and where it does not">
+In Universe Wallet 1.7.5.8, manual coin selection is offered **inside the PSBT approval flow**, where
+a request lets you choose which of your coins fund it. There is **no standalone coin control screen**
+that lets you pick inputs for an ordinary send before you build it. If you were expecting a general
+purpose coin picker on the send screen, it is not there.
+</Aside>
+
+## What is there
+
+### Locked coins
+
+A screen listing the coins currently held back from ordinary payments, and why each one is held. It
+has no protocol gate, so it is present regardless of what your build authorizes. This is the screen to
+open when your available balance is lower than your total and you want to know which coins account for
+the difference.
+
+### Coin health
+
+An overview of the shape of your coin set: how many coins you hold, how they are distributed, and how
+much is protected. Useful before a large payment, because a wallet made of many small coins produces
+large, expensive transactions.
+
+### Manual selection during PSBT approval
+
+When a signature request allows it, the approval screen offers a selector for which of your coins fund
+the transaction. Protected coins are excluded from that selector unless you are in a flow built for
+moving that asset.
+
+### Consolidation
+
+A consolidation screen exists, combining many small coins into fewer larger ones. It sits behind the
+`bitcoin/send` gate, so its availability depends on your build.
+
+## Why you would consolidate
+
+Fees follow transaction size, and size follows the number of inputs. A wallet holding fifty small
+coins pays much more to make a payment than a wallet holding three large ones.
+
+Consolidating during a quiet, low-fee period is cheaper than being forced to consolidate during a busy
+one.
+
+<Aside type="danger" title="Never consolidate blindly">
+Consolidation touches many coins at once, which is exactly the operation that can sweep an
+asset-bearing output into a payment if protection is not doing its job. Read the input list on the
+review screen before approving a consolidation, and confirm no protected coin appears in it.
+</Aside>
+
+## Locking a coin yourself
+
+You can mark a coin as locked, which keeps it out of ordinary payments the same way an asset-bearing
+coin is kept out. Locks are device settings: they do not travel with your recovery phrase, and a
+restore will not bring them back.
+
+## Expected result
+
+- You can see which coins are held back and why.
+- Where a flow offers selection, you choose which coins it uses.
+- Consolidation, where available, reduces the number of coins you hold.
+
+## Common failures
+
+| What you see | What it means |
+| --- | --- |
+| No coin picker on the send screen | Correct for this build. Selection is offered in the PSBT approval flow, not the send flow. |
+| A coin you want to spend is not selectable | It is protected. See [Protected outputs](/docs-wallet/concepts/protected-outputs). |
+| Consolidation says it is not available in this build | The `bitcoin/send` gate is not authorized in your release |
+
+## Related
+
+- [Protected outputs](/docs-wallet/concepts/protected-outputs)
+- [Inputs, outputs, fees, change](/docs-wallet/concepts/inputs-outputs-fees)
+- [Review a PSBT](/docs-wallet/tasks/review-a-psbt)
