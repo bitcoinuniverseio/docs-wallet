@@ -1,0 +1,19 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD024": { "siblings_only": true },
+    "MD033": false,
+    // "**Parameters**" in the API reference is a label inside a method entry,
+    // not a section. Promoting it to a heading would fill the page's table of
+    // contents with forty identical entries.
+    "MD036": false,
+    "MD034": false,
+    "MD041": false,
+    "MD046": false,
+    "MD049": { "style": "underscore" },
+    "MD050": { "style": "asterisk" }
+  },
+  "globs": ["src/content/**/*.md", "*.md"],
+  "ignores": ["node_modules/**", "dist/**"]
+}

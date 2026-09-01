@@ -1,0 +1,99 @@
+---
+// Inputs, outputs, fees and change.
+// The arithmetic below is real arithmetic on invented numbers:
+//   3,000,000 + 450,000 = 3,450,000 in
+//   2,000,000 + 1,446,152 + 3,848 = 3,450,000 out
+//   208 vB at 18.5 sat/vB = 3,848 sat
+---
+
+<svg
+  class="u-dg"
+  viewBox="0 0 640 520"
+  role="img"
+  aria-labelledby="dg-tx-t dg-tx-d"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title id="dg-tx-t">Inputs, outputs, fee and change in one transaction</title>
+  <desc id="dg-tx-d">
+    Two coins are spent as inputs: one of 3,000,000 satoshis and one of 450,000
+    satoshis, totalling 3,450,000 satoshis. They produce three results. The
+    recipient receives a new output of 2,000,000 satoshis. A second new output of
+    1,446,152 satoshis returns to an address the wallet owns, which is the
+    change. The remaining 3,848 satoshis are claimed by whoever mines the block,
+    and that is the fee. The fee is not entered as an amount: it is whatever the
+    inputs exceed the outputs by, and it is chosen indirectly by picking a rate in
+    satoshis per virtual byte. Here 208 virtual bytes at 18.5 satoshis per virtual
+    byte gives 3,848 satoshis. Two consequences are stated. Coins are spent whole,
+    so paying 2,000,000 satoshis from a 3,000,000 satoshi coin does not leave that
+    coin partly spent. And a bigger payment does not cost a bigger fee: the fee
+    follows the size of the transaction in bytes, not the amount being sent.
+  </desc>
+
+  <text class="dg-kicker" x="0" y="14">WHAT A PAYMENT IS MADE OF</text>
+
+  <!-- Inputs -->
+  <text class="dg-h" x="0" y="42">Inputs, spent whole</text>
+  <rect class="dg-panel" x="0.75" y="54.75" width="220.5" height="56.5" rx="3" />
+  <text class="dg-mono" x="14" y="76">3,000,000 sat</text>
+  <text class="dg-sm dg-dim" x="14" y="98">coin you already owned</text>
+
+  <rect class="dg-panel" x="0.75" y="120.75" width="220.5" height="56.5" rx="3" />
+  <text class="dg-mono" x="14" y="142">450,000 sat</text>
+  <text class="dg-sm dg-dim" x="14" y="164">coin you already owned</text>
+
+  <rect class="dg-panel-2" x="0.75" y="188.75" width="220.5" height="42.5" rx="3" />
+  <text class="dg-mono" x="14" y="215">3,450,000 sat in</text>
+
+  <!-- Junction -->
+  <path class="dg-arrow" d="M222 210 L268 210" />
+  <path class="dg-head" d="M268 205 L280 210 L268 215 Z" />
+  <rect class="dg-panel" x="284.75" y="186.75" width="70.5" height="46.5" rx="3" />
+  <text class="dg-sm" x="300" y="215">tx</text>
+  <text class="dg-kicker" x="292" y="204">ONE</text>
+
+  <path class="dg-arrow" d="M356 210 L396 210 L396 84" />
+  <path class="dg-head" d="M391 84 L396 72 L401 84 Z" />
+  <path class="dg-arrow" d="M356 210 L396 210 L396 168" />
+  <path class="dg-head" d="M391 168 L396 156 L401 168 Z" />
+  <path class="dg-arrow-alert" d="M356 210 L396 210 L396 252" />
+  <path class="dg-head-alert" d="M391 252 L396 264 L401 252 Z" />
+
+  <!-- Outputs -->
+  <text class="dg-h" x="418" y="42">Outputs, newly created</text>
+  <rect class="dg-panel" x="418.75" y="54.75" width="220.5" height="56.5" rx="3" />
+  <text class="dg-mono" x="432" y="76">2,000,000 sat</text>
+  <text class="dg-sm dg-dim" x="432" y="98">to the person you paid</text>
+
+  <rect class="dg-panel" x="418.75" y="120.75" width="220.5" height="56.5" rx="3" />
+  <text class="dg-mono" x="432" y="142">1,446,152 sat</text>
+  <text class="dg-sm dg-dim" x="432" y="164">back to you, as change</text>
+
+  <rect class="dg-alert-panel" x="418.75" y="266.75" width="220.5" height="76.5" rx="3" />
+  <text class="dg-mono" x="432" y="290">3,848 sat</text>
+  <text class="dg-sm dg-dim" x="432" y="312">the fee, claimed by the miner</text>
+  <text class="dg-sm dg-dim" x="432" y="332">208 vB at 18.5 sat/vB</text>
+
+  <!-- The definition -->
+  <rect class="dg-panel-2" x="0.75" y="266.75" width="400.5" height="76.5" rx="4" />
+  <text class="dg-kicker" x="16" y="290">THE FEE IS NOT A FIELD YOU FILL IN</text>
+  <text class="dg-sm" x="16" y="314">It is whatever the inputs exceed the outputs by.</text>
+  <text class="dg-sm dg-dim" x="16" y="334">You choose it indirectly, by choosing a rate.</text>
+
+  <!-- Consequences -->
+  <rect class="dg-panel" x="0.75" y="362.75" width="310.5" height="86.5" rx="4" />
+  <text class="dg-kicker" x="16" y="386">COINS ARE SPENT WHOLE</text>
+  <text class="dg-sm" x="16" y="410">Paying 2,000,000 sat out of a 3,000,000 sat</text>
+  <text class="dg-sm" x="16" y="430">coin does not leave that coin part spent.</text>
+
+  <rect class="dg-panel" x="328.75" y="362.75" width="310.5" height="86.5" rx="4" />
+  <text class="dg-kicker" x="344" y="386">SIZE COSTS, NOT AMOUNT</text>
+  <text class="dg-sm" x="344" y="410">Sending 10 BTC costs the same fee as</text>
+  <text class="dg-sm" x="344" y="430">sending 0.001 BTC, at the same size.</text>
+
+  <!-- Warning -->
+  <rect class="dg-alert-panel" x="0.75" y="466.75" width="638.5" height="52.5" rx="4" />
+  <text class="dg-sm dg-alert-text" x="16" y="490">Change is a real output to a real address of yours.</text>
+  <text class="dg-sm" x="16" y="510">
+    A transaction with no change output has given the whole remainder away as fee. Read that line.
+  </text>
+</svg>

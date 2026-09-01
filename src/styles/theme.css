@@ -1,0 +1,788 @@
+/*
+  Universe Wallet documentation theme.
+
+  Design intent, stated so that later edits do not quietly undo it:
+
+  1. The page is near-neutral. Paper in light, ink in dark. Nothing on a page is
+     coloured for decoration.
+  2. Exactly one chromatic accent exists, `--u-alert`. It is reserved for
+     warnings, irreversible actions, and blocked states. If you use it anywhere
+     else, colour stops carrying meaning and a reader stops noticing it where it
+     matters.
+  3. Links and navigation use a deep, desaturated ink-blue that reads almost as
+     text, and are always underlined, so they are identifiable without relying
+     on hue at all (WCAG 1.4.1).
+  4. Body type is large and line height is generous. People read this page while
+     nervous, on a phone, with money on the line.
+  5. "What you are about to sign" gets its own container with a heavier frame
+     than anything else on the page, because confusing it with surrounding prose
+     is the failure this product exists to prevent.
+*/
+
+:root {
+  --sl-font: 'Public Sans Variable', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --sl-font-mono: 'Source Code Pro Variable', ui-monospace, SFMono-Regular,
+    'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --sl-text-body: 1.0625rem;
+  --sl-text-body-sm: 0.9375rem;
+  --sl-text-code: 0.9rem;
+  --sl-line-height: 1.75;
+  --sl-line-height-headings: 1.25;
+
+  --sl-content-width: 48rem;
+  --sl-sidebar-width: 19.5rem;
+  --sl-nav-height: 3.75rem;
+
+  --u-radius: 3px;
+  --u-radius-lg: 5px;
+}
+
+/* ---------------------------------------------------------------- dark ---- */
+/* Starlight's :root is the dark theme. */
+:root {
+  --sl-color-white: #f4f5f6;
+  --sl-color-gray-1: #e2e4e7;
+  --sl-color-gray-2: #c3c7cc;
+  --sl-color-gray-3: #a8adb4;
+  --sl-color-gray-4: #6d737b;
+  --sl-color-gray-5: #414750;
+  --sl-color-gray-6: #23272c;
+  --sl-color-gray-7: #191c20;
+  --sl-color-black: #0f1113;
+
+  --sl-color-accent-low: #16222e;
+  --sl-color-accent: #5f83a6;
+  --sl-color-accent-high: #b9cee1;
+
+  --sl-color-text: #e5e7ea;
+  --sl-color-text-accent: #a9c4de;
+  --sl-color-text-invert: #0f1113;
+  --sl-color-bg: #0f1113;
+  --sl-color-bg-nav: #131619;
+  --sl-color-bg-sidebar: #131619;
+  --sl-color-bg-inline-code: #1e2227;
+  --sl-color-hairline: #23272c;
+  --sl-color-hairline-light: #2c3138;
+  --sl-color-hairline-shade: #1a1e22;
+  --sl-color-backdrop-overlay: rgba(15, 17, 19, 0.75);
+
+  --u-surface: #16191d;
+  --u-surface-2: #1c2025;
+  --u-hairline: #262b31;
+  --u-hairline-strong: #3b424a;
+  --u-ink: #e5e7ea;
+  --u-dim: #a8adb4;
+
+  --u-alert: #ff9a78;
+  --u-alert-ink: #ffb59a;
+  --u-alert-surface: #251610;
+  --u-alert-line: #74351f;
+
+  /* Diagram tokens. Neutral by design: state is carried by label, shape, and
+     texture, never by hue alone. */
+  --u-dg-bg: transparent;
+  --u-dg-panel: #16191d;
+  --u-dg-panel-2: #1e2329;
+  --u-dg-line: #3b424a;
+  --u-dg-line-strong: #6d737b;
+  --u-dg-text: #e5e7ea;
+  --u-dg-dim: #a8adb4;
+  --u-dg-hold: #2a3037;
+  --u-dg-hold-line: #77808a;
+  --u-dg-alert: #ff9a78;
+}
+
+/* --------------------------------------------------------------- light ---- */
+:root[data-theme='light'] {
+  --sl-color-white: #15171a;
+  --sl-color-gray-1: #24272b;
+  --sl-color-gray-2: #3a3e44;
+  --sl-color-gray-3: #565b62;
+  --sl-color-gray-4: #767b83;
+  --sl-color-gray-5: #cfccc4;
+  --sl-color-gray-6: #e6e3db;
+  --sl-color-gray-7: #f2f0ea;
+  --sl-color-black: #fbfaf7;
+
+  --sl-color-accent-low: #e6edf4;
+  --sl-color-accent: #3d6488;
+  --sl-color-accent-high: #1b344e;
+
+  --sl-color-text: #15171a;
+  --sl-color-text-accent: #26496b;
+  --sl-color-text-invert: #fbfaf7;
+  --sl-color-bg: #fbfaf7;
+  --sl-color-bg-nav: #f4f2ec;
+  --sl-color-bg-sidebar: #f4f2ec;
+  --sl-color-bg-inline-code: #eeebe3;
+  --sl-color-hairline: #e1ded6;
+  --sl-color-hairline-light: #d5d1c7;
+  --sl-color-hairline-shade: #eae7df;
+  --sl-color-backdrop-overlay: rgba(251, 250, 247, 0.8);
+
+  --u-surface: #ffffff;
+  --u-surface-2: #f4f2ec;
+  --u-hairline: #e1ded6;
+  --u-hairline-strong: #b9b4a8;
+  --u-ink: #15171a;
+  --u-dim: #565b62;
+
+  --u-alert: #9c3318;
+  --u-alert-ink: #852b13;
+  --u-alert-surface: #fcf1ed;
+  --u-alert-line: #e0bfb2;
+
+  --u-dg-bg: transparent;
+  --u-dg-panel: #ffffff;
+  --u-dg-panel-2: #f2f0ea;
+  --u-dg-line: #c9c4b8;
+  --u-dg-line-strong: #8b8578;
+  --u-dg-text: #15171a;
+  --u-dg-dim: #565b62;
+  --u-dg-hold: #e8e5dc;
+  --u-dg-hold-line: #6f6a5e;
+  --u-dg-alert: #9c3318;
+}
+
+/* ------------------------------------------------------------- reading ---- */
+
+.sl-markdown-content {
+  --sl-text-h1: 2.1rem;
+  --sl-text-h2: 1.55rem;
+  --sl-text-h3: 1.2rem;
+  --sl-text-h4: 1.05rem;
+}
+
+.sl-markdown-content p,
+.sl-markdown-content li {
+  max-width: 68ch;
+}
+
+.sl-markdown-content h2 {
+  margin-top: 2.75rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--sl-color-hairline);
+  letter-spacing: -0.011em;
+}
+
+.sl-markdown-content h1 {
+  letter-spacing: -0.018em;
+}
+
+.sl-markdown-content h3 {
+  margin-top: 2rem;
+}
+
+/* Links are underlined everywhere in content. Hue is never the only signal. */
+.sl-markdown-content a:not(:where(.not-content *)) {
+  color: var(--sl-color-text-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.sl-markdown-content a:hover:not(:where(.not-content *)) {
+  text-decoration-thickness: 2px;
+}
+
+:where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 3px solid var(--sl-color-text-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.site-title,
+.sidebar-content a {
+  letter-spacing: -0.005em;
+}
+
+/* ------------------------------------------------------------- tables ----- */
+
+.sl-markdown-content table {
+  font-size: 0.95rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.sl-markdown-content th {
+  text-align: left;
+  font-weight: 620;
+  background: var(--u-surface-2);
+  border-bottom: 2px solid var(--u-hairline-strong);
+}
+
+.sl-markdown-content th,
+.sl-markdown-content td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--sl-color-hairline);
+  vertical-align: top;
+}
+
+/* Wide tables scroll inside their own frame instead of pushing the page. */
+.u-table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: var(--u-radius);
+  margin-block: 1.25rem;
+}
+
+.u-table-scroll > table {
+  margin: 0;
+  border: 0;
+}
+
+.u-table-scroll:focus-visible {
+  outline: 3px solid var(--sl-color-text-accent);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------- the approval panel pattern ---- */
+/*
+  This is the one element on the site that is allowed to look heavier than the
+  page around it. It represents the moment a signature is requested.
+*/
+.u-approval {
+  margin-block: 1.75rem;
+  border: 1px solid var(--u-hairline-strong);
+  border-left: 5px solid var(--u-ink);
+  border-radius: var(--u-radius);
+  background: var(--u-surface);
+  overflow: hidden;
+}
+
+.u-approval__label {
+  display: block;
+  padding: 0.55rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--u-dim);
+  background: var(--u-surface-2);
+  border-bottom: 1px solid var(--u-hairline);
+}
+
+.u-approval__body {
+  padding: 0.9rem 1rem 1.05rem;
+}
+
+.u-approval__body > :first-child {
+  margin-top: 0;
+}
+
+.u-approval__body > :last-child {
+  margin-bottom: 0;
+}
+
+.u-approval dl {
+  display: grid;
+  grid-template-columns: minmax(8.5rem, max-content) 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.u-approval dt {
+  color: var(--u-dim);
+  font-weight: 500;
+}
+
+.u-approval dd {
+  margin: 0;
+  font-family: var(--sl-font-mono);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 30rem) {
+  .u-approval dl {
+    grid-template-columns: 1fr;
+    gap: 0 0;
+  }
+  .u-approval dt {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* Confidence marks. A word, never a colour. */
+.u-mark {
+  display: inline-block;
+  padding: 0.05em 0.45em;
+  border: 1px solid var(--u-hairline-strong);
+  border-radius: 2px;
+  font-family: var(--sl-font-mono);
+  font-size: 0.78em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.u-mark--unknown {
+  border-color: var(--u-alert-line);
+  color: var(--u-alert-ink);
+  background: var(--u-alert-surface);
+}
+
+/* -------------------------------------------------------------- alerts ---- */
+/* Starlight asides, retuned so caution and danger share the one accent. */
+
+.starlight-aside {
+  border-inline-start-width: 5px;
+  border-radius: var(--u-radius);
+  padding: 0.9rem 1.1rem;
+}
+
+.starlight-aside--caution,
+.starlight-aside--danger {
+  --sl-color-asides-text-accent: var(--u-alert-ink);
+  --sl-color-asides-border: var(--u-alert);
+  background-color: var(--u-alert-surface);
+}
+
+.starlight-aside--note,
+.starlight-aside--tip {
+  --sl-color-asides-text-accent: var(--sl-color-gray-2);
+  --sl-color-asides-border: var(--u-hairline-strong);
+  background-color: var(--u-surface-2);
+}
+
+.starlight-aside__title {
+  font-size: 0.95rem;
+  letter-spacing: 0.005em;
+}
+
+/* --------------------------------------------------------- diagrams ------- */
+
+.u-figure {
+  margin-block: 2rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: var(--u-radius-lg);
+  background: var(--u-surface);
+  padding: 1.1rem 1.1rem 0.9rem;
+}
+
+.u-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.u-figure figcaption {
+  margin-top: 0.85rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--sl-color-hairline);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--u-dim);
+}
+
+.u-figure figcaption b,
+.u-figure figcaption strong {
+  color: var(--sl-color-white);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------- home page ------ */
+
+.u-hero {
+  padding: 0.5rem 0 1.75rem;
+  border-bottom: 1px solid var(--sl-color-hairline);
+  margin-bottom: 2rem;
+}
+
+.u-hero h1 {
+  font-size: clamp(1.9rem, 1.2rem + 2.4vw, 2.85rem);
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  margin: 0 0 0.75rem;
+  max-width: 22ch;
+}
+
+.u-hero p {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--u-dim);
+  max-width: 60ch;
+  margin: 0 0 1.5rem;
+}
+
+.u-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.u-btn {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--u-hairline-strong);
+  border-radius: var(--u-radius);
+  background: var(--u-surface);
+  color: var(--sl-color-white);
+  font-weight: 600;
+  font-size: 0.97rem;
+  text-decoration: none;
+}
+
+.u-btn:hover {
+  background: var(--u-surface-2);
+  border-color: var(--sl-color-text-accent);
+}
+
+.u-btn--primary {
+  background: var(--sl-color-white);
+  color: var(--sl-color-black);
+  border-color: var(--sl-color-white);
+}
+
+.u-btn--primary:hover {
+  background: var(--sl-color-gray-1);
+  border-color: var(--sl-color-gray-1);
+}
+
+.u-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.u-card {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: var(--u-radius-lg);
+  background: var(--u-surface);
+  padding: 1.05rem 1.1rem;
+}
+
+.u-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.03rem;
+  line-height: 1.35;
+}
+
+.u-card h3 a {
+  color: var(--sl-color-white);
+  text-decoration: none;
+}
+
+.u-card h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.u-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--u-dim);
+}
+
+.u-card--alert {
+  border-color: var(--u-alert-line);
+  background: var(--u-alert-surface);
+}
+
+/* The status strip: version truth, always visible on the home page. */
+.u-status {
+  border: 1px solid var(--u-alert-line);
+  border-left: 5px solid var(--u-alert);
+  border-radius: var(--u-radius);
+  background: var(--u-alert-surface);
+  padding: 1rem 1.15rem;
+  margin-block: 1.75rem;
+}
+
+.u-status h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.02rem;
+  border: 0;
+  padding: 0;
+  color: var(--u-alert-ink);
+}
+
+.u-status p {
+  margin: 0 0 0.6rem;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+
+.u-status p:last-child {
+  margin-bottom: 0;
+}
+
+.u-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.1rem;
+  margin-block: 1.5rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: var(--u-radius);
+  overflow: hidden;
+  background: var(--sl-color-hairline);
+}
+
+.u-fact {
+  background: var(--u-surface);
+  padding: 0.8rem 0.95rem;
+}
+
+.u-fact dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--u-dim);
+  margin: 0 0 0.25rem;
+}
+
+.u-fact dd {
+  margin: 0;
+  font-size: 0.97rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------- provenance ------ */
+
+.u-provenance {
+  margin-top: 2.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--sl-color-hairline);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--u-dim);
+}
+
+.u-provenance h2 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+  border: 0;
+  padding: 0;
+  color: var(--u-dim);
+}
+
+.u-provenance dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.5rem 1.4rem;
+  margin: 0 0 0.85rem;
+}
+
+.u-provenance dt {
+  font-weight: 600;
+  color: var(--sl-color-gray-2);
+  margin: 0;
+}
+
+.u-provenance dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.u-provenance code {
+  font-size: 0.95em;
+}
+
+.u-provenance__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.u-provenance a {
+  color: var(--sl-color-text-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* ------------------------------------------------------------ misc -------- */
+
+.sl-markdown-content :not(pre) > code:not(:where(.not-content *)) {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 2px;
+  padding: 0.12em 0.36em;
+}
+
+.sl-markdown-content blockquote:not(:where(.not-content *)) {
+  border-inline-start: 3px solid var(--u-hairline-strong);
+  color: var(--sl-color-gray-2);
+  font-style: normal;
+}
+
+/* Steps that must be followed in order read as a numbered list with real
+   spacing. Rushing a backup is how people lose money. */
+.sl-markdown-content ol > li + li {
+  margin-top: 0.7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .u-approval,
+  .u-figure,
+  .u-status {
+    break-inside: avoid;
+  }
+}
+
+/* ------------------------------------------------- diagram primitives ----- */
+/*
+  Diagrams are inline SVG so they follow the theme toggle exactly, including a
+  reader who has picked light while their operating system is dark.
+
+  Rule inherited from the previous documentation set and kept deliberately:
+  state is never carried by hue alone. A held-back coin is drawn with a hatch
+  and labelled "Protected". A destructive step is drawn with the alert accent
+  AND the word. Remove one and the diagram still reads.
+*/
+
+.u-figure__scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.u-figure__scroll:focus-visible {
+  outline: 3px solid var(--sl-color-text-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.u-figure__scroll > svg {
+  min-width: 30rem;
+}
+
+.u-dg {
+  font-family: var(--sl-font);
+}
+
+.u-dg .dg-panel {
+  fill: var(--u-dg-panel);
+  stroke: var(--u-dg-line);
+  stroke-width: 1.5;
+}
+
+.u-dg .dg-panel-2 {
+  fill: var(--u-dg-panel-2);
+  stroke: var(--u-dg-line);
+  stroke-width: 1.5;
+}
+
+.u-dg .dg-panel-plain {
+  fill: var(--u-dg-panel-2);
+  stroke: none;
+}
+
+.u-dg .dg-hold {
+  fill: var(--u-dg-hold);
+  stroke: var(--u-dg-hold-line);
+  stroke-width: 1.5;
+}
+
+.u-dg .dg-alert-panel {
+  fill: var(--u-alert-surface);
+  stroke: var(--u-alert);
+  stroke-width: 1.5;
+}
+
+.u-dg .dg-rule {
+  stroke: var(--u-dg-line);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.u-dg .dg-arrow {
+  stroke: var(--u-dg-line-strong);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.u-dg .dg-arrow-alert {
+  stroke: var(--u-dg-alert);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.u-dg .dg-head {
+  fill: var(--u-dg-line-strong);
+  stroke: none;
+}
+
+.u-dg .dg-head-alert {
+  fill: var(--u-dg-alert);
+  stroke: none;
+}
+
+.u-dg .dg-dash {
+  stroke: var(--u-dg-line-strong);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  fill: none;
+}
+
+.u-dg text {
+  fill: var(--u-dg-text);
+  font-size: 15px;
+}
+
+.u-dg .dg-h {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+.u-dg .dg-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  fill: var(--u-dg-dim);
+}
+
+.u-dg .dg-sm {
+  font-size: 13px;
+}
+
+.u-dg .dg-dim {
+  fill: var(--u-dg-dim);
+}
+
+.u-dg .dg-mono {
+  font-family: var(--sl-font-mono);
+  font-size: 13px;
+}
+
+.u-dg .dg-alert-text {
+  fill: var(--u-dg-alert);
+  font-weight: 700;
+}
+
+.u-dg .dg-hatch-fill {
+  fill: var(--u-dg-hold-line);
+}

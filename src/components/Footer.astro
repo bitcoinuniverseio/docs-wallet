@@ -1,0 +1,95 @@
+---
+// Starlight footer override.
+//
+// Every material page states where its facts came from, which release they were
+// checked against, and when. A documentation page about money that does not say
+// what it was checked against is asking to be believed on trust alone.
+import Default from '@astrojs/starlight/components/Footer.astro';
+import snapshot from '../../capability-snapshot.json';
+
+const { entry, editUrl } = Astro.locals.starlightRoute;
+const data = entry.data as Record<string, any>;
+const showProvenance = data.provenance !== false;
+
+const lifecycleWords: Record<string, string> = {
+  stable: 'Stable',
+  beta: 'Beta',
+  experimental: 'Experimental',
+  'not-released': 'Not released',
+  deprecated: 'Deprecated',
+};
+
+const repo = data.sourceRepo ?? 'bitcoinuniverseio/wallet';
+const repoUrl = `https://github.com/${repo}`;
+const verified =
+  data.lastVerified instanceof Date
+    ? data.lastVerified.toISOString().slice(0, 10)
+    : (data.lastVerified ?? null);
+---
+
+<Default />
+
+{
+  showProvenance && (
+    <aside class="u-provenance not-content" aria-labelledby="provenance-heading">
+      <h2 id="provenance-heading">Where this page comes from</h2>
+      <dl>
+        <div>
+          <dt>Owning repository</dt>
+          <dd>
+            <a href={repoUrl}>{repo}</a>
+          </dd>
+        </div>
+        {data.sourcePath && (
+          <div>
+            <dt>Source path</dt>
+            <dd>
+              <code>{data.sourcePath}</code>
+            </dd>
+          </div>
+        )}
+        <div>
+          <dt>Applicable release</dt>
+          <dd>Universe Wallet {snapshot.walletVersion}</dd>
+        </div>
+        {data.chain && (
+          <div>
+            <dt>Chain</dt>
+            <dd>{data.chain.join(', ')}</dd>
+          </div>
+        )}
+        {data.network && (
+          <div>
+            <dt>Network</dt>
+            <dd>{data.network.join(', ')}</dd>
+          </div>
+        )}
+        <div>
+          <dt>Lifecycle</dt>
+          <dd>{lifecycleWords[data.lifecycle] ?? data.lifecycle}</dd>
+        </div>
+        {verified && (
+          <div>
+            <dt>Last verified</dt>
+            <dd>
+              <time datetime={verified}>{verified}</time>
+            </dd>
+          </div>
+        )}
+      </dl>
+      <ul class="u-provenance__links">
+        {editUrl && (
+          <li>
+            <a href={editUrl.href}>Edit this page on GitHub</a>
+          </li>
+        )}
+        <li>
+          <a href="https://docs.bitcoinuniverse.io">Bitcoin Universe documentation portal</a>
+        </li>
+        <li>
+          <a href="https://github.com/bitcoinuniverseio/docs-wallet/issues">Report a documentation error</a>
+        </li>
+      </ul>
+    </aside>
+  )
+}

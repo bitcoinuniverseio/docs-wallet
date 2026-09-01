@@ -1,0 +1,83 @@
+---
+title: Send for the first time
+description: Your first outgoing payment, done in the order that makes a mistake survivable, with the two facts about sending that surprise people most.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: frontend/ui/pages/Wallet/TxCreateScreen.tsx, frontend/ui/pages/Wallet/TxConfirmScreen.tsx
+lifecycle: not-released
+lastVerified: 2026-09-01
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+**Intended reader:** someone making their first outgoing payment from Universe Wallet.
+**Goal:** an amount arriving at someone else's address, with no asset spent by accident.
+**Prerequisites:** a funded wallet, a backed-up phrase, and the recipient's address.
+**Chain and network:** Bitcoin mainnet in this example.
+**Safety:** this is irreversible. Nothing on this page can undo a confirmed transaction.
+
+<Aside type="caution" title="Sending is behind a release gate">
+The send and broadcast screens sit behind the `bitcoin/send` and `bitcoin/broadcast` gates. Whether
+they work in your build was decided when that build was released, not by this documentation. If the
+screen tells you the operation is not available in your build, it is not available, and no setting
+changes that. See [Why an action is unavailable](/docs-wallet/assets/why-unavailable).
+</Aside>
+
+## Two facts first
+
+1. **Coins are spent whole.** Paying 0.02 BTC from a 0.03 BTC coin does not leave that coin partly
+   spent. The whole coin is consumed and the remainder comes back to you as a change output. See
+   [Inputs, outputs, fees, change](/docs-wallet/concepts/inputs-outputs-fees).
+2. **The fee follows size, not amount.** Sending 10 BTC costs the same as sending 0.001 BTC if the
+   transaction is the same size in bytes.
+
+## Steps
+
+1. Send a **test amount** first. Small enough that losing it would be annoying rather than serious.
+2. Open **Send**, and confirm the account and network at the top of the screen.
+3. Paste the recipient address. Compare the first four and last four characters against the source.
+4. Enter the amount.
+5. Choose a fee. See [Choose a fee](/docs-wallet/tasks/choose-a-fee).
+6. **Read the review screen.** Do not skim it. See
+   [Review a transaction](/docs-wallet/tasks/review-a-transaction).
+7. Approve, or reject. Rejecting costs nothing.
+8. Wait for the test amount to arrive at the other end and be confirmed.
+9. Only then send the real amount.
+
+## Expected result
+
+The transaction appears in **Activity** as pending, then gains confirmations. Your available balance
+drops by the amount plus the fee. A change output returns to an address you own.
+
+## How to verify
+
+- The recipient confirms arrival of the test amount.
+- Your activity entry shows the fee you chose, not a larger one.
+- Your total balance dropped by amount plus fee, and no asset you hold has moved.
+
+## Common failures
+
+| What you see | What it means | What to do |
+| --- | --- | --- |
+| Not enough available balance, though the total looks fine | Some coins are protected and cannot fund a plain payment | See [Protected outputs](/docs-wallet/concepts/protected-outputs). |
+| The transaction stays pending for a long time | The fee rate was below what the network is currently clearing | Wait. See the warning below about fee bumping. |
+| The change output is missing on the review | The remainder is being paid entirely as fee | Reject. Do not approve a transaction whose change line you cannot account for. |
+| The screen says the operation is not available in this build | The release did not authorize it | Nothing you can change. See [Why an action is unavailable](/docs-wallet/assets/why-unavailable). |
+
+<Aside type="danger" title="There is no way to speed up a stuck transaction from inside the wallet">
+You can mark a transaction as replaceable when you create it, and that flag is off by default. But
+Universe Wallet 1.7.5.8 has **no fee bump, no speed up, and no child-pays-for-parent flow**. Marking a
+transaction replaceable does not give you a way to replace it here. If a payment is stuck, your
+options are to wait, or to use separate software that can build a replacement. Choose the fee
+carefully the first time.
+</Aside>
+
+## Recovery path
+
+There is none after confirmation. Before broadcast, rejecting the approval is free and complete. That
+is why the review screen is the last real safety control you have, and why it is worth the thirty
+seconds.
+
+## Related
+
+- [Send bitcoin](/docs-wallet/tasks/send)
+- [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes)

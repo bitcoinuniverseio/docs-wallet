@@ -1,0 +1,137 @@
+---
+title: Universe Wallet documentation
+description: How to hold, receive, send, and protect Bitcoin digital artifacts in Universe Wallet, the self-custody browser wallet for Bitcoin, Dogecoin, Zcash, and Fractal Bitcoin.
+template: splash
+editUrl: false
+lastUpdated: false
+pagefind: false
+provenance: false
+---
+
+import snapshot from '../../../capability-snapshot.json';
+
+<div class="u-hero not-content">
+  <h1>A wallet you can read before you sign it</h1>
+  <p>
+    Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, Zcash, and Fractal
+    Bitcoin. It keeps coins that carry digital artifacts out of ordinary payments, and it puts a
+    plain-language account of what you are about to authorize in front of every signature.
+  </p>
+  <div class="u-actions">
+    <a class="u-btn u-btn--primary" href="/docs-wallet/start/what-this-is">Start here</a>
+    <a class="u-btn" href="/docs-wallet/start/versions">Which version you are running</a>
+    <a class="u-btn" href="/docs-wallet/safety/security-model">Safety</a>
+  </div>
+</div>
+
+<div class="u-status not-content">
+  <h2>Read this before you trust anything else on this site</h2>
+  <p>
+    The build published on the Chrome Web Store is <b>1.0.13, from 15 April 2025</b>. This
+    documentation is written against the <b>{snapshot.walletVersion}</b> source tree, which has not
+    been submitted or published. If you installed from the store, you are running the older build,
+    and screens described here may not exist in it.
+  </p>
+  <p>
+    In {snapshot.walletVersion} as committed, <b>{snapshot.supportedProtocolCount} of {snapshot.protocolCount} protocols</b>{' '}
+    authorize any operation. Nothing on this site should be read as a promise that a protocol action
+    will work in your build. The screen in your own wallet is the answer.
+  </p>
+  <p>
+    <a href="/docs-wallet/start/versions">The full version and release position</a>
+  </p>
+</div>
+
+<dl class="u-facts not-content">
+  <div class="u-fact">
+    <dt>Lifecycle</dt>
+    <dd>Experimental</dd>
+  </div>
+  <div class="u-fact">
+    <dt>Documented version</dt>
+    <dd>{snapshot.walletVersion}</dd>
+  </div>
+  <div class="u-fact">
+    <dt>Published version</dt>
+    <dd>1.0.13</dd>
+  </div>
+  <div class="u-fact">
+    <dt>Chains</dt>
+    <dd>Bitcoin, Dogecoin, Zcash, Fractal</dd>
+  </div>
+  <div class="u-fact">
+    <dt>Custody</dt>
+    <dd>Yours alone</dd>
+  </div>
+</dl>
+
+## What this documentation is for
+
+You are holding your own keys. That means no company can move your money, and equally that no company
+can give it back. Every page here is written so that believing it cannot cost you anything: where a
+capability could not be verified in the wallet's source, this site says it is not available rather
+than describing how it might work.
+
+<ul class="u-cards not-content">
+  <li class="u-card">
+    <h3><a href="/docs-wallet/start/install">Install and set up</a></h3>
+    <p>Which browsers work, where the real extension lives, and how to create or import a wallet without losing it a week later.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/concepts/what-a-signature-authorizes">What a signature authorizes</a></h3>
+    <p>The single most valuable page here. Four kinds of approval, and the exact boundary of each one.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/concepts/protected-outputs">Protected outputs</a></h3>
+    <p>Why some of your balance will not spend, and why that is the feature rather than the fault.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/tasks/review-a-transaction">Review before you sign</a></h3>
+    <p>How to read the approval screen top to bottom, and which line to check when you are in a hurry.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/concepts/backup-and-recovery">Backup and recovery</a></h3>
+    <p>Which loss your recovery phrase covers, which it does not, and the one situation with no way back.</p>
+  </li>
+  <li class="u-card u-card--alert">
+    <h3><a href="/docs-wallet/safety/compromised-wallet">If something is wrong</a></h3>
+    <p>What to do first when you think your phrase was seen, a signature went wrong, or coins moved without you.</p>
+  </li>
+</ul>
+
+## Where things live
+
+<ul class="u-cards not-content">
+  <li class="u-card">
+    <h3><a href="/docs-wallet/reference/supported-features">Supported features</a></h3>
+    <p>What is present, what is behind a release gate, and what does not exist at all.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/assets/protocol-registry">Protocol registry</a></h3>
+    <p>All {snapshot.protocolCount} protocols, their chains, their intended operations, and their authorization state.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/reference/known-limitations">Known limitations</a></h3>
+    <p>Every limit we can state plainly, including the ones that are inconvenient to admit.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/developers/provider-api">Provider API</a></h3>
+    <p>For application developers integrating a connect and sign flow with the extension.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/help/troubleshooting">Troubleshooting</a></h3>
+    <p>The failures people actually hit, and what each one means about your funds.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href="/docs-wallet/help/support">Support and security reporting</a></h3>
+    <p>Where to ask, where to report a vulnerability, and what nobody will ever ask you for.</p>
+  </li>
+</ul>
+
+## Related
+
+- Product source: [bitcoinuniverseio/wallet](https://github.com/bitcoinuniverseio/wallet)
+- Documentation source: [bitcoinuniverseio/docs-wallet](https://github.com/bitcoinuniverseio/docs-wallet)
+- Release candidates: [wallet releases](https://github.com/bitcoinuniverseio/wallet/releases)
+- Every Bitcoin Universe component: [docs.bitcoinuniverse.io](https://docs.bitcoinuniverse.io)
+- Report a documentation error: [docs-wallet issues](https://github.com/bitcoinuniverseio/docs-wallet/issues)

@@ -1,0 +1,113 @@
+---
+title: Review a transaction
+description: How to read the approval screen in the order it is built, the four lines that matter most, and the ones that should make you reject.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: frontend/ui/pages/Approval/components
+lifecycle: experimental
+lastVerified: 2026-09-01
+---
+
+import Diagram from '../../../components/Diagram.astro';
+import ReviewAnatomy from '../../../components/diagrams/ReviewAnatomy.astro';
+import Approval from '../../../components/Approval.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+**Intended reader:** anyone about to approve anything.
+**Goal:** understanding what you are authorizing before you authorize it.
+**Prerequisites:** a pending approval on screen.
+**Safety:** this is the last point at which the outcome is still up to you.
+
+The approval screen is stacked in a fixed order, and the order is deliberate. Read it from the top.
+
+<Diagram title="The order in which a signature request is presented, top to bottom">
+  <ReviewAnatomy />
+  <span slot="caption">
+    Blocking problems come first, then what actually happens to your money, then the overall status,
+    then non-blocking warnings, then the full detail. Reject sits beside Approve at the same size.
+  </span>
+</Diagram>
+
+## The four lines that matter most
+
+Even in a hurry, read these four.
+
+<Approval label="What you are about to sign">
+  <dl>
+    <dt>Leaves your wallet</dt>
+    <dd>0.03450000 BTC</dd>
+    <dt>Comes back to you</dt>
+    <dd>0.01446152 BTC</dd>
+    <dt>Network fee</dt>
+    <dd>0.00003848 BTC at 18.5 sat/vB</dd>
+    <dt>Assets touched</dt>
+    <dd>None</dd>
+  </dl>
+</Approval>
+
+1. **What leaves.** Not what you typed. What the transaction actually spends.
+2. **What comes back.** Your change. If this is missing or much smaller than you expected, the
+   difference went to the fee.
+3. **The fee.** Stated once, in one place, as an amount and a rate.
+4. **Assets touched.** If this is not "none" on a payment you intended to be plain money, stop.
+
+## Reading it in full
+
+### Blocking
+
+A check that failed hard. Approve stays disabled and you cannot click through it. This is not advice;
+it is a refusal.
+
+### Impact
+
+What leaves, what returns, the net change, and any assets touched. Every line carries a confidence
+mark of <span class="u-mark">EXACT</span>, <span class="u-mark">ESTIMATED</span>, or
+<span class="u-mark u-mark--unknown">UNKNOWN</span>. See
+[Confidence marks](/docs-wallet/concepts/confidence-marks).
+
+### Status
+
+Ready, Review, or Blocked. It can never read Ready while any fact on the screen is unknown.
+
+### Warnings
+
+Things worth knowing that do not block: address reputation notes, decoded risk rows, advisories. Each
+risk row is labelled Warning or Critical in words, not only by colour.
+
+### Details
+
+Network and account, the destination and whether it is external to your wallet, the fee, every input
+and output, which inputs are protected, and the raw transaction so you can inspect it elsewhere.
+
+## When to reject
+
+Reject, without hesitating, if any of these is true.
+
+- The change output is missing and you cannot account for the remainder.
+- The destination is not the address you expect, character for character at both ends.
+- An amount is larger than you intended, in any line.
+- Anything is marked unknown.
+- The origin shown is not the site you think you are on.
+- A protected coin is being spent and you did not deliberately start an asset transfer.
+- You do not understand what the transaction does.
+
+<Aside type="note" title="Rejecting costs nothing">
+No fee is paid. Nothing is broadcast. Nothing is recorded on chain. You can always ask the site to
+try again. The only cost of rejecting is a few seconds; the cost of approving wrongly is permanent.
+</Aside>
+
+## Expected result
+
+Approving broadcasts the transaction and moves you to a result screen with a transaction id. Rejecting
+closes the request and tells the requesting site you declined.
+
+## How to verify afterwards
+
+- The activity entry shows the same amount and the same fee you saw on the review.
+- Your balance dropped by amount plus fee, and nothing else moved.
+- Any asset you hold is still listed.
+
+## Related
+
+- [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes)
+- [Review a PSBT](/docs-wallet/tasks/review-a-psbt)
+- [Inputs, outputs, fees, change](/docs-wallet/concepts/inputs-outputs-fees)

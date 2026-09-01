@@ -1,0 +1,90 @@
+---
+// The protocol table, rendered from capability-snapshot.json at build time.
+//
+// This is generated rather than written so that it cannot drift from the
+// release it describes. The snapshot is a copy of the wallet repository's
+// generated PUBLIC-CAPABILITY-SUMMARY.json, which is the only source public
+// documentation may use for a capability claim.
+import snapshot from '../../capability-snapshot.json';
+
+interface Props {
+  /** Restrict to one chain id, for example "bitcoin". Omit for all. */
+  chain?: string;
+}
+const { chain } = Astro.props;
+
+const stateWords: Record<string, string> = {
+  'not-in-this-release': 'Not in this release',
+  supported: 'Authorized',
+  partial: 'Partly authorized',
+};
+
+const rows = snapshot.protocols
+  .filter((p) => !chain || p.networks.some((n) => n.startsWith(`${chain}:`)))
+  .map((p) => ({
+    name: p.name,
+    id: p.id,
+    chains: [...new Set(p.networks.map((n) => n.split(':')[0]))].join(', '),
+    intended: p.intendedOperations.length ? p.intendedOperations.join(', ') : 'none declared',
+    authorized: p.supportedOperations.length ? p.supportedOperations.join(', ') : 'none',
+    state: stateWords[p.supportState] ?? p.supportState,
+  }));
+---
+
+<div class="u-table-scroll" tabindex="0" role="region" aria-label="Protocol registry, scrollable">
+  <table>
+    <caption class="sr-only">
+      Every protocol in the Universe Wallet {snapshot.walletVersion} registry, with the operations the
+      product intends and the operations this release authorizes.
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Protocol</th>
+        <th scope="col">Chains</th>
+        <th scope="col">Intended operations</th>
+        <th scope="col">Authorized here</th>
+        <th scope="col">State</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((r) => (
+          <tr>
+            <th scope="row">
+              {r.name} <code>{r.id}</code>
+            </th>
+            <td>{r.chains}</td>
+            <td>{r.intended}</td>
+            <td>{r.authorized}</td>
+            <td>{r.state}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  table th[scope='row'] {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  table code {
+    font-size: 0.85em;
+    opacity: 0.75;
+  }
+  td {
+    font-size: 0.9rem;
+  }
+</style>

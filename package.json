@@ -1,0 +1,46 @@
+{
+  "name": "docs-wallet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public user documentation for Universe Wallet, the self-custody browser wallet for Bitcoin digital artifacts",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check:copy": "node scripts/check-copy-rules.mjs",
+    "check:public-safety": "node scripts/check-public-safety.mjs",
+    "check:capability": "node scripts/sync-capability.mjs --check",
+    "check:manifest": "node scripts/check-manifest.mjs",
+    "check:diagrams": "node scripts/check-diagrams.mjs",
+    "check:markdown": "markdownlint-cli2 \"src/content/**/*.{md,mdx}\" \"*.md\"",
+    "check:a11y": "node scripts/check-accessibility.mjs",
+    "capability:pull": "node scripts/sync-capability.mjs --pull",
+    "capability:write": "node scripts/sync-capability.mjs",
+    "test": "npm run check:copy && npm run check:public-safety && npm run check:capability && npm run check:manifest && npm run check:schema && npm run check:diagrams && npm run check:llms && npm run check:markdown",
+    "check:llms": "node scripts/generate-llms.mjs --check",
+    "check:schema": "node scripts/validate-manifest-schema.mjs",
+    "llms": "node scripts/generate-llms.mjs"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.0",
+    "@astrojs/starlight": "^0.41.10",
+    "@fontsource-variable/public-sans": "^5.2.5",
+    "@fontsource-variable/source-code-pro": "^5.2.5",
+    "astro": "^7.2.9",
+    "sharp": "^0.35.4",
+    "starlight-links-validator": "^0.25.3",
+    "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "axe-core": "^4.13.0",
+    "markdownlint-cli2": "^0.23.2",
+    "playwright": "^1.62.1",
+    "wait-on": "^9.1.0"
+  }
+}
