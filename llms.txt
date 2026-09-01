@@ -47,6 +47,10 @@ Protocol support: no protocol operation is authorized in 1.7.5.8. The wallet car
 - [Compromised wallet](security-and-recovery/compromised-wallet.md): the emergency procedure
 - [Privacy](security-and-recovery/privacy.md): what leaves the device and what never does
 
+## Developers
+
+- [Provider API](developers/provider-api.md): the injected `window.tapwallet` object, every method, parameter, return type, and event
+
 ## Reference and help
 
 - [Supported features](reference/supported-features.md): capability tables
