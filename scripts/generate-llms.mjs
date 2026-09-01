@@ -99,8 +99,11 @@ const output = lines.join('\n');
 const target = join(root, 'llms.txt');
 
 if (process.argv.includes('--check')) {
+  // Compared with line endings normalised, so a Windows checkout does not
+  // report a file as stale when only its line endings differ.
+  const normalise = (text) => text.split('\r\n').join('\n');
   const current = readFileSync(target, 'utf8');
-  if (current !== output) {
+  if (normalise(current) !== normalise(output)) {
     process.stderr.write('llms.txt is stale. Run `node scripts/generate-llms.mjs`.\n');
     process.exit(1);
   }
