@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/build-machine-readable.mjs && node scripts/apply-csp.mjs",
+    "build": "astro build && node scripts/apply-csp.mjs && node scripts/build-machine-readable.mjs",
     "preview": "astro preview",
     "check:copy": "node scripts/check-copy-rules.mjs",
     "check:public-safety": "node scripts/check-public-safety.mjs",
