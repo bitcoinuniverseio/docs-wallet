@@ -1,0 +1,26 @@
+---
+// Starlight ThemeSelect override: the release and appearance lens. Replaces
+// the stock light/dark select with one control surface that offers light,
+// dark, and OLED appearance plus the verified release selector and the
+// detect-my-wallet action.
+import ReleaseLens from '../../islands/ReleaseLens.tsx';
+import releases from '../../data/releases.json';
+
+const described = releases.releases.filter((release) => release.documentationStatus !== 'not-described');
+const options = described.map((release) => ({
+  id: release.id,
+  version: release.version,
+  publicationStatus: release.publicationStatus,
+  documentationStatus: release.documentationStatus,
+}));
+---
+
+<div
+  data-release-lens
+  data-releases={JSON.stringify(options)}
+  data-default-release={releases.defaultReleaseId}
+/>
+
+<script>
+  import '../../islands/ReleaseLens';
+</script>

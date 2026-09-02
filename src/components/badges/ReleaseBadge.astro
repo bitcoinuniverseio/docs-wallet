@@ -1,0 +1,31 @@
+---
+// Release badge. Rendered from the generated release catalog; a release ID the
+// catalog does not know renders as an explicit unknown rather than inventing a
+// label.
+import releases from '../../data/releases.json';
+
+interface Props {
+  releaseId?: string;
+  withStatus?: boolean;
+}
+const { releaseId, withStatus = true } = Astro.props;
+const known = releases.releases.find((release) => release.id === releaseId);
+const version = known?.version ?? null;
+const label = version ? `Wallet ${version}` : 'Unverified release';
+const status = known?.publicationStatus ?? 'unknown';
+---
+
+<span class={`u-badge u-badge--release`} data-release-status={status}>
+  <span class="u-badge-dot" aria-hidden="true"></span>
+  {label}{
+    withStatus && known && known.publicationStatus !== 'published' && (
+      <span class="u-release-lens__status">· unpublished</span>
+    )
+  }
+</span>
+
+<style>
+  .u-release-lens__status {
+    font-weight: 400;
+  }
+</style>

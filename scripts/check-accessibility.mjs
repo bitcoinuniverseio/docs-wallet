@@ -40,6 +40,10 @@ for (const theme of ['light', 'dark']) {
     viewport: { width: 320, height: 900 },
     colorScheme: theme,
     reducedMotion: 'reduce',
+    // The built site enforces a strict CSP with per-page inline-script hashes.
+    // The audit injects axe itself, so this audit context alone bypasses CSP;
+    // real visitors get the full policy.
+    bypassCSP: true,
   });
   const page = await context.newPage();
 

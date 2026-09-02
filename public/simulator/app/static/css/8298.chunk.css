@@ -1,0 +1,158 @@
+.universe-empty-state {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--u-space-3);
+  width: min(100%, 480px);
+  max-width: 100%;
+  min-height: 156px;
+  padding: var(--u-space-6) var(--u-space-4);
+  box-sizing: border-box;
+  text-align: center;
+}
+.universe-empty-state--compact {
+  min-height: 96px;
+  padding: var(--u-space-4) var(--u-space-3);
+}
+.universe-empty-state__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--u-radius-md);
+  background: var(--u-surface-2);
+  color: var(--u-text-dim);
+}
+.sign-psbt-mono,
+.sign-psbt-mono div {
+  font-family: ui-monospace, monospace !important;
+  font-family: var(--u-font-mono, ui-monospace, monospace) !important;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+.sign-psbt-details {
+  width: 100%;
+  min-width: 0;
+}
+.sign-psbt-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  gap: var(--u-space-2, 8px);
+  min-height: 32px;
+  cursor: pointer;
+  list-style: none;
+  -webkit-user-select: none;
+          user-select: none;
+}
+.sign-psbt-details > summary::-webkit-details-marker {
+  display: none;
+}
+.sign-psbt-details > summary::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  margin-right: 3px;
+  border-right: 1.5px solid rgba(255, 255, 255, 0.68);
+  border-right: 1.5px solid var(--u-text-dim, rgba(255, 255, 255, 0.68));
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.68);
+  border-bottom: 1.5px solid var(--u-text-dim, rgba(255, 255, 255, 0.68));
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+.sign-psbt-details[open] > summary {
+  margin-bottom: 8px;
+  margin-bottom: var(--u-space-2, 8px);
+}
+.sign-psbt-details[open] > summary::after {
+  transform: rotate(225deg);
+}
+.sign-psbt-stats .universe-approval-detail,
+.universe-approval-detail.sign-psbt-plain {
+  padding: 2px 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+.sign-psbt-list .universe-approval-detail {
+  padding: 8px 0;
+  padding: var(--u-space-2, 8px) 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--u-border, rgba(255, 255, 255, 0.08));
+}
+.sign-psbt-list div:last-child > .universe-approval-detail {
+  border-bottom: none;
+}
+.universe-approval-summary__verdict {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+}
+.sign-psbt-hex {
+  width: 100%;
+  max-height: 160px;
+  margin: 0;
+  padding: 8px;
+  padding: var(--u-space-2, 8px);
+  overflow: auto;
+  border-radius: 6px;
+  border-radius: var(--u-radius-sm, 6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--u-border, rgba(255, 255, 255, 0.08));
+  background: rgba(255, 255, 255, 0.04);
+  background: var(--u-inset, rgba(255, 255, 255, 0.04));
+  color: rgba(255, 255, 255, 0.68);
+  color: var(--u-text-dim, rgba(255, 255, 255, 0.68));
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  box-sizing: border-box;
+}
+.sign-psbt-risks .universe-psbt-risk-popover__risk {
+  width: 100%;
+}
+.sign-psbt-fee-note {
+  padding-top: 4px;
+  padding-top: var(--u-space-1, 4px);
+}
+.sign-psbt-impact__row {
+  min-height: 22px;
+  gap: 8px;
+  gap: var(--u-space-2, 8px);
+}
+.sign-psbt-impact__assets {
+  padding-top: 8px;
+  padding-top: var(--u-space-2, 8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--u-border, rgba(255, 255, 255, 0.08));
+}
+.sign-psbt-impact__protected,
+.sign-psbt-impact__unverified {
+  padding: 8px;
+  padding: var(--u-space-2, 8px);
+  border-radius: 6px;
+  border-radius: var(--u-radius-sm, 6px);
+}
+.sign-psbt-impact__protected {
+  border: 1px solid color-mix(in srgb, #f87171 34%, transparent);
+  border: 1px solid color-mix(in srgb, var(--u-danger, #f87171) 34%, transparent);
+  background: rgba(248, 113, 113, 0.14);
+  background: var(--u-danger-soft, rgba(248, 113, 113, 0.14));
+}
+.sign-psbt-impact__unverified {
+  border: 1px solid color-mix(in srgb, #fbbf24 34%, transparent);
+  border: 1px solid color-mix(in srgb, var(--u-warning, #fbbf24) 34%, transparent);
+  background: rgba(251, 191, 36, 0.14);
+  background: var(--u-warning-soft, rgba(251, 191, 36, 0.14));
+}

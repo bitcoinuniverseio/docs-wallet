@@ -1,0 +1,38 @@
+---
+// EmergencyAction: a prominent, action-shaped entry into emergency help. Used
+// on the home command center and anywhere a reader may be panicking. The path
+// is plain text first: a worried reader should never have to hover to learn
+// what this does.
+import { resolve } from '../lib/nav';
+const href = resolve('/safety/compromised-wallet');
+---
+
+<a class="u-emergency" href={href}>
+  <strong>My wallet may be compromised</strong>
+  <span>Read the emergency steps now. No download, no sign-in, works offline once saved.</span>
+</a>
+
+<style>
+  .u-emergency {
+    display: grid;
+    gap: 0.25rem;
+    border: 2px solid var(--u-alert);
+    border-radius: var(--u-radius-lg);
+    background: var(--u-alert-surface);
+    color: inherit;
+    text-decoration: none;
+    padding: 0.95rem 1.1rem;
+  }
+  .u-emergency:hover,
+  .u-emergency:focus-visible {
+    outline: 2px solid var(--u-alert);
+    outline-offset: 2px;
+  }
+  .u-emergency strong {
+    color: var(--u-alert-ink);
+  }
+  .u-emergency span {
+    font-size: 0.88rem;
+    color: var(--u-dim);
+  }
+</style>

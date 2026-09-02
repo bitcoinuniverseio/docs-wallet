@@ -1,0 +1,32 @@
+.universe-cleanup__gate {
+  min-height: 65dvh;
+  padding: var(--u-space-6);
+}
+.universe-cleanup__json-input {
+  width: 100%;
+  min-height: 104px;
+  border-radius: var(--u-radius-md);
+  border: 1px solid var(--u-border);
+  background: rgba(0, 0, 0, 0.32);
+  background: var(--theme-input, rgba(0, 0, 0, 0.32));
+  color: var(--u-text);
+  padding: 10px;
+  resize: vertical;
+  font-size: 12px;
+  line-height: 17px;
+  font-family: var(--u-font-mono);
+}
+.universe-cleanup__sr-note {
+  display: none;
+}
+.universe-cleanup__action {
+  flex: 1 1;
+  min-height: 44px !important;
+  touch-action: manipulation;
+}
+.universe-cleanup__grow {
+  flex: 1 1;
+}
+.universe-cleanup__wrap {
+  flex-wrap: wrap;
+}

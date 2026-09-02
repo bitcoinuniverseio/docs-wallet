@@ -1,0 +1,157 @@
+---
+// ProductShot: the verified screenshot, presented with everything true about it.
+//
+// The image is a pixel-verified capture of a real wallet build, exported
+// through the wallet repository's docs pipeline. The caption names the state
+// and the release; the provenance block names the commit and the fixture, and
+// never a private path. Layout is reserved from the intrinsic dimensions, so
+// the page does not shift while it loads.
+import { getCapture, captureUrl, capturesPending } from '../../lib/captures';
+import ReleaseBadge from './badges/ReleaseBadge.astro';
+
+interface Props {
+  captureId: string;
+  /** Widen the frame beyond the popup's natural width on large screens. */
+  wide?: boolean;
+  /** Draw the danger frame reserved for irreversible-action screens. */
+  danger?: boolean;
+  /** Hide the provenance disclosure. Default keeps it. */
+  compact?: boolean;
+}
+const { captureId, wide = false, danger = false, compact = false } = Astro.props;
+
+// Development placeholder: until the wallet capture export is imported, the
+// catalog is empty and every shot renders this explicit pending state instead
+// of an unverified image. validate-data fails a release build in this state.
+if (capturesPending()) {
+  console.warn(`CAPTURES_PENDING: ${captureId} renders as a placeholder until the capture catalog is imported.`);
+}
+
+const capture = capturesPending() ? null : getCapture(captureId);
+const base = import.meta.env.BASE_URL.replace(/$/, '');
+---
+
+{
+  !capture && (
+    <figure class:list={['u-shot', { 'u-shot--danger': danger }]}>
+      <div class="u-shot__frame u-shot__pending" role="status">
+        Verified capture pending import: <code>{captureId}</code>. This build is not shippable;
+        run the wallet capture export and import it.
+      </div>
+    </figure>
+  )
+}
+
+{
+  capture && (
+    <figure class:list={['u-shot', { 'u-shot--danger': danger, 'u-shot--wide': wide }]}>
+      <div class="u-shot__frame">
+        <div class="u-shot__device" style={`aspect-ratio: ${capture.intrinsicWidth} / ${capture.intrinsicHeight};`}>
+          <picture>
+            <source type="image/avif" srcset={captureUrl(capture, 'avif')} width={capture.intrinsicWidth} height={capture.intrinsicHeight} />
+            <source type="image/webp" srcset={captureUrl(capture, 'webp')} width={capture.intrinsicWidth} height={capture.intrinsicHeight} />
+            <img
+              class="u-shot__img"
+              src={captureUrl(capture, 'png')}
+              alt={capture.description}
+              width={capture.intrinsicWidth}
+              height={capture.intrinsicHeight}
+              loading="lazy"
+              decoding="async"
+              style={`background-image: url(${capture.blurPlaceholder}); background-size: cover;`}
+            />
+          </picture>
+        </div>
+        <button
+          class="u-button u-shot__zoom"
+          type="button"
+          data-lightbox-trigger={capture.captureId}
+          aria-label={`Enlarge: ${capture.publicTitle}`}
+        >
+          Enlarge
+        </button>
+      </div>
+      <figcaption class="u-shot__caption">
+        {capture.publicTitle} - {capture.caption}
+        <span class="u-shot__meta">
+          ({capture.theme} theme, {capture.viewport.width}px, wallet {capture.walletVersion})
+        </span>
+      </figcaption>
+      {
+        !compact && (
+          <details class="u-shot__provenance">
+            <summary>Capture provenance</summary>
+            <p>
+              Verified capture <code>{capture.captureId}</code> of wallet{' '}
+              {capture.walletVersion}
+              {capture.walletSourceCommit && (
+                <>
+                  {' '}
+                  at commit <code>{capture.walletSourceCommit.slice(0, 12)}</code>
+                </>
+              )}
+              , produced by the wallet visual harness against the fixture{' '}
+              <code>{capture.fixtureId}</code> and privacy-reviewed on {capture.privacyReview.reviewedAt}.
+            </p>
+          </details>
+        )
+      }
+    </figure>
+  )
+}
+
+<!-- The lightbox dialog lives with the shot so focus returns to its trigger. -->
+{
+  capture && (
+    <dialog class="u-lightbox-dialog" data-lightbox={capture.captureId} aria-label={capture.publicTitle}>
+      <div class="u-lightbox-bar">
+        <span>{capture.publicTitle} - wallet {capture.walletVersion}</span>
+        <button class="u-button" type="button" data-lightbox-close={capture.captureId}>Close</button>
+      </div>
+      <img src={captureUrl(capture, 'png')} alt={capture.description} width={capture.intrinsicWidth} height={capture.intrinsicHeight} />
+    </dialog>
+  )
+}
+
+<script>
+  // Keyboard-accessible zoom without focus trapping: the dialog element keeps
+  // Tab inside while open and returns focus to the trigger on close.
+  function wireLightbox(root: Document | HTMLElement) {
+    root.querySelectorAll<HTMLButtonElement>('[data-lightbox-trigger]').forEach((trigger) => {
+      if (trigger.dataset.lightboxWired) return;
+      trigger.dataset.lightboxWired = '1';
+      const id = trigger.getAttribute('data-lightbox-trigger');
+      const dialog = root.querySelector<HTMLDialogElement>(`[data-lightbox="${id}"]`);
+      if (!dialog) return;
+      trigger.addEventListener('click', () => {
+        dialog.showModal();
+      });
+      dialog.querySelector('[data-lightbox-close]')?.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    });
+  }
+  wireLightbox(document);
+  document.addEventListener('astro:page-load', () => wireLightbox(document));
+</script>
+
+<style>
+  .u-shot--wide .u-shot__device {
+    max-inline-size: 100%;
+  }
+  .u-shot__zoom {
+    margin-top: 0.45rem;
+  }
+  .u-shot__provenance {
+    margin-top: 0.4rem;
+    font-size: 0.82rem;
+    color: var(--u-dim);
+  }
+  .u-shot__provenance summary {
+    cursor: pointer;
+  }
+  .u-shot__provenance p {
+    margin: 0.4rem 0 0;
+  }
+</style>

@@ -1,0 +1,159 @@
+---
+// Minimal static HTML shell for the custom guide pages that live outside
+// Starlight's collection, so they share the site's fonts, theme handling, and
+// header furniture without duplicating Starlight's layout.
+import '@fontsource-variable/public-sans';
+import '@fontsource-variable/source-code-pro';
+import '../styles/theme.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const site = Astro.site?.href.replace(/\/$/, '') ?? '';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Universe Wallet</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${base}/mark.svg`} />
+    <link rel="canonical" href={`${site}${Astro.url.pathname}`} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      // Same theme contract Starlight uses; oled extends it.
+      (function () {
+        try {
+          var stored = localStorage.getItem('starlight-theme');
+          var mode = stored === 'light' || stored === 'dark' || stored === 'oled' ? stored : null;
+          if (!mode) mode = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          if (mode === 'light') document.documentElement.dataset.theme = 'light';
+          else if (mode === 'oled') document.documentElement.dataset.theme = 'oled';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="u-guide-shell">
+      <header class="u-guide-header">
+        <a class="u-guide-home" href={`${base}/`}>
+          <img src={`${base}/mark.svg`} alt="" width="20" height="20" /> Universe Wallet documentation
+        </a>
+        <nav aria-label="Site sections">
+          <a href={`${base}/journeys/`}>Journeys</a>
+          <a href={`${base}/atlas/`}>Atlas</a>
+          <a href={`${base}/simulator/`}>Simulator</a>
+          <a href={`${base}/safety-lab/`}>Safety Lab</a>
+          <a href={`${base}/studio/`}>Studio</a>
+          <a href={`${base}/emergency/`}>Emergency</a>
+        </nav>
+      </header>
+      <main class="u-guide-main not-content">
+        <slot />
+      </main>
+      <footer class="u-guide-footer">
+        <p>
+          Universe Wallet documentation · verified against the wallet release this page names ·
+          <a href={`${base}/help/support/`}>support and reporting</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  /* The guide pages render outside Starlight's reset, so the border-box
+     contract has to be restated here: without it, width:100% plus padding
+     overflows at 320px. */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  pre {
+    overflow-x: auto;
+  }
+  body {
+    margin: 0;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    font-family: var(--sl-font);
+    line-height: var(--sl-line-height);
+    font-size: var(--sl-text-body, 1.0625rem);
+  }
+  .u-guide-shell {
+    max-inline-size: 52rem;
+    margin-inline: auto;
+    padding: 0 1.1rem 3rem;
+  }
+  .u-guide-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-block-end: 1px solid var(--u-hairline);
+  }
+  .u-guide-home {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+  }
+  .u-guide-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    font-size: 0.9rem;
+  }
+  .u-guide-header nav a {
+    color: var(--u-dim);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  .u-guide-main {
+    padding-block: 1.6rem;
+  }
+  .u-guide-footer {
+    border-block-start: 1px solid var(--u-hairline);
+    color: var(--u-dim);
+    font-size: 0.84rem;
+    padding-block: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.25;
+    color: var(--sl-color-text);
+  }
+  code {
+    font-family: var(--sl-font-mono);
+    font-size: 0.9em;
+    background: var(--sl-color-bg-inline-code);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+  }
+  a {
+    color: var(--sl-color-text-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  .u-visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+</style>

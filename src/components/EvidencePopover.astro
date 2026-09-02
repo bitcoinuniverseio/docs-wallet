@@ -1,0 +1,66 @@
+---
+// EvidencePopover: the claim's receipts, rendered as a disclosure so the
+// evidence is in the HTML for everyone (no JS needed to read it) and out of
+// the way until wanted.
+interface Props {
+  claim: string;
+  source: string;
+  detail?: string;
+}
+const { claim, source, detail } = Astro.props;
+---
+
+<details class="u-evidence">
+  <summary>
+    <span class="u-evidence__claim">{claim}</span>
+    <span class="u-evidence__toggle">Evidence</span>
+  </summary>
+  <div class="u-evidence__body">
+    {detail && <p>{detail}</p>}
+    <p class="u-evidence__source">
+      <svg aria-hidden="true" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 2h6l3 3v9H4z" />
+        <path d="M10 2v3h3" />
+      </svg>
+      {source}
+    </p>
+  </div>
+</details>
+
+<style>
+  .u-evidence {
+    border: 1px solid var(--u-hairline);
+    border-radius: var(--u-radius);
+    background: var(--u-surface);
+    margin: 0.6rem 0;
+    font-size: 0.88rem;
+  }
+  .u-evidence summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.45rem 0.7rem;
+    cursor: pointer;
+    align-items: baseline;
+  }
+  .u-evidence__toggle {
+    flex: none;
+    color: var(--u-dim);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .u-evidence__body {
+    padding: 0.2rem 0.7rem 0.6rem;
+    border-top: 1px solid var(--u-hairline);
+  }
+  .u-evidence__body p {
+    margin: 0.5rem 0 0;
+  }
+  .u-evidence__source {
+    display: flex;
+    gap: 0.45rem;
+    align-items: baseline;
+    color: var(--u-dim);
+  }
+</style>
