@@ -68,6 +68,17 @@ const site = Astro.site?.href.replace(/\/$/, '') ?? '';
 </html>
 
 <style is:global>
+  /* The guide pages render outside Starlight's reset, so the border-box
+     contract has to be restated here: without it, width:100% plus padding
+     overflows at 320px. */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  pre {
+    overflow-x: auto;
+  }
   body {
     margin: 0;
     background: var(--sl-color-bg);

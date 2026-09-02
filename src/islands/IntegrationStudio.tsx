@@ -388,7 +388,7 @@ function Studio({ methods, overlay, events, namespaces, walletVersion, anyProtoc
           </button>
         </div>
         <div class="u-studio-code">
-          <pre><code>{codeFor(selected, selectedOverlay, language)}</code></pre>
+          <pre tabIndex={0}><code>{codeFor(selected, selectedOverlay, language)}</code></pre>
         </div>
         {selectedOverlay?.relatedGuide && (
           <p style={{ marginTop: '0.6rem' }}>

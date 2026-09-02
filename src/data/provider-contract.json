@@ -1,7 +1,7 @@
 {
   "schemaVersion": "universe-provider-contract-v1",
   "walletVersion": "1.7.5.8",
-  "walletSourceCommit": "cf0b6d60d00a3086f93b6be83375bbc90b2c4acd",
+  "walletSourceCommit": "95219da7ba6a4e1e8c68aa1336d6b2798ecd2ad2",
   "generatedFrom": [
     "backend/content-script/pageProvider/index.ts",
     "backend/content-script/pageProvider/pushEventHandlers.ts",
@@ -10,7 +10,7 @@
     "docs/PROTOCOL-RELEASE-MATRIX.json",
     "docs/PUBLIC-CAPABILITY-SUMMARY.json"
   ],
-  "generatedAt": "2026-09-02T16:35:21.885Z",
+  "generatedAt": "2026-09-02T19:00:07.076Z",
   "providerNamespaces": [
     "tapwallet",
     "tap_wallet",

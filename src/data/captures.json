@@ -1,8 +1,3679 @@
 {
   "schemaVersion": "universe-docs-captures-imported-v1",
-  "importedAt": "2026-09-02T17:53:41.789Z",
+  "importedAt": "2026-09-02T19:00:28.306Z",
   "releaseId": "wallet-1.7.5.8",
   "walletVersion": "1.7.5.8",
-  "exportManifestSha256": null,
-  "captures": []
+  "exportManifestSha256": "f25b3ac458f49cf7ef2435cfef9a9500135dc23a6d1c03ec0678aa2e41c6f17d",
+  "captures": [
+    {
+      "captureId": "address-type--dark--360",
+      "visualCaseId": "onboarding-address-type--dark--360",
+      "kind": "onboarding",
+      "workflow": "install-and-onboarding",
+      "state": "address-type",
+      "riskLevel": "caution",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Address type selection",
+      "caption": "Picking the address model for the wallet. The Continue control stays disabled until the scan of each path finishes.",
+      "description": "A list of address type cards, each naming a derivation model and showing any balance found on it. Continue at the bottom is disabled while the wallet scans derivation paths for existing balances.",
+      "consumers": [
+        "atlas",
+        "journeys:create-a-wallet",
+        "journeys:import-safely",
+        "pages:concepts/address-types"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "cec4e16bb743312ed1937f1ea5651851b1e3a0ec312cb141931b09da1a5171a2",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/address-type--dark--360.png",
+          "sha256": "cec4e16bb743312ed1937f1ea5651851b1e3a0ec312cb141931b09da1a5171a2",
+          "byteSize": 86905
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/address-type--dark--360.webp",
+          "sha256": "8bfa29e3e6ea565edd087cfa5f2eb7ac46e19242d3c667fcb7051060bd03a5c7",
+          "byteSize": 21874
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/address-type--dark--360.avif",
+          "sha256": "10a3552e163a7e9e40aeb34c91b590707f36ded88b4491cc0270d01a75538343",
+          "byteSize": 13431
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABwAwCdASoQACAAPxFwsFAsJiSisAgBgCIJZQAAidCwq+sh7AAA/u8KC3BOICDHqMWXhM+dJaYOkoyjWM9sBn5Bngmz5fQoAAA="
+    },
+    {
+      "captureId": "address-type--dark--400",
+      "visualCaseId": "onboarding-address-type--dark--400",
+      "kind": "onboarding",
+      "workflow": "install-and-onboarding",
+      "state": "address-type",
+      "riskLevel": "caution",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Address type selection",
+      "caption": "Picking the address model for the wallet. The Continue control stays disabled until the scan of each path finishes.",
+      "description": "A list of address type cards, each naming a derivation model and showing any balance found on it. Continue at the bottom is disabled while the wallet scans derivation paths for existing balances.",
+      "consumers": [
+        "atlas",
+        "journeys:create-a-wallet",
+        "journeys:import-safely",
+        "pages:concepts/address-types"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "5d8345129e1ed67169b753d17b7b9ab1d6e65a4881c5b64e2c529db4df00a22b",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/address-type--dark--400.png",
+          "sha256": "5d8345129e1ed67169b753d17b7b9ab1d6e65a4881c5b64e2c529db4df00a22b",
+          "byteSize": 87952
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/address-type--dark--400.webp",
+          "sha256": "0909d92c5a47b5ef3f8ab19fedce07b11a02dd8db29b33fd4c9c882f924aad1b",
+          "byteSize": 21796
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/address-type--dark--400.avif",
+          "sha256": "75cb152fcd7490040191132e91c3845cbd80d124faeee87c9aeb245f828c9edd",
+          "byteSize": 13654
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAwCdASoQAB0APxF0slCsJqSisAgBgCIJZWZAAD3gun8VAAD+7woLP0k7EXj75byZnRvvDoBQSBQtdn4Bfx/rV9yAAA=="
+    },
+    {
+      "captureId": "approval-connect--dark--400",
+      "visualCaseId": "approval-connect--dark--400",
+      "kind": "approval",
+      "workflow": "connection-approval",
+      "state": "connect-request",
+      "riskLevel": "caution",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 600
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Connection request",
+      "caption": "What a site sees requested and what the user is asked to approve: the origin, the requested access, and nothing else.",
+      "description": "The approval window for a connection request. The requesting origin is shown as example-site.test, a clearly synthetic address. The request names the account access it wants. Approve and reject controls sit at the bottom, with reject as the safe default.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/connect-an-application",
+        "pages:concepts/connections",
+        "journeys:connect-and-review",
+        "journeys:developer-first-connection",
+        "safety-lab:connect",
+        "simulator:connection-approval"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 600,
+      "masterSha256": "800f4cdf925141d1ebcc7e8f15c50372dd88d388b35f3f6cab5e7c340c7e7b14",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-connect--dark--400.png",
+          "sha256": "800f4cdf925141d1ebcc7e8f15c50372dd88d388b35f3f6cab5e7c340c7e7b14",
+          "byteSize": 71559
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-connect--dark--400.webp",
+          "sha256": "36546452ed4b989579a00d46b76c61e4a1edbb6e7904fde1bafa987ad2bcce2c",
+          "byteSize": 16122
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-connect--dark--400.avif",
+          "sha256": "ece3baaf0fec3d058691c96aea31e1b4152b97a61950e66e5f6172e94438a7ea",
+          "byteSize": 9852
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoQABgAPxF0sFCsJqSisAgBgCIJYgC06GYWsL9iPTgbUAD++vbeE3EDEGlpsXHLvq5rjDEzMucdMCGz+LI7lZAA"
+    },
+    {
+      "captureId": "approval-connect--light--400",
+      "visualCaseId": "approval-connect--light--400",
+      "kind": "approval",
+      "workflow": "connection-approval",
+      "state": "connect-request",
+      "riskLevel": "caution",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 600
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Connection request",
+      "caption": "What a site sees requested and what the user is asked to approve: the origin, the requested access, and nothing else.",
+      "description": "The approval window for a connection request. The requesting origin is shown as example-site.test, a clearly synthetic address. The request names the account access it wants. Approve and reject controls sit at the bottom, with reject as the safe default.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/connect-an-application",
+        "pages:concepts/connections",
+        "journeys:connect-and-review",
+        "journeys:developer-first-connection",
+        "safety-lab:connect",
+        "simulator:connection-approval"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 600,
+      "masterSha256": "4bb70867670c877c14e50ff3b49cb7ed963a625f23ce06cbf784e8a9e5792b8f",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-connect--light--400.png",
+          "sha256": "4bb70867670c877c14e50ff3b49cb7ed963a625f23ce06cbf784e8a9e5792b8f",
+          "byteSize": 53943
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-connect--light--400.webp",
+          "sha256": "31f52042c788e3b09c932b129c78593aa87d4b924dc87b266d31a1ed4207741e",
+          "byteSize": 16328
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-connect--light--400.avif",
+          "sha256": "11978ffacc10cbae4b3580f20b42d4f737ce9a7b5dbd8c3ead66ea57894b161a",
+          "byteSize": 9568
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoQABgAPxFysFAsJqSisAgBgCIJYgABFaLdzlgPUCXqcAAA/vwX/HDyxDl7HQEwRhpdeY32Dbo9lZ+kXZtCAAAA"
+    },
+    {
+      "captureId": "approval-switch-chain--dark--400",
+      "visualCaseId": "approval-switch-chain--dark--400",
+      "kind": "approval",
+      "workflow": "connection-approval",
+      "state": "switch-chain-request",
+      "riskLevel": "caution",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 600
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Chain switch request",
+      "caption": "A site asking to move the active chain. The request names both the current and the requested chain.",
+      "description": "The approval window for a chain switch. The request states that the site example-site.test wants to switch the chain from the current value to Bitcoin Testnet. Approve and cancel controls sit at the bottom.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/switch-chain-and-network",
+        "journeys:switch-chain-safely",
+        "safety-lab:chain-switch",
+        "simulator:chain-switch-approval"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 600,
+      "masterSha256": "b8168cb3fc2fda846587f90c9918ba2647a2264807bf66fa9ec3c41ec76bb453",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-switch-chain--dark--400.png",
+          "sha256": "b8168cb3fc2fda846587f90c9918ba2647a2264807bf66fa9ec3c41ec76bb453",
+          "byteSize": 79671
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-switch-chain--dark--400.webp",
+          "sha256": "3ed4201c0be559f4e7c558d5f5e981e7e44d9245f3c6b29c648336747ea54964",
+          "byteSize": 18640
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-switch-chain--dark--400.avif",
+          "sha256": "469ffede075c9d9f5a7b627793f857f25f62344ec1321bc3d2dda1ea5706240b",
+          "byteSize": 10872
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoQABgAPxFysFAsJqSisAgBgCIJYgDCgGYQ/qKEWF2ZgAD++xQlcD0QmfSzppuD+h0LOdYVjMIYz3UtLX9gQAAA"
+    },
+    {
+      "captureId": "approval-switch-chain--light--400",
+      "visualCaseId": "approval-switch-chain--light--400",
+      "kind": "approval",
+      "workflow": "connection-approval",
+      "state": "switch-chain-request",
+      "riskLevel": "caution",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 600
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Chain switch request",
+      "caption": "A site asking to move the active chain. The request names both the current and the requested chain.",
+      "description": "The approval window for a chain switch. The request states that the site example-site.test wants to switch the chain from the current value to Bitcoin Testnet. Approve and cancel controls sit at the bottom.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/switch-chain-and-network",
+        "journeys:switch-chain-safely",
+        "safety-lab:chain-switch",
+        "simulator:chain-switch-approval"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 600,
+      "masterSha256": "692aa0a3544b8c55821600cfcdada7e7b1b3dc3ff19c61265211a3c32fd77511",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-switch-chain--light--400.png",
+          "sha256": "692aa0a3544b8c55821600cfcdada7e7b1b3dc3ff19c61265211a3c32fd77511",
+          "byteSize": 57784
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-switch-chain--light--400.webp",
+          "sha256": "860b27f677e0642d5377ab127e12f478ce096457226e15bb0a87b69e072251fd",
+          "byteSize": 18766
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-switch-chain--light--400.avif",
+          "sha256": "dd8a7ecf96265286265c5540ae23a87858cc186529b008a523fdd78d12cc7e1f",
+          "byteSize": 10477
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoQABgAPxFysVCsJqSisAgBgCIJYgABHujUyWmJP8sBWAAA/vu/mgWVZGDC26x/S7aUuNRxbD3GY69O+tYEAAAA"
+    },
+    {
+      "captureId": "approval-unverified-origin--dark--400",
+      "visualCaseId": "approval-unverified-origin--dark--400",
+      "kind": "approval",
+      "workflow": "connection-approval",
+      "state": "unverified-origin",
+      "riskLevel": "danger",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 600
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Unverified origin gate",
+      "caption": "The gate shown instead of an approval when the wallet cannot verify the requesting site.",
+      "description": "A full-window gate titled unable to verify this site. Body text explains that the wallet could not complete its site check and that the request is blocked until verification succeeds. No approve control is offered.",
+      "consumers": [
+        "atlas",
+        "pages:safety/phishing",
+        "pages:safety/compromised-wallet",
+        "pages:concepts/connections",
+        "journeys:connect-and-review",
+        "safety-lab:unverified-origin",
+        "simulator:unverified-origin"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 600,
+      "masterSha256": "0a140e1452e66f1239c167e86b387ecd53639ded27ec986ece0eac09c93410a9",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-unverified-origin--dark--400.png",
+          "sha256": "0a140e1452e66f1239c167e86b387ecd53639ded27ec986ece0eac09c93410a9",
+          "byteSize": 35944
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-unverified-origin--dark--400.webp",
+          "sha256": "7e53be03e88f6203ace521f5876d8cf2b8972081ea129dfde0b72b36638985e3",
+          "byteSize": 6520
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-unverified-origin--dark--400.avif",
+          "sha256": "b162eaaae0ba18a3611ed202701b8e9ff12c8a991c3705599928839d15e26ef5",
+          "byteSize": 3864
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAwCdASoQABgAPxFysFAsJqSisAgBgCIJYgCsAGYRbH77r9OKAAD++u/7D2pHp7R6p1leknMM/gJInDEyL1RSiAA="
+    },
+    {
+      "captureId": "approval-unverified-origin--light--400",
+      "visualCaseId": "approval-unverified-origin--light--400",
+      "kind": "approval",
+      "workflow": "connection-approval",
+      "state": "unverified-origin",
+      "riskLevel": "danger",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 600
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Unverified origin gate",
+      "caption": "The gate shown instead of an approval when the wallet cannot verify the requesting site.",
+      "description": "A full-window gate titled unable to verify this site. Body text explains that the wallet could not complete its site check and that the request is blocked until verification succeeds. No approve control is offered.",
+      "consumers": [
+        "atlas",
+        "pages:safety/phishing",
+        "pages:safety/compromised-wallet",
+        "pages:concepts/connections",
+        "journeys:connect-and-review",
+        "safety-lab:unverified-origin",
+        "simulator:unverified-origin"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 600,
+      "masterSha256": "7758b4073cb6a4a4d65f495f54e53e6ab1b45956d245d41b72b4abf29fd5feed",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-unverified-origin--light--400.png",
+          "sha256": "7758b4073cb6a4a4d65f495f54e53e6ab1b45956d245d41b72b4abf29fd5feed",
+          "byteSize": 21724
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-unverified-origin--light--400.webp",
+          "sha256": "73bc083a41d58ad5c171866d29765107bbbb7febfcb0ef409881d6f4c5221b13",
+          "byteSize": 6786
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "path": "captures/approval-unverified-origin--light--400.avif",
+          "sha256": "856e5b5f9bc29c58930eed5f2fc701f6d0b199e697f66af292dbc3196d6819c8",
+          "byteSize": 3983
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAwAwCdASoQABgAPxFysFAsJqSisAgBgCIJYgABSeqyJOUAAP74r+YFfGQ0VE/Uk5tfrZe3TzB/dvpF1fjPfkeAAAA="
+    },
+    {
+      "captureId": "create-password--dark--360",
+      "visualCaseId": "onboarding-create-password--dark--360",
+      "kind": "onboarding",
+      "workflow": "install-and-onboarding",
+      "state": "create-password",
+      "riskLevel": "caution",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Create a password",
+      "caption": "Password creation during setup. The password unlocks this device only; it never replaces the recovery phrase.",
+      "description": "A two-field form titled Create a password. Both fields are masked. Helper text explains that the password is used to unlock the wallet on this device. A Continue button sits at the bottom and stays disabled until both fields are filled.",
+      "consumers": [
+        "atlas",
+        "journeys:create-a-wallet",
+        "pages:start/create-a-wallet"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "944bdc5c60cf5550a2a1c1ad77fff958c9788964ff8aaa9429dffe8c526c2e1d",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/create-password--dark--360.png",
+          "sha256": "944bdc5c60cf5550a2a1c1ad77fff958c9788964ff8aaa9429dffe8c526c2e1d",
+          "byteSize": 131793
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/create-password--dark--360.webp",
+          "sha256": "995a1648d4a5dcad19e440a460eb696c4213342fe52cf06673b3a4e57390bd7e",
+          "byteSize": 16618
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/create-password--dark--360.avif",
+          "sha256": "34f428df9f4bb3c2a5601f370a2bea21f09443dd87c6fb94e6d22524b0f9394c",
+          "byteSize": 11244
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACQAwCdASoQACAAPxFwsFAsJiSisAgBgCIJZQC7ADKLBy983AYAAP7tl6yWCeYxKMK3skRgZ6FIwVqsD5wAAA=="
+    },
+    {
+      "captureId": "create-password--dark--400",
+      "visualCaseId": "onboarding-create-password--dark--400",
+      "kind": "onboarding",
+      "workflow": "install-and-onboarding",
+      "state": "create-password",
+      "riskLevel": "caution",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Create a password",
+      "caption": "Password creation during setup. The password unlocks this device only; it never replaces the recovery phrase.",
+      "description": "A two-field form titled Create a password. Both fields are masked. Helper text explains that the password is used to unlock the wallet on this device. A Continue button sits at the bottom and stays disabled until both fields are filled.",
+      "consumers": [
+        "atlas",
+        "journeys:create-a-wallet",
+        "pages:start/create-a-wallet"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "bc2f6052a70f543ad11d5a5d2f21fb9d2ea7bac0241c44298f360698f047efc8",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/create-password--dark--400.png",
+          "sha256": "bc2f6052a70f543ad11d5a5d2f21fb9d2ea7bac0241c44298f360698f047efc8",
+          "byteSize": 128603
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/create-password--dark--400.webp",
+          "sha256": "1babf50c940c4f49f331a0d30df3f32d456bdd7e83ac0aadc63a6fa8a0b91892",
+          "byteSize": 17948
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/create-password--dark--400.avif",
+          "sha256": "000731f148b6bab7f0f832f78ef8601e2d71b0330e1a4b6fa560303509a61753",
+          "byteSize": 11577
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAwCdASoQAB0APxFwsFAsJiSisAgBgCIJZWDrWIeV8V1iGOAA/u3WNO42DmMW4bC88RoN5x53fuAUAAA="
+    },
+    {
+      "captureId": "discover--dark--1100",
+      "visualCaseId": "discover--dark--1100",
+      "kind": "route",
+      "workflow": "discover",
+      "state": "hub",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 1100,
+        "height": 800
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Wallet tools hub",
+      "caption": "The discover hub listing wallet tools. Entries that need an unauthorized operation are inert here.",
+      "description": "The discover hub screen. A grid of wallet tool cards covers portfolio analytics, the NFT gallery, and other utilities. Cards whose underlying operation is not authorized in this release render in a muted unavailable state.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 1100,
+      "intrinsicHeight": 800,
+      "masterSha256": "3b85dfa971a11e6aa681d773a82252475272d1cc22a472a4c9f754a3f4927aa8",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/discover--dark--1100.png",
+          "sha256": "3b85dfa971a11e6aa681d773a82252475272d1cc22a472a4c9f754a3f4927aa8",
+          "byteSize": 209486
+        },
+        {
+          "format": "webp",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/discover--dark--1100.webp",
+          "sha256": "255679f8011c7699b7978325e35a6f8ca56bc8c54d492ffe6c1066d6220c1833",
+          "byteSize": 35944
+        },
+        {
+          "format": "avif",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/discover--dark--1100.avif",
+          "sha256": "c6efcbdbe9b408066572f49285aa8fb214aa9f723ce1c749e5148ba4e6f2e309",
+          "byteSize": 22682
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAABQAQCdASoQAAwABABoJZwABDOAAP7w7RMUwgT1gKAAAA=="
+    },
+    {
+      "captureId": "discover--dark--360",
+      "visualCaseId": "discover--dark--360",
+      "kind": "route",
+      "workflow": "discover",
+      "state": "hub",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Wallet tools hub",
+      "caption": "The discover hub listing wallet tools. Entries that need an unauthorized operation are inert here.",
+      "description": "The discover hub screen. A grid of wallet tool cards covers portfolio analytics, the NFT gallery, and other utilities. Cards whose underlying operation is not authorized in this release render in a muted unavailable state.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "8255982c912f74c9436090accb76f79fc82b04bfbf009bf7bac6052c0edbc508",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/discover--dark--360.png",
+          "sha256": "8255982c912f74c9436090accb76f79fc82b04bfbf009bf7bac6052c0edbc508",
+          "byteSize": 117655
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/discover--dark--360.webp",
+          "sha256": "da4434ae1d74b0ffe69ca51a21991efcd7dc47cc36f577d35822f4f536780086",
+          "byteSize": 22608
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/discover--dark--360.avif",
+          "sha256": "402ab8c905df8d74d8dbca82f03c69bdc132b09402ea39ac695f329b826db57d",
+          "byteSize": 13847
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABwAwCdASoQACAAPxFwsFAsJiSisAgBgCIJZQC06Cz9fMNTugAA/u6vlU33dSKtjQ3XOmCnNJWNb4OdsHFrLY+AAAA="
+    },
+    {
+      "captureId": "discover--dark--400",
+      "visualCaseId": "discover--dark--400",
+      "kind": "route",
+      "workflow": "discover",
+      "state": "hub",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Wallet tools hub",
+      "caption": "The discover hub listing wallet tools. Entries that need an unauthorized operation are inert here.",
+      "description": "The discover hub screen. A grid of wallet tool cards covers portfolio analytics, the NFT gallery, and other utilities. Cards whose underlying operation is not authorized in this release render in a muted unavailable state.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "e5c5a7f8076130ae803f024450d201ed140207040ed33e85a7b917e98b6e0009",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/discover--dark--400.png",
+          "sha256": "e5c5a7f8076130ae803f024450d201ed140207040ed33e85a7b917e98b6e0009",
+          "byteSize": 129451
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/discover--dark--400.webp",
+          "sha256": "df0451f8dfb189f61fb34f46ee9802a9e8b300695985570035b22b1a93f34ab4",
+          "byteSize": 24998
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/discover--dark--400.avif",
+          "sha256": "1243a2e052f8639d5076c315fab9bde3c4fe5c2507d1ca18f8c193475865f59e",
+          "byteSize": 15210
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAwCdASoQAB0APxFysVAsJqSisAgBgCIJZWZAVt+V7TK1gK/AAP7ugaqRUQXxfqZN8gS7BJWUegS0aAA="
+    },
+    {
+      "captureId": "discover--light--400",
+      "visualCaseId": "discover--light--400",
+      "kind": "route",
+      "workflow": "discover",
+      "state": "hub",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Wallet tools hub",
+      "caption": "The discover hub listing wallet tools. Entries that need an unauthorized operation are inert here.",
+      "description": "The discover hub screen. A grid of wallet tool cards covers portfolio analytics, the NFT gallery, and other utilities. Cards whose underlying operation is not authorized in this release render in a muted unavailable state.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "defad84bdf068653d9b9b7ba20e5edae86de62efa648ee79748f2c16dec45064",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/discover--light--400.png",
+          "sha256": "defad84bdf068653d9b9b7ba20e5edae86de62efa648ee79748f2c16dec45064",
+          "byteSize": 107495
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/discover--light--400.webp",
+          "sha256": "f9cf709cf3dd55b983fad36d2b6b0da3b78aa4a854f0d88f551caf53d970a210",
+          "byteSize": 25358
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/discover--light--400.avif",
+          "sha256": "2d5442c15b830e91c8fd92ad49373e887a187e2ad99bbc5535445043c51b3c3a",
+          "byteSize": 15105
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAwAwCdASoQAB0APxFysFAwpqSisAgCECIJZwAAidG9ntAAAP7vIttoCtjb4WHlBVXwo/Qy3x5MQoAA"
+    },
+    {
+      "captureId": "history--dark--360",
+      "visualCaseId": "history--dark--360",
+      "kind": "route",
+      "workflow": "history",
+      "state": "offline-error",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Transaction history, offline",
+      "caption": "History while the wallet cannot reach its indexers: an explicit failure state, not a silent empty list.",
+      "description": "The activity screen showing a load failure. Text explains that transaction history could not be loaded and offers a retry control. No transactions are listed.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/activity",
+        "journeys:inspect-history"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "d50f373672899f845fada1c54dcc33090165b3fe10bf0526d85ae43b3a251889",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/history--dark--360.png",
+          "sha256": "d50f373672899f845fada1c54dcc33090165b3fe10bf0526d85ae43b3a251889",
+          "byteSize": 32335
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/history--dark--360.webp",
+          "sha256": "003c99c95ba5a49eee09088cc4a9a12715f1df1833d79271141e0f5f159271d8",
+          "byteSize": 3758
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/history--dark--360.avif",
+          "sha256": "e6583cc58bc8c8a38200fb9c3fa7feb88de93d1aac612e8aa6d427f4713a11b8",
+          "byteSize": 2660
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoQACAAPxF0sFAsJySisAgBgCIJYwC7AGlfiweX7j+AAP769Qoknl+hUvv3KWmt4lScLg0INI4IjAAA"
+    },
+    {
+      "captureId": "history--dark--400",
+      "visualCaseId": "history--dark--400",
+      "kind": "route",
+      "workflow": "history",
+      "state": "offline-error",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Transaction history, offline",
+      "caption": "History while the wallet cannot reach its indexers: an explicit failure state, not a silent empty list.",
+      "description": "The activity screen showing a load failure. Text explains that transaction history could not be loaded and offers a retry control. No transactions are listed.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/activity",
+        "journeys:inspect-history"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "0ced2838fc9a8d5ffd597244052231fee75717f240723a48611b6a6bfce52f5f",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/history--dark--400.png",
+          "sha256": "0ced2838fc9a8d5ffd597244052231fee75717f240723a48611b6a6bfce52f5f",
+          "byteSize": 33227
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/history--dark--400.webp",
+          "sha256": "e5eab67c7238f2e49f94fec34318b1bbd1e91244a8a19932531c321ef1739314",
+          "byteSize": 3844
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/history--dark--400.avif",
+          "sha256": "87c38f4089a4c813439f517969d2e5ebdabf9ed53d9d854b9a2685fec7691546",
+          "byteSize": 2725
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoQAB0APxF0sFAsJySisAgBgCIJYwCw7GlfiycJDFvkAAD++vYXP/64WPHtqyWnbMJMogt+FYHUebVQZL+BAAAA"
+    },
+    {
+      "captureId": "history--light--400",
+      "visualCaseId": "history--light--400",
+      "kind": "route",
+      "workflow": "history",
+      "state": "offline-error",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Transaction history, offline",
+      "caption": "History while the wallet cannot reach its indexers: an explicit failure state, not a silent empty list.",
+      "description": "The activity screen showing a load failure. Text explains that transaction history could not be loaded and offers a retry control. No transactions are listed.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/activity",
+        "journeys:inspect-history"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "42bfdbafe08cd8715e7711d13e7262f57c5f74232463e63bbaa3c6af684c58bb",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/history--light--400.png",
+          "sha256": "42bfdbafe08cd8715e7711d13e7262f57c5f74232463e63bbaa3c6af684c58bb",
+          "byteSize": 19823
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/history--light--400.webp",
+          "sha256": "a97a25564d9da8e4bab1a8b22bcb6184bd39d2d5fdc8c5ba2a927406f5418657",
+          "byteSize": 3606
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/history--light--400.avif",
+          "sha256": "783696bb1b925be15dd3eedd92721e65ac5cf8fbad677cf76d7565ac005f333d",
+          "byteSize": 2839
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAwCdASoQAB0APxF0slCsJqSisAgBgCIJYwBTABfB9Wc3uXaL1QAA/vwSjUDABTYCWaGSmiz5c7zxjnCQQAAA"
+    },
+    {
+      "captureId": "home--dark--1100",
+      "visualCaseId": "home--dark--1100",
+      "kind": "route",
+      "workflow": "home",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 1100,
+        "height": 800
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Home, empty wallet",
+      "caption": "Home for a wallet with nothing in it yet. The fail-closed protocol bar shows no authorized protocol.",
+      "description": "The home screen of Universe Wallet with a zero balance and no transaction history. A header shows the account name and the current network. The main area invites the user to receive their first funds. A protocol bar states that no protocol is authorized in this build.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "journeys:identify-version",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 1100,
+      "intrinsicHeight": 800,
+      "masterSha256": "188e4caffecf1b11f1be5b16bb407e6409235eeb47d0ab7e8eba6bd4230e4bf7",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/home--dark--1100.png",
+          "sha256": "188e4caffecf1b11f1be5b16bb407e6409235eeb47d0ab7e8eba6bd4230e4bf7",
+          "byteSize": 104565
+        },
+        {
+          "format": "webp",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/home--dark--1100.webp",
+          "sha256": "ea4b674c69b5e3c42c804886f9fa8f601c630728e3bde31de11b98847ed40398",
+          "byteSize": 19400
+        },
+        {
+          "format": "avif",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/home--dark--1100.avif",
+          "sha256": "2e1bd1af70c041c9bdb554ca7dcb180919007df8a44063ef0a593c1fc432de5e",
+          "byteSize": 12310
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAwABABoJbAAAuddsbqHAAD+9CTd1c30FMCZKxan/snQtuFL/17HIiT/gAAA"
+    },
+    {
+      "captureId": "home--dark--360",
+      "visualCaseId": "home--dark--360",
+      "kind": "route",
+      "workflow": "home",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Home, empty wallet",
+      "caption": "Home for a wallet with nothing in it yet. The fail-closed protocol bar shows no authorized protocol.",
+      "description": "The home screen of Universe Wallet with a zero balance and no transaction history. A header shows the account name and the current network. The main area invites the user to receive their first funds. A protocol bar states that no protocol is authorized in this build.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "journeys:identify-version",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "dbb4490a46cf66c58d0e0ac534a166566f3590bdce81c473b612bedaaa9c5794",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/home--dark--360.png",
+          "sha256": "dbb4490a46cf66c58d0e0ac534a166566f3590bdce81c473b612bedaaa9c5794",
+          "byteSize": 73244
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/home--dark--360.webp",
+          "sha256": "72c4ff37e320adb729eef3d840ed1f1be6d38ff3af030afdbfd26f03daaadb68",
+          "byteSize": 14840
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/home--dark--360.avif",
+          "sha256": "4bc26e13aeb9b0434a2138390043b58b7314ef28c82f14147063786b9cb8b6e9",
+          "byteSize": 9374
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAwCdASoQACAAPxFysFAsJqSisAgBgCIJYgC7AGlfTLGY88C8j4AA/vnUOlLioCOe1nTDoEiXomWP3Og79bz0cGsoRsv5ogAAAA=="
+    },
+    {
+      "captureId": "home--dark--400",
+      "visualCaseId": "home--dark--400",
+      "kind": "route",
+      "workflow": "home",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Home, empty wallet",
+      "caption": "Home for a wallet with nothing in it yet. The fail-closed protocol bar shows no authorized protocol.",
+      "description": "The home screen of Universe Wallet with a zero balance and no transaction history. A header shows the account name and the current network. The main area invites the user to receive their first funds. A protocol bar states that no protocol is authorized in this build.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "journeys:identify-version",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "4ae50961c041d9cdb16767993fb9e9beda3aaff78cfe0793a6414b5f25c5da18",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--dark--400.png",
+          "sha256": "4ae50961c041d9cdb16767993fb9e9beda3aaff78cfe0793a6414b5f25c5da18",
+          "byteSize": 75761
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--dark--400.webp",
+          "sha256": "2ba25e0ea8ad98c32a4b3f4a333528bcb42c3e28d3bb02b25d28421ed87bba4a",
+          "byteSize": 15482
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--dark--400.avif",
+          "sha256": "0a5d4276b7fc8e2fc3922a81f8a2e355b3eef8fd1ff162e12a30171403c355d8",
+          "byteSize": 9814
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoQAB0APxFysFAsJqSisAgBgCIJZgCw7GlhvdDh7slEAAD++fys2DkMsYVbqNSmAN93FVq2AFcQUTr14VRQZt+sjDkH4u4sIIAAAA=="
+    },
+    {
+      "captureId": "home--dark--430",
+      "visualCaseId": "home--dark--430",
+      "kind": "route",
+      "workflow": "home",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 430,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Home, empty wallet",
+      "caption": "Home for a wallet with nothing in it yet. The fail-closed protocol bar shows no authorized protocol.",
+      "description": "The home screen of Universe Wallet with a zero balance and no transaction history. A header shows the account name and the current network. The main area invites the user to receive their first funds. A protocol bar states that no protocol is authorized in this build.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "journeys:identify-version",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 430,
+      "intrinsicHeight": 720,
+      "masterSha256": "a156a55c5c9d6e1d4a48aa0b306f7f96c68dc4b6ccb20cdc47162e70f7f5b14e",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 430,
+          "height": 720,
+          "path": "captures/home--dark--430.png",
+          "sha256": "a156a55c5c9d6e1d4a48aa0b306f7f96c68dc4b6ccb20cdc47162e70f7f5b14e",
+          "byteSize": 77674
+        },
+        {
+          "format": "webp",
+          "width": 430,
+          "height": 720,
+          "path": "captures/home--dark--430.webp",
+          "sha256": "4c6eb8e7eebea77af2a59b5416710db74dd7e0d922ef660c4fa6002f872d59e1",
+          "byteSize": 15550
+        },
+        {
+          "format": "avif",
+          "width": 430,
+          "height": 720,
+          "path": "captures/home--dark--430.avif",
+          "sha256": "a16bfd3cfc24bee34e3ae6791079912f56bfe1927be9549817b08a57aff3e700",
+          "byteSize": 10011
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoQABsAPxFysVCsJqSisAgBgCIJZEwATsyw+rL22AAA/vfOxPWx187kcv3xyy25EGxbuLZODIlBy12kdfS3q0hEtffj8mcXUOgAAA=="
+    },
+    {
+      "captureId": "home--dark--536",
+      "visualCaseId": "home--dark--536",
+      "kind": "route",
+      "workflow": "home",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 536,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Home, empty wallet",
+      "caption": "Home for a wallet with nothing in it yet. The fail-closed protocol bar shows no authorized protocol.",
+      "description": "The home screen of Universe Wallet with a zero balance and no transaction history. A header shows the account name and the current network. The main area invites the user to receive their first funds. A protocol bar states that no protocol is authorized in this build.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "journeys:identify-version",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 536,
+      "intrinsicHeight": 720,
+      "masterSha256": "fddf98a583a924694858d7777238bf25941a23790780f33e4c000772f40d0986",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 536,
+          "height": 720,
+          "path": "captures/home--dark--536.png",
+          "sha256": "fddf98a583a924694858d7777238bf25941a23790780f33e4c000772f40d0986",
+          "byteSize": 76828
+        },
+        {
+          "format": "webp",
+          "width": 536,
+          "height": 720,
+          "path": "captures/home--dark--536.webp",
+          "sha256": "24ddc5b188005ac3ca322cbab95be1c1fc70ab922715d4b38c85f831ca832306",
+          "byteSize": 16556
+        },
+        {
+          "format": "avif",
+          "width": 536,
+          "height": 720,
+          "path": "captures/home--dark--536.avif",
+          "sha256": "785400a491632244f2a55b67086622646dd60b114cbbbfe9962b5016ed61a798",
+          "byteSize": 10398
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoQABUAPxFysVAsJqSisAgBgCIJZgCdAGttvtQ3LsUzUAD++nYpY8U87l+Qa78e9YzkP1UHxtwdwA4Dwbn2/BuvGBkNQAAA"
+    },
+    {
+      "captureId": "home--light--400",
+      "visualCaseId": "home--light--400",
+      "kind": "route",
+      "workflow": "home",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Home, empty wallet",
+      "caption": "Home for a wallet with nothing in it yet. The fail-closed protocol bar shows no authorized protocol.",
+      "description": "The home screen of Universe Wallet with a zero balance and no transaction history. A header shows the account name and the current network. The main area invites the user to receive their first funds. A protocol bar states that no protocol is authorized in this build.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "journeys:identify-version",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "f4185ce86d52a2be8af2a887a16a845b13e46c0cb942f4c376dadacd2dc52944",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--light--400.png",
+          "sha256": "f4185ce86d52a2be8af2a887a16a845b13e46c0cb942f4c376dadacd2dc52944",
+          "byteSize": 44113
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--light--400.webp",
+          "sha256": "6f6172953eda44b52b19f3bbf54add41ec0a7cf313f97bb677c1ed6c3ac80970",
+          "byteSize": 15330
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--light--400.avif",
+          "sha256": "f4320fbe8ce66e378fbeeb685b2712634b043fccfdf48ea6ec3f2ffbe6852a6b",
+          "byteSize": 9430
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAwCdASoQAB0APxFysVAsJqSisAgBgCIJZAABSexAelAA/viw4JV+AEk6p/oqYwSbsDS4/9D72RJK/8qt/I/v4fWSQAAA"
+    },
+    {
+      "captureId": "home--oled--400",
+      "visualCaseId": "home--oled--400",
+      "kind": "route",
+      "workflow": "home",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "oled",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Home, empty wallet",
+      "caption": "Home for a wallet with nothing in it yet. The fail-closed protocol bar shows no authorized protocol.",
+      "description": "The home screen of Universe Wallet with a zero balance and no transaction history. A header shows the account name and the current network. The main area invites the user to receive their first funds. A protocol bar states that no protocol is authorized in this build.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "journeys:identify-version",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "2946e00d5b4fc3cbea50d8d78c00669fe68973ebe53490c6e7524482c70bf9bc",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--oled--400.png",
+          "sha256": "2946e00d5b4fc3cbea50d8d78c00669fe68973ebe53490c6e7524482c70bf9bc",
+          "byteSize": 39909
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--oled--400.webp",
+          "sha256": "a6c7eb6f121ab45ca89bf7d43f0af86e3c241060fafeb59b4e28ac26f0d0b4d0",
+          "byteSize": 15418
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home--oled--400.avif",
+          "sha256": "20b5e0bc696b52414739a33898c85c86feee0b5a54523fb16f79c99472f47cc2",
+          "byteSize": 9637
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoQAB0APxFysFAsJqSisAgBgCIJZAABHvE3qLuBdQZ4AAD+/Gmg2oRZF23ejeAQoa2N/0PvZEkr/5ALKWQs0QF+AAA="
+    },
+    {
+      "captureId": "home-populated--dark--360",
+      "visualCaseId": "home-populated--dark--360",
+      "kind": "route",
+      "workflow": "home",
+      "state": "populated",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "assets-100",
+      "publicTitle": "Home with a populated portfolio",
+      "caption": "Home answered from the synthetic portfolio fixture: real balance anatomy, ownership line, and protected-output summary with real numbers.",
+      "description": "The home screen populated from the performance lab synthetic fixture. A balance block shows a total, an available portion, and a held-back portion with an ownership line. The protected-output summary lists held outputs. The network header and account switcher sit above.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "pages:tasks/receive",
+        "journeys:receive-funds",
+        "journeys:understand-balances",
+        "simulator:populated-home",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "43fe868fd4ff51b394217b31e269956b66d0056c8e1820e4cf9e201b4c5473b1",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/home-populated--dark--360.png",
+          "sha256": "43fe868fd4ff51b394217b31e269956b66d0056c8e1820e4cf9e201b4c5473b1",
+          "byteSize": 90071
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/home-populated--dark--360.webp",
+          "sha256": "ae297bf5c631d4d9a0c317f39ff91a03ef034cfb5a5446de52044386c05cd8c6",
+          "byteSize": 19292
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/home-populated--dark--360.avif",
+          "sha256": "027dbad353c62f87df1bc0360c56c57a2cf53a4b1b918f9fe565e90ace49e55d",
+          "byteSize": 11505
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoQACAAPxF0sVCsJqSisAgBgCIJZwDLLDKKpBELJXZcAP7vMmz6rn/XSWipNim5W+gwQuMcIUIfQAAA"
+    },
+    {
+      "captureId": "home-populated--dark--400",
+      "visualCaseId": "home-populated--dark--400",
+      "kind": "route",
+      "workflow": "home",
+      "state": "populated",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "assets-100",
+      "publicTitle": "Home with a populated portfolio",
+      "caption": "Home answered from the synthetic portfolio fixture: real balance anatomy, ownership line, and protected-output summary with real numbers.",
+      "description": "The home screen populated from the performance lab synthetic fixture. A balance block shows a total, an available portion, and a held-back portion with an ownership line. The protected-output summary lists held outputs. The network header and account switcher sit above.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "pages:tasks/receive",
+        "journeys:receive-funds",
+        "journeys:understand-balances",
+        "simulator:populated-home",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "764651574240a9eae012ffb0e57e35be7699555e4819d809884198edce56546c",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home-populated--dark--400.png",
+          "sha256": "764651574240a9eae012ffb0e57e35be7699555e4819d809884198edce56546c",
+          "byteSize": 93046
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home-populated--dark--400.webp",
+          "sha256": "d3a8ce2fb2a939d7c15dc8b293726d05dc02a19ece9f5e9909dc0c75755bd553",
+          "byteSize": 20890
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home-populated--dark--400.avif",
+          "sha256": "7d54b8269159115f7ba7939848c1e2943d82d6a2a3c071df091e3bf6c61d5b47",
+          "byteSize": 12531
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAwCdASoQAB0APxFysFAsJqSisAgBgCIJZwDImCHw1Guz7M+4AAD+47P6OJYnuSs0vR/PO2wzmNSc/bUAAA=="
+    },
+    {
+      "captureId": "home-populated--light--400",
+      "visualCaseId": "home-populated--light--400",
+      "kind": "route",
+      "workflow": "home",
+      "state": "populated",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "assets-100",
+      "publicTitle": "Home with a populated portfolio",
+      "caption": "Home answered from the synthetic portfolio fixture: real balance anatomy, ownership line, and protected-output summary with real numbers.",
+      "description": "The home screen populated from the performance lab synthetic fixture. A balance block shows a total, an available portion, and a held-back portion with an ownership line. The protected-output summary lists held outputs. The network header and account switcher sit above.",
+      "consumers": [
+        "atlas",
+        "pages:start/what-this-is",
+        "pages:tasks/receive",
+        "journeys:receive-funds",
+        "journeys:understand-balances",
+        "simulator:populated-home",
+        "command:home"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "f5b7ad2f7e5febaf5e3b0641c223f29305823b966616477db3e130e8dce691c5",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home-populated--light--400.png",
+          "sha256": "f5b7ad2f7e5febaf5e3b0641c223f29305823b966616477db3e130e8dce691c5",
+          "byteSize": 59086
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home-populated--light--400.webp",
+          "sha256": "27f933e56851bd2bc20251838f9d3d238aaeddbe2bab41b3b17d602831e5c89d",
+          "byteSize": 19720
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/home-populated--light--400.avif",
+          "sha256": "6510c641d4101cc07839684f0e15557350d1321b1ea7bda86ae5c8c6e9ddf18b",
+          "byteSize": 11991
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAABQAwCdASoQAB0APxFysFAsJqSisAgBgCIJaQAAer/fRwg0NgD+7275GtlA0UhZXAmgCLGaJYRHAAAA"
+    },
+    {
+      "captureId": "locked-utxos--dark--400",
+      "visualCaseId": "locked-utxos--dark--400",
+      "kind": "route",
+      "workflow": "protected-outputs",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Protected outputs, empty",
+      "caption": "The protected outputs screen with nothing held back yet.",
+      "description": "The protected outputs screen in its empty state. A header reads Protected outputs. Body text explains that outputs held back by the wallet appear here and that none are currently held.",
+      "consumers": [
+        "atlas",
+        "pages:concepts/protected-outputs",
+        "journeys:understand-balances"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "4f2e9f91a05d94e0a5b9325157caafec06369143b8c297ff108f436cb4cc476a",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/locked-utxos--dark--400.png",
+          "sha256": "4f2e9f91a05d94e0a5b9325157caafec06369143b8c297ff108f436cb4cc476a",
+          "byteSize": 94449
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/locked-utxos--dark--400.webp",
+          "sha256": "8c571fd2f2c7af537253c6f5c3982c9b8c5e9d1cd9784461a20119cdf1878467",
+          "byteSize": 12292
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/locked-utxos--dark--400.avif",
+          "sha256": "55389f0c401e6bed3b181d5bffa146c7d87eea211c28c19ffe862c0504964a01",
+          "byteSize": 8480
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAwAwCdASoQAB0APxFysFAsJqSisAgBgCIJZQC2yDKH1iZ8AP7u3O1s+JuLCJmAymUvNAAA"
+    },
+    {
+      "captureId": "locked-utxos--light--400",
+      "visualCaseId": "locked-utxos--light--400",
+      "kind": "route",
+      "workflow": "protected-outputs",
+      "state": "empty",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Protected outputs, empty",
+      "caption": "The protected outputs screen with nothing held back yet.",
+      "description": "The protected outputs screen in its empty state. A header reads Protected outputs. Body text explains that outputs held back by the wallet appear here and that none are currently held.",
+      "consumers": [
+        "atlas",
+        "pages:concepts/protected-outputs",
+        "journeys:understand-balances"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "e0a0b5ac15906540d8f3830928466c60edf429c52d1a85677e42c3618cacdeae",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/locked-utxos--light--400.png",
+          "sha256": "e0a0b5ac15906540d8f3830928466c60edf429c52d1a85677e42c3618cacdeae",
+          "byteSize": 76904
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/locked-utxos--light--400.webp",
+          "sha256": "eb6ab10efdc8ada9a0811246b496c46e68b5db50a778db933e74449642b9aab1",
+          "byteSize": 12192
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/locked-utxos--light--400.avif",
+          "sha256": "414abae6f6421e6268f5637699160c183b2007c8dcf17a816bdf5e0aad9fbe8d",
+          "byteSize": 8238
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAAAwAwCdASoQAB0APxF0sFCsJqSisAgBgCIJZWR5ADcqmV3wAP7u+PMaqcNkw1nTWRtKIm12z1QAAA=="
+    },
+    {
+      "captureId": "nft-gallery--dark--400",
+      "visualCaseId": "nft-gallery--dark--400",
+      "kind": "route",
+      "workflow": "nft-gallery",
+      "state": "offline-error",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "NFT gallery, offline",
+      "caption": "The gallery screen while its index is unreachable.",
+      "description": "The NFT gallery screen in its offline state. The header reads NFT Gallery. The grid area shows an explicit unavailable state rather than an empty grid.",
+      "consumers": [
+        "atlas",
+        "pages:assets/media-and-performance"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "27459b6d71b1f07f69cd6a7068a9905dd1685e6e686b2c740fac9efabff3de9e",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/nft-gallery--dark--400.png",
+          "sha256": "27459b6d71b1f07f69cd6a7068a9905dd1685e6e686b2c740fac9efabff3de9e",
+          "byteSize": 66411
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/nft-gallery--dark--400.webp",
+          "sha256": "cd6a8edf552de1b70150365539a474ca50f656470fca9f50e302aa34e2feebe7",
+          "byteSize": 17532
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/nft-gallery--dark--400.avif",
+          "sha256": "824588ec2d4085ebc61ef5f25091cdb930aa0b9258dd87ee1dc35e123e9229ed",
+          "byteSize": 11238
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQBACdASoQAB0APxFwsFAsJiSisAgBgCIJZAC2yGt/4IazdQUMmtDgAAD++mcYZMGo1OG17LBdNVlkN9z8pfcFgtiJ9giQYX14atEtyAA="
+    },
+    {
+      "captureId": "nft-gallery--light--400",
+      "visualCaseId": "nft-gallery--light--400",
+      "kind": "route",
+      "workflow": "nft-gallery",
+      "state": "offline-error",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "NFT gallery, offline",
+      "caption": "The gallery screen while its index is unreachable.",
+      "description": "The NFT gallery screen in its offline state. The header reads NFT Gallery. The grid area shows an explicit unavailable state rather than an empty grid.",
+      "consumers": [
+        "atlas",
+        "pages:assets/media-and-performance"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "abf1647633881ed7c5a4457b2dc90884c4fc22ce7d4510a3fbc40cdeb15b93c0",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/nft-gallery--light--400.png",
+          "sha256": "abf1647633881ed7c5a4457b2dc90884c4fc22ce7d4510a3fbc40cdeb15b93c0",
+          "byteSize": 53519
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/nft-gallery--light--400.webp",
+          "sha256": "11723d72a7842ed3f8e2be57109ccdf013625e7f8bd964f70679913ca43207d4",
+          "byteSize": 17592
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/nft-gallery--light--400.avif",
+          "sha256": "afd036d6f1ee915ab9be95e669467f46c6afe90ce0a45b3b0edc3eb151343531",
+          "byteSize": 10920
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoQAB0APxFysVCsJqSisAgBgCIJZgABHusU/+TA4QUtHmAA/vCQNiTOPypbwWdQ0COj8/p0S5zLFTuCBvXYP6H6AlHQr0uLJzKeqA/6Oa1M9Dd1AAA="
+    },
+    {
+      "captureId": "portfolio--dark--400",
+      "visualCaseId": "portfolio--dark--400",
+      "kind": "route",
+      "workflow": "portfolio",
+      "state": "offline-error",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Portfolio analytics, offline",
+      "caption": "Portfolio analytics settling into its offline state when no index answers.",
+      "description": "The portfolio analytics screen in its offline state. The header reads Portfolio. The chart area shows an explicit unavailable state rather than an empty chart.",
+      "consumers": [
+        "atlas",
+        "pages:assets/media-and-performance"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "9879fa1cd6998e4d9360584b7e350f302c88b6b74e747062fe26e2d9da447660",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/portfolio--dark--400.png",
+          "sha256": "9879fa1cd6998e4d9360584b7e350f302c88b6b74e747062fe26e2d9da447660",
+          "byteSize": 102967
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/portfolio--dark--400.webp",
+          "sha256": "53a115c748fd33b60add61a0a9aa72f17ba606375ae42f9d16810a1d333dce41",
+          "byteSize": 17548
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/portfolio--dark--400.avif",
+          "sha256": "52862041c75b064475c107289d058597ebe22ebaa72ab48e18f3237d4f900199",
+          "byteSize": 10928
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABQAwCdASoQAB0APxFysFAsJqSisAgBgCIJZQDA3DKHcRBvAAD+7rBaXEKvzRrt/xNyQEGFMpPlytDgAAA="
+    },
+    {
+      "captureId": "portfolio--light--400",
+      "visualCaseId": "portfolio--light--400",
+      "kind": "route",
+      "workflow": "portfolio",
+      "state": "offline-error",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Portfolio analytics, offline",
+      "caption": "Portfolio analytics settling into its offline state when no index answers.",
+      "description": "The portfolio analytics screen in its offline state. The header reads Portfolio. The chart area shows an explicit unavailable state rather than an empty chart.",
+      "consumers": [
+        "atlas",
+        "pages:assets/media-and-performance"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "fd8fac63a95dc0a08c1e178db9740abe89c6002b9a0edf8a8e4860d7af4e93ce",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/portfolio--light--400.png",
+          "sha256": "fd8fac63a95dc0a08c1e178db9740abe89c6002b9a0edf8a8e4860d7af4e93ce",
+          "byteSize": 82626
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/portfolio--light--400.webp",
+          "sha256": "904fba3f84c520f9ad09d92558872c3aced3f0858ad9849c1bcaa056feda71d9",
+          "byteSize": 18386
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/portfolio--light--400.avif",
+          "sha256": "10f4f757db04be90a53e28399c867cf02ee3072f55d923dfb1a7def448227c89",
+          "byteSize": 10703
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAwCdASoQAB0APxF4slEsJ6SisAgBgCIJZQAAerJShwAA/u8hLQrNzgRiVgLPjJR0kLuIL7qsRAoAAAA="
+    },
+    {
+      "captureId": "protected-outputs-populated--dark--400",
+      "visualCaseId": "protected-outputs-populated--dark--400",
+      "kind": "route",
+      "workflow": "protected-outputs",
+      "state": "populated",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "assets-100",
+      "publicTitle": "Protected outputs, populated",
+      "caption": "Held-back outputs listed with the reasons the wallet is holding them.",
+      "description": "The protected outputs screen populated from the synthetic fixture. Each row lists an output, the amount held back, and the reason it is held. A summary line totals the held amount.",
+      "consumers": [
+        "atlas",
+        "pages:concepts/protected-outputs",
+        "journeys:understand-balances",
+        "simulator:protected-outputs"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "ac8a1931fcce69e13400c832b7c835f9ba66f07728f356c25a545d32ec56f951",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/protected-outputs-populated--dark--400.png",
+          "sha256": "ac8a1931fcce69e13400c832b7c835f9ba66f07728f356c25a545d32ec56f951",
+          "byteSize": 112689
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/protected-outputs-populated--dark--400.webp",
+          "sha256": "b10b5c344f1c898b2d385b3cfab7d1ac16494a01b518756085d2ac9da16796e9",
+          "byteSize": 20618
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/protected-outputs-populated--dark--400.avif",
+          "sha256": "d943fb499ac9655fbda7c30eaad5f1816f595b86cd1dd0188732672552d601c6",
+          "byteSize": 12990
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAABQAwCdASoQAB0APxFwsFAsJiSisAgBgCIJZQDA3DKHW+jAAAD+7rCxHZZ327Q3uW9CZJYkAAA="
+    },
+    {
+      "captureId": "protected-outputs-populated--light--400",
+      "visualCaseId": "protected-outputs-populated--light--400",
+      "kind": "route",
+      "workflow": "protected-outputs",
+      "state": "populated",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "assets-100",
+      "publicTitle": "Protected outputs, populated",
+      "caption": "Held-back outputs listed with the reasons the wallet is holding them.",
+      "description": "The protected outputs screen populated from the synthetic fixture. Each row lists an output, the amount held back, and the reason it is held. A summary line totals the held amount.",
+      "consumers": [
+        "atlas",
+        "pages:concepts/protected-outputs",
+        "journeys:understand-balances",
+        "simulator:protected-outputs"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "ec08f48bcb6d64e1c6a1efcc82f1636c302b1f7c7bc68d5dfda7c7eeba530d43",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/protected-outputs-populated--light--400.png",
+          "sha256": "ec08f48bcb6d64e1c6a1efcc82f1636c302b1f7c7bc68d5dfda7c7eeba530d43",
+          "byteSize": 98213
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/protected-outputs-populated--light--400.webp",
+          "sha256": "7e8cf50c951db297ad03f5e92de0912a20820a1e6dc3e51069ed4cef44377179",
+          "byteSize": 20848
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/protected-outputs-populated--light--400.avif",
+          "sha256": "d5d920190c7a8bc98365cd71fd2808f32963a020ee83ce3dcff5a086f525eab0",
+          "byteSize": 12693
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAwAwCdASoQAB0APxFysFAsJqSisAgBgCIJZwAAetdOmuwAAP7u94YNw3Ff0ksq+pXosYfn5I1nX9OKAAA="
+    },
+    {
+      "captureId": "receive--dark--360",
+      "visualCaseId": "receive--dark--360",
+      "kind": "route",
+      "workflow": "receive",
+      "state": "ready",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Receive",
+      "caption": "The receiving screen before an address is requested, showing the readiness state.",
+      "description": "The receive screen. Text states the wallet is ready to receive. Controls for choosing the receiving address and copying or revealing it appear once an address is selected. The network name is shown near the header.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/receive",
+        "pages:start/first-receive",
+        "journeys:receive-funds",
+        "journeys:first-receive",
+        "simulator:receive"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "69de2c24104180b9b49c5eaced6ea0379d92b4422184216975aac4a09df60c99",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/receive--dark--360.png",
+          "sha256": "69de2c24104180b9b49c5eaced6ea0379d92b4422184216975aac4a09df60c99",
+          "byteSize": 90372
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/receive--dark--360.webp",
+          "sha256": "e28f949b463d731adcbd6145dc882348e2910c1d8866855161fc8051c04c032c",
+          "byteSize": 21506
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/receive--dark--360.avif",
+          "sha256": "8c734f964ad2d1c6fc610045814e10d15271be7c4e85c8a8e0521a900742b190",
+          "byteSize": 11762
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQBACdASoQACAAPxF4slEsJ6SisAgBgCIJZwABHxuqPBl6pBud3xJbwAD++RpUt8+rRUTYH+vybbqzF6fpKPotlfgegQklPAbpUETMLjnQzxzIGiwMnAAA"
+    },
+    {
+      "captureId": "receive--dark--400",
+      "visualCaseId": "receive--dark--400",
+      "kind": "route",
+      "workflow": "receive",
+      "state": "ready",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Receive",
+      "caption": "The receiving screen before an address is requested, showing the readiness state.",
+      "description": "The receive screen. Text states the wallet is ready to receive. Controls for choosing the receiving address and copying or revealing it appear once an address is selected. The network name is shown near the header.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/receive",
+        "pages:start/first-receive",
+        "journeys:receive-funds",
+        "journeys:first-receive",
+        "simulator:receive"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "65f58fd12c5d3997e6c675fe1130f4b7bcbe89d5e5e5496a83358b859c77f071",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/receive--dark--400.png",
+          "sha256": "65f58fd12c5d3997e6c675fe1130f4b7bcbe89d5e5e5496a83358b859c77f071",
+          "byteSize": 93726
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/receive--dark--400.webp",
+          "sha256": "dbe65adcb8560921cd749c8bf5ed0035315d5770db9f56b732fc5a09743e827f",
+          "byteSize": 21638
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/receive--dark--400.avif",
+          "sha256": "afd34dba8e96265931abd15f163702df49b8936cb31be057d48dbf4b5c29632d",
+          "byteSize": 11978
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAwCdASoQAB0ALtGIxGIkLCwsDADQSzgABc6Wp8AkxEq7yeAAAP7w5SN4Wtd8Bv5+5+u5rt+FIWDCifcTlIX1qkNJHP4HlApVC4RAScmPuv/AAAA="
+    },
+    {
+      "captureId": "receive--light--400",
+      "visualCaseId": "receive--light--400",
+      "kind": "route",
+      "workflow": "receive",
+      "state": "ready",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Receive",
+      "caption": "The receiving screen before an address is requested, showing the readiness state.",
+      "description": "The receive screen. Text states the wallet is ready to receive. Controls for choosing the receiving address and copying or revealing it appear once an address is selected. The network name is shown near the header.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/receive",
+        "pages:start/first-receive",
+        "journeys:receive-funds",
+        "journeys:first-receive",
+        "simulator:receive"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "761cee12f941107f754cee40adc76c24188b00e986dede9adba82bd16557696f",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/receive--light--400.png",
+          "sha256": "761cee12f941107f754cee40adc76c24188b00e986dede9adba82bd16557696f",
+          "byteSize": 83108
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/receive--light--400.webp",
+          "sha256": "70107dc3e97cbd5ecd88694db06fd84ac2aa1c59bf46f359409caca222f8dbc4",
+          "byteSize": 21868
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/receive--light--400.avif",
+          "sha256": "51969e81ba19b349bce33df1e1d4ab04c7a014d5a4c136086093495a6242ed28",
+          "byteSize": 11355
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoQAB0APxFOv1osIqgkmAGAIglpAAEUtOnMU2cy2975AAD++Mcr12co9bSqgrQgsBnPNaqOHcscz9a4Y57Qg0AAAAA="
+    },
+    {
+      "captureId": "restore-source--dark--360",
+      "visualCaseId": "onboarding-restore-source--dark--360",
+      "kind": "onboarding",
+      "workflow": "import-a-wallet",
+      "state": "restore-source",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Import source selection",
+      "caption": "Choosing where an imported wallet comes from. The wallet only accepts the sources it can verify.",
+      "description": "A selection screen listing import sources as radio cards. The Unisat Wallet card is highlighted because the walk selected it. Each card names a source and a short description of what it imports.",
+      "consumers": [
+        "atlas",
+        "journeys:import-safely",
+        "pages:start/import-a-wallet"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "6c0d82a8abdda2fd8c0b5ea996f369e3a4b91e2f5ec6a03c6959884c8d900563",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/restore-source--dark--360.png",
+          "sha256": "6c0d82a8abdda2fd8c0b5ea996f369e3a4b91e2f5ec6a03c6959884c8d900563",
+          "byteSize": 42561
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/restore-source--dark--360.webp",
+          "sha256": "c87ba0022ba2079a4bd455d65682361be9392f75adffbed2a32d1edb10d3bda6",
+          "byteSize": 9902
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/restore-source--dark--360.avif",
+          "sha256": "265b8c1473fdd462512c03586ec2cfb39c27a389e0466f151945598a4844196d",
+          "byteSize": 6917
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAAAwAwCdASoQACAAPxFysFCsJqSisAgBgCIJaQAAidFLkMAAAP7vMsdUrmewdX27/rvKTAQAAAA="
+    },
+    {
+      "captureId": "restore-source--dark--400",
+      "visualCaseId": "onboarding-restore-source--dark--400",
+      "kind": "onboarding",
+      "workflow": "import-a-wallet",
+      "state": "restore-source",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Import source selection",
+      "caption": "Choosing where an imported wallet comes from. The wallet only accepts the sources it can verify.",
+      "description": "A selection screen listing import sources as radio cards. The Unisat Wallet card is highlighted because the walk selected it. Each card names a source and a short description of what it imports.",
+      "consumers": [
+        "atlas",
+        "journeys:import-safely",
+        "pages:start/import-a-wallet"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "a89340a86302e81e2c1b8fed79c4203abfa74f405bb4363a14489b59d355e7dd",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/restore-source--dark--400.png",
+          "sha256": "a89340a86302e81e2c1b8fed79c4203abfa74f405bb4363a14489b59d355e7dd",
+          "byteSize": 43377
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/restore-source--dark--400.webp",
+          "sha256": "f157a5568cbdcf28a64ac1b2b655b99a93075a937d68ea0a44853c010d981c1a",
+          "byteSize": 9904
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/restore-source--dark--400.avif",
+          "sha256": "191173ecba2d7ea592f316011b493b42283f77ac65d56ab7073c1895c5135c2d",
+          "byteSize": 6993
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAgCdASoQAB0APxFysVCsJqSisAgBgCIJaQAAifQAAP7vMsVsDg3KBNaUq6l3b59LAgAA"
+    },
+    {
+      "captureId": "seed-import--dark--360",
+      "visualCaseId": "onboarding-seed-import--dark--360",
+      "kind": "onboarding",
+      "workflow": "import-a-wallet",
+      "state": "seed-entry",
+      "riskLevel": "danger",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Recovery phrase entry",
+      "caption": "The twelve-word entry grid with secure input on. Words are masked while typing; nothing here is ever photographed or pasted for real recovery material.",
+      "description": "A grid of twelve input boxes, one per recovery word, shown with masked characters because secure input is enabled. A toggle labelled secure input controls masking. A Continue button sits at the bottom.",
+      "consumers": [
+        "atlas",
+        "journeys:import-safely",
+        "journeys:create-a-wallet",
+        "pages:start/import-a-wallet",
+        "pages:start/back-up"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "9c3607c9e3b423a4c02a93fbe785143892a69fa46990571e57f9f2be5fe19bd5",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/seed-import--dark--360.png",
+          "sha256": "9c3607c9e3b423a4c02a93fbe785143892a69fa46990571e57f9f2be5fe19bd5",
+          "byteSize": 79533
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/seed-import--dark--360.webp",
+          "sha256": "0910b63359de852c08a9637526f38ffd1e252a8f9b55c58bafe9ef021f45e9ef",
+          "byteSize": 15474
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/seed-import--dark--360.avif",
+          "sha256": "eba31f25af46a29b04a3b970c39c4cea379c5be7458aeed5c0e5718fa68dd7b0",
+          "byteSize": 10200
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAwCdASoQACAAPxFysFAsJqSisAgBgCIJZwAAifASvnQZU/wAAP7vCgHfDvJ+EePnZDw52nac9jv6A6jkXi7SkAA="
+    },
+    {
+      "captureId": "seed-import--dark--400",
+      "visualCaseId": "onboarding-seed-import--dark--400",
+      "kind": "onboarding",
+      "workflow": "import-a-wallet",
+      "state": "seed-entry",
+      "riskLevel": "danger",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Recovery phrase entry",
+      "caption": "The twelve-word entry grid with secure input on. Words are masked while typing; nothing here is ever photographed or pasted for real recovery material.",
+      "description": "A grid of twelve input boxes, one per recovery word, shown with masked characters because secure input is enabled. A toggle labelled secure input controls masking. A Continue button sits at the bottom.",
+      "consumers": [
+        "atlas",
+        "journeys:import-safely",
+        "journeys:create-a-wallet",
+        "pages:start/import-a-wallet",
+        "pages:start/back-up"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "1c57783e8625735a692123c779948d09f1a11a1b89679979219dbc012076172b",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/seed-import--dark--400.png",
+          "sha256": "1c57783e8625735a692123c779948d09f1a11a1b89679979219dbc012076172b",
+          "byteSize": 83957
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/seed-import--dark--400.webp",
+          "sha256": "19cdb23f51739100edabd7c803481490498199d086b2735461e381d9d9eb2031",
+          "byteSize": 15796
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/seed-import--dark--400.avif",
+          "sha256": "6130f5d81822d45d239c4a30096695c7a113b6876f372a0e49c1348545a30597",
+          "byteSize": 10130
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABwAwCdASoQAB0APxFysFAsJqSisAgBgCIJZwAAiep1mujEwAAA/u8JwZG5h4ePpvHx3DcweYef9PNuc8nrl4o4AAA="
+    },
+    {
+      "captureId": "send--dark--360",
+      "visualCaseId": "send--dark--360",
+      "kind": "route",
+      "workflow": "send",
+      "state": "unavailable",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Send, fail-closed state",
+      "caption": "What Send shows in a build whose release authorizes no sending: a plain statement that this build cannot send.",
+      "description": "The send screen in its fail-closed state. Instead of a transfer form, a panel explains that this build cannot send because its release authorizes no sending operation. No address field, amount field, or approve control is shown.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/send",
+        "pages:start/first-send",
+        "journeys:send-safely",
+        "pages:assets/why-unavailable"
+      ],
+      "requiresUnauthorized": [
+        [
+          "bitcoin",
+          "send"
+        ]
+      ],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "e70d176057cd330db58551a1000f6c63fb0c6404187653bfa0a8fd464e69cd2a",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/send--dark--360.png",
+          "sha256": "e70d176057cd330db58551a1000f6c63fb0c6404187653bfa0a8fd464e69cd2a",
+          "byteSize": 123059
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/send--dark--360.webp",
+          "sha256": "b9326679e89ea91d3b4c41546e6f154fcfe22eda407f3a37fa744be222459be3",
+          "byteSize": 22192
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/send--dark--360.avif",
+          "sha256": "54b539e419de209530ec0503660f89e82f99abdacb45b8fbc70f57b9ecb85d72",
+          "byteSize": 12226
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoQACAAPxFwsFAsJiSisAgBgCIJQBdgDSvw7mEEVzWgAAD++ms5tok7dH8dOi6yiO3e/HwZVFFytGmqISQj1BM19904nenulAAAAA=="
+    },
+    {
+      "captureId": "send--dark--400",
+      "visualCaseId": "send--dark--400",
+      "kind": "route",
+      "workflow": "send",
+      "state": "unavailable",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Send, fail-closed state",
+      "caption": "What Send shows in a build whose release authorizes no sending: a plain statement that this build cannot send.",
+      "description": "The send screen in its fail-closed state. Instead of a transfer form, a panel explains that this build cannot send because its release authorizes no sending operation. No address field, amount field, or approve control is shown.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/send",
+        "pages:start/first-send",
+        "journeys:send-safely",
+        "pages:assets/why-unavailable"
+      ],
+      "requiresUnauthorized": [
+        [
+          "bitcoin",
+          "send"
+        ]
+      ],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "76b04de5b1766dbd75b975040b7cf029bf45e84102566a8c470b9218e6457aae",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/send--dark--400.png",
+          "sha256": "76b04de5b1766dbd75b975040b7cf029bf45e84102566a8c470b9218e6457aae",
+          "byteSize": 123335
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/send--dark--400.webp",
+          "sha256": "a587aa7f76a3456d7cd425835c52e3eeb8cc905ac866dfc568d8168170f497ba",
+          "byteSize": 19522
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/send--dark--400.avif",
+          "sha256": "8f99ed3d699f935d80001212abc6d5fdfb82f96d07790346aae1be75e784eac2",
+          "byteSize": 12104
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABwAwCdASoQAB0APxFwsFAsJiSisAgBgCIJQAAj43FMn16u2lAA/vr0t8yQGpnrZ8GELiO3ZGwdi/cIUZ2NCjgA"
+    },
+    {
+      "captureId": "send--light--400",
+      "visualCaseId": "send--light--400",
+      "kind": "route",
+      "workflow": "send",
+      "state": "unavailable",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Send, fail-closed state",
+      "caption": "What Send shows in a build whose release authorizes no sending: a plain statement that this build cannot send.",
+      "description": "The send screen in its fail-closed state. Instead of a transfer form, a panel explains that this build cannot send because its release authorizes no sending operation. No address field, amount field, or approve control is shown.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/send",
+        "pages:start/first-send",
+        "journeys:send-safely",
+        "pages:assets/why-unavailable"
+      ],
+      "requiresUnauthorized": [
+        [
+          "bitcoin",
+          "send"
+        ]
+      ],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "bed6bf5090703f4d7371ef100341a9cbf940d0dfb6d18dd7d2c6ec55cef5ce01",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/send--light--400.png",
+          "sha256": "bed6bf5090703f4d7371ef100341a9cbf940d0dfb6d18dd7d2c6ec55cef5ce01",
+          "byteSize": 102833
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/send--light--400.webp",
+          "sha256": "5c0d6db4b2c521a016e3bccd7af46b8324b14f0452c4d38c45c5a9e274db1a18",
+          "byteSize": 19994
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/send--light--400.avif",
+          "sha256": "00c69efd0f5cdfebc358c81e31051739cd7eb01311e8bda942baef5f90a8ff27",
+          "byteSize": 12087
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAwCdASoQAB0APxF0slCsJqSisAgBgCIJY2M+AJQY3aC4AAD+9500CWMgIbHtyCNArvIz6fVfkrTFBhnw3oZSx1AAAA=="
+    },
+    {
+      "captureId": "settings--dark--1100",
+      "visualCaseId": "settings--dark--1100",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "root",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 1100,
+        "height": 800
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Settings",
+      "caption": "The settings root, including backup status and the appearance entry.",
+      "description": "The settings screen. Sections list backup status with a call to back up the wallet, security entries, appearance, network, and about information with the wallet version.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard",
+        "journeys:create-a-wallet",
+        "journeys:identify-version"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 1100,
+      "intrinsicHeight": 800,
+      "masterSha256": "a3555f7a38cbdc1b44eaf26881f84638f6fbd33f04d9297e1693242ccc656b2d",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/settings--dark--1100.png",
+          "sha256": "a3555f7a38cbdc1b44eaf26881f84638f6fbd33f04d9297e1693242ccc656b2d",
+          "byteSize": 106438
+        },
+        {
+          "format": "webp",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/settings--dark--1100.webp",
+          "sha256": "c6893303bbe5d5d33e7c6b382fb5abfb5cc736887410a204bae69f91af786a1a",
+          "byteSize": 21768
+        },
+        {
+          "format": "avif",
+          "width": 1100,
+          "height": 800,
+          "path": "captures/settings--dark--1100.avif",
+          "sha256": "582c21963287da0c1414277a53dbfe5d9ee89c702442a12c1e3794938f1068ad",
+          "byteSize": 14875
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAACwAQCdASoQAAwABABoJZwAAudZ4BYQAP7yott4dPz7BwAA"
+    },
+    {
+      "captureId": "settings--dark--360",
+      "visualCaseId": "settings--dark--360",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "root",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Settings",
+      "caption": "The settings root, including backup status and the appearance entry.",
+      "description": "The settings screen. Sections list backup status with a call to back up the wallet, security entries, appearance, network, and about information with the wallet version.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard",
+        "journeys:create-a-wallet",
+        "journeys:identify-version"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "d8b75369d98a08558fd517c71d6fb73dc305eae7780795924484813b38e8b640",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/settings--dark--360.png",
+          "sha256": "d8b75369d98a08558fd517c71d6fb73dc305eae7780795924484813b38e8b640",
+          "byteSize": 81204
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/settings--dark--360.webp",
+          "sha256": "417b74a6100c9fadf14b79f0d49f2c87a196ae03052b77835d030f4c6097bff8",
+          "byteSize": 16130
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/settings--dark--360.avif",
+          "sha256": "ea0bd3bdace9d289a587a60f3cccc63225c3aeacd0604cd9f0ca70e5b0c59e6a",
+          "byteSize": 10690
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAwCdASoQACAAPxFyslCsJqSisAgBgCIJZ2HgV5kV58R2kHUAAAD+7t5gDojrqiO2rvxD9alc364zW4zLWv84QAA="
+    },
+    {
+      "captureId": "settings--dark--400",
+      "visualCaseId": "settings--dark--400",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "root",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Settings",
+      "caption": "The settings root, including backup status and the appearance entry.",
+      "description": "The settings screen. Sections list backup status with a call to back up the wallet, security entries, appearance, network, and about information with the wallet version.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard",
+        "journeys:create-a-wallet",
+        "journeys:identify-version"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "c69679a64e24792adcfdf717eb300c0ae82bb54cfbaa1324663b48f98f056a10",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--dark--400.png",
+          "sha256": "c69679a64e24792adcfdf717eb300c0ae82bb54cfbaa1324663b48f98f056a10",
+          "byteSize": 85863
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--dark--400.webp",
+          "sha256": "621f30cd5b5aea0ec876f535e927eb4fabf7aee762f36ed0331cd246462b21be",
+          "byteSize": 16906
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--dark--400.avif",
+          "sha256": "33d152ad30b57a283be1588e2a31766f70b32b70271885f6493bf6e165d6551e",
+          "byteSize": 11386
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABwAwCdASoQAB0APxFysFAsJqSisAgBgCIJZ2VuWmSV7Q6JeIAA/u6wywiSce2Mtr9M+Q1fQnouVTiEYROIAAAA"
+    },
+    {
+      "captureId": "settings--light--400",
+      "visualCaseId": "settings--light--400",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "root",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Settings",
+      "caption": "The settings root, including backup status and the appearance entry.",
+      "description": "The settings screen. Sections list backup status with a call to back up the wallet, security entries, appearance, network, and about information with the wallet version.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard",
+        "journeys:create-a-wallet",
+        "journeys:identify-version"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "d5d0ee731041873159a6f120a65c2a290558ee0cff3e3aaab2bece74f10f2bed",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--light--400.png",
+          "sha256": "d5d0ee731041873159a6f120a65c2a290558ee0cff3e3aaab2bece74f10f2bed",
+          "byteSize": 58625
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--light--400.webp",
+          "sha256": "210b0a3cb1b95ba0a974a35a4493e69d6776cbc9ac03ac1713db877dcc2505d6",
+          "byteSize": 16548
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--light--400.avif",
+          "sha256": "d444291dd5dd6df5391e77c8397840664cb025eb9a1dd2406ac614b8245ff4a9",
+          "byteSize": 10332
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAgCdASoQAB0APxFysFAsJqSisAgBgCIJaQAAfEEAAP7vbviJYsx/80zAfZsFAdAAAA=="
+    },
+    {
+      "captureId": "settings--oled--400",
+      "visualCaseId": "settings--oled--400",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "root",
+      "riskLevel": "info",
+      "theme": "oled",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Settings",
+      "caption": "The settings root, including backup status and the appearance entry.",
+      "description": "The settings screen. Sections list backup status with a call to back up the wallet, security entries, appearance, network, and about information with the wallet version.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard",
+        "journeys:create-a-wallet",
+        "journeys:identify-version"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "9bd57e3cbfecfb16920175fac50260e1becdfb5d7271abb72ea5e2b5ab689481",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--oled--400.png",
+          "sha256": "9bd57e3cbfecfb16920175fac50260e1becdfb5d7271abb72ea5e2b5ab689481",
+          "byteSize": 63539
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--oled--400.webp",
+          "sha256": "6747b0498428caa0ec370e38ef019fac83daaa3e4f7baedbada039cbc0ba1f7a",
+          "byteSize": 17494
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/settings--oled--400.avif",
+          "sha256": "da53658c524de52d684873d871b8c9313d4efba75c3e97cc0ead56699334a7d8",
+          "byteSize": 11429
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAgCdASoQAB0APxFysFAsJqSisAgBgCIJZ2WRADhMAAD+78ThnpLk+dRYsPqpQaYTYFD2YB0Ih9sTiAAAAA=="
+    },
+    {
+      "captureId": "switch-account--dark--400",
+      "visualCaseId": "switch-account--dark--400",
+      "kind": "route",
+      "workflow": "account-switching",
+      "state": "switcher",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Account switcher",
+      "caption": "Switching between accounts. Balances for each account are listed beside its name.",
+      "description": "The account switcher screen. A list shows Account 1 with its balance and address fragment, and a control to add another account. The active account is marked.",
+      "consumers": [
+        "atlas",
+        "journeys:switch-chain-safely",
+        "pages:tasks/manage-connections",
+        "simulator:account-switching"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "be781c0b0522c29822deda0c624c8ab2e92a3edc7bc2470e2c6fdb4d703302ab",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/switch-account--dark--400.png",
+          "sha256": "be781c0b0522c29822deda0c624c8ab2e92a3edc7bc2470e2c6fdb4d703302ab",
+          "byteSize": 61931
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/switch-account--dark--400.webp",
+          "sha256": "4531d3a6068e0ed297d6403a2507a0e2a8083a8ef15606a8822b94c35140e8e0",
+          "byteSize": 10942
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/switch-account--dark--400.avif",
+          "sha256": "14d76d93a95759c6d22b8271026454d8908a50787becf884994e83968a399c91",
+          "byteSize": 7690
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAAAQAwCdASoQAB0APxF0sVCsJqSisAgBgCIJaQAAergemqYA/u5/dQxVxzQNQd21EhgAAA=="
+    },
+    {
+      "captureId": "switch-account--light--400",
+      "visualCaseId": "switch-account--light--400",
+      "kind": "route",
+      "workflow": "account-switching",
+      "state": "switcher",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Account switcher",
+      "caption": "Switching between accounts. Balances for each account are listed beside its name.",
+      "description": "The account switcher screen. A list shows Account 1 with its balance and address fragment, and a control to add another account. The active account is marked.",
+      "consumers": [
+        "atlas",
+        "journeys:switch-chain-safely",
+        "pages:tasks/manage-connections",
+        "simulator:account-switching"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "ffcf17ee8ccd79bb017a7a4bd696c7c05798bcd1606d67dde00642743c69da9b",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/switch-account--light--400.png",
+          "sha256": "ffcf17ee8ccd79bb017a7a4bd696c7c05798bcd1606d67dde00642743c69da9b",
+          "byteSize": 39822
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/switch-account--light--400.webp",
+          "sha256": "424d0e03e75e32eacb3fd5456880a91db8b34f0d4f7685027936b502649962b1",
+          "byteSize": 11246
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/switch-account--light--400.avif",
+          "sha256": "c7e432a1681ca5a159af6341b90de3878b8062d1630d2c9c4f4270f159ab7800",
+          "byteSize": 7459
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAgCdASoQAB0APxFysFCsJqSjsAgBgCIJaQAAfEEAAP7vr3GOt/QAAAA="
+    },
+    {
+      "captureId": "theme-settings--dark--360",
+      "visualCaseId": "theme-settings--dark--360",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "appearance",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Appearance settings",
+      "caption": "Choosing between light, dark, and OLED appearance profiles.",
+      "description": "The appearance screen. Three appearance profiles are offered as selectable cards: light, dark, and OLED black. The currently selected profile is marked.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "6b8091ae8c8998d12a8be5bc70ef26add6044bf5193a41e86261bf6b9fe7ba80",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/theme-settings--dark--360.png",
+          "sha256": "6b8091ae8c8998d12a8be5bc70ef26add6044bf5193a41e86261bf6b9fe7ba80",
+          "byteSize": 88055
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/theme-settings--dark--360.webp",
+          "sha256": "00bf2868b017a807647964e8458007ee5c9e1f4d759e934420d786517728342c",
+          "byteSize": 17062
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/theme-settings--dark--360.avif",
+          "sha256": "7b2737813f47511083c1ba54e62aab4622da8d85d59dd13227c18901cca7c2d6",
+          "byteSize": 11087
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAwCdASoQACAAPxFysFAsJqSisAgBgCIJZ2QzWeAWBWAA/u6F5DWwAb8vtD4jMLvIgmVoX6RwfbCIqwAAAA=="
+    },
+    {
+      "captureId": "theme-settings--dark--400",
+      "visualCaseId": "theme-settings--dark--400",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "appearance",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Appearance settings",
+      "caption": "Choosing between light, dark, and OLED appearance profiles.",
+      "description": "The appearance screen. Three appearance profiles are offered as selectable cards: light, dark, and OLED black. The currently selected profile is marked.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "f773c49d88bb09951dbaa95ba53abd87986ca53ca71981d2de7fa505c97f0970",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/theme-settings--dark--400.png",
+          "sha256": "f773c49d88bb09951dbaa95ba53abd87986ca53ca71981d2de7fa505c97f0970",
+          "byteSize": 87912
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/theme-settings--dark--400.webp",
+          "sha256": "3681e59acde4e0acd62f31c6d0b21b728b25ce5d598d650fba1b562a5ed78c78",
+          "byteSize": 18054
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/theme-settings--dark--400.avif",
+          "sha256": "c07ad52698f9dff73ab1b77abab369ceae87e16a083f4a181aef85f7e881e494",
+          "byteSize": 11769
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAgCdASoQAB0APxFysFCsJqSisAgBgCIJZWScAD4mAAD+7k6g3JJ6C9ZSk137+d/a7Mh09FmqgZbIAAA="
+    },
+    {
+      "captureId": "theme-settings--light--400",
+      "visualCaseId": "theme-settings--light--400",
+      "kind": "route",
+      "workflow": "settings",
+      "state": "appearance",
+      "riskLevel": "info",
+      "theme": "light",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Appearance settings",
+      "caption": "Choosing between light, dark, and OLED appearance profiles.",
+      "description": "The appearance screen. Three appearance profiles are offered as selectable cards: light, dark, and OLED black. The currently selected profile is marked.",
+      "consumers": [
+        "atlas",
+        "pages:tasks/security-dashboard"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "c957f0dd991eafa25f6130d028cc325d7ff484f274ac7144e0f3b857fda3b08a",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/theme-settings--light--400.png",
+          "sha256": "c957f0dd991eafa25f6130d028cc325d7ff484f274ac7144e0f3b857fda3b08a",
+          "byteSize": 69373
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/theme-settings--light--400.webp",
+          "sha256": "7e60a3ad6f58da5f557a4b430f512eedfb86eb5a2c11338489b2c4e1cb9ba701",
+          "byteSize": 18308
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/theme-settings--light--400.avif",
+          "sha256": "0ae3d0f17ba5236ce5fb5f6879bc5c8cf14789556ccc79dcd0e8b1f9426d29cc",
+          "byteSize": 11485
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAgCdASoQAB0APxFysVCsJqSisAgBgCIJZwAAeyAA/u9Ixb6gmZkPMcDZAheb6C7Nw9IIMp/XqjQAAAA="
+    },
+    {
+      "captureId": "welcome--dark--360",
+      "visualCaseId": "onboarding-welcome--dark--360",
+      "kind": "onboarding",
+      "workflow": "install-and-onboarding",
+      "state": "welcome",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 360,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Welcome screen",
+      "caption": "The first screen a new installation shows, with the choice between creating a wallet and importing one.",
+      "description": "Universe Wallet welcome screen on a dark background. The wallet wordmark sits above text welcoming the reader, and two actions are offered: create a new wallet, or import an existing wallet. A short line under the actions explains that keys are stored on this device.",
+      "consumers": [
+        "atlas",
+        "journeys:install-and-verify",
+        "journeys:create-or-import",
+        "pages:start/install",
+        "pages:start/create-a-wallet",
+        "pages:start/import-a-wallet"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 360,
+      "intrinsicHeight": 720,
+      "masterSha256": "4312f13af52d9341c00e60f66cdcba2d21ae9457466a316eb6dd68764f75d37e",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 360,
+          "height": 720,
+          "path": "captures/welcome--dark--360.png",
+          "sha256": "4312f13af52d9341c00e60f66cdcba2d21ae9457466a316eb6dd68764f75d37e",
+          "byteSize": 109471
+        },
+        {
+          "format": "webp",
+          "width": 360,
+          "height": 720,
+          "path": "captures/welcome--dark--360.webp",
+          "sha256": "6596a79383b6eebbf14b197218feae15782d33b822de049c9c6521a1c9330ec6",
+          "byteSize": 16846
+        },
+        {
+          "format": "avif",
+          "width": 360,
+          "height": 720,
+          "path": "captures/welcome--dark--360.avif",
+          "sha256": "d6151f85b22b5ecf3740d78f795c8fbbf6896e57967b57ecd2d8dfb2cd86fe10",
+          "byteSize": 10257
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwBACdASoQACAAPxFwsFAsJiSisAgBgCIJQBUejW/8zJ77wTjvm3LmBAAA/vtzDdaxhMBRi6WPPrE+iOJgkt9yLl2LVx6rMITmE6AK4EKI0w1ArgAAAA=="
+    },
+    {
+      "captureId": "welcome--dark--400",
+      "visualCaseId": "onboarding-welcome--dark--400",
+      "kind": "onboarding",
+      "workflow": "install-and-onboarding",
+      "state": "welcome",
+      "riskLevel": "info",
+      "theme": "dark",
+      "viewport": {
+        "width": 400,
+        "height": 720
+      },
+      "locale": "en-US",
+      "fixtureId": "offline",
+      "publicTitle": "Welcome screen",
+      "caption": "The first screen a new installation shows, with the choice between creating a wallet and importing one.",
+      "description": "Universe Wallet welcome screen on a dark background. The wallet wordmark sits above text welcoming the reader, and two actions are offered: create a new wallet, or import an existing wallet. A short line under the actions explains that keys are stored on this device.",
+      "consumers": [
+        "atlas",
+        "journeys:install-and-verify",
+        "journeys:create-or-import",
+        "pages:start/install",
+        "pages:start/create-a-wallet",
+        "pages:start/import-a-wallet"
+      ],
+      "requiresUnauthorized": [],
+      "privacyReview": {
+        "reviewedAt": "2026-09-02",
+        "method": "fixture-backed harness, public BIP-39 test vector, synthetic origin example-site.test",
+        "result": "approved"
+      },
+      "releaseId": "wallet-1.7.5.8",
+      "walletVersion": "1.7.5.8",
+      "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "intrinsicWidth": 400,
+      "intrinsicHeight": 720,
+      "masterSha256": "c8d6a2ee7d250d07b740a1c59841c6cd85332b5ce56b7b19b7e44bbed095bbe8",
+      "derivatives": [
+        {
+          "format": "png",
+          "width": 400,
+          "height": 720,
+          "path": "captures/welcome--dark--400.png",
+          "sha256": "c8d6a2ee7d250d07b740a1c59841c6cd85332b5ce56b7b19b7e44bbed095bbe8",
+          "byteSize": 116999
+        },
+        {
+          "format": "webp",
+          "width": 400,
+          "height": 720,
+          "path": "captures/welcome--dark--400.webp",
+          "sha256": "0d4b4fb2ebcc859ea4197eae5896a811202287afaf31f593a3cb06c2f0835bfd",
+          "byteSize": 17236
+        },
+        {
+          "format": "avif",
+          "width": 400,
+          "height": 720,
+          "path": "captures/welcome--dark--400.avif",
+          "sha256": "823658b2eec66581590995194f44b5668f02ae5899fe46fd891d8cb6349d3494",
+          "byteSize": 10281
+        }
+      ],
+      "blurPlaceholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoQAB0APxF6tFAsKCUisAgBgCIJQBYdjW/8zSdF3xxw8kYAAP77c0aFpt9LOfjA/HduhJJVKVxhf0Wz7PvU3ZUmixGHRXHKB3icxd17FHe5M4YztAAAAA=="
+    }
+  ]
 }

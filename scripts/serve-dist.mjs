@@ -60,7 +60,12 @@ createServer(async (req, res) => {
     }
     return;
   }
-  res.writeHead(200, { 'content-type': TYPES[extname(file)] ?? 'application/octet-stream' });
+  // GitHub Pages serves every asset with ACAO:*, which the sandboxed
+      // simulator frame (opaque origin) depends on for its module scripts.
+      res.writeHead(200, {
+        'content-type': TYPES[extname(file)] ?? 'application/octet-stream',
+        'access-control-allow-origin': '*',
+      });
   res.end(await readFile(file));
 }).listen(PORT, () => {
   process.stdout.write(`serving dist at http://localhost:${PORT}${BASE}/\n`);
