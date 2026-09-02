@@ -1,0 +1,53 @@
+---
+// MotionWalkthrough: a short silent walkthrough rendered from the deterministic
+// harness. Video never carries information the transcript below it lacks, and
+// readers with reduced motion get the still sequence instead of the video.
+interface Props {
+  src: string;
+  poster: string;
+  title: string;
+  transcript: string[];
+  duration?: string;
+}
+const { src, poster, title, transcript, duration } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<figure class="u-motion-walkthrough">
+  <div class="u-shot__frame">
+    <video controls preload="none" poster={`${base}${poster}`} width="400" height="720">
+      <source src={`${base}${src}`} type="video/webm" />
+      <track kind="captions" label="English captions" srclang="en" />
+      Your browser cannot play this video. The full transcript below carries
+      everything it shows.
+    </video>
+    <img
+      class="u-motion-fallback"
+      src={`${base}${poster}`}
+      alt={`First frame of the walkthrough: ${title}. The video is suppressed because your system asks for reduced motion.`}
+      width="400"
+      height="720"
+      loading="lazy"
+    />
+  </div>
+  <figcaption class="u-shot__caption">
+    {title}{duration && ` (${duration})`}. No sound plays.
+  </figcaption>
+  <details>
+    <summary>Transcript</summary>
+    <ol class="u-hotspot-list">
+      {transcript.map((line) => <li><span>{line}</span></li>)}
+    </ol>
+  </details>
+</figure>
+
+<style>
+  .u-motion-walkthrough video,
+  .u-motion-fallback {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    border-radius: 8px;
+    background: #000;
+  }
+</style>

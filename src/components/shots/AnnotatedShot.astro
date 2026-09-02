@@ -1,0 +1,60 @@
+---
+// AnnotatedShot: a verified screenshot with numbered hotspots.
+//
+// The numbered markers over the image and the numbered text list below it are
+// the same list, so a screen reader receives the complete explanation without
+// needing the pointer. Anchor coordinates are percentages of the image box,
+// carried in the capture catalog (annotationAnchors) so they survive
+// responsive scaling.
+import { getCapture, captureUrl } from '../../lib/captures';
+
+interface Props {
+  captureId: string;
+  annotations: { label: string; x: number; y: number }[];
+  danger?: boolean;
+}
+const { captureId, annotations, danger = false } = Astro.props;
+const capture = getCapture(captureId);
+---
+
+<figure class:list={['u-shot u-shot--annotated', { 'u-shot--danger': danger }]}>
+  <div class="u-shot__frame">
+    <div class="u-shot__device" style={`aspect-ratio: ${capture.intrinsicWidth} / ${capture.intrinsicHeight};`}>
+      <img
+        class="u-shot__img"
+        src={captureUrl(capture, 'webp')}
+        alt={`${capture.description} The numbered notes below describe each marked region.`}
+        width={capture.intrinsicWidth}
+        height={capture.intrinsicHeight}
+        loading="lazy"
+        decoding="async"
+      />
+      {
+        annotations.map((annotation, index) => (
+          <span
+            class="u-hotspot"
+            style={`left: ${annotation.x}%; top: ${annotation.y}%;`}
+            aria-hidden="true"
+          >
+            {index + 1}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+  <figcaption class="u-shot__caption">
+    {capture.publicTitle} - {capture.caption}
+  </figcaption>
+  <ol class="u-hotspot-list">
+    {
+      annotations.map((annotation, index) => (
+        <li id={`hotspot-${capture.captureId}-${index + 1}`}>
+          <span class="u-hotspot" aria-hidden="true">
+            {index + 1}
+          </span>
+          <span>{annotation.label}</span>
+        </li>
+      ))
+    }
+  </ol>
+</figure>

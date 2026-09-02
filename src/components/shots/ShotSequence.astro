@@ -1,0 +1,38 @@
+---
+// ShotSequence: several verified captures presented as an ordered walk, for
+// multi-screen tasks. Each step keeps its own caption; nothing here implies
+// more steps than the captures prove.
+import ProductShot from './ProductShot.astro';
+import { getCapture } from '../../lib/captures';
+
+interface Props {
+  steps: { captureId: string; label: string }[];
+  danger?: boolean;
+}
+const { steps, danger = false } = Astro.props;
+---
+
+<ol class="u-sequence">
+  {
+    steps.map((step) => (
+      <li>
+        <p class="u-sequence__label">{step.label}</p>
+        <ProductShot captureId={step.captureId} compact danger={danger} />
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .u-sequence {
+    margin: 1.2rem 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1.4rem;
+  }
+  .u-sequence__label {
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+  }
+</style>
