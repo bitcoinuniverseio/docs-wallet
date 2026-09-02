@@ -36,8 +36,12 @@ function readPage(corpus, pagePath) {
   const entry = entryFor(corpus, pagePath);
   if (!entry) return null;
   let markdownPath = entry.markdown;
-  const text = readFileSync(join(corpus.dir, markdownPath), 'utf8');
-  return { entry, text };
+  try {
+    const text = readFileSync(join(corpus.dir, ...markdownPath.split('/')), 'utf8');
+    return { entry, text };
+  } catch {
+    return null;
+  }
 }
 
 function resultMeta(corpus, entry, heading = null) {
@@ -85,7 +89,7 @@ export function buildTools(corpus) {
       },
       handler: async ({ query, limit = 8 }) => {
         const needle = String(query).toLowerCase();
-        const terms = needle.split(/\s+/).filter(Boolean);
+        const terms = needle.split(/\s+/).filter(Boolean).slice(0, 50);
         const scored = corpus.catalog.pages
           .map((page) => {
             const text = readPage(corpus, page.path);

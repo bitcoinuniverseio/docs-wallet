@@ -74,8 +74,10 @@ const httpServer = createServer(async (req, res) => {
     await mcpServer.connect(transport);
     const chunks = [];
     for await (const chunk of req) chunks.push(chunk);
-    const body = Buffer.concat(chunks);
-    await transport.handleRequest(req, res, body);
+    // The SDK expects the request body pre-parsed (the express.json()
+    // equivalent of req.body).
+    const parsedBody = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+    await transport.handleRequest(req, res, parsedBody);
   } catch (error) {
     if (!res.headersSent) {
       res.writeHead(500, { 'content-type': 'application/json' });
