@@ -22,6 +22,9 @@ const pages = [];
 (function walk(dir) {
   for (const name of readdirSync(dir)) {
     const full = join(dir, name);
+    // The simulator artifact carries its own CSP (it needs wasm-unsafe-eval,
+    // which the prose site must not).
+    if (full.startsWith(join(dist, 'simulator'))) continue;
     let entries;
     try {
       entries = readdirSync(full);

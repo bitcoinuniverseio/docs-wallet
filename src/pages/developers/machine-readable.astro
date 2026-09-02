@@ -47,13 +47,13 @@ const docsUrl = `${site}${base}`;
 
   <h3>Local stdio server</h3>
   <p>Run from a checkout of this repository (the corpus is generated at build time):</p>
-  <pre><code>{`node mcp-server/stdio.mjs --corpus ${docsUrl}/api/catalog.json`}</code></pre>
+  <pre tabindex="0"><code>{`node mcp-server/stdio.mjs --corpus ${docsUrl}/api/catalog.json`}</code></pre>
 
   <h3>Claude Code</h3>
-  <pre><code>{`claude mcp add universe-wallet-docs -- node /path/to/docs-wallet/mcp-server/stdio.mjs`}</code></pre>
+  <pre tabindex="0"><code>{`claude mcp add universe-wallet-docs -- node /path/to/docs-wallet/mcp-server/stdio.mjs`}</code></pre>
 
   <h3>Cursor and VS Code-compatible clients</h3>
-  <pre><code>{`{
+  <pre tabindex="0"><code>{`{
   "mcpServers": {
     "universe-wallet-docs": {
       "command": "node",
@@ -67,7 +67,7 @@ const docsUrl = `${site}${base}`;
     A Streamable HTTP endpoint serving the same corpus from first-party
     infrastructure:
   </p>
-  <pre><code>{`{
+  <pre tabindex="0"><code>{`{
   "mcpServers": {
     "universe-wallet-docs": {
       "url": "https://docs.bitcoinuniverse.io/mcp/wallet"

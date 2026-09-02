@@ -101,6 +101,7 @@ function Host({
       <div class="u-simhost__frame-wrap">
         <iframe
           ref={frameRef}
+          key={scenario}
           src={frameSrc}
           title={`Universe Wallet documentation simulator: ${scenarios.find((candidate) => candidate.id === scenario)?.title ?? scenario}`}
           sandbox="allow-scripts"

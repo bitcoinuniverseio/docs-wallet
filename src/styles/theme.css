@@ -1487,3 +1487,199 @@ select:focus-visible {
   color: var(--u-dim);
   font-size: 0.92rem;
 }
+
+/* --------------------------------------------------- audit corrections ---- */
+
+/* Capture provenance meta must meet contrast in both themes; the dim ink is
+   the passing value, so the meta uses it too. */
+.u-shot__caption .u-shot__meta {
+  color: var(--u-dim);
+}
+
+/* Dark-theme ok badge: the earlier green sat under 4.5:1 on its surface. */
+:root {
+  --u-ok: #74b389;
+}
+:root[data-theme='light'] {
+  --u-ok: #1e6b3c;
+}
+
+/* Explorer toolbars and parameter rows must collapse at 320px. */
+.u-explorer__toolbar input[type='search'] {
+  flex: 1 1 10rem;
+  min-inline-size: 0;
+}
+.u-explorer__toolbar select {
+  max-inline-size: 100%;
+}
+.u-studio label input[type='text'] {
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+.u-studio {
+  max-inline-size: 100%;
+  overflow-x: clip;
+}
+.u-studio pre,
+.u-explorer pre {
+  max-inline-size: 100%;
+}
+
+/* Atlas island grid: card layout for the filterable capture list. */
+.u-atlas-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
+  gap: 0.7rem;
+}
+.u-atlas-card {
+  display: grid;
+  gap: 0.25rem;
+  border: 1px solid var(--u-hairline);
+  border-radius: var(--u-radius-lg);
+  background: var(--u-surface);
+  padding: 0.7rem 0.85rem;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.u-atlas-card:hover,
+.u-atlas-card:focus-visible {
+  border-color: var(--u-hairline-strong);
+  outline: 2px solid var(--u-focus);
+  outline-offset: 1px;
+}
+.u-atlas-card__title {
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+.u-atlas-card__meta {
+  font-size: 0.78rem;
+  color: var(--u-dim);
+}
+.u-atlas-card__caption {
+  font-size: 0.85rem;
+  color: var(--u-dim);
+}
+
+/* ------------------------------------------------ simulator host (island) ---- */
+/* Rendered at runtime by the island, so these live globally, never scoped. */
+
+.u-simhost {
+  margin: 1.2rem 0;
+}
+.u-simhost__status {
+  font-size: 0.88rem;
+  color: var(--u-dim);
+}
+.u-simhost__frame-wrap {
+  border: 1px solid var(--u-hairline-strong);
+  border-radius: var(--u-radius-lg);
+  background: #000;
+  padding: 0.6rem;
+  max-inline-size: 27rem;
+}
+.u-simhost__frame {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 400 / 720;
+  border: 1px solid var(--u-hairline-strong);
+  border-radius: 10px;
+  background: #0e0a13;
+}
+.u-simhost__notes {
+  font-size: 0.86rem;
+  color: var(--u-dim);
+  max-inline-size: 46rem;
+}
+.u-sim-scenarios {
+  display: grid;
+  gap: 0.45rem;
+}
+
+/* ------------------------------------------------ journey runner (island) ---- */
+
+.u-journey {
+  margin: 1.1rem 0;
+}
+.u-journey__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: baseline;
+  border-block-end: 1px solid var(--u-hairline);
+  padding-block-end: 0.6rem;
+}
+.u-journey__head p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--u-dim);
+}
+.u-journey__head-actions {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  font-size: 0.88rem;
+}
+.u-journey__body {
+  display: grid;
+  gap: 1.2rem;
+  padding-block-start: 0.9rem;
+}
+@media (min-width: 46rem) {
+  .u-journey__body {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    align-items: start;
+  }
+}
+.u-journey__step h2 {
+  margin-block-start: 0;
+}
+.u-journey__qa {
+  display: grid;
+  grid-template-columns: minmax(9rem, auto) 1fr;
+  gap: 0.45rem 1rem;
+  font-size: 0.94rem;
+}
+@media (max-width: 30rem) {
+  .u-journey__qa {
+    grid-template-columns: 1fr;
+  }
+}
+.u-journey__qa dt {
+  font-weight: 700;
+  color: var(--u-dim);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  align-self: baseline;
+}
+.u-journey__qa dd {
+  margin: 0;
+}
+.u-journey__branch {
+  border: 1px solid var(--u-caution-line);
+  background: var(--u-caution-surface);
+  border-radius: var(--u-radius);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  margin: 0.7rem 0;
+}
+.u-journey__branch--unavailable {
+  border-color: var(--u-unavailable-line);
+  background: var(--u-unavailable-surface);
+}
+.u-journey__controls {
+  display: flex;
+  gap: 0.6rem;
+  margin-block-start: 1rem;
+}
+.u-journey__complete {
+  border: 1px solid var(--u-ok-line);
+  background: var(--u-ok-surface);
+  border-radius: var(--u-radius-lg);
+  padding: 0.9rem 1.1rem;
+}

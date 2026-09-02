@@ -82,7 +82,9 @@ for (const capture of manifest.captures ?? []) {
   if (hash !== capture.sha256) {
     fail(`${capture.screenshot} does not match its manifest hash`);
   }
-  if (!capture.walletSourceCommit) fail(`${capture.captureId} has no wallet source commit`);
+  if (!(capture.walletSourceCommit ?? manifest.walletSourceCommit)) {
+    fail(`${capture.captureId} has no wallet source commit`);
+  }
   if (!capture.caption || !capture.description) {
     fail(`${capture.captureId} is missing caption or accessible description`);
   }

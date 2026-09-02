@@ -14,7 +14,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const source = process.argv[2] ?? process.env.DOCS_WALLET_SIMULATOR_DIR ?? null;
-const outDir = join(root, 'public', 'simulator');
+// The artifact lives under simulator/app/ so the landing page at /simulator/
+// and the sandboxed frame never share a URL.
+const outDir = join(root, 'public', 'simulator', 'app');
 const outData = join(root, 'src', 'data', 'simulator.json');
 
 if (!source || !existsSync(join(source, 'build.json'))) {
@@ -94,7 +96,7 @@ const data = {
   importedAt: new Date().toISOString(),
   walletVersion: buildInfo.walletVersion,
   walletSourceCommit: buildInfo.walletSourceCommit,
-  artifactPath: 'simulator/',
+  artifactPath: 'simulator/app/',
   entrySha256,
   isolation: {
     offlineByConstruction: true,

@@ -40,7 +40,7 @@ const scenarioParam = Astro.url.searchParams.get('scenario') ?? 'first-launch';
   <div
     data-simulator-host
     data-base={base}
-    data-artifact={`${base}/simulator/`}
+    data-artifact={`${base}/simulator/app/`}
     data-scenario={scenarioParam}
     data-wallet-version={simulator.walletVersion}
     data-scenarios={JSON.stringify(simulator.scenarios.map((scenario) => ({ id: scenario.id, title: scenario.title, description: scenario.description })))}
@@ -74,35 +74,3 @@ const scenarioParam = Astro.url.searchParams.get('scenario') ?? 'first-launch';
   import '../islands/SimulatorHost';
 </script>
 
-<style>
-  .u-simhost {
-    margin: 1.2rem 0;
-  }
-  .u-simhost__status {
-    font-size: 0.88rem;
-    color: var(--u-dim);
-  }
-  .u-simhost__frame-wrap {
-    border: 1px solid var(--u-hairline-strong);
-    border-radius: var(--u-radius-lg);
-    background: #000;
-    padding: 0.6rem;
-    max-inline-size: 27rem;
-  }
-  .u-simhost__frame {
-    inline-size: 100%;
-    aspect-ratio: 400 / 720;
-    border: 1px solid var(--u-hairline-strong);
-    border-radius: 10px;
-    background: #0e0a13;
-  }
-  .u-simhost__notes {
-    font-size: 0.86rem;
-    color: var(--u-dim);
-    max-inline-size: 46rem;
-  }
-  .u-sim-scenarios {
-    display: grid;
-    gap: 0.45rem;
-  }
-</style>
