@@ -1,0 +1,110 @@
+---
+// Journey directory: every guided journey with filters. The audience filter is
+// server-rendered from the query string, so it works without JavaScript.
+import journeys from '../../data/journeys.json';
+import ReleaseBadge from '../../components/badges/ReleaseBadge.astro';
+import RiskBadge from '../../components/badges/RiskBadge.astro';
+import EstimatedTime from '../../components/EstimatedTime.astro';
+import { resolve } from '../../lib/nav';
+import BaseHead from '../../layouts/BaseGuide.astro';
+
+const audienceParam = Astro.url.searchParams.get('audience');
+const AUDIENCE_LABELS: Record<string, string> = {
+  'new-user': 'New user',
+  'wallet-user': 'Wallet user',
+  developer: 'Developer',
+  emergency: 'Emergency',
+};
+const visible = audienceParam ? journeys.filter((journey) => journey.audience.includes(audienceParam)) : journeys;
+---
+
+<BaseHead
+  title="Guided journeys"
+  description="Step-by-step Universe Wallet walkthroughs with checkpoints, recovery paths, and progress that stays in your browser."
+>
+  <h1>Guided journeys</h1>
+  <p>
+    Every journey is a sequence of steps that tells you what you are trying to achieve, what you
+    should see, what to do, what to check, what can go wrong, and whether the step is reversible.
+    Progress is stored only in this browser. Journey data was verified against the release shown on
+    each card.
+  </p>
+
+  <nav class="u-audience-filter" aria-label="Filter journeys by audience">
+    <a href={resolve('/journeys/')} class={!audienceParam ? 'is-active' : ''} aria-current={!audienceParam ? 'page' : undefined}>All</a>
+    {
+      Object.entries(AUDIENCE_LABELS).map(([id, label]) => (
+        <a href={`${resolve('/journeys/')}?audience=${id}`} class={audienceParam === id ? 'is-active' : ''} aria-current={audienceParam === id ? 'page' : undefined}>
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <ul class="u-journey-directory">
+    {
+      visible.map((journey) => (
+        <li>
+          <a class="u-journey-card" href={resolve(`/journeys/${journey.id}/`)}>
+            <h3>{journey.title}</h3>
+            <p>{journey.outcome}</p>
+            <p class="u-journey-card__meta">
+              <EstimatedTime minutes={journey.estimatedMinutes} /> · {journey.steps.length} steps
+            </p>
+            <p class="u-journey-card__badges">
+              <RiskBadge level={journey.riskLevel} />
+              <ReleaseBadge releaseId={journey.releaseIds[0]} withStatus={false} />
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  {
+    visible.length === 0 && <p>No journey matches this audience yet.</p>
+  }
+</BaseHead>
+
+<style>
+  .u-audience-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1rem 0;
+  }
+  .u-audience-filter a {
+    border: 1px solid var(--u-hairline-strong);
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+    text-decoration: none;
+    font-size: 0.88rem;
+    color: var(--u-dim);
+  }
+  .u-audience-filter a.is-active {
+    color: var(--u-ink);
+    border-color: var(--u-focus);
+  }
+  .u-journey-directory {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+    gap: 0.9rem;
+    margin: 1.2rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  .u-journey-directory a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+  }
+  .u-journey-card__meta {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+  .u-journey-card__badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+</style>

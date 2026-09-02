@@ -10,6 +10,7 @@
 // wallet documentation site that can be tampered with.
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import preact from '@astrojs/preact';
 import starlightLinksValidator from 'starlight-links-validator';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeTableScroll from './scripts/rehype-table-scroll.mjs';
@@ -58,6 +59,9 @@ export default defineConfig({
     processor: unified({ rehypePlugins: [rehypeTableScroll] }),
   },
   integrations: [
+    // Interactive islands for the new products only. Ordinary prose pages
+    // hydrate nothing.
+    preact(),
     starlight({
       expressiveCode: { plugins: [codeBlockAccessibility()] },
       title: 'Universe Wallet',
@@ -87,6 +91,11 @@ export default defineConfig({
         Footer: './src/components/Footer.astro',
         PageTitle: './src/components/PageTitle.astro',
         Head: './src/components/Head.astro',
+        // The release/appearance lens and the command palette live in the
+        // header slots Starlight already renders, so the new controls are
+        // present on every page without forking Starlight's layout.
+        ThemeSelect: './src/components/overlays/ReleaseThemeSelect.astro',
+        Search: './src/components/overlays/PaletteSearch.astro',
       },
       head: [
         {
@@ -121,6 +130,17 @@ export default defineConfig({
             { label: 'Back up your recovery phrase', slug: 'start/back-up' },
             { label: 'Receive for the first time', slug: 'start/first-receive' },
             { label: 'Send for the first time', slug: 'start/first-send' },
+          ],
+        },
+        {
+          label: 'Learn by doing',
+          items: [
+            { label: 'Guided journeys', link: '/journeys/' },
+            { label: 'Safe simulator', link: '/simulator/' },
+            { label: 'Transaction Safety Lab', link: '/safety-lab/' },
+            { label: 'Screen Atlas', link: '/atlas/' },
+            { label: 'Answer Center', link: '/answer/' },
+            { label: 'Emergency handbook', link: '/emergency/' },
           ],
         },
         {
@@ -194,6 +214,8 @@ export default defineConfig({
           items: [
             { label: 'Integrating with the wallet', slug: 'developers/integration' },
             { label: 'Provider API', slug: 'developers/provider-api' },
+            { label: 'Integration Studio', link: '/studio/' },
+            { label: 'Machine-readable docs and MCP', link: '/developers/machine-readable' },
           ],
         },
         {
