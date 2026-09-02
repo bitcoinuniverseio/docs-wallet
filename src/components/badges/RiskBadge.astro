@@ -1,0 +1,29 @@
+---
+// Risk badge. Never color alone: each level carries a text label and, at the
+// danger level, an alert frame borrowed from the reserved alert token.
+interface Props {
+  level: 'info' | 'caution' | 'danger' | 'experimental';
+}
+const { level } = Astro.props;
+const LABELS: Record<string, string> = {
+  info: 'Standard care',
+  caution: 'Check before you act',
+  danger: 'Irreversible if wrong',
+  experimental: 'Experimental',
+};
+const CLASS: Record<string, string> = {
+  info: 'u-badge--ok',
+  caution: 'u-badge--caution',
+  danger: 'u-badge--danger',
+  experimental: 'u-badge--experimental',
+};
+---
+
+<span class={`u-badge ${CLASS[level] ?? ''}`}>
+  {level === 'danger' && (
+    <svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 1 15 14H1L8 1Zm0 5v4M8 12.2v.8" stroke="currentColor" stroke-width="1.6" fill="none" />
+    </svg>
+  )}
+  {LABELS[level] ?? level}
+</span>

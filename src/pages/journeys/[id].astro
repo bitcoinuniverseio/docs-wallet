@@ -1,0 +1,105 @@
+---
+// One journey page: the static expanded journey (no-JS complete) plus the
+// interactive runner island, which takes over the same content when JS runs.
+import journeys from '../../data/journeys.json';
+import BaseHead from '../../layouts/BaseGuide.astro';
+import ReleaseBadge from '../../components/badges/ReleaseBadge.astro';
+import RiskBadge from '../../components/badges/RiskBadge.astro';
+import EstimatedTime from '../../components/EstimatedTime.astro';
+import Feedback from '../../components/Feedback.astro';
+import { resolve } from '../../lib/nav';
+
+export function getStaticPaths() {
+  return journeys.map((journey) => ({ params: { id: journey.id }, props: { journey } }));
+}
+
+const { journey } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseHead title={journey.title} description={journey.outcome}>
+  <p><a href={resolve('/journeys/')}>← All journeys</a></p>
+  <h1>{journey.title}</h1>
+
+  <div class="u-page-meta">
+    <EstimatedTime minutes={journey.estimatedMinutes} />
+    <RiskBadge level={journey.riskLevel} />
+    <ReleaseBadge releaseId={journey.releaseIds[0]} />
+  </div>
+
+  <p><strong>Outcome:</strong> {journey.outcome}</p>
+  {journey.prerequisites.length > 0 && (
+    <p>
+      <strong>Before you start:</strong> {journey.prerequisites.join(' · ')}
+    </p>
+  )}
+  <p>
+    <strong>Completion looks like:</strong> {journey.completionCriterion}
+  </p>
+  <p>
+    <strong>If something goes wrong:</strong> {journey.recovery}
+  </p>
+
+  <!-- The runner island. Without JavaScript the static steps below remain the
+       complete journey; with JavaScript this replaces them. -->
+  <div
+    data-journey-runner
+    data-base={base}
+    data-journey={JSON.stringify(journey)}
+  >
+  </div>
+
+  <noscript>
+    <section aria-label="Journey steps">
+      <h2>All steps</h2>
+      <ol class="u-journey-static">
+        {
+          journey.steps.map((step) => (
+            <li id={step.id}>
+              <h3>{step.title}</h3>
+              <dl>
+                <dt>You are trying to</dt>
+                <dd>{step.goal}</dd>
+                <dt>You should see</dt>
+                <dd>{step.expected}</dd>
+                <dt>You do</dt>
+                <dd>{step.action}</dd>
+                <dt>Before you continue, check</dt>
+                <dd>{step.checkpoint}</dd>
+                <dt>What can go wrong</dt>
+                <dd>{step.failure}</dd>
+                <dt>Reversible?</dt>
+                <dd>{step.reversible ? 'Yes.' : 'No. Read twice.'}</dd>
+              </dl>
+              {step.branches.map((branch) => (
+                <p>
+                  <strong>{branch.unavailable ? 'Not available here' : 'Branch'}:</strong> {branch.note}
+                </p>
+              ))}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </noscript>
+
+  <Feedback pagePath={`/journeys/${journey.id}/`} subjectId={journey.id} />
+</BaseHead>
+
+<script>
+  import '../../islands/JourneyRunner';
+</script>
+
+<style>
+  .u-journey-static {
+    padding-inline-start: 1.2rem;
+  }
+  .u-journey-static dt {
+    font-weight: 700;
+    margin-top: 0.45rem;
+    font-size: 0.9rem;
+  }
+  .u-journey-static dd {
+    margin: 0.1rem 0 0;
+  }
+</style>

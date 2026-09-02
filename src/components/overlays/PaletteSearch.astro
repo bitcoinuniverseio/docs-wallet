@@ -1,0 +1,42 @@
+---
+// Starlight Search override: the command palette trigger lives where the search
+// button was, and opens one dialog over pages, journeys, screens, protocols,
+// and provider methods. Pagefind remains the page-search engine underneath.
+import CommandPalette from '../../islands/CommandPalette.tsx';
+import journeys from '../../data/journeys.json';
+import captures from '../../data/captures.json';
+import snapshot from '../../capability-snapshot.json';
+import commandsRegistry from '../../data/commands.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const commands = [
+  ...commandsRegistry.commands,
+  ...journeys.map((journey) => ({
+    id: `journey-${journey.id}`,
+    label: `Journey: ${journey.title}`,
+    group: 'journeys',
+    href: `/journeys/${journey.id}/`,
+    description: journey.outcome,
+    keywords: journey.audience,
+  })),
+  ...captures.captures.slice(0, 24).map((capture) => ({
+    id: `capture-${capture.captureId}`,
+    label: `Screen: ${capture.publicTitle}`,
+    group: 'screens',
+    href: `/atlas/#capture=${capture.captureId}`,
+    description: capture.caption,
+    keywords: [capture.workflow, capture.state],
+  })),
+];
+---
+
+<div
+  data-command-palette
+  data-base={base}
+  data-commands={JSON.stringify(commands)}
+/>
+
+<script>
+  import '../../islands/CommandPalette';
+</script>

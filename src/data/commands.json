@@ -1,0 +1,30 @@
+{
+  "commands": [
+    { "id": "task-install", "label": "Install the wallet", "group": "tasks", "href": "/start/install", "description": "Install from the official listing and verify it", "keywords": ["install", "setup", "extension"] },
+    { "id": "task-receive", "label": "Receive", "group": "tasks", "href": "/tasks/receive", "description": "Show and share your address safely", "keywords": ["address", "qr", "get paid"] },
+    { "id": "task-send", "label": "Send", "group": "tasks", "href": "/tasks/send", "description": "Send, including when this build cannot send", "keywords": ["transfer", "pay", "unavailable"] },
+    { "id": "task-review", "label": "Review a transaction", "group": "tasks", "href": "/tasks/review-a-transaction", "description": "Read an approval before you sign", "keywords": ["approve", "sign", "check"] },
+    { "id": "task-psbt", "label": "Review a PSBT", "group": "tasks", "href": "/tasks/review-a-psbt", "description": "Partial transactions: inputs you own and inputs you do not", "keywords": ["psbt", "multisig"] },
+    { "id": "task-sign-message", "label": "Sign a message", "group": "tasks", "href": "/tasks/sign-a-message", "description": "What a message signature commits to", "keywords": ["signature", "prove"] },
+    { "id": "task-connect", "label": "Connect an application", "group": "tasks", "href": "/tasks/connect-an-application", "description": "What connecting grants and what it never grants", "keywords": ["dapp", "connect", "permission"] },
+    { "id": "task-switch-chain", "label": "Switch chain and network", "group": "tasks", "href": "/tasks/switch-chain-and-network", "description": "Move between chains and test networks deliberately", "keywords": ["network", "testnet", "mainnet"] },
+    { "id": "task-coin-control", "label": "Coin control", "group": "tasks", "href": "/tasks/coin-control", "description": "Choose which outputs a payment spends", "keywords": ["utxo", "select"] },
+    { "id": "task-activity", "label": "Read your activity", "group": "tasks", "href": "/tasks/activity", "description": "History and confirmation states", "keywords": ["history", "confirmations"] },
+    { "id": "task-backup", "label": "Back up your recovery phrase", "group": "tasks", "href": "/start/back-up", "description": "Offline backup that actually restores", "keywords": ["seed", "phrase", "backup"] },
+    { "id": "page-versions", "label": "Which version you are running", "group": "tasks", "href": "/start/versions", "description": "The two version numbers and what each means", "keywords": ["version", "detect", "store build"] },
+    { "id": "page-why-unavailable", "label": "Why an action is unavailable", "group": "capabilities", "href": "/assets/why-unavailable", "description": "The fail-closed gate explained", "keywords": ["unavailable", "cannot send", "blocked"] },
+    { "id": "page-support-state", "label": "What this release authorizes", "group": "capabilities", "href": "/assets/support-state", "description": "Capability truth for the documented source tree", "keywords": ["capability", "authorized", "snapshot"] },
+    { "id": "page-protocol-registry", "label": "The protocol registry", "group": "protocols", "href": "/assets/protocol-registry", "description": "Every protocol, its networks, and its support state", "keywords": ["protocol", "brc-20", "runes", "ordinals"] },
+    { "id": "page-safety-phishing", "label": "Phishing and impostors", "group": "emergency", "href": "/safety/phishing", "description": "The scripts impostors run and the rule that beats them", "keywords": ["scam", "support", "fake"] },
+    { "id": "page-compromised", "label": "If your wallet is compromised", "group": "emergency", "href": "/safety/compromised-wallet", "description": "Containment and migration, in the right order", "keywords": ["hacked", "stolen", "emergency"] },
+    { "id": "page-emergency", "label": "Emergency handbook", "group": "emergency", "href": "/emergency/", "description": "Printable checklists, works offline once saved", "keywords": ["offline", "checklist"] },
+    { "id": "product-atlas", "label": "Screen Atlas", "group": "screens", "href": "/atlas/", "description": "Every verified screenshot with provenance", "keywords": ["screenshots", "atlas"] },
+    { "id": "product-simulator", "label": "Safe simulator", "group": "tasks", "href": "/simulator/", "description": "The real interface on fixture data", "keywords": ["simulator", "practice", "demo"] },
+    { "id": "product-safety-lab", "label": "Transaction Safety Lab", "group": "tasks", "href": "/safety-lab/", "description": "Study risky approvals without signing", "keywords": ["fees", "change", "sighash", "practice"] },
+    { "id": "product-studio", "label": "Developer Integration Studio", "group": "developer", "href": "/studio/", "description": "Simulated provider, generated contract, doctor", "keywords": ["api", "provider", "playground"] },
+    { "id": "product-answer", "label": "Answer Center", "group": "tasks", "href": "/answer/", "description": "Questions answered from these pages only", "keywords": ["ask", "question", "search"] },
+    { "id": "product-machine-readable", "label": "Machine-readable documentation and MCP", "group": "developer", "href": "/developers/machine-readable", "description": "llms.txt, JSON catalog, and the read-only MCP server", "keywords": ["mcp", "ai", "llm", "api"] },
+    { "id": "dev-provider-api", "label": "Provider API reference", "group": "developer", "href": "/developers/provider-api", "description": "The full provider method reference", "keywords": ["api", "methods", "reference"] },
+    { "id": "dev-integration", "label": "Integrating with the wallet", "group": "developer", "href": "/developers/integration", "description": "Detection, connection, and unavailable states", "keywords": ["integrate", "connect", "detect"] }
+  ]
+}

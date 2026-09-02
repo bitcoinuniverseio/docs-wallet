@@ -1,0 +1,48 @@
+---
+// ScreenCompare: two verified captures side by side, for release or theme
+// comparison. Each side keeps its own caption and release badge, so a reader
+// never loses track of which pixels belong to which build.
+import ProductShot from './ProductShot.astro';
+import ReleaseBadge from '../badges/ReleaseBadge.astro';
+import { getCapture } from '../../lib/captures';
+
+interface Props {
+  leftCaptureId: string;
+  rightCaptureId: string;
+  leftLabel?: string;
+  rightLabel?: string;
+}
+const { leftCaptureId, rightCaptureId, leftLabel, rightLabel } = Astro.props;
+const left = getCapture(leftCaptureId);
+const right = getCapture(rightCaptureId);
+---
+
+<div class="u-compare">
+  <div class="u-compare__pane">
+    {leftLabel && <p class="u-compare__label">{leftLabel}</p>}
+    <ReleaseBadge releaseId={left.releaseId} />
+    <ProductShot captureId={leftCaptureId} compact />
+  </div>
+  <div class="u-compare__pane">
+    {rightLabel && <p class="u-compare__label">{rightLabel}</p>}
+    <ReleaseBadge releaseId={right.releaseId} />
+    <ProductShot captureId={rightCaptureId} compact />
+  </div>
+</div>
+
+<style>
+  .u-compare {
+    display: grid;
+    gap: 1rem;
+    margin: 1.3rem 0;
+  }
+  @media (min-width: 56rem) {
+    .u-compare {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .u-compare__label {
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+  }
+</style>

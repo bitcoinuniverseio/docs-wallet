@@ -1,0 +1,13 @@
+{
+  "artifact": "docs-simulator",
+  "walletVersion": "1.7.5.8",
+  "walletSourceCommit": "95219da7ba6a4e1e8c68aa1336d6b2798ecd2ad2",
+  "builtAt": "2026-09-02T20:23:09.688Z",
+  "entry": "ui/docs-simulator/main.tsx",
+  "isolation": {
+    "offlineByConstruction": true,
+    "noExtensionApis": true,
+    "noKeyMaterial": true,
+    "noSourceMaps": true
+  }
+}

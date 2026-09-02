@@ -1,0 +1,86 @@
+---
+// Transaction and Approval Safety Lab. Every scenario renders as static text
+// (the no-JS and search-engine representation); the island adds the guided
+// reveal on top.
+import fixtures from '../data/safety/education-fixtures.json';
+import BaseHead from '../layouts/BaseGuide.astro';
+import Feedback from '../components/Feedback.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const SIGHASH: Record<number, string> = {
+  1: 'SIGHASH_ALL - commits to every input and output',
+  3: 'SIGHASH_SINGLE - commits this input to one output only',
+  131: 'SIGHASH_SINGLE | ANYONECANPAY - the listing-style signature',
+};
+---
+
+<BaseHead
+  title="Transaction and Approval Safety Lab"
+  description="Study real transaction and approval scenarios - fees, change, protected outputs, sighash - without signing anything."
+>
+  <h1>Transaction and Approval Safety Lab</h1>
+  <p>
+    Every scenario here is a fixture generated from the wallet's own approval view models over
+    synthetic data. Nothing in this laboratory signs, broadcasts, or contacts anything: it exists so
+    that the first time you meet an unusual approval, it is not the first time you have seen its
+    shape.
+  </p>
+
+  <div data-safety-lab data-base={base} data-fixtures={JSON.stringify(fixtures.fixtures)}>
+  </div>
+
+  <h2 id="all-scenarios">Every scenario, in plain text</h2>
+  <p>
+    The same content without JavaScript, for screen readers, search engines, and printing.
+  </p>
+  {
+    fixtures.fixtures.map((fixture) => (
+      <section id={`scenario-${fixture.id}`} class="u-lab-static">
+        <h3>{fixture.title}</h3>
+        <p>
+          <strong>The wallet's summary:</strong> “{fixture.summary.title}” ({fixture.summary.tone})
+        </p>
+        <ul>
+          {fixture.summary.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+        <p>
+          <strong>Inputs:</strong>
+          {fixture.anatomy.inputs.map((input) => ` ${input.owned ? 'yours' : 'not yours'} (${input.value} sats${input.sighashType !== null && input.sighashType !== 1 ? `, ${SIGHASH[input.sighashType] ?? `sighash ${input.sighashType}`}` : ''});`)}
+        </p>
+        <p>
+          <strong>Outputs:</strong>
+          {fixture.anatomy.outputs.map((output) => ` ${output.owned ? 'change to you' : 'leaves your wallet'} (${output.value} sats);`)}
+        </p>
+        <p>
+          <strong>Fee:</strong> {fixture.anatomy.fee} sats at {fixture.anatomy.feeRate} sat/vB
+          {fixture.anatomy.shouldWarnFeeRate && ' - far above the recommended rate'}
+          {fixture.anatomy.rbf ? '. Replaceable.' : '. No bump capability.'}
+        </p>
+        <h4>What to check</h4>
+        <ul>
+          {fixture.teaches.map((line) => (
+            <li>{line}</li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <Feedback pagePath="/safety-lab/" />
+</BaseHead>
+
+<script>
+  import '../islands/SafetyLab';
+</script>
+
+<style>
+  .u-lab-static {
+    border-block-start: 1px solid var(--u-hairline);
+    padding-block: 1rem;
+  }
+  .u-lab-static h3 {
+    margin: 0 0 0.4rem;
+  }
+</style>
