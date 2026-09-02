@@ -66,6 +66,9 @@ jobs:
       - name: MCP protocol conformance and grounding
         run: npm run check:mcp
 
+      - name: Bundle budget
+        run: npm run check:bundle
+
       - name: Install a browser for the accessibility audit
         run: npx playwright install --with-deps chromium
 
