@@ -1683,3 +1683,8 @@ select:focus-visible {
   border-radius: var(--u-radius-lg);
   padding: 0.9rem 1.1rem;
 }
+
+/* Header trigger: never wraps, even beside the release lens. */
+.u-palette-trigger {
+  white-space: nowrap;
+}
