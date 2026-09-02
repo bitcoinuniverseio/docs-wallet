@@ -86,18 +86,21 @@ const markdownDir = join(dist, 'markdown');
 const catalogEntries = [];
 const generated = new Map(); // relative dist path -> content
 
-rmSync(markdownDir, { recursive: true, force: true });
-mkdirSync(markdownDir, { recursive: true });
+if (!check) {
+  rmSync(markdownDir, { recursive: true, force: true });
+  mkdirSync(markdownDir, { recursive: true });
+}
 
 for (const page of pages) {
   const html = readFileSync(page, 'utf8');
   const markdown = htmlToMarkdown(html);
   const rel = relative(join(dist), page).replace(/\\/g, '/');
   const mdName = rel === 'index.html' ? 'index.md' : rel.replace(/\.html$/, '.md').replace(/\/index\.md$/, '.md');
-  generated.set(join('markdown', mdName), markdown);
+  const mdPath = `markdown/${mdName}`;
+  generated.set(mdPath, markdown);
   catalogEntries.push({
     path: rel,
-    markdown: `markdown/${mdName}`,
+    markdown: mdPath,
     title: /<title>(.*?)<\/title>/s.exec(html)?.[1] ?? rel,
     contentSha256: createHash('sha256').update(html).digest('hex'),
   });
@@ -117,11 +120,11 @@ const llmsFull = [
 
 generated.set('llms-full.txt', llmsFull);
 generated.set(
-  join('api', 'releases.json'),
+  'api/releases.json',
   JSON.stringify({ ...releases, generatedAt: releases.generatedAt }, null, 2),
 );
 generated.set(
-  join('api', 'capabilities.json'),
+  'api/capabilities.json',
   JSON.stringify(
     {
       walletVersion: snapshot.walletVersion,
@@ -139,15 +142,15 @@ generated.set(
   ),
 );
 generated.set(
-  join('api', 'journeys.json'),
+  'api/journeys.json',
   JSON.stringify({ schemaVersion: 'universe-doc-journeys-v1', journeys }, null, 2),
 );
 generated.set(
-  join('api', 'provider-contract.json'),
+  'api/provider-contract.json',
   readFileSync(join(root, 'src', 'data', 'provider-contract.json'), 'utf8'),
 );
 generated.set(
-  join('api', 'catalog.json'),
+  'api/catalog.json',
   JSON.stringify(
     {
       schemaVersion: 'universe-docs-catalog-v1',
@@ -172,7 +175,7 @@ generated.set(
 
 let changed = 0;
 for (const [rel, content] of generated) {
-  const target = join(dist, rel);
+  const target = join(dist, ...rel.split('/'));
   if (check) {
     if (!existsSync(target) || readFileSync(target, 'utf8') !== content) {
       process.stderr.write(`stale machine-readable output: ${rel}\n`);
