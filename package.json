@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/apply-csp.mjs && node scripts/build-machine-readable.mjs",
     "preview": "astro preview",
     "check:copy": "node scripts/check-copy-rules.mjs",
     "check:public-safety": "node scripts/check-public-safety.mjs",
@@ -20,21 +20,35 @@
     "check:a11y": "node scripts/check-accessibility.mjs",
     "capability:pull": "node scripts/sync-capability.mjs --pull",
     "capability:write": "node scripts/sync-capability.mjs",
-    "test": "npm run check:copy && npm run check:public-safety && npm run check:capability && npm run check:manifest && npm run check:schema && npm run check:diagrams && npm run check:llms && npm run check:markdown",
+    "test": "npm run check:copy && npm run check:public-safety && npm run check:capability && npm run check:manifest && npm run check:schema && npm run check:diagrams && npm run check:llms && npm run check:data && npm run check:markdown",
     "check:llms": "node scripts/generate-llms.mjs --check",
     "check:schema": "node scripts/validate-manifest-schema.mjs",
     "llms": "node scripts/generate-llms.mjs",
-    "serve:dist": "node scripts/serve-dist.mjs"
+    "serve:dist": "node scripts/serve-dist.mjs",
+    "check:data": "node --experimental-strip-types scripts/validate-data.mjs",
+    "check:mcp": "node scripts/check-mcp.mjs",
+    "check:machine": "node scripts/build-machine-readable.mjs --check",
+    "import:captures": "node scripts/import-captures.mjs",
+    "import:contract": "node scripts/import-provider-contract.mjs",
+    "import:fixtures": "node scripts/import-education-fixtures.mjs",
+    "import:simulator": "node scripts/import-simulator.mjs",
+    "releases": "node scripts/generate-releases.mjs",
+    "csp": "node scripts/apply-csp.mjs",
+    "check:bundle": "node scripts/check-bundle-budget.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.0",
+    "@astrojs/preact": "^6.0.5",
     "@astrojs/starlight": "^0.41.10",
     "@fontsource-variable/public-sans": "^5.2.5",
     "@fontsource-variable/source-code-pro": "^5.2.5",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "astro": "^7.2.9",
+    "preact": "^10.29.8",
     "sharp": "^0.35.4",
     "starlight-links-validator": "^0.25.3",
-    "unist-util-visit": "^5.1.0"
+    "unist-util-visit": "^5.1.0",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "ajv": "^8.20.0",

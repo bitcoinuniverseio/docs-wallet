@@ -1,0 +1,28 @@
+.universe-time-machine__gate {
+  min-height: 65dvh;
+  padding: var(--u-space-6);
+}
+.universe-time-machine__json-input {
+  width: 100%;
+  min-height: 138px;
+  border-radius: var(--u-radius-sm);
+  border: 1px solid var(--u-border);
+  background: rgba(0, 0, 0, 0.32);
+  background: var(--theme-input, rgba(0, 0, 0, 0.32));
+  color: var(--u-text);
+  padding: var(--u-space-3);
+  resize: vertical;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: var(--u-font-mono);
+}
+.universe-time-machine__bar-track {
+  height: 10px;
+  border-radius: var(--u-radius-sm);
+  background: var(--u-surface-3);
+  overflow: hidden;
+}
+.universe-time-machine__bar-fill {
+  height: 100%;
+  border-radius: var(--u-radius-sm);
+}

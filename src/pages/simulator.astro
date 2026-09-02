@@ -1,0 +1,76 @@
+---
+// Simulator landing: what the simulator is, what it cannot do, and the
+// scenarios it ships. The host island embeds the sandboxed frame.
+import simulator from '../data/simulator.json';
+import BaseHead from '../layouts/BaseGuide.astro';
+import Feedback from '../components/Feedback.astro';
+import { resolve } from '../lib/nav';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const scenarioParam = Astro.url.searchParams.get('scenario') ?? 'first-launch';
+---
+
+<BaseHead
+  title="Safe wallet simulator"
+  description="The real Universe Wallet interface on fixture data: no keys, no network, nothing that can sign or send."
+>
+  <h1>Safe wallet simulator</h1>
+  <p>
+    This is the wallet's real interface, built from the same source and driven by fixture data. It
+    exists so you can learn the screens without owning anything yet - and so every claim on this
+    site can be seen in motion, not just read.
+  </p>
+
+  <div class="u-status not-content">
+    <h2>What this simulator cannot do</h2>
+    <ul>
+      <li>It has <strong>no key material</strong>: no mnemonic, no private key, nothing to steal.</li>
+      <li>It makes <strong>no network request</strong>: fetch, XHR, and WebSocket fail by construction.</li>
+      <li>It cannot reach a <strong>real wallet or extension</strong>: no injected provider, no privileged APIs.</li>
+      <li>Every approval answers with a <strong>simulated result</strong>. Nothing can be signed, sent, or broadcast.</li>
+      <li>It stores nothing beyond this page load.</li>
+    </ul>
+    <p>
+      Provenance: built from wallet {simulator.walletVersion}
+      {simulator.walletSourceCommit && <> at commit <code>{simulator.walletSourceCommit.slice(0, 12)}</code></>},
+      verified by automated isolation tests in the wallet repository.
+    </p>
+  </div>
+
+  <div
+    data-simulator-host
+    data-base={base}
+    data-artifact={`${base}/simulator/app/`}
+    data-scenario={scenarioParam}
+    data-wallet-version={simulator.walletVersion}
+    data-scenarios={JSON.stringify(simulator.scenarios.map((scenario) => ({ id: scenario.id, title: scenario.title, description: scenario.description })))}
+  >
+    <noscript>
+      <p>
+        The simulator needs JavaScript because it runs the wallet interface in a sandboxed frame.
+        Without JavaScript, every screen it shows is available as a verified still in the
+        Screen Atlas.
+      </p>
+    </noscript>
+  </div>
+
+  <h2>Scenarios</h2>
+  <ul class="u-sim-scenarios">
+    {
+      simulator.scenarios.map((scenario) => (
+        <li>
+          <a href={`${resolve('/simulator/')}?scenario=${scenario.id}`}>
+            <strong>{scenario.title}</strong> - {scenario.description}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <Feedback pagePath="/simulator/" />
+</BaseHead>
+
+<script>
+  import '../islands/SimulatorHost';
+</script>
+

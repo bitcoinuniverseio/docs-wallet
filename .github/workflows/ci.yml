@@ -39,9 +39,14 @@ jobs:
 
       # Copy rules, public-safety scan, capability claims against the generated
       # snapshot, manifest and per-page provenance, the shared platform schema,
-      # diagram accessibility, llms.txt freshness, and markdown lint.
+      # diagram accessibility, llms.txt freshness, data schemas and
+      # cross-references, and markdown lint.
       - name: Content and truthfulness gates
         run: npm test
+        env:
+          # A pull request without the wallet capture export imported yet fails
+          # here; the empty-catalog allowance exists only for local work.
+          DOCS_ALLOW_EMPTY_CAPTURES: ''
 
       - name: Build (validates every internal link and anchor)
         run: npm run build
@@ -54,6 +59,15 @@ jobs:
 
       - name: A helpful 404 exists
         run: test -f dist/404.html
+
+      - name: Machine-readable corpus is fresh (llms-full, JSON endpoints, Markdown)
+        run: npm run check:machine
+
+      - name: MCP protocol conformance and grounding
+        run: npm run check:mcp
+
+      - name: Bundle budget
+        run: npm run check:bundle
 
       - name: Install a browser for the accessibility audit
         run: npx playwright install --with-deps chromium

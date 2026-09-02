@@ -1,0 +1,1185 @@
+{
+  "schemaVersion": "universe-provider-contract-v1",
+  "walletVersion": "1.7.5.8",
+  "walletSourceCommit": "95219da7ba6a4e1e8c68aa1336d6b2798ecd2ad2",
+  "generatedFrom": [
+    "backend/content-script/pageProvider/index.ts",
+    "backend/content-script/pageProvider/pushEventHandlers.ts",
+    "backend/shared/provider-method-policy.ts",
+    "backend/shared/protocol-registry.ts",
+    "docs/PROTOCOL-RELEASE-MATRIX.json",
+    "docs/PUBLIC-CAPABILITY-SUMMARY.json"
+  ],
+  "generatedAt": "2026-09-02T19:00:07.076Z",
+  "providerNamespaces": [
+    "tapwallet",
+    "tap_wallet",
+    "TapWallet",
+    "tapWallet",
+    "Tap_Wallet",
+    "universe",
+    "universewallet",
+    "UniverseWallet",
+    "bitcoinuniverse",
+    "bitcoinUniverse"
+  ],
+  "providerStateFlags": [
+    "accounts",
+    "isConnected",
+    "isUnlocked",
+    "initialized",
+    "isPermanentlyDisconnected"
+  ],
+  "events": [
+    "connect",
+    "unlock",
+    "lock",
+    "disconnect",
+    "accountsChanged",
+    "networkChanged"
+  ],
+  "releaseAuthorization": {
+    "supportedProtocolCount": 0,
+    "protocolCount": 42,
+    "anyProtocolSupported": false
+  },
+  "methodCount": 48,
+  "methods": [
+    {
+      "id": "analyzeBip110",
+      "requestMethod": "analyzeBip110",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "params",
+          "type": "{ psbtHex?: string; rawtx?: string }",
+          "optional": false
+        }
+      ],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": "bip-110",
+      "operation": "read",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "broadcastZcashTransaction",
+      "requestMethod": "broadcastZcashTransaction",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "request",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "zcash",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "zerdinals",
+      "operation": "broadcast",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "disconnect",
+      "requestMethod": "disconnect",
+      "aliases": [],
+      "parameters": [],
+      "category": "connection-mutation",
+      "effect": "mutation",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getAccounts",
+      "requestMethod": "getAccounts",
+      "aliases": [],
+      "parameters": [],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": false,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getBalance",
+      "requestMethod": "getBalance",
+      "aliases": [],
+      "parameters": [],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getBalanceV2",
+      "requestMethod": "getBalanceV2",
+      "aliases": [],
+      "parameters": [],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getBip110DeploymentState",
+      "requestMethod": "getBip110DeploymentState",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": "bip-110",
+      "operation": "read",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getBitcoinUtxos",
+      "requestMethod": "getBitcoinUtxos",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "cursor",
+          "type": "unknown",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getCapabilities",
+      "requestMethod": "getCapabilities",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": true,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getChain",
+      "requestMethod": "getChain",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getDogecoinMarketplaceAccount",
+      "requestMethod": "getDogecoinMarketplaceAccount",
+      "aliases": [],
+      "parameters": [],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": "dogecoin-marketplace",
+      "operation": "read",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getDogecoinMarketplaceFundingInputs",
+      "requestMethod": "getDogecoinMarketplaceFundingInputs",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "minimumValueSats",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "maxInputs",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": "dogecoin-marketplace",
+      "operation": "read",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getEcosystemState",
+      "requestMethod": "getEcosystemState",
+      "aliases": [],
+      "parameters": [],
+      "category": "internal-ecosystem",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getFeatures",
+      "requestMethod": "getFeatures",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": true,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getInscriptions",
+      "requestMethod": "getInscriptions",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "cursor",
+          "type": "unknown",
+          "optional": false
+        },
+        {
+          "name": "size",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getNetwork",
+      "requestMethod": "getNetwork",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getPublicKey",
+      "requestMethod": "getPublicKey",
+      "aliases": [],
+      "parameters": [],
+      "category": "account-read",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getVersion",
+      "requestMethod": "getVersion",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getZcashAccount",
+      "requestMethod": "getZcashAccount",
+      "aliases": [],
+      "parameters": [],
+      "category": "zcash",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": "zerdinals",
+      "operation": "read",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "getZcashBalance",
+      "requestMethod": "getZcashBalance",
+      "aliases": [],
+      "parameters": [],
+      "category": "zcash",
+      "effect": "read",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": "zerdinals",
+      "operation": "read",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "initialize",
+      "requestMethod": "getProviderState",
+      "aliases": [],
+      "parameters": [],
+      "category": "account-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": true,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "inscribeTransfer",
+      "requestMethod": "inscribeTransfer",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "ticker",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "amount",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "protocol-mutation",
+      "effect": "mutation",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "brc-20",
+      "operation": "transfer",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "isAtomicalsEnabled",
+      "requestMethod": "isAtomicalsEnabled",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "keepAlive",
+      "requestMethod": "keepAlive",
+      "aliases": [],
+      "parameters": [],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "multiSignMessage",
+      "requestMethod": "multiSignMessage",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "messages",
+          "type": "{ text: string; type: string }[]",
+          "optional": false
+        }
+      ],
+      "category": "raw-signing",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "sign",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "publishEcosystemEvent",
+      "requestMethod": "publishEcosystemEvent",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "event",
+          "type": "Readonly<EcosystemEvent>",
+          "optional": false
+        }
+      ],
+      "category": "internal-ecosystem",
+      "effect": "mutation",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "pushPsbt",
+      "requestMethod": "pushPsbt",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "psbtHex",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "broadcast",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "broadcast",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "pushTx",
+      "requestMethod": "pushTx",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "rawtx",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "broadcast",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": false,
+      "protocol": "bitcoin",
+      "operation": "broadcast",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "requestAccounts",
+      "requestMethod": "requestAccounts",
+      "aliases": [],
+      "parameters": [],
+      "category": "connection-mutation",
+      "effect": "mutation",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": true,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "requestArc20Mint",
+      "requestMethod": "requestMint",
+      "aliases": [
+        "requestMint"
+      ],
+      "parameters": [
+        {
+          "name": "options",
+          "type": "Omit<RequestMethodArc20MintParams, 'type'> | Record<string, unknown>",
+          "optional": false
+        }
+      ],
+      "category": "protocol-mutation",
+      "effect": "mutation",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "arc-20",
+      "operation": "mint",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "requestMint",
+      "requestMethod": "requestMint",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "options",
+          "type": "Partial<RequestMethodArc20MintParams> | Record<string, unknown>",
+          "optional": false
+        }
+      ],
+      "category": "protocol-mutation",
+      "effect": "mutation",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "arc-20",
+      "operation": "mint",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "sendBitcoin",
+      "requestMethod": "sendBitcoin",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "toAddress",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "satoshis",
+          "type": "number",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": "{ feeRate: number; memo?: string; memos?: string[] }",
+          "optional": true
+        }
+      ],
+      "category": "generic-bitcoin-transaction",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "send",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "sendInscription",
+      "requestMethod": "sendInscription",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "toAddress",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "inscriptionId",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": "{ feeRate: number }",
+          "optional": true
+        }
+      ],
+      "category": "protocol-mutation",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "ordinals",
+      "operation": "transfer",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "sendRunes",
+      "requestMethod": "sendRunes",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "toAddress",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "runeid",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "amount",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": "{ feeRate: number }",
+          "optional": true
+        }
+      ],
+      "category": "protocol-mutation",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "runes",
+      "operation": "transfer",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signAndBroadcastPsbt",
+      "requestMethod": "signAndPushPsbt",
+      "aliases": [
+        "signAndPushPsbt"
+      ],
+      "parameters": [
+        {
+          "name": "psbtHex",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "optional": true
+        }
+      ],
+      "category": "generic-bitcoin-transaction",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "broadcast",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signAndPushPsbt",
+      "requestMethod": "signAndPushPsbt",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "psbtHex",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "optional": true
+        }
+      ],
+      "category": "generic-bitcoin-transaction",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "broadcast",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signData",
+      "requestMethod": "signData",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "data",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "raw-signing",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "sign",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signDogecoinMarketplaceAction",
+      "requestMethod": "signDogecoinMarketplaceAction",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "preparedAction",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "marketplace",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "dogecoin-marketplace",
+      "operation": "marketplace",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signDogecoinMessage",
+      "requestMethod": "signDogecoinMessage",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "message",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "dogecoin",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "dogecoin",
+      "operation": "sign",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signMessage",
+      "requestMethod": "signMessage",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "raw-signing",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "sign",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signPsbt",
+      "requestMethod": "signPsbt",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "psbtHex",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": "any",
+          "optional": true
+        }
+      ],
+      "category": "generic-bitcoin-transaction",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "sign",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signPsbts",
+      "requestMethod": "multiSignPsbt",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "psbtHexs",
+          "type": "string[]",
+          "optional": false
+        },
+        {
+          "name": "options",
+          "type": "any[]",
+          "optional": true
+        }
+      ],
+      "category": "generic-bitcoin-transaction",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "bitcoin",
+      "operation": "sign",
+      "semanticIntent": "bitcoin-or-declared-protocol",
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signZcashMarketListing",
+      "requestMethod": "signZcashMarketListing",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "request",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "zcash",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "zerdinals",
+      "operation": "market-list",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "signZcashTransaction",
+      "requestMethod": "signZcashTransaction",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "request",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "zcash",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "zerdinals",
+      "operation": "sign",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "switchChain",
+      "requestMethod": "switchChain",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "chain",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "network-mutation",
+      "effect": "mutation",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "switchNetwork",
+      "requestMethod": "switchNetwork",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "network",
+          "type": "string",
+          "optional": false
+        }
+      ],
+      "category": "network-mutation",
+      "effect": "mutation",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "tryDetectTab",
+      "requestMethod": "tabCheckin",
+      "aliases": [],
+      "parameters": [],
+      "category": "connection-mutation",
+      "effect": "mutation",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    },
+    {
+      "id": "verifyMessageOfBIP322Simple",
+      "requestMethod": "verifyMessageOfBIP322Simple",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "address",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "signature",
+          "type": "string",
+          "optional": false
+        },
+        {
+          "name": "network",
+          "type": "number",
+          "optional": true
+        }
+      ],
+      "category": "public-read",
+      "effect": "read",
+      "public": true,
+      "accountSensitive": false,
+      "requiresPermission": false,
+      "requiresUnlock": false,
+      "requiresApproval": false,
+      "protocol": null,
+      "operation": null,
+      "semanticIntent": null,
+      "releaseStatus": "available-without-protocol-authorization",
+      "releaseEvidence": null
+    }
+  ]
+}

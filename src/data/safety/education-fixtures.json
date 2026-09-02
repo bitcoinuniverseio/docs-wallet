@@ -1,0 +1,421 @@
+{
+  "schemaVersion": "universe-education-fixtures-v1",
+  "walletVersion": "1.7.5.8",
+  "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
+  "generatedAt": "2026-09-02T18:50:15.179Z",
+  "privacyNotes": "All addresses are synthetic examples, all txids are repeated-letter patterns, and no key material, signature, or seed phrase exists in any fixture.",
+  "fixtureCount": 9,
+  "fixtures": [
+    {
+      "id": "change-address-ambiguity",
+      "kind": "approval",
+      "title": "When the change does not come back to your wallet",
+      "teaches": [
+        "The second output goes to an address that is not yours.",
+        "Change must return to your wallet. A stranger holding your change can collect it."
+      ],
+      "summary": {
+        "title": "This sends BTC",
+        "outcome": "Useful summary only. Check assets, recipients, and fee below.",
+        "tone": "review",
+        "bullets": [
+          "1 input needs your signature.",
+          "2 outputs go outside this wallet; 0 return to you."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 1
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 8000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexampleunknownaddressnotreal00000000000000000000",
+            "value": 1500,
+            "owned": false
+          }
+        ],
+        "fee": 500,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "fail-closed-missing-data",
+      "kind": "approval",
+      "title": "When the wallet cannot summarize a request safely",
+      "teaches": [
+        "When decoded data is missing, the wallet refuses to summarize instead of guessing.",
+        "A request the wallet cannot read is a request you should not sign."
+      ],
+      "summary": {
+        "title": "Cannot summarize safely",
+        "outcome": "Review the full transaction details before approving.",
+        "tone": "danger",
+        "bullets": [
+          "The wallet does not have enough decoded PSBT data to make a short summary."
+        ],
+        "footer": "Do not approve unless you understand the full inputs and outputs."
+      },
+      "anatomy": {
+        "inputs": [],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 8000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexamplechangeaddressnotreal000000000000000000000",
+            "value": 1500,
+            "owned": true
+          }
+        ],
+        "fee": 500,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "multiple-outputs",
+      "kind": "approval",
+      "title": "A payment with several recipients",
+      "teaches": [
+        "A transaction can pay many recipients at once; read every output.",
+        "Your change is an output too. Anything that is not yours is a payment."
+      ],
+      "summary": {
+        "title": "This sends BTC",
+        "outcome": "Useful summary only. Check assets, recipients, and fee below.",
+        "tone": "review",
+        "bullets": [
+          "1 input needs your signature.",
+          "3 outputs go outside this wallet; 0 return to you."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 1
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 4000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexampleunknownaddressnotreal00000000000000000000",
+            "value": 3000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexamplechangeaddressnotreal000000000000000000000",
+            "value": 2500,
+            "owned": true
+          }
+        ],
+        "fee": 500,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "ordinary-send",
+      "kind": "approval",
+      "title": "An ordinary send",
+      "teaches": [
+        "One output leaves the wallet, one output returns to it as change.",
+        "The fee is the difference between what goes in and what comes out.",
+        "Signing only this input at SIGHASH_ALL commits to the whole transaction."
+      ],
+      "summary": {
+        "title": "This sends BTC",
+        "outcome": "Useful summary only. Check assets, recipients, and fee below.",
+        "tone": "review",
+        "bullets": [
+          "1 input needs your signature.",
+          "2 outputs go outside this wallet; 0 return to you."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 1
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 8000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexamplechangeaddressnotreal000000000000000000000",
+            "value": 1500,
+            "owned": true
+          }
+        ],
+        "fee": 500,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "protected-output-rare-sat",
+      "kind": "approval",
+      "title": "A rare-sat transfer keeps its protected output first",
+      "teaches": [
+        "Protected assets keep their position: the protected output leads.",
+        "If a request reorders or splits the protected output, the asset can be lost."
+      ],
+      "summary": {
+        "title": "This moves protected Rare Sats",
+        "outcome": "Useful summary only. Check assets, recipients, and fee below.",
+        "tone": "review",
+        "bullets": [
+          "1 input needs your signature.",
+          "1 output goes outside this wallet; 0 return to you.",
+          "Protected Rare Sats move together in their complete UTXO. Separate cardinal BTC pays the network fee.",
+          "Protected UTXO: cccccccccccc…cccccccc:2.",
+          "Protected Rare-Sat composition: The sat you are sending rides on the first input and must lead the outputs unchanged.."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 1
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 10000,
+            "owned": false
+          }
+        ],
+        "fee": 500,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "psbt-input-ownership",
+      "kind": "approval",
+      "title": "A PSBT that spends inputs you do not own",
+      "teaches": [
+        "A PSBT can bundle inputs from many owners.",
+        "Only inputs marked as yours are signed; everything else is someone else’s money in the same transaction."
+      ],
+      "summary": {
+        "title": "This signs a Bitcoin transaction",
+        "outcome": "Simple BTC request. Check recipient and fee below.",
+        "tone": "ok",
+        "bullets": [
+          "1 input needs your signature.",
+          "1 output goes outside this wallet; 0 return to you."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexampleunknownaddressnotreal00000000000000000000",
+            "value": 5000,
+            "owned": false,
+            "sighashType": 1
+          },
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 1
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 14000,
+            "owned": false
+          }
+        ],
+        "fee": 1000,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "sighash-single-listing",
+      "kind": "approval",
+      "title": "What a looser signature commits to",
+      "teaches": [
+        "SIGHASH_SINGLE commits your input to only one output, leaving other outputs free to change.",
+        "Marketplaces use this for listings. Read which output is yours before signing one."
+      ],
+      "summary": {
+        "title": "This signs a Bitcoin transaction",
+        "outcome": "Useful summary only. Check assets, recipients, and fee below.",
+        "tone": "review",
+        "bullets": [
+          "1 input needs your signature.",
+          "2 outputs go outside this wallet; 0 return to you."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 3
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 8000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexamplechangeaddressnotreal000000000000000000000",
+            "value": 1500,
+            "owned": true
+          }
+        ],
+        "fee": 500,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "unexpected-output",
+      "kind": "approval",
+      "title": "An output you did not expect",
+      "teaches": [
+        "The largest output of this transaction does not go to the requested recipient.",
+        "Read outputs from largest to smallest and account for every one."
+      ],
+      "summary": {
+        "title": "This sends BTC",
+        "outcome": "Useful summary only. Check assets, recipients, and fee below.",
+        "tone": "review",
+        "bullets": [
+          "1 input needs your signature.",
+          "2 outputs go outside this wallet; 0 return to you."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 1
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 1000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexampleunknownaddressnotreal00000000000000000000",
+            "value": 8500,
+            "owned": false
+          }
+        ],
+        "fee": 500,
+        "feeRate": 2,
+        "recommendedFeeRate": 1,
+        "shouldWarnFeeRate": false,
+        "rbf": false
+      }
+    },
+    {
+      "id": "unusually-high-fee",
+      "kind": "approval",
+      "title": "An unusually high fee",
+      "teaches": [
+        "The fee is what the transaction pays the network, not what the site receives.",
+        "A fee rate far above the recommended rate is a signal to stop and reread."
+      ],
+      "summary": {
+        "title": "This sends BTC",
+        "outcome": "Useful summary only. Check assets, recipients, and fee below.",
+        "tone": "review",
+        "bullets": [
+          "1 input needs your signature.",
+          "2 outputs go outside this wallet; 0 return to you."
+        ],
+        "footer": "This summary never replaces the detailed PSBT review."
+      },
+      "anatomy": {
+        "inputs": [
+          {
+            "address": "bc1qexamplewalletaddressnotreal0000000000000000000",
+            "value": 10000,
+            "owned": true,
+            "sighashType": 1
+          }
+        ],
+        "outputs": [
+          {
+            "address": "bc1qexamplerecipientaddressnotreal00000000000000000",
+            "value": 8000,
+            "owned": false
+          },
+          {
+            "address": "bc1qexamplechangeaddressnotreal000000000000000000000",
+            "value": 1500,
+            "owned": true
+          }
+        ],
+        "fee": 17000,
+        "feeRate": 850,
+        "recommendedFeeRate": 8,
+        "shouldWarnFeeRate": true,
+        "rbf": false
+      }
+    }
+  ]
+}

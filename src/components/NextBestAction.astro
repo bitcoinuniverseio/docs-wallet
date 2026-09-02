@@ -1,0 +1,48 @@
+---
+// NextBestAction: the single recommended continuation, generated from journey
+// order and progress state. The static fallback recommends the next journey
+// step for a first-time reader; the island upgrade reads actual local progress.
+interface Props {
+  label: string;
+  href: string;
+  note?: string;
+}
+const { label, href, note } = Astro.props;
+import { resolve } from '../lib/nav';
+---
+
+<div class="u-next-action" data-next-action href={resolve(href)}>
+  <p class="u-next-action__eyebrow">Suggested next</p>
+  <a href={resolve(href)}>{label}</a>
+  {note && <p class="u-next-action__note">{note}</p>}
+</div>
+
+<style>
+  .u-next-action {
+    border: 1px solid var(--u-hairline);
+    border-inline-start: 3px solid var(--u-focus);
+    border-radius: var(--u-radius);
+    background: var(--u-surface);
+    padding: 0.7rem 0.9rem;
+    margin: 1rem 0;
+  }
+  .u-next-action__eyebrow {
+    margin: 0;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--u-dim);
+  }
+  .u-next-action a {
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .u-next-action a:hover {
+    text-decoration: underline;
+  }
+  .u-next-action__note {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    color: var(--u-dim);
+  }
+</style>

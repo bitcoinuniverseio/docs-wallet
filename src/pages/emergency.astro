@@ -1,0 +1,141 @@
+---
+// Emergency handbook: printable checklists, offline save action, and honest
+// freshness markers. The service worker caches exactly these routes when the
+// reader asks; the offline banner reports the cache age.
+import snapshot from '../../capability-snapshot.json';
+import releases from '../data/releases.json';
+import BaseHead from '../layouts/BaseGuide.astro';
+import { resolve } from '../lib/nav';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const described = releases.releases.find((release) => release.id === `wallet-${snapshot.walletVersion}`);
+---
+
+<BaseHead
+  title="Emergency handbook"
+  description="Suspected compromise, phishing, recovery boundaries, and transaction review - designed to work offline once saved."
+>
+  <h1>Emergency handbook</h1>
+
+  <p class="u-offline-status" data-offline-status role="status">
+    Checking whether the emergency bundle is saved for offline use…
+  </p>
+
+  <p>
+    <button type="button" class="u-button" data-save-offline>Save emergency guide offline</button>
+    <button type="button" class="u-button" data-refresh-offline hidden>Refresh cached copy</button>
+    <button type="button" class="u-button" data-clear-offline hidden>Remove cached copy</button>
+  </p>
+
+  <div class="u-status not-content">
+    <h2>How old is this guidance?</h2>
+    <p>
+      Documentation snapshot: wallet <strong>{snapshot.walletVersion}</strong> (source tree, unpublished).
+      Stored release commit: {described?.sourceCommit ? <code>{described.sourceCommit.slice(0, 12)}</code> : 'not pinned'}.
+      When offline, this page shows the date the bundle was cached at the top of every cached page.
+      Old safety guidance must never pose as current: the banner is the difference.
+    </p>
+  </div>
+
+  <h2>Printable checklists</h2>
+
+  <section class="u-emergency-checklist">
+    <h3>1 · Suspected compromised wallet</h3>
+    <ol>
+      <li>Stop signing and approving anything on the suspect device.</li>
+      <li>Do not send a "test transaction" from it.</li>
+      <li>On a clean device, create a fresh wallet and write its phrase on paper.</li>
+      <li>Move remaining funds and artifacts to the new wallet.</li>
+      <li>Remove the old wallet from the suspect device and retire the old phrase for life.</li>
+    </ol>
+    <p><a href={resolve('/safety/compromised-wallet')}>Full guide</a></p>
+  </section>
+
+  <section class="u-emergency-checklist">
+    <h3>2 · Phishing and fake support</h3>
+    <ol>
+      <li>Nobody legitimate ever needs your recovery words. Not support, not "validation", not upgrades.</li>
+      <li>Nobody legitimate needs a test signature, a screen share, or a hurry.</li>
+      <li>Check the origin on every approval. Look-alike domains are the con.</li>
+      <li>Download extensions only from the official listing.</li>
+    </ol>
+    <p><a href={resolve('/safety/phishing')}>Full guide</a></p>
+  </section>
+
+  <section class="u-emergency-checklist">
+    <h3>3 · Recovery and backup boundaries</h3>
+    <ol>
+      <li>Your phrase restores your keys. Anyone holding it holds your money.</li>
+      <li>Your password unlocks this device only. It cannot restore funds.</li>
+      <li>Lost password with an intact phrase: recoverable. Lost phrase with a forgotten password: not.</li>
+    </ol>
+    <p><a href={resolve('/concepts/backup-and-recovery')}>Full guide</a></p>
+  </section>
+
+  <section class="u-emergency-checklist">
+    <h3>4 · Version identification</h3>
+    <ol>
+      <li>Settings → About shows your version.</li>
+      <li>Store build 1.0.13 (April 2025) differs from the documented {snapshot.walletVersion} source tree.</li>
+      <li>Where this site and your wallet disagree, your wallet is correct.</li>
+    </ol>
+    <p><a href={resolve('/start/versions')}>Full guide</a></p>
+  </section>
+
+  <section class="u-emergency-checklist">
+    <h3>5 · Transaction review checklist</h3>
+    <ol>
+      <li>Every output accounted for: payment + change + fee.</li>
+      <li>Change returns to your wallet. A stranger holding your change is theft in progress.</li>
+      <li>Fee far above the recommended rate: stop and reread.</li>
+      <li>Unreadable data signatures: treat the length warning as a stop sign.</li>
+    </ol>
+    <p><a href={resolve('/tasks/review-a-transaction')}>Full guide</a> · <a href={resolve('/safety-lab/')}>Safety Lab</a></p>
+  </section>
+
+  <section class="u-emergency-checklist">
+    <h3>6 · Official support and reporting</h3>
+    <ul>
+      <li>Documentation issues: <a href="https://github.com/bitcoinuniverseio/docs-wallet/issues">docs-wallet issues</a></li>
+      <li>Security reports: see the repository's <a href="https://github.com/bitcoinuniverseio/wallet/security/policy">security policy</a></li>
+      <li>The wallet will never direct you to a support agent who asks for your phrase.</li>
+    </ul>
+  </section>
+</BaseHead>
+
+<script>
+  import '../islands/emergency-offline';
+</script>
+
+<style>
+  .u-offline-status {
+    border: 1px solid var(--u-hairline);
+    border-radius: var(--u-radius);
+    background: var(--u-surface);
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  .u-emergency-checklist {
+    border: 1px solid var(--u-hairline-strong);
+    border-radius: var(--u-radius-lg);
+    background: var(--u-surface);
+    padding: 0.9rem 1.2rem;
+    margin: 1rem 0;
+    break-inside: avoid;
+  }
+  .u-emergency-checklist h3 {
+    margin-top: 0;
+  }
+  @media print {
+    .u-guide-header,
+    .u-guide-footer,
+    .u-feedback,
+    button {
+      display: none !important;
+    }
+    body {
+      background: #fff;
+      color: #000;
+    }
+  }
+</style>
