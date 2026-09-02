@@ -1,0 +1,51 @@
+---
+// Answer Center: questions answered from this site's own pages only.
+import journeys from '../data/journeys.json';
+import contract from '../data/provider-contract.json';
+import snapshot from "../../capability-snapshot.json";
+import BaseHead from '../layouts/BaseGuide.astro';
+import { resolve } from '../lib/nav';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const structured = [
+  ...journeys.map((journey) => ({
+    label: journey.title,
+    href: `/journeys/${journey.id}/`,
+    group: 'journey',
+    description: journey.outcome,
+  })),
+  ...contract.methods.map((method) => ({
+    label: method.id,
+    href: '/developers/provider-api',
+    group: `provider method (${method.effect})`,
+    description: method.releaseStatus === 'not-authorized-in-this-release' ? `Refused in this release: ${method.protocol}.${method.operation} is not authorized.` : `Available: ${method.category}.`,
+  })),
+];
+---
+
+<BaseHead
+  title="Answer Center"
+  description="Answers drawn only from these documentation pages, with the release and capability status they were checked against."
+>
+  <h1>Answer Center</h1>
+
+  <div
+    data-answer-center
+    data-base={base}
+    data-structured={JSON.stringify(structured)}
+    data-wallet-version={snapshot.walletVersion}
+  >
+    <noscript>
+      <p>
+        The Answer Center needs JavaScript to run its in-browser search. Without JavaScript, use{' '}
+        <a href={resolve('/help/faq')}>the FAQ</a>, the{' '}
+        <a href={resolve('/help/troubleshooting')}>troubleshooting guide</a>, or the plain-text
+        index at <code>llms.txt</code>.
+      </p>
+    </noscript>
+  </div>
+</BaseHead>
+
+<script>
+  import '../islands/AnswerCenter';
+</script>

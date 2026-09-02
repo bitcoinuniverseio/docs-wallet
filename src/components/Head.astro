@@ -49,4 +49,6 @@ const jsonLd = {
 {data.sourceRepo && <meta name="universe:source-repo" content={data.sourceRepo} />}
 {data.sourcePath && <meta name="universe:source-path" content={data.sourcePath} />}
 {verified && <meta name="universe:last-verified" content={verified} />}
+<link rel="manifest" href={`${base}/manifest.webmanifest`} />
+<script is:inline src={`${base}/sw-register.js`} defer></script>
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />

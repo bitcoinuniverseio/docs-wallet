@@ -1,0 +1,31 @@
+---
+// TaskLauncher: "What do you need to do?" - the one-action entries from home.
+// Static HTML; no island needed to move to a task.
+import { resolve } from '../lib/nav';
+
+const TASKS = [
+  { label: 'Install the wallet', href: '/start/install', note: 'From the real listing, verified' },
+  { label: 'Receive', href: '/tasks/receive', note: 'Your address, safely shared' },
+  { label: 'Send or check sending', href: '/tasks/send', note: 'Including when a build cannot send' },
+  { label: 'Review before you sign', href: '/tasks/review-a-transaction', note: 'Read approvals like contracts' },
+  { label: 'Protected outputs', href: '/concepts/protected-outputs', note: 'Why part of the balance holds back' },
+  { label: 'Connect an application', href: '/tasks/connect-an-application', note: 'What a connection grants' },
+  { label: 'Developer integration', href: '/studio/', note: 'Simulated provider, generated contract' },
+  { label: 'Emergency help', href: '/emergency/', note: 'Works offline once saved' },
+];
+---
+
+<ul class="u-task-grid">
+  {
+    TASKS.map((task) => (
+      <li>
+        <a class="u-task-card" href={resolve(task.href)}>
+          <strong>
+            {task.label}
+          </strong>
+          <span>{task.note}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>

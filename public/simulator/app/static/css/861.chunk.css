@@ -1,0 +1,69 @@
+.universe-empty-state {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--u-space-3);
+  width: min(100%, 480px);
+  max-width: 100%;
+  min-height: 156px;
+  padding: var(--u-space-6) var(--u-space-4);
+  box-sizing: border-box;
+  text-align: center;
+}
+.universe-empty-state--compact {
+  min-height: 96px;
+  padding: var(--u-space-4) var(--u-space-3);
+}
+.universe-empty-state__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--u-radius-md);
+  background: var(--u-surface-2);
+  color: var(--u-text-dim);
+}
+.frame-unat {
+  width: 100%;
+  min-height: 140px;
+  max-height: 140px;
+  pointer-events: none;
+}
+.frame-no-unat {
+  width: 100%;
+  min-height: 140px;
+  max-height: 140px;
+  background: black;
+  border-radius: 16px;
+  pointer-events: none;
+}
+.natdog-wrapper {
+  position: relative;
+  width: 100%;
+}
+.nagdog-img-full {
+  width: 100%;
+}
+.natdog-img-absolute {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+iframe-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+.justify-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}

@@ -1,0 +1,72 @@
+---
+// Developer Integration Studio: searchable method explorer, parameter builder,
+// simulated provider console, generated examples, Compatibility Doctor, and a
+// downloadable starter - all generated from the provider contract with the
+// documentation overlay.
+import contract from '../data/provider-contract.json';
+import overlay from '../data/provider-overlay.json';
+import snapshot from '../capability-snapshot.json';
+import BaseHead from '../layouts/BaseGuide.astro';
+import Feedback from '../components/Feedback.astro';
+import { resolve } from '../lib/nav';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseHead
+  title="Developer Integration Studio"
+  description="Explore the generated provider contract, simulate every method, run the Compatibility Doctor, and download a working starter."
+>
+  <h1>Developer Integration Studio</h1>
+  <p>
+    Everything here is generated from the wallet's real provider surface - {contract.methodCount}{' '}
+    methods, {contract.events.length} events, namespaces{' '}
+    <code>{contract.providerNamespaces.join(', ')}</code>. The default playground runs a fake
+    provider built from the contract: it reproduces shapes, events, and documented errors without
+    contacting any wallet or network.
+  </p>
+  <p>
+    This release authorizes {contract.releaseAuthorization.supportedProtocolCount} of{' '}
+    {contract.releaseAuthorization.protocolCount} protocols. The simulation reproduces those
+    refusals faithfully: methods whose protocol operation is unauthorized answer with the same
+    error the real wallet gives, so your unavailable states get built against the truth.
+  </p>
+
+  <div
+    data-integration-studio
+    data-base={base}
+    data-methods={JSON.stringify(contract.methods)}
+    data-overlay={JSON.stringify(overlay.methods)}
+    data-events={JSON.stringify(contract.events)}
+    data-namespaces={JSON.stringify(contract.providerNamespaces)}
+    data-wallet-version={contract.walletVersion}
+    data-any-protocol-supported={String(contract.releaseAuthorization.anyProtocolSupported)}
+  >
+    <noscript>
+      <p>
+        The studio needs JavaScript to run the simulated provider. The complete method reference
+        with parameters and safety notes is available without JavaScript in the{' '}
+        <a href={resolve('/developers/provider-api')}>provider API reference</a>.
+      </p>
+    </noscript>
+  </div>
+
+  <h2>Configuring the documentation MCP server</h2>
+  <p>
+    Machine-readable documentation, including a read-only MCP server for AI clients, is described on{' '}
+    <a href={resolve('/developers/machine-readable')}>machine-readable documentation</a>.
+  </p>
+
+  <Feedback pagePath="/studio/" />
+</BaseHead>
+
+<script>
+  import '../islands/IntegrationStudio';
+</script>
+
+<style>
+  .u-studio {
+    display: grid;
+    gap: 1rem;
+  }
+</style>

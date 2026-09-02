@@ -1,0 +1,50 @@
+---
+// Privacy-preserving page feedback. No tracker, no endpoint: every action
+// opens a prefilled GitHub issue after an explicit click. The payload carries
+// the page path, the selected release, and a capture or journey ID when one is
+// in play. It never carries wallet output, transactions, or anything typed
+// here - the issue body the user reviews before submitting is generated from
+// page facts only.
+import snapshot from '../../capability-snapshot.json';
+
+interface Props {
+  pagePath: string;
+  /** Capture or journey id this page primarily features, if any. */
+  subjectId?: string;
+}
+const { pagePath, subjectId } = Astro.props;
+
+const repo = 'bitcoinuniverseio/docs-wallet';
+const common = `page=${pagePath}&release=${snapshot.walletVersion}${subjectId ? `&subject=${subjectId}` : ''}`;
+
+const LINKS = [
+  { label: 'Page not helpful', title: 'Not helpful: <what you needed>', kind: 'feedback' },
+  { label: 'Stale screenshot', title: 'Stale screenshot: <which one>', kind: 'stale-screenshot' },
+  { label: 'Version mismatch', title: 'Version mismatch: <what you saw>', kind: 'version-mismatch' },
+  { label: 'Unsafe or unclear wording', title: 'Unsafe or unclear wording: <where>', kind: 'unsafe-wording' },
+  { label: 'Broken journey', title: 'Broken journey: <which step>', kind: 'broken-journey' },
+];
+---
+
+<section class="u-feedback" aria-label="Feedback about this page">
+  <p class="u-feedback__intro">
+    Something wrong on this page? Open a prefilled issue in the documentation
+    repository. What travels: the page path, the release this site describes,
+    and your own words. Nothing about your wallet, transactions, or this
+    browser is included or stored by this site.
+  </p>
+  <div class="u-feedback__row">
+    {
+      LINKS.map((link) => (
+        <a
+          class="u-button"
+          href={`https://github.com/${repo}/issues/new?title=${encodeURIComponent(link.title)}&kind=${link.kind}&${common}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </div>
+</section>

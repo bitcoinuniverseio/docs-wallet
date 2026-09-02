@@ -1,0 +1,446 @@
+{
+  "schemaVersion": "universe-provider-docs-overlay-v1",
+  "_comment": "Documentation overlay keyed by generated provider method ID. Every generated method must appear here and every key here must exist in the generated contract. import-provider-contract.mjs enforces both directions.",
+  "methods": {
+    "initialize": {
+      "explanation": "Prepares the injected provider for the page. Every wallet site calls this once before anything else; it resolves as soon as the provider can answer requests.",
+      "safetyNote": "Initialization carries no account data and asks for nothing. If it never resolves, the wallet is locked, absent, or mid-approval; show a 'wallet not detected' state instead of retrying in a loop.",
+      "example": "const provider = window.universe;\nawait provider.initialize();",
+      "relatedGuide": "/docs-wallet/developers/integration",
+      "simulatedScenarios": [
+        "success",
+        "disconnected"
+      ]
+    },
+    "tryDetectTab": {
+      "explanation": "Registers the current tab with the wallet so the provider knows which origin it is talking to. Called during initialization; sites normally never call it directly.",
+      "safetyNote": "Detection is origin bookkeeping. It never grants account access; that still requires an explicit connection approval.",
+      "example": "// handled by initialize(); shown here for completeness\nawait provider.tryDetectTab();",
+      "relatedGuide": "/docs-wallet/developers/integration",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "keepAlive": {
+      "explanation": "Long-lived pages (dashboards, games) call this periodically so the background stays warm while the user works.",
+      "safetyNote": "Keep-alive traffic carries no data. Throttle it; a call per frame wastes the user's battery for nothing.",
+      "example": "setInterval(() => provider.keepAlive().catch(() => {}), 30_000);",
+      "relatedGuide": "/docs-wallet/developers/integration",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "requestAccounts": {
+      "explanation": "Opens the connection approval. If the user approves, the site receives the account identifier it may show; if they reject, the promise rejects.",
+      "safetyNote": "This is the one call that may interrupt the user with a window. Call it only from a direct, labeled user action such as a Connect button, and always handle rejection as a normal outcome, not an error state.",
+      "example": "try {\n  const accounts = await provider.requestAccounts();\n  render(accounts[0]);\n} catch {\n  render('Connection declined. Nothing was shared.');\n}",
+      "relatedGuide": "/docs-wallet/tasks/connect-an-application",
+      "simulatedScenarios": [
+        "success",
+        "rejection",
+        "locked"
+      ]
+    },
+    "disconnect": {
+      "explanation": "Ends the site's connection. After it resolves, account methods refuse until the user connects again.",
+      "safetyNote": "Offer a visible Disconnect control. A connection a user cannot see or end is a trust failure.",
+      "example": "await provider.disconnect();",
+      "relatedGuide": "/docs-wallet/tasks/manage-connections",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getAccounts": {
+      "explanation": "Returns the connected account identifier, or an empty result when the site is not connected.",
+      "safetyNote": "An empty result is a normal state, not an error. Never request accounts again automatically; show a Connect button.",
+      "example": "const accounts = await provider.getAccounts();\nif (!accounts.length) showConnectButton();",
+      "relatedGuide": "/docs-wallet/tasks/connect-an-application",
+      "simulatedScenarios": [
+        "success",
+        "disconnected"
+      ]
+    },
+    "getEcosystemState": {
+      "explanation": "Reads the wallet session state that first-party ecosystem surfaces use. Third-party sites have no reason to call it.",
+      "safetyNote": "The response is account-adjacent. Treat it as sensitive and never log it.",
+      "example": "// First-party surfaces only.\nconst session = await provider.getEcosystemState();",
+      "relatedGuide": null,
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "publishEcosystemEvent": {
+      "explanation": "Publishes an internal ecosystem event between first-party surfaces.",
+      "safetyNote": "Not a third-party API. Calls from ordinary sites are refused.",
+      "example": "// First-party surfaces only.\nawait provider.publishEcosystemEvent(event);",
+      "relatedGuide": null,
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "getNetwork": {
+      "explanation": "Returns the active network for the Bitcoin chain, such as MAINNET or TESTNET.",
+      "safetyNote": "Read-only and safe. Always display the network beside any balance or address you render.",
+      "example": "const network = await provider.getNetwork();",
+      "relatedGuide": "/docs-wallet/concepts/chains-and-networks",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "switchNetwork": {
+      "explanation": "Asks the wallet to change the Bitcoin network. The user sees a confirmation.",
+      "safetyNote": "Never switch networks on the user's behalf without a labeled action and a clear explanation of what changes.",
+      "example": "await provider.switchNetwork('TESTNET');",
+      "relatedGuide": "/docs-wallet/tasks/switch-chain-and-network",
+      "simulatedScenarios": [
+        "success",
+        "rejection"
+      ]
+    },
+    "getChain": {
+      "explanation": "Returns the active chain identifier.",
+      "safetyNote": "Read-only. Re-read it after any chainChanged event instead of caching it forever.",
+      "example": "const chain = await provider.getChain();",
+      "relatedGuide": "/docs-wallet/concepts/chains-and-networks",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "switchChain": {
+      "explanation": "Opens the chain-switch approval the user must confirm. The request names both the current and the target chain.",
+      "safetyNote": "A chain switch changes where every subsequent signature applies. Say which chain your feature needs and why before requesting.",
+      "example": "await provider.switchChain('BITCOIN_TESTNET');",
+      "relatedGuide": "/docs-wallet/tasks/switch-chain-and-network",
+      "simulatedScenarios": [
+        "success",
+        "rejection"
+      ]
+    },
+    "getPublicKey": {
+      "explanation": "Returns the public key of the connected account.",
+      "safetyNote": "A public key is not a secret, but it is account-identifying. Publish it only where the user expects their identity to appear.",
+      "example": "const pubkey = await provider.getPublicKey();",
+      "relatedGuide": "/docs-wallet/concepts/addresses",
+      "simulatedScenarios": [
+        "success",
+        "locked"
+      ]
+    },
+    "getBalance": {
+      "explanation": "Returns the connected account's confirmed balance in satoshis.",
+      "safetyNote": "Balances go stale. Prefer getBalanceV2, which separates available from unavailable funds.",
+      "example": "const { confirmed } = await provider.getBalance();",
+      "relatedGuide": "/docs-wallet/concepts/inputs-outputs-fees",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getBalanceV2": {
+      "explanation": "Returns the balance split into total, available, unavailable, and pending-confirm parts. The unavailable part includes outputs the wallet protects.",
+      "safetyNote": "Always render the split, not just the total. A user who sees 1,000,000 sats total but can only spend 800,000 deserves to know why before they blame your app.",
+      "example": "const balance = await provider.getBalanceV2();\nrender(balance.totalBalance, balance.availableBalance, balance.unavailableBalance);",
+      "relatedGuide": "/docs-wallet/concepts/protected-outputs",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getInscriptions": {
+      "explanation": "Lists the connected account's inscriptions with paging.",
+      "safetyNote": "Inscription content is third-party media. Load it lazily and sandbox it like any untrusted image.",
+      "example": "const { list, total } = await provider.getInscriptions(0, 20);",
+      "relatedGuide": "/docs-wallet/assets/what-a-digital-artifact-is",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getBitcoinUtxos": {
+      "explanation": "Lists unspent outputs for the connected account, including which carry inscriptions or runes.",
+      "safetyNote": "UTXO selection decides which artifacts move. If your app spends specific outputs, show the user exactly which ones.",
+      "example": "const { list } = await provider.getBitcoinUtxos(0, 20);",
+      "relatedGuide": "/docs-wallet/tasks/coin-control",
+      "simulatedScenarios": [
+        "success",
+        "locked"
+      ]
+    },
+    "verifyMessageOfBIP322Simple": {
+      "explanation": "Checks a BIP-322 signature against a message and address without any wallet involvement.",
+      "safetyNote": "Verification is pure and public: it never touches the user's wallet. A valid proof says the key holder signed; it says nothing about why.",
+      "example": "const ok = await provider.verifyMessageOfBIP322Simple({\n  address,\n  message,\n  signature,\n});",
+      "relatedGuide": "/docs-wallet/tasks/sign-a-message",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getBip110DeploymentState": {
+      "explanation": "Reads the deployment state the wallet has recorded for BIP-110 pay-to-contract identifiers.",
+      "safetyNote": "The state reflects what the wallet's configured sources report. Treat it as a cache, not an oracle.",
+      "example": "const state = await provider.getBip110DeploymentState();",
+      "relatedGuide": "/docs-wallet/assets/protocol-registry",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "analyzeBip110": {
+      "explanation": "Analyzes a BIP-110 identifier and returns what the wallet can determine about it.",
+      "safetyNote": "Analysis is read-only. Nothing in the response authorizes a transfer.",
+      "example": "const analysis = await provider.analyzeBip110(identifier);",
+      "relatedGuide": "/docs-wallet/assets/protocol-registry",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "isAtomicalsEnabled": {
+      "explanation": "Reports whether the Atomicals view is enabled in this build.",
+      "safetyNote": "The answer is build-specific and can differ between releases. Feature-detect instead of assuming.",
+      "example": "const enabled = await provider.isAtomicalsEnabled();",
+      "relatedGuide": "/docs-wallet/assets/support-state",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getCapabilities": {
+      "explanation": "Returns what this wallet build can do right now: which protocol operations are authorized and which are not. This is the method to call before offering any feature.",
+      "safetyNote": "An operation the wallet reports as unauthorized stays unauthorized no matter what your UI promises. Gate every send, sign, or mint control behind this answer, and render unavailable states as first-class UI.",
+      "example": "const capabilities = await provider.getCapabilities();\nif (!capabilities.anyProtocolSupported) {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/reference/supported-features",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getFeatures": {
+      "explanation": "Returns feature flags for this wallet build.",
+      "safetyNote": "Flags describe this build, not the protocol landscape. Never ship a feature that assumes a flag is true everywhere.",
+      "example": "const features = await provider.getFeatures();",
+      "relatedGuide": "/docs-wallet/reference/supported-features",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getVersion": {
+      "explanation": "Returns the wallet's version string. Use it to show users which build they are running and to verify the one you documented against.",
+      "safetyNote": "Version detection is read-only and safe, but it identifies the wallet. Call it from a labeled action and show exactly what was detected.",
+      "example": "const version = await provider.getVersion();",
+      "relatedGuide": "/docs-wallet/start/versions",
+      "simulatedScenarios": [
+        "success"
+      ]
+    },
+    "getDogecoinMarketplaceAccount": {
+      "explanation": "Returns the Dogecoin marketplace account view for the connected user.",
+      "safetyNote": "Account reads are per-chain. A Bitcoin connection says nothing about Dogecoin access.",
+      "example": "const account = await provider.getDogecoinMarketplaceAccount();",
+      "relatedGuide": "/docs-wallet/assets/dogecoin-marketplace",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "getDogecoinMarketplaceFundingInputs": {
+      "explanation": "Returns outputs the marketplace can use as funding inputs, subject to a minimum value.",
+      "safetyNote": "Funding inputs are still the user's money. Show which outputs a listing would spend before any signature.",
+      "example": "const inputs = await provider.getDogecoinMarketplaceFundingInputs('100000000', 20);",
+      "relatedGuide": "/docs-wallet/assets/dogecoin-marketplace",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "sendBitcoin": {
+      "explanation": "Requests a Bitcoin transfer. In a build whose release authorizes sending, this opens the full transaction review; the wallet signs and broadcasts only after the user approves.",
+      "safetyNote": "This release authorizes no sending operation, so the call refuses with a protocol-authorization error. Render that refusal as the unavailable state it is; never hide the button behind retries.",
+      "example": "try {\n  const txid = await provider.sendBitcoin(toAddress, satoshis, { feeRate });\n} catch (error) {\n  // Protocol operation is not authorized: bitcoin.send in this build.\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/send",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "sendInscription": {
+      "explanation": "Requests an inscription transfer. The wallet reviews the protected-asset movement before any signature.",
+      "safetyNote": "Unauthorized in this release. A refused inscription transfer moved nothing; say so plainly.",
+      "example": "try {\n  await provider.sendInscription(toAddress, inscriptionId, { feeRate });\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/send",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "sendRunes": {
+      "explanation": "Requests a runes transfer between addresses.",
+      "safetyNote": "Unauthorized in this release. The refusal is the fail-closed gate working.",
+      "example": "try {\n  await provider.sendRunes(toAddress, runeid, amount, { feeRate });\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/send",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signMessage": {
+      "explanation": "Requests a signature over readable text. The approval shows the exact message a key would commit to.",
+      "safetyNote": "Unauthorized in this release: the provider refuses before any approval appears. When a future release authorizes it, read the message on the approval screen as if it were a public statement under your name, because it is.",
+      "example": "try {\n  const signature = await provider.signMessage('Hello', 'utf8');\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/sign-a-message",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signData": {
+      "explanation": "Requests a signature over raw bytes. The approval states the byte length because the content may not be readable.",
+      "safetyNote": "Unauthorized in this release. Signing unreadable data is how users sign things they never agreed to; the length warning on the approval is the tell.",
+      "example": "try {\n  const signature = await provider.signData(hexData, 'hex');\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/concepts/what-a-signature-authorizes",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "multiSignMessage": {
+      "explanation": "Requests signatures over several messages in one approval flow.",
+      "safetyNote": "Unauthorized in this release. Bulk signing multiplies the review burden; each message still needs its own read.",
+      "example": "try {\n  const signatures = await provider.multiSignMessage(messages);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/sign-a-message",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signPsbt": {
+      "explanation": "Requests signatures on a PSBT. The approval renders the decoded transaction: inputs, outputs, fee, and which inputs are yours.",
+      "safetyNote": "Unauthorized in this release. When authorized, the review screen is the whole safety model; nothing signs before it is read.",
+      "example": "try {\n  const { psbt, txids } = await provider.signPsbt(psbtHex, { autoFinalized: true });\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/review-a-psbt",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signPsbts": {
+      "explanation": "Requests signatures on several PSBTs through the same review path (a batch form of multiSignPsbt).",
+      "safetyNote": "Unauthorized in this release. Batch reviews are where 'I checked the first one' lives. Every transaction in the batch gets its own read.",
+      "example": "try {\n  const results = await provider.signPsbts(psbtHexs);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/review-a-psbt",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signAndPushPsbt": {
+      "explanation": "Reviews, signs, and broadcasts a PSBT in one approval when the release authorizes it.",
+      "safetyNote": "Unauthorized in this release. Approval here means broadcasting: after it, the transaction is public and paying fees.",
+      "example": "try {\n  const txid = await provider.signAndPushPsbt(psbtHex, { autoFinalized: true });\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/review-a-psbt",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signAndBroadcastPsbt": {
+      "explanation": "Alias of signAndPushPsbt kept for ecosystem compatibility.",
+      "safetyNote": "Unauthorized in this release. Prefer the explicit name in new code; aliases hide the broadcast from readers.",
+      "example": "try {\n  const txid = await provider.signAndBroadcastPsbt(psbtHex, { autoFinalized: true });\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/review-a-psbt",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "pushTx": {
+      "explanation": "Broadcasts a raw signed transaction to the network.",
+      "safetyNote": "Unauthorized in this release. Broadcasting is the point of no return: once a transaction is public, fees are spent and mempools keep copies.",
+      "example": "try {\n  const txid = await provider.pushTx(rawTxHex);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/concepts/inputs-outputs-fees",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "pushPsbt": {
+      "explanation": "Broadcasts an already-signed PSBT.",
+      "safetyNote": "Unauthorized in this release. A signed PSBT broadcast without review can spend outputs its signer never intended to combine.",
+      "example": "try {\n  const txid = await provider.pushPsbt(signedPsbtHex);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/review-a-psbt",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "inscribeTransfer": {
+      "explanation": "Requests a BRC-20 transfer inscription.",
+      "safetyNote": "Unauthorized in this release; the refusal reflects the protocol authorization, not a network failure.",
+      "example": "try {\n  await provider.inscribeTransfer(ticker, amount);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/assets/support-state",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "requestMint": {
+      "explanation": "Requests an ARC-20 mint operation.",
+      "safetyNote": "Unauthorized in this release. Mints spend fees; the gate exists so no build mints on a claim it did not earn.",
+      "example": "try {\n  await provider.requestMint({ ticker, amount });\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/assets/support-state",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "requestArc20Mint": {
+      "explanation": "Alias of requestMint for ARC-20 mints.",
+      "safetyNote": "Unauthorized in this release. Same gate, older name.",
+      "example": "try {\n  await provider.requestArc20Mint({ ticker, amount });\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/assets/support-state",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signDogecoinMessage": {
+      "explanation": "Requests a Dogecoin message signature.",
+      "safetyNote": "Unauthorized in this release. Chain-specific signatures commit chain-specific keys; a Bitcoin approval never covers Dogecoin.",
+      "example": "try {\n  await provider.signDogecoinMessage(message);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/concepts/what-a-signature-authorizes",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signDogecoinMarketplaceAction": {
+      "explanation": "Requests a signature over a prepared marketplace action.",
+      "safetyNote": "Unauthorized in this release. Marketplace signatures can authorize listings; the prepared action deserves the same read a transaction gets.",
+      "example": "try {\n  await provider.signDogecoinMarketplaceAction(preparedAction);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/assets/dogecoin-marketplace",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "getZcashAccount": {
+      "explanation": "Returns the Zcash account view for the connected user.",
+      "safetyNote": "Zcash support is separate from Bitcoin authorization. Presence of the method is not presence of authorization.",
+      "example": "const account = await provider.getZcashAccount();",
+      "relatedGuide": "/docs-wallet/concepts/chains-and-networks",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "getZcashBalance": {
+      "explanation": "Returns the Zcash balance view.",
+      "safetyNote": "Read-only. Display it beside the chain name so balances are never ambiguous.",
+      "example": "const balance = await provider.getZcashBalance();",
+      "relatedGuide": "/docs-wallet/concepts/chains-and-networks",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signZcashTransaction": {
+      "explanation": "Requests a Zcash transaction signature.",
+      "safetyNote": "Unauthorized in this release. Zcash signing commits Zcash keys; the Bitcoin authorization snapshot says nothing about it.",
+      "example": "try {\n  await provider.signZcashTransaction(request);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/concepts/what-a-signature-authorizes",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signZcashMarketListing": {
+      "explanation": "Requests a signature over a Zcash market listing.",
+      "safetyNote": "Unauthorized in this release. Listings can bind assets to terms; read the listing like a contract.",
+      "example": "try {\n  await provider.signZcashMarketListing(request);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/assets/zcash-market-listings",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "broadcastZcashTransaction": {
+      "explanation": "Broadcasts a signed Zcash transaction.",
+      "safetyNote": "Unauthorized in this release. Broadcasting is irreversible on every chain.",
+      "example": "try {\n  await provider.broadcastZcashTransaction(request);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/concepts/inputs-outputs-fees",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    }
+  }
+}
