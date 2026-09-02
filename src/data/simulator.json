@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "universe-docs-simulator-imported-v1",
+  "importedAt": "2026-09-02T17:14:41.584Z",
+  "walletVersion": "1.7.5.8",
+  "walletSourceCommit": "cf0b6d60d00a3086f93b6be83375bbc90b2c4acd",
+  "artifactPath": "simulator/",
+  "entrySha256": "288ba9b2b703944dc456617886beb41b6180c7e5f9b41c21e90d0982f09a2787",
+  "isolation": {
+    "offlineByConstruction": true,
+    "noExtensionApis": true,
+    "noKeyMaterial": true,
+    "noSourceMaps": true
+  },
+  "scenarios": [
+    {
+      "id": "first-launch",
+      "title": "First launch",
+      "description": "A fresh installation with no wallet yet.",
+      "route": "welcome",
+      "workflow": "install-and-onboarding",
+      "consumers": [
+        "journeys:install-and-verify",
+        "journeys:create-or-import",
+        "simulator"
+      ]
+    },
+    {
+      "id": "create-or-import",
+      "title": "Create or import",
+      "description": "Choosing between creating a wallet and importing one.",
+      "route": "account/create-password?isNewAccount=false",
+      "workflow": "install-and-onboarding",
+      "consumers": [
+        "journeys:create-or-import",
+        "journeys:create-a-wallet",
+        "journeys:import-safely",
+        "simulator"
+      ]
+    },
+    {
+      "id": "populated-home",
+      "title": "Home with funds",
+      "description": "An unlocked wallet with a synthetic portfolio.",
+      "route": "main",
+      "workflow": "home",
+      "consumers": [
+        "journeys:understand-balances",
+        "journeys:receive-funds",
+        "simulator"
+      ]
+    },
+    {
+      "id": "receive",
+      "title": "Receive",
+      "description": "The receiving screen, ready to show an address.",
+      "route": "wallet/receive",
+      "workflow": "receive",
+      "consumers": [
+        "journeys:receive-funds",
+        "pages:tasks/receive",
+        "simulator"
+      ]
+    },
+    {
+      "id": "protected-outputs",
+      "title": "Protected outputs",
+      "description": "Outputs the wallet holds back, and why.",
+      "route": "locked-utxos",
+      "workflow": "protected-outputs",
+      "consumers": [
+        "journeys:understand-balances",
+        "pages:concepts/protected-outputs",
+        "simulator"
+      ]
+    },
+    {
+      "id": "account-switching",
+      "title": "Account switching",
+      "description": "Switching between accounts.",
+      "route": "account/switch-account",
+      "workflow": "account-switching",
+      "consumers": [
+        "journeys:switch-chain-safely",
+        "simulator"
+      ]
+    },
+    {
+      "id": "backup-settings",
+      "title": "Backup and settings",
+      "description": "Backup status and the settings root.",
+      "route": "settings",
+      "workflow": "settings",
+      "consumers": [
+        "journeys:create-a-wallet",
+        "simulator"
+      ]
+    },
+    {
+      "id": "unavailable-operation",
+      "title": "Unavailable operation",
+      "description": "The fail-closed send screen in a build that cannot send.",
+      "route": "wallet/tx/create",
+      "workflow": "send",
+      "consumers": [
+        "journeys:send-safely",
+        "pages:assets/why-unavailable",
+        "simulator"
+      ]
+    }
+  ]
+}

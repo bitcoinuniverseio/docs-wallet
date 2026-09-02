@@ -1,0 +1,79 @@
+---
+// VersionDifference: release-conditional content with a complete static
+// explanation. Crawlers and no-JS readers see every branch; JS readers see the
+// branch matching their selected release, with the others one click away.
+interface Props {
+  heading?: string;
+  branches: {
+    status: 'available' | 'unavailable' | 'changed' | 'experimental' | 'source-only';
+    releases: string[];
+    note: string;
+  }[];
+}
+const { heading = 'How this behaves across releases', branches } = Astro.props;
+const LABELS: Record<string, string> = {
+  available: 'Available',
+  unavailable: 'Unavailable',
+  changed: 'Changed',
+  experimental: 'Experimental',
+  'source-only': 'Source only, never published',
+};
+const CLASS: Record<string, string> = {
+  available: 'u-badge--ok',
+  unavailable: 'u-badge--unavailable',
+  changed: 'u-badge--caution',
+  experimental: 'u-badge--experimental',
+  'source-only': 'u-badge--unavailable',
+};
+---
+
+<details class="u-version-difference">
+  <summary>{heading}</summary>
+  <dl>
+    {
+      branches.map((branch) => (
+        <div class="u-version-difference__row">
+          <dt>
+            <span class={`u-badge ${CLASS[branch.status] ?? ''}`}>{LABELS[branch.status] ?? branch.status}</span>
+          </dt>
+          <dd>
+            <strong>{branch.releases.join(', ') || 'all releases'}</strong> - {branch.note}
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</details>
+
+<style>
+  .u-version-difference {
+    border: 1px solid var(--u-hairline);
+    border-radius: var(--u-radius-lg);
+    background: var(--u-surface);
+    margin: 1.1rem 0;
+    font-size: 0.92rem;
+  }
+  .u-version-difference summary {
+    padding: 0.55rem 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .u-version-difference dl {
+    margin: 0;
+    padding: 0.2rem 0.8rem 0.8rem;
+    display: grid;
+    gap: 0.55rem;
+  }
+  .u-version-difference__row {
+    display: flex;
+    gap: 0.7rem;
+    align-items: baseline;
+  }
+  .u-version-difference dt {
+    flex: none;
+    min-inline-size: 8.5rem;
+  }
+  .u-version-difference dd {
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,96 @@
+---
+// Machine-readable documentation: corpus endpoints and the read-only MCP
+// server, with tested configuration snippets for common AI clients.
+import snapshot from '../../../capability-snapshot.json';
+import BaseHead from '../../layouts/BaseGuide.astro';
+import { resolve } from '../../lib/nav';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const site = 'https://bitcoinuniverseio.github.io';
+const docsUrl = `${site}${base}`;
+---
+
+<BaseHead
+  title="Machine-readable documentation and MCP"
+  description="llms.txt, the JSON catalog, clean Markdown views, and the read-only MCP server for AI clients."
+>
+  <h1>Machine-readable documentation and MCP</h1>
+  <p>
+    Everything humans read here exists in machine-readable form, generated from the same data and
+    checked against wallet {snapshot.walletVersion}. Nothing is summarized by a model on the way
+    through: clients quote the same pages people read.
+  </p>
+
+  <h2>Corpus</h2>
+  <ul>
+    <li><a href={`${base}/llms.txt`}>llms.txt</a> - the shaped index for language models</li>
+    <li><a href={`${base}/llms-full.txt`}>llms-full.txt</a> - every page as plain text</li>
+    <li><a href={`${base}/api/catalog.json`}>api/catalog.json</a> - every page with its content hash</li>
+    <li><a href={`${base}/api/releases.json`}>api/releases.json</a> - the release catalog</li>
+    <li><a href={`${base}/api/capabilities.json`}>api/capabilities.json</a> - the capability snapshot</li>
+    <li><a href={`${base}/api/journeys.json`}>api/journeys.json</a> - the journey catalog</li>
+    <li><code>markdown/</code> - a clean Markdown view of every page</li>
+  </ul>
+
+  <h2>MCP server</h2>
+  <p>
+    A read-only Model Context Protocol server serves this corpus. Tools:{' '}
+    <code>search_wallet_docs</code>, <code>read_wallet_doc</code>,{' '}
+    <code>list_wallet_releases</code>, <code>compare_wallet_releases</code>,{' '}
+    <code>get_wallet_capability</code>, <code>list_wallet_protocols</code>,{' '}
+    <code>get_wallet_protocol</code>, <code>list_wallet_journeys</code>,{' '}
+    <code>read_wallet_journey</code>, <code>read_wallet_safety_checklist</code>,{' '}
+    <code>get_provider_method</code>, <code>list_provider_methods</code>. Every result carries its
+    URL, title, release, and content hash. The server exposes no wallet connector, signer,
+    broadcaster, or account lookup, and cannot mutate anything.
+  </p>
+
+  <h3>Local stdio server</h3>
+  <p>Run from a checkout of this repository (the corpus is generated at build time):</p>
+  <pre><code>{`node mcp-server/stdio.mjs --corpus ${docsUrl}/api/catalog.json`}</code></pre>
+
+  <h3>Claude Code</h3>
+  <pre><code>{`claude mcp add universe-wallet-docs -- node /path/to/docs-wallet/mcp-server/stdio.mjs`}</code></pre>
+
+  <h3>Cursor and VS Code-compatible clients</h3>
+  <pre><code>{`{
+  "mcpServers": {
+    "universe-wallet-docs": {
+      "command": "node",
+      "args": ["/path/to/docs-wallet/mcp-server/stdio.mjs"]
+    }
+  }
+}`}</code></pre>
+
+  <h3>Hosted read-only endpoint</h3>
+  <p>
+    A Streamable HTTP endpoint serving the same corpus from first-party
+    infrastructure:
+  </p>
+  <pre><code>{`{
+  "mcpServers": {
+    "universe-wallet-docs": {
+      "url": "https://docs.bitcoinuniverse.io/mcp/wallet"
+    }
+  }
+}`}</code></pre>
+  <p>
+    Both transports are one implementation with two adapters, tested with the
+    MCP protocol test suite. The hosted endpoint exposes the same read-only tool
+    set and nothing else.
+  </p>
+
+  <h2>Grounding rules the server enforces</h2>
+  <ul>
+    <li>Every answer quotes pages; the server never synthesizes capabilities.</li>
+    <li>Unknown versions are answered as unknown, never mapped to the nearest release.</li>
+    <li>Capability status travels with every result that involves an operation.</li>
+    <li>Insufficient evidence returns the closest passages and says so.</li>
+  </ul>
+
+  <p>
+    Questions about integration: start at the{' '}
+    <a href={resolve('/developers/integration')}>integration guide</a> or the{' '}
+    <a href={resolve('/studio/')}>Integration Studio</a>.
+  </p>
+</BaseHead>

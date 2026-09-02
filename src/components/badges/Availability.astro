@@ -1,0 +1,40 @@
+---
+// Availability badge, derived from the capability snapshot. This component is
+// the one place allowed to answer "can I do X in this release" - by reading the
+// generated snapshot, never by being told the answer in prose.
+import snapshot from '../../capability-snapshot.json';
+
+interface Props {
+  protocol: string;
+  operation: string;
+}
+const { protocol, operation } = Astro.props;
+
+const entry = snapshot.protocols.find((candidate) => candidate.id === protocol);
+const authorized = Boolean(entry?.supportedOperations.includes(operation));
+const intended = Boolean(entry?.intendedOperations.includes(operation));
+const known = Boolean(entry);
+---
+
+{
+  !known && (
+    <span class="u-badge u-badge--unavailable">
+      Unknown to the capability snapshot for wallet {snapshot.walletVersion}
+    </span>
+  )
+}
+{
+  known && authorized && <span class="u-badge u-badge--ok">Authorized in {snapshot.walletVersion}</span>
+}
+{
+  known && !authorized && intended && (
+    <span class="u-badge u-badge--unavailable">
+      Not authorized in {snapshot.walletVersion} · the wallet shows an unavailable state
+    </span>
+  )
+}
+{
+  known && !authorized && !intended && (
+    <span class="u-badge u-badge--unavailable">Not part of release {snapshot.walletVersion}</span>
+  )
+}

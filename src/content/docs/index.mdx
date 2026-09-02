@@ -10,18 +10,41 @@ hideTitle: true
 ---
 
 import snapshot from '../../../capability-snapshot.json';
+import journeysData from '../../data/journeys.json';
+import ProductShot from '../../components/shots/ProductShot.astro';
+import TaskLauncher from '../../components/TaskLauncher.astro';
+import AudienceSwitch from '../../components/AudienceSwitch.astro';
+import EmergencyAction from '../../components/EmergencyAction.astro';
+import ChainBadge from '../../components/badges/ChainBadge.astro';
+import ReleaseBadge from '../../components/badges/ReleaseBadge.astro';
+import { resolve } from '../../lib/nav';
 
 <div class="u-hero not-content">
-  <h1>A wallet you can read before you sign it</h1>
-  <p>
-    Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, Zcash, and Fractal
-    Bitcoin. It keeps coins that carry digital artifacts out of ordinary payments, and it puts a
-    plain-language account of what you are about to authorize in front of every signature.
-  </p>
-  <div class="u-actions">
-    <a class="u-btn u-btn--primary" href="/docs-wallet/start/what-this-is">Start here</a>
-    <a class="u-btn" href="/docs-wallet/start/versions">Which version you are running</a>
-    <a class="u-btn" href="/docs-wallet/safety/security-model">Safety</a>
+  <div>
+    <h1>A wallet you can read before you sign it</h1>
+    <p>
+      Universe Wallet is a self-custody browser extension for Bitcoin, Dogecoin, Zcash, and Fractal
+      Bitcoin. It keeps coins that carry digital artifacts out of ordinary payments, and it puts a
+      plain-language account of what you are about to authorize in front of every signature.
+    </p>
+    <div class="u-actions">
+      <a class="u-btn u-btn--primary" href={resolve('/start/what-this-is')}>Start here</a>
+      <a class="u-btn" href={resolve('/start/versions')}>Detect my wallet version</a>
+      <a class="u-btn" href={resolve('/journeys/')}>Guided journeys</a>
+    </div>
+    <p class="u-hero__context not-content">
+      <ReleaseBadge releaseId={`wallet-${snapshot.walletVersion}`} />
+      <ChainBadge chain="bitcoin" />
+      <ChainBadge chain="dogecoin" />
+      <ChainBadge chain="zcash" />
+      <span class="u-hero__context-note">
+        {snapshot.supportedProtocolCount} of {snapshot.protocolCount} protocols authorize operations in the
+        documented source tree. Every write action fails closed.
+      </span>
+    </p>
+  </div>
+  <div>
+    <ProductShot captureId="home-populated--dark--400" compact />
   </div>
 </div>
 
@@ -39,11 +62,37 @@ import snapshot from '../../../capability-snapshot.json';
     will work in your build. The screen in your own wallet is the answer.
   </p>
   <p>
-    <a href="/docs-wallet/start/versions">The full version and release position</a>
+    <a href={resolve('/start/versions')}>The full version and release position</a> ·
+    <a href={resolve('/reference/release-notes')}>Release notes</a>
   </p>
 </div>
 
-<dl class="u-facts not-content">
+<EmergencyAction />
+
+<div class="u-not-content">
+  <h2>What do you need to do?</h2>
+  <TaskLauncher />
+</div>
+
+<AudienceSwitch />
+
+<div class="u-not-content">
+  <h2>Guided journeys</h2>
+  <p class="u-journey-blurb not-content">
+    Step-by-step walkthroughs with checkpoints, recovery paths, and progress that stays in this
+    browser.
+  </p>
+  <div
+    data-journey-resume
+    data-base={import.meta.env.BASE_URL.replace(/\/$/, '')}
+    data-journeys={JSON.stringify(
+      journeysData.map((journey) => ({ id: journey.id, title: journey.title, steps: journey.steps.length })),
+    )}
+  >
+  </div>
+</div>
+
+<div class="u-facts not-content">
   <div class="u-fact">
     <dt>Lifecycle</dt>
     <dd>Experimental</dd>
@@ -64,7 +113,7 @@ import snapshot from '../../../capability-snapshot.json';
     <dt>Custody</dt>
     <dd>Yours alone</dd>
   </div>
-</dl>
+</div>
 
 ## What this documentation is for
 
@@ -75,27 +124,27 @@ than describing how it might work.
 
 <ul class="u-cards not-content">
   <li class="u-card">
-    <h3><a href="/docs-wallet/start/install">Install and set up</a></h3>
+    <h3><a href={resolve('/start/install')}>Install and set up</a></h3>
     <p>Which browsers work, where the real extension lives, and how to create or import a wallet without losing it a week later.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/concepts/what-a-signature-authorizes">What a signature authorizes</a></h3>
+    <h3><a href={resolve('/concepts/what-a-signature-authorizes')}>What a signature authorizes</a></h3>
     <p>The single most valuable page here. Four kinds of approval, and the exact boundary of each one.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/concepts/protected-outputs">Protected outputs</a></h3>
+    <h3><a href={resolve('/concepts/protected-outputs')}>Protected outputs</a></h3>
     <p>Why some of your balance will not spend, and why that is the feature rather than the fault.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/tasks/review-a-transaction">Review before you sign</a></h3>
+    <h3><a href={resolve('/tasks/review-a-transaction')}>Review before you sign</a></h3>
     <p>How to read the approval screen top to bottom, and which line to check when you are in a hurry.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/concepts/backup-and-recovery">Backup and recovery</a></h3>
+    <h3><a href={resolve('/concepts/backup-and-recovery')}>Backup and recovery</a></h3>
     <p>Which loss your recovery phrase covers, which it does not, and the one situation with no way back.</p>
   </li>
   <li class="u-card u-card--alert">
-    <h3><a href="/docs-wallet/safety/compromised-wallet">If something is wrong</a></h3>
+    <h3><a href={resolve('/safety/compromised-wallet')}>If something is wrong</a></h3>
     <p>What to do first when you think your phrase was seen, a signature went wrong, or coins moved without you.</p>
   </li>
 </ul>
@@ -104,27 +153,39 @@ than describing how it might work.
 
 <ul class="u-cards not-content">
   <li class="u-card">
-    <h3><a href="/docs-wallet/reference/supported-features">Supported features</a></h3>
+    <h3><a href={resolve('/reference/supported-features')}>Supported features</a></h3>
     <p>What is present, what is behind a release gate, and what does not exist at all.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/assets/protocol-registry">Protocol registry</a></h3>
+    <h3><a href={resolve('/atlas/')}>Screen Atlas</a></h3>
+    <p>Every verified screenshot of the wallet, filterable and deep-linkable, with its release and provenance.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href={resolve('/simulator/')}>Safe simulator</a></h3>
+    <p>The real wallet interface on fixture data: no keys, no network, nothing that can sign.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href={resolve('/safety-lab/')}>Transaction Safety Lab</a></h3>
+    <p>Study real approval scenarios - fees, change, protected outputs - without signing anything.</p>
+  </li>
+  <li class="u-card">
+    <h3><a href={resolve('/assets/protocol-registry')}>Protocol registry</a></h3>
     <p>All {snapshot.protocolCount} protocols, their chains, their intended operations, and their authorization state.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/reference/known-limitations">Known limitations</a></h3>
+    <h3><a href={resolve('/reference/known-limitations')}>Known limitations</a></h3>
     <p>Every limit we can state plainly, including the ones that are inconvenient to admit.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/developers/provider-api">Provider API</a></h3>
+    <h3><a href={resolve('/developers/provider-api')}>Provider API</a></h3>
     <p>For application developers integrating a connect and sign flow with the extension.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/help/troubleshooting">Troubleshooting</a></h3>
+    <h3><a href={resolve('/help/troubleshooting')}>Troubleshooting</a></h3>
     <p>The failures people actually hit, and what each one means about your funds.</p>
   </li>
   <li class="u-card">
-    <h3><a href="/docs-wallet/help/support">Support and security reporting</a></h3>
+    <h3><a href={resolve('/help/support')}>Support and security reporting</a></h3>
     <p>Where to ask, where to report a vulnerability, and what nobody will ever ask you for.</p>
   </li>
 </ul>
@@ -136,3 +197,8 @@ than describing how it might work.
 - Release candidates: [wallet releases](https://github.com/bitcoinuniverseio/wallet/releases)
 - Every Bitcoin Universe component: [docs.bitcoinuniverse.io](https://docs.bitcoinuniverse.io)
 - Report a documentation error: [docs-wallet issues](https://github.com/bitcoinuniverseio/docs-wallet/issues)
+
+<script>
+  // The island module self-mounts on DOMContentLoaded and reads its data from
+  // the rendered attributes above; nothing else to do here.
+</script>

@@ -1,0 +1,50 @@
+.wizard-tab-bar {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding-top: 8px;
+}
+.tab-bar-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 2px;
+  padding: 2px 1px 6px;
+  scroll-padding-inline: 12px;
+}
+.tab-bar-scroll::-webkit-scrollbar {
+  display: none;
+  height: 0;
+}
+.tab-bar-scroll > .row,
+.tab-bar-scroll > div {
+  flex-wrap: nowrap;
+}
+.tab-bar-scroll .tab-bar-pill {
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-height: 32px;
+  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+.tab-bar-scroll .tab-bar-pill:hover {
+  background: rgba(255, 0, 102, 0.08) !important;
+  border-color: rgba(255, 0, 102, 0.24) !important;
+}
+.selected-tab {
+  border-bottom: 2px solid #ff0066;
+  padding-bottom: 6px;
+}
+@media (pointer: coarse) {
+  .wizard-tab-bar [role='tab'] {
+    min-height: 44px;
+  }
+  .tab-bar-scroll .tab-bar-pill {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tab-bar-scroll .tab-bar-pill {
+    transition: none;
+  }
+}

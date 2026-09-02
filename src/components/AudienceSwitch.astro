@@ -1,0 +1,64 @@
+---
+// AudienceSwitch: pick your situation. Each audience lands on a filtered view
+// of the journey directory (server-rendered filter via query parameter, so it
+// works with no JavaScript).
+import { resolve } from '../lib/nav';
+
+const AUDIENCES = [
+  { id: 'new-user', label: 'New user', note: 'Installing and first steps' },
+  { id: 'wallet-user', label: 'Wallet user', note: 'Everyday tasks and safety' },
+  { id: 'developer', label: 'Developer', note: 'Integrate with the provider' },
+  { id: 'emergency', label: 'Emergency', note: 'Something may be wrong' },
+];
+---
+
+<div class="u-audiences">
+  <h2>Who are you?</h2>
+  <ul>
+    {
+      AUDIENCES.map((audience) => (
+        <li>
+          <a href={`${resolve('/journeys/')}?audience=${audience.id}`}>
+            <strong>{audience.label}</strong>
+            <span>{audience.note}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .u-audiences h2 {
+    font-size: 1.1rem;
+    margin: 1.4rem 0 0.6rem;
+  }
+  .u-audiences ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .u-audiences a {
+    display: grid;
+    gap: 0.15rem;
+    border: 1px solid var(--u-hairline);
+    border-radius: var(--u-radius-lg);
+    background: var(--u-surface);
+    padding: 0.6rem 0.8rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .u-audiences a:hover,
+  .u-audiences a:focus-visible {
+    border-color: var(--u-hairline-strong);
+    outline: 2px solid var(--u-focus);
+    outline-offset: 1px;
+  }
+  .u-audiences span {
+    font-size: 0.8rem;
+    color: var(--u-dim);
+  }
+</style>

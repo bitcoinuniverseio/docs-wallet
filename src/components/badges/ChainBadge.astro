@@ -1,0 +1,17 @@
+---
+// Chain badge. Color is a hint; the chain name always travels beside it.
+interface Props {
+  chain: string;
+}
+const { chain } = Astro.props;
+const CHAIN_COLORS: Record<string, string> = {
+  bitcoin: 'var(--u-chain-bitcoin)',
+  dogecoin: 'var(--u-chain-dogecoin)',
+  zcash: 'var(--u-chain-zcash)',
+  cosmos: 'var(--u-chain-cosmos)',
+  fractal: 'var(--u-chain-fractal)',
+};
+const color = CHAIN_COLORS[chain.toLowerCase()] ?? 'var(--u-dim)';
+---
+
+<span class="u-badge u-badge--chain" style={`--u-chain-color: ${color};`}>{chain}</span>

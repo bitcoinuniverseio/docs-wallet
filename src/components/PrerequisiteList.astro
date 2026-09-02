@@ -1,0 +1,59 @@
+---
+// Prerequisite list rendered as a checklist of things to confirm before a task
+// begins. Items link into the docs when a guide exists for them.
+interface Props {
+  items: { label: string; href?: string }[];
+}
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <div class="u-prereqs">
+      <h2 id="before-you-start">Before you start</h2>
+      <ul>
+        {items.map((item) => (
+          <li>
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="2" y="2" width="12" height="12" rx="2" />
+            </svg>
+            <span>
+              {item.href ? <a href={item.href}>{item.label}</a> : item.label}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<style>
+  .u-prereqs {
+    border: 1px solid var(--u-hairline);
+    border-radius: var(--u-radius-lg);
+    background: var(--u-surface);
+    padding: 0.9rem 1.1rem;
+    margin: 1.1rem 0;
+  }
+  .u-prereqs h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+  .u-prereqs ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.45rem;
+  }
+  .u-prereqs li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: baseline;
+  }
+  .u-prereqs svg {
+    flex: none;
+    transform: translateY(2px);
+    color: var(--u-dim);
+  }
+</style>

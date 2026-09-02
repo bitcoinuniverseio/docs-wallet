@@ -1,0 +1,94 @@
+---
+// Screen Atlas: every verified capture. The static listing below the island is
+// the complete no-JavaScript atlas; the island adds filters, search, and deep
+// links.
+import captureCatalog from '../data/captures.json';
+import BaseHead from '../layouts/BaseGuide.astro';
+import ProductShot from '../components/shots/ProductShot.astro';
+import { resolve } from '../lib/nav';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const captures = captureCatalog.captures;
+---
+
+<BaseHead
+  title="Screen Atlas"
+  description="Every verified screenshot of Universe Wallet, with its release, theme, viewport, fixture, and provenance."
+>
+  <h1>Screen Atlas</h1>
+  <p>
+    {captures.length} captures, all produced by the wallet's own deterministic visual harness and
+    exported only after their pixel state was proven. Every image names the wallet version and
+    commit it was captured from, and a capture of one release never represents another.
+  </p>
+
+  <div
+    data-atlas-mount
+    data-base={base}
+    data-captures={JSON.stringify(
+      captures.map((capture) => ({
+        captureId: capture.captureId,
+        publicTitle: capture.publicTitle,
+        caption: capture.caption,
+        workflow: capture.workflow,
+        state: capture.state,
+        theme: capture.theme,
+        riskLevel: capture.riskLevel,
+        releaseId: capture.releaseId,
+        walletVersion: capture.walletVersion,
+        consumers: capture.consumers,
+      })),
+    )}
+  >
+  </div>
+
+  <h2 id="all-captures">All captures (no JavaScript required)</h2>
+  <p>
+    The complete listing, usable without JavaScript or search. Each entry links its deep link and
+    its image.
+  </p>
+  <ol class="u-atlas-static">
+    {
+      captures.map((capture) => (
+        <li id={`capture-${capture.captureId}`}>
+          <h3>
+            {capture.publicTitle} <span class="u-atlas-static__id">({capture.captureId})</span>
+          </h3>
+          <p>{capture.description}</p>
+          <p class="u-atlas-static__meta">
+            workflow {capture.workflow} · state {capture.state} · {capture.theme} ·{' '}
+            {capture.viewport.width}px · wallet {capture.walletVersion}
+          </p>
+          <ProductShot captureId={capture.captureId} compact />
+        </li>
+      ))
+    }
+  </ol>
+</BaseHead>
+
+<script>
+  import '../islands/AtlasExplorer';
+</script>
+
+<style>
+  .u-atlas-static {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 2.2rem;
+  }
+  .u-atlas-static h3 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  .u-atlas-static__id {
+    color: var(--u-dim);
+    font-size: 0.8rem;
+    font-family: var(--sl-font-mono);
+    font-weight: 400;
+  }
+  .u-atlas-static__meta {
+    color: var(--u-dim);
+    font-size: 0.84rem;
+  }
+</style>
