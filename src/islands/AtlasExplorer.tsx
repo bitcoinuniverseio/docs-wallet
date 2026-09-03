@@ -17,8 +17,9 @@ interface Capture {
   riskLevel: string;
   releaseId: string;
   walletVersion: string;
-  intrinsicWidth: number;
-  intrinsicHeight: number;
+  intrinsicWidth?: number;
+  intrinsicHeight?: number;
+  imageWebp?: string;
   consumers: string[];
 }
 
@@ -94,17 +95,31 @@ function Explorer({ captures, base }: { captures: Capture[]; base: string }) {
       </p>
 
       <ul class="u-atlas-grid">
-        {filtered.map((capture) => (
-          <li key={capture.captureId}>
-            <a href={`${base}/atlas/#capture=${capture.captureId}`} class="u-atlas-card">
-              <span class="u-atlas-card__title">{capture.publicTitle}</span>
-              <span class="u-atlas-card__meta">
-                {capture.workflow} · {capture.state} · {capture.theme}
-              </span>
-              <span class="u-atlas-card__caption">{capture.caption}</span>
-            </a>
-          </li>
-        ))}
+        {filtered.map((capture) => {
+          const imgSrc = `${base}/${capture.imageWebp || `captures/${capture.captureId}.webp`}`;
+          return (
+            <li key={capture.captureId}>
+              <a href={`${base}/atlas/#capture=${capture.captureId}`} class="u-atlas-card">
+                <div class="u-atlas-card__thumb">
+                  <img
+                    src={imgSrc}
+                    alt={capture.caption || capture.publicTitle}
+                    loading="lazy"
+                    width={capture.intrinsicWidth || 360}
+                    height={capture.intrinsicHeight || 720}
+                  />
+                </div>
+                <div class="u-atlas-card__body">
+                  <span class="u-atlas-card__title">{capture.publicTitle}</span>
+                  <span class="u-atlas-card__meta">
+                    {capture.workflow} · {capture.state} · {capture.theme}
+                  </span>
+                  <span class="u-atlas-card__caption">{capture.caption}</span>
+                </div>
+              </a>
+            </li>
+          );
+        })}
       </ul>
       {filtered.length === 0 && <p class="u-explorer__empty">No capture matches these filters.</p>}
     </div>

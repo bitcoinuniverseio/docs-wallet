@@ -15,7 +15,7 @@ import { chromium } from 'playwright';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const axeSource = readFileSync(resolve(root, 'node_modules/axe-core/axe.min.js'), 'utf8');
 
-const ORIGIN = process.env.PREVIEW_ORIGIN ?? 'http://localhost:4323';
+const ORIGIN = process.env.PREVIEW_ORIGIN ?? 'http://localhost:4328';
 const BASE = '/docs-wallet';
 
 const sitemap = await (await fetch(`${ORIGIN}${BASE}/sitemap-0.xml`)).text();
