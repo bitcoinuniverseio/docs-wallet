@@ -33,16 +33,27 @@ const right = getCapture(rightCaptureId);
 <style>
   .u-compare {
     display: grid;
-    gap: 1rem;
-    margin: 1.3rem 0;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
   }
-  @media (min-width: 56rem) {
+  @media (min-width: 48rem) {
     .u-compare {
       grid-template-columns: 1fr 1fr;
+      align-items: start;
     }
+  }
+  .u-compare__pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .u-compare__pane :global(.u-shot) {
+    margin: 0.75rem auto 0;
+    max-inline-size: 260px;
   }
   .u-compare__label {
     font-weight: 700;
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.4rem;
   }
 </style>

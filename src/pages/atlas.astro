@@ -78,11 +78,21 @@ const captures = captureCatalog.captures;
     padding: 0;
     list-style: none;
     display: grid;
-    gap: 2.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: 1.5rem;
+  }
+  .u-atlas-static li {
+    border: 1px solid var(--u-hairline);
+    border-radius: var(--u-radius-lg);
+    background: var(--u-surface);
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .u-atlas-static h3 {
     margin: 0;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
   }
   .u-atlas-static__id {
     color: var(--u-dim);
@@ -92,6 +102,11 @@ const captures = captureCatalog.captures;
   }
   .u-atlas-static__meta {
     color: var(--u-dim);
-    font-size: 0.84rem;
+    font-size: 0.82rem;
+    margin: 0.35rem 0 0.75rem;
+  }
+  .u-atlas-static li :global(.u-shot) {
+    margin: auto auto 0 auto;
+    max-inline-size: 240px;
   }
 </style>

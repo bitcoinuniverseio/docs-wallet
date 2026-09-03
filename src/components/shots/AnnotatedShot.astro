@@ -12,12 +12,14 @@ interface Props {
   captureId: string;
   annotations: { label: string; x: number; y: number }[];
   danger?: boolean;
+  compact?: boolean;
+  wide?: boolean;
 }
-const { captureId, annotations, danger = false } = Astro.props;
+const { captureId, annotations, danger = false, compact = false, wide = false } = Astro.props;
 const capture = getCapture(captureId);
 ---
 
-<figure class:list={['u-shot u-shot--annotated', { 'u-shot--danger': danger }]}>
+<figure class:list={['u-shot u-shot--annotated', { 'u-shot--danger': danger, 'u-shot--compact': compact, 'u-shot--wide': wide }]}>
   <div class="u-shot__frame">
     <div class="u-shot__device" style={`aspect-ratio: ${capture.intrinsicWidth} / ${capture.intrinsicHeight};`}>
       <img
