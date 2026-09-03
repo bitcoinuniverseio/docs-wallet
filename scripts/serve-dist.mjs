@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
 const BASE = '/docs-wallet';
-const PORT = Number(process.env.PORT ?? 4323);
+const PORT = Number(process.env.PORT ?? 4328);
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -21,6 +21,10 @@ const TYPES = {
   '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
   '.wasm': 'application/wasm',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.webmanifest': 'application/manifest+json',
   '.pf_meta': 'application/octet-stream',
   '.pf_fragment': 'application/octet-stream',
   '.pf_index': 'application/octet-stream',

@@ -431,31 +431,39 @@
 }
 
 .u-btn {
-  display: inline-block;
-  padding: 0.6rem 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.15rem;
   border: 1px solid var(--u-hairline-strong);
   border-radius: var(--u-radius);
   background: var(--u-surface);
-  color: var(--sl-color-white);
+  color: var(--sl-color-text);
   font-weight: 600;
-  font-size: 0.97rem;
+  font-size: 0.95rem;
   text-decoration: none;
+  transition: all 0.15s ease;
 }
 
 .u-btn:hover {
-  background: var(--u-surface-2);
-  border-color: var(--sl-color-text-accent);
+  background: var(--u-surface-sunken);
+  border-color: var(--u-focus, #ff007a);
+  color: var(--sl-color-text-accent);
 }
 
 .u-btn--primary {
-  background: var(--sl-color-white);
-  color: var(--sl-color-black);
-  border-color: var(--sl-color-white);
+  background: #c20058;
+  color: #ffffff;
+  border-color: #c20058;
+  box-shadow: 0 2px 10px rgba(194, 0, 88, 0.25);
 }
 
 .u-btn--primary:hover {
-  background: var(--sl-color-gray-1);
-  border-color: var(--sl-color-gray-1);
+  background: #a3004a;
+  border-color: #a3004a;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(194, 0, 88, 0.35);
+  transform: translateY(-1px);
 }
 
 .u-cards {
@@ -1480,8 +1488,12 @@ select:focus-visible {
   margin-top: 0.9rem;
 }
 .u-hero__context-note {
-  font-size: 0.82rem;
+  display: block;
+  width: 100%;
+  font-size: 0.85rem;
   color: var(--u-dim);
+  margin-top: 0.5rem;
+  line-height: 1.45;
 }
 .u-journey-blurb {
   color: var(--u-dim);
@@ -1544,12 +1556,41 @@ select:focus-visible {
   text-decoration: none;
   color: inherit;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .u-atlas-card:hover,
 .u-atlas-card:focus-visible {
-  border-color: var(--u-hairline-strong);
-  outline: 2px solid var(--u-focus);
+  border-color: var(--u-focus, #ff007a);
+  outline: 2px solid var(--u-focus, #ff007a);
   outline-offset: 1px;
+  transform: translateY(-2px);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.u-atlas-card__thumb {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 220px;
+  background: var(--u-surface-sunken, rgba(0, 0, 0, 0.2));
+  border-radius: var(--u-radius-sm);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--u-hairline);
+}
+.u-atlas-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.u-atlas-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-grow: 1;
 }
 .u-atlas-card__title {
   font-weight: 700;
