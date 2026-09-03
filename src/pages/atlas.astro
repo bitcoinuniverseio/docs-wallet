@@ -37,6 +37,9 @@ const captures = captureCatalog.captures;
         releaseId: capture.releaseId,
         walletVersion: capture.walletVersion,
         consumers: capture.consumers,
+        intrinsicWidth: capture.intrinsicWidth,
+        intrinsicHeight: capture.intrinsicHeight,
+        imageWebp: capture.derivatives.find((d) => d.format === 'webp')?.path ?? `captures/${capture.captureId}.webp`,
       })),
     )}
   >
