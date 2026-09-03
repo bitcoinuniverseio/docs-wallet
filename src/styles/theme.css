@@ -1156,6 +1156,11 @@
   padding: 1.5rem;
   display: grid;
   gap: 1.5rem;
+  overflow: clip;
+  isolation: isolate;
+}
+.u-hero > * {
+  min-inline-size: 0;
 }
 @media (min-width: 50rem) {
   .u-hero {
