@@ -43,22 +43,29 @@ const AUDIENCES = [
   }
   .u-audiences a {
     display: grid;
-    gap: 0.15rem;
+    gap: 0.25rem;
     border: 1px solid var(--u-hairline);
     border-radius: var(--u-radius-lg);
     background: var(--u-surface);
-    padding: 0.6rem 0.8rem;
+    padding: 0.85rem 1rem;
     text-decoration: none;
     color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .u-audiences a:hover,
   .u-audiences a:focus-visible {
-    border-color: var(--u-hairline-strong);
-    outline: 2px solid var(--u-focus);
+    border-color: var(--u-focus, #ff007a);
+    outline: 2px solid var(--u-focus, #ff007a);
     outline-offset: 1px;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  }
+  .u-audiences strong {
+    font-size: 1rem;
+    color: var(--sl-color-text);
   }
   .u-audiences span {
-    font-size: 0.8rem;
+    font-size: 0.84rem;
     color: var(--u-dim);
   }
 </style>
