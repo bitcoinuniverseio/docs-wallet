@@ -44,9 +44,14 @@ const base = import.meta.env.BASE_URL.replace(/$/, '');
 
 {
   capture && (
-    <figure class:list={['u-shot', { 'u-shot--danger': danger, 'u-shot--wide': wide }]}>
+    <figure class:list={['u-shot', { 'u-shot--danger': danger, 'u-shot--wide': wide, 'u-shot--compact': compact }]}>
       <div class="u-shot__frame">
-        <div class="u-shot__device" style={`aspect-ratio: ${capture.intrinsicWidth} / ${capture.intrinsicHeight};`}>
+        <div
+          class="u-shot__device"
+          style={`aspect-ratio: ${capture.intrinsicWidth} / ${capture.intrinsicHeight}; cursor: zoom-in;`}
+          data-lightbox-trigger={capture.captureId}
+          title="Click to enlarge screenshot"
+        >
           <picture>
             <source type="image/avif" srcset={captureUrl(capture, 'avif')} width={capture.intrinsicWidth} height={capture.intrinsicHeight} />
             <source type="image/webp" srcset={captureUrl(capture, 'webp')} width={capture.intrinsicWidth} height={capture.intrinsicHeight} />
@@ -141,7 +146,14 @@ const base = import.meta.env.BASE_URL.replace(/$/, '');
     max-inline-size: 100%;
   }
   .u-shot__zoom {
-    margin-top: 0.45rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--u-radius-sm);
+    cursor: pointer;
   }
   .u-shot__provenance {
     margin-top: 0.4rem;
