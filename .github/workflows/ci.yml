@@ -79,7 +79,7 @@ jobs:
         run: npm run serve:dist &
 
       - name: Accessibility and horizontal overflow, every page, both themes
-        run: npx wait-on http://localhost:4323/docs-wallet/ && npm run check:a11y
+        run: npx wait-on http://localhost:4328/docs-wallet/ && npm run check:a11y
 
       - name: Secret scan (full history)
         uses: trufflesecurity/trufflehog@v3.90.5

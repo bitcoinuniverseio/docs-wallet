@@ -67,8 +67,8 @@ export default defineConfig({
       title: 'Universe Wallet',
       description:
         'How to hold, receive, send, and protect Bitcoin digital artifacts in Universe Wallet, the self-custody browser wallet. Written so that nothing here can cost you money by being believed.',
-      logo: { src: './src/assets/mark.svg', alt: '' },
-      favicon: '/mark.svg',
+      logo: { src: './src/assets/logo.png', alt: 'Universe Wallet' },
+      favicon: '/favicon.png',
       customCss: [
         '@fontsource-variable/public-sans',
         '@fontsource-variable/source-code-pro',
