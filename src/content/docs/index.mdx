@@ -31,16 +31,15 @@ import { resolve } from '../../lib/nav';
       <a class="u-btn" href={resolve('/start/versions')}>Detect my wallet version</a>
       <a class="u-btn" href={resolve('/journeys/')}>Guided journeys</a>
     </div>
-    <p class="u-hero__context not-content">
+    <div class="u-hero__context not-content">
       <ReleaseBadge releaseId={`wallet-${snapshot.walletVersion}`} />
-      <ChainBadge chain="bitcoin" />
-      <ChainBadge chain="dogecoin" />
-      <ChainBadge chain="zcash" />
-      <span class="u-hero__context-note">
-        {snapshot.supportedProtocolCount} of {snapshot.protocolCount} protocols authorize operations in the
-        documented source tree. Every write action fails closed.
+      <span class="u-hero__chains">
+        <ChainBadge chain="bitcoin" />
+        <ChainBadge chain="dogecoin" />
+        <ChainBadge chain="zcash" />
       </span>
-    </p>
+      <span class="u-hero__context-note">{`${snapshot.supportedProtocolCount} of ${snapshot.protocolCount} protocols authorize operations in the documented source tree. Every write action fails closed.`}</span>
+    </div>
   </div>
   <div>
     <ProductShot captureId="home-populated--dark--400" compact />
