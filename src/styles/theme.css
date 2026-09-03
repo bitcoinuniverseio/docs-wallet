@@ -1517,14 +1517,23 @@ select:focus-visible {
   flex-wrap: wrap;
   gap: 0.4rem;
   align-items: center;
-  margin-top: 0.9rem;
+  margin: 0.9rem 0 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: normal;
 }
-.u-hero__context-note {
+.u-hero__chains {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.u-hero .u-hero__context-note {
+  flex-basis: 100%;
   display: block;
-  width: 100%;
+  margin: 0.25rem 0 0;
   font-size: 0.85rem;
   color: var(--u-dim);
-  margin-top: 0.5rem;
   line-height: 1.45;
 }
 .u-journey-blurb {
