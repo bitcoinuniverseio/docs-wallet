@@ -86,6 +86,51 @@ for (const theme of ['light', 'dark']) {
   await context.close();
 }
 
+// The homepage switches from the mobile drawer to the persistent sidebar at
+// 800px. Its portrait wallet capture must stay inside the hero and above the
+// following safety notices, never paint over either the sidebar or the page
+// content after the reader scrolls.
+for (const theme of ['light', 'dark']) {
+  const context = await browser.newContext({
+    viewport: { width: 800, height: 900 },
+    colorScheme: theme,
+    reducedMotion: 'reduce',
+  });
+  const page = await context.newPage();
+  const res = await page.goto(`${ORIGIN}${BASE}/`, { waitUntil: 'load' });
+  if (!res || res.status() >= 400) {
+    problems.push(`${BASE}/ [${theme}] returned ${res?.status()}`);
+  } else {
+    await page.evaluate((t) => document.documentElement.setAttribute('data-theme', t), theme);
+    const layout = await page.evaluate(() => {
+      const bounds = (selector) => {
+        const element = document.querySelector(selector);
+        if (!element) return null;
+        const rect = element.getBoundingClientRect();
+        return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
+      };
+      const hero = document.querySelector('.u-hero');
+      return {
+        hero: bounds('.u-hero'),
+        shot: bounds('.u-hero .u-shot'),
+        status: bounds('.u-status'),
+        hasHorizontalOverflow: hero ? hero.scrollWidth > hero.clientWidth : false,
+      };
+    });
+    if (!layout.hero || !layout.shot || !layout.status) {
+      problems.push(`${BASE}/ [${theme}] is missing the homepage hero layout.`);
+    } else if (
+      layout.hasHorizontalOverflow ||
+      layout.shot.left < layout.hero.left ||
+      layout.shot.right > layout.hero.right ||
+      layout.shot.bottom > layout.status.top
+    ) {
+      problems.push(`${BASE}/ [${theme}] lets the wallet capture escape the homepage hero.`);
+    }
+  }
+  await context.close();
+}
+
 await browser.close();
 
 if (problems.length) {
