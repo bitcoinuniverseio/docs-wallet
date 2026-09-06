@@ -4,7 +4,7 @@ description: The rule that decides whether an operation ships, what counts as ev
 sourceRepo: bitcoinuniverseio/wallet
 sourcePath: docs/RELEASE-READINESS-POLICY.md, docs/PROTOCOL-RELEASE-MATRIX.md
 lifecycle: experimental
-lastVerified: 2026-09-01
+lastVerified: 2026-09-06
 ---
 
 import Diagram from '../../../components/Diagram.astro';
@@ -34,8 +34,14 @@ complete path behind it.
 
 The release matrix carries one row for every protocol, network, and operation combination, with UI,
 provider, API, signer, indexer, health, evidence, and release-state classifications. In
-{snapshot.walletVersion} there are 42 protocols and 1,551 operation rows, and **0** authorized
-operations.
+the imported {snapshot.walletVersion} source snapshot, **{snapshot.supportedProtocolCount} of
+{snapshot.protocolCount} protocols** have an authorized operation. This is a source baseline, not a
+claim about a newly published extension.
+
+The local payment-instruction parser and receiving-request builder can complete their local work
+without moving funds. Parsing an instruction or creating a payment request does not authorize a
+payment feature or establish that a payer settled it. Remote product operations still require their
+own available executor and release evidence.
 
 Authorization is produced for an immutable workflow run, not copied by hand into a document. The
 generated readiness record contains the exact source commit, the workflow run id, individual gate

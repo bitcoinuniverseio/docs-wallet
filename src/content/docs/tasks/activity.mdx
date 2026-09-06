@@ -1,78 +1,77 @@
 ---
 title: Read your activity
-description: What pending really means, how many confirmations to wait for, and what to do about a transaction that will not confirm.
+description: Distinguish a saved review, an uncertain submission, and a confirmed result before retrying a payment.
 sourceRepo: bitcoinuniverseio/wallet
-sourcePath: frontend/ui/pages/Wallet/HistoryScreen.tsx
+sourcePath: frontend/ui/pages/Wallet/HistoryScreen/index.tsx, frontend/ui/hooks/useProductOperation.ts, frontend/ui/components/ProductOperationGate/RunPanel.tsx
 lifecycle: experimental
-lastVerified: 2026-09-01
+lastVerified: 2026-09-06
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+**Intended reader:** anyone checking a payment or a saved product request.
+**Goal:** establish what happened before starting another request.
+**Prerequisites:** an unlocked wallet and the account used for the original request.
+**Chain and network:** select the original account and exact network.
+**Safety:** an unknown outcome can include a payment that was accepted. Do not create a replacement
+request merely because the popup closed or a response timed out.
 
-**Intended reader:** anyone waiting on a transaction, or checking what happened.
-**Goal:** correctly reading the state of your own money.
-**Prerequisites:** an unlocked wallet.
+This page describes the current source candidate. It does not establish that the candidate is
+published or that a payment feature is available in your build. See
+[What this release authorizes](/docs-wallet/assets/support-state).
 
-## The states
+## Steps
 
-| State | Meaning |
-| --- | --- |
-| Pending | Broadcast, sitting in the mempool, not in a block. It can still be dropped. |
-| Confirmed | Included in a block. Each new block adds a confirmation. |
-| Failed | The network rejected it. Nothing moved and no fee was paid. |
+1. Open **Activity** to inspect chain transactions for the selected account.
+2. For a saved product request, return to the screen where you created it. Screens using the shared
+   request panel restore the latest unresolved request for that product, operation, account and network.
+3. Compare the displayed operation identifier with the request you are checking.
+4. If the panel offers **Check status**, use it to ask for the existing request's result.
+5. If preparation was not acknowledged and **Retry same request** appears, use that control to retain
+   the original request identity.
+6. Approve a restored review only after checking its account, network, amounts, destination and expiry.
+   A saved review has not yet authorized a payment.
 
-## How many confirmations
+## What the request panel means
 
-There is no universal answer, only a risk judgement.
-
-- **One confirmation** is enough for a small payment between people who trust each other.
-- **Three confirmations** is a common threshold for ordinary amounts.
-- **Six confirmations** is the traditional benchmark for something you would mind losing.
-
-An unconfirmed transaction is not a payment. If someone tells you they have sent funds and your wallet
-shows pending, you have a promise, not money.
-
-## When something will not confirm
-
-The fee rate was below what blocks are currently clearing.
-
-<Aside type="danger" title="This wallet has no way to speed up a stuck transaction">
-There is **no fee bump, no speed up, and no child-pays-for-parent flow** in Universe Wallet 1.7.5.8.
-If a transaction is stuck, your options are: wait for the mempool to quieten, in which case it may
-confirm eventually; or, if it was marked replaceable when you created it, build a replacement using
-separate software that supports replacement. A transaction that is never mined is eventually dropped
-by nodes and the coins become spendable again, but there is no fixed timetable for that.
-</Aside>
-
-Marking a transaction replaceable at creation does not give you a control in this wallet for replacing
-it later. That is why [choosing the fee](/docs-wallet/tasks/choose-a-fee) carefully the first time
-matters more here than in wallets that offer a bump.
-
-## Reading an entry
-
-Each entry shows the amount, the direction, the fee, the counterparty address, and the transaction id.
-The transaction id is the thing you can hand to anyone: it is public, it is verifiable independently,
-and it does not reveal anything about your wallet beyond what the chain already shows.
-
-## Where asset movements appear
-
-Asset transfers appear alongside payments, subject to the wallet being able to read them. Asset data
-comes from indexers, which read the chain and decide what a transaction meant. Indexers can lag behind
-confirmations, so a confirmed transaction can briefly show a payment without its asset effect.
-
-If the wallet cannot read a protocol at all, the payment still appears and the asset effect does not.
-See [What this release authorizes](/docs-wallet/assets/support-state).
-
-## Common failures
-
-| What you see | What it means | What to do |
+| Display | Meaning | Next step |
 | --- | --- | --- |
-| Pending for hours | Fee below current clearing rate | Wait. See the warning above. |
-| A transaction you do not recognise | Either a change output you misread, or a real problem | Check whether the destination is your own address. If not, go to [If your wallet is compromised](/docs-wallet/safety/compromised-wallet) |
-| Confirmed but the asset has not moved | Indexer lag, or an unsupported protocol | Wait, then check [Troubleshooting](/docs-wallet/help/troubleshooting) |
-| Activity is empty after a restore | Wrong address type or derivation path | See [Address types](/docs-wallet/concepts/address-types) |
+| Review request | The request is saved and awaits approval | Check the terms; approve or cancel |
+| Submission in progress | The approved operation started | Keep the identifier and check status |
+| Submitted. Waiting for settlement | Submission was recorded; settlement is unconfirmed | Check status |
+| Outcome unknown | Available evidence cannot establish the outcome | Check this request before trying again |
+| Settled | The configured authority verified the result | Inspect the recorded result and reference |
+| Payment instruction parsed | Local parsing completed; no payment was submitted | Review the parsed instruction |
+| Payment request saved. Awaiting payment | A receiving request was created | Wait for separately verified payment evidence |
+| Cancelled before dispatch | Cancellation was saved before submission | Start another request only if needed |
+
+An operation identifier, a transaction identifier, an invoice, a QR code or a successful HTTP response
+is not proof of settlement. A failure message alone does not prove that no funds moved or no fee was
+paid. Use the recorded evidence for that request.
+
+## Expected result and verification
+
+Checking status keeps the same operation identifier. Closing the popup does not cancel a submitted
+operation. A restored review retains its original expiry; reopening the screen does not extend it.
+
+Chain activity and product requests describe different stages. A transaction in a mempool is still
+unconfirmed, and chain inclusion can later change after a reorganization. Asset indexers may lag
+behind the chain, so a confirmation alone does not establish that an asset was delivered.
+
+## Common failures and recovery
+
+| What you see | What to do |
+| --- | --- |
+| No request after changing accounts or networks | Select the account and exact network used originally |
+| Review expired or approval became stale | Recheck the terms and current account before requesting a new review |
+| History or storage is unavailable | Preserve the existing wallet data and retry the read; an error is not empty history |
+| Outcome remains unknown | Keep the operation identifier and any public reference for support; do not submit another payment |
+| Confirmed transaction but missing asset effect | Check the protocol's availability and indexer status |
+
+Do not clear extension data to repair a pending operation. If status cannot be established, use
+[support](/docs-wallet/help/support). Share public operation references only, never keys, recovery
+phrases, connection credentials or signed transaction bytes.
 
 ## Related
 
 - [Choose a fee](/docs-wallet/tasks/choose-a-fee)
 - [Inputs, outputs, fees, change](/docs-wallet/concepts/inputs-outputs-fees)
+- [Why an action is unavailable](/docs-wallet/assets/why-unavailable)

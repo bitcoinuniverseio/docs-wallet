@@ -9,7 +9,7 @@
 - Documented version: Universe Wallet 1.7.5.8, from the source tree.
 - Published version: 1.0.13, on the Chrome Web Store since 2025-04-15.
 - 1.7.5.8 has NOT been submitted or published.
-- Protocol authorization in the committed baseline: 0 of 42 protocols.
+- Protocol authorization in the committed baseline: 0 of 43 protocols.
 - No protocol operation is available in any released build. Ordinary Bitcoin sending is also gated.
 - There is no fee bump, no speed up, and no child-pays-for-parent flow anywhere in the product.
 - Universe cannot recover a lost recovery phrase, move funds, or reverse a transaction.
@@ -43,13 +43,13 @@
 
 ## Everyday tasks
 
-- [Read your activity](https://bitcoinuniverseio.github.io/docs-wallet/tasks/activity): What pending really means, how many confirmations to wait for, and what to do about a transaction that will not confirm.
+- [Read your activity](https://bitcoinuniverseio.github.io/docs-wallet/tasks/activity): Distinguish a saved review, an uncertain submission, and a confirmed result before retrying a payment.
 - [Choose a fee](https://bitcoinuniverseio.github.io/docs-wallet/tasks/choose-a-fee): What the presets mean, how to pick a custom rate, and why the choice matters more here than in most wallets.
 - [Coin control](https://bitcoinuniverseio.github.io/docs-wallet/tasks/coin-control): Where manual coin selection actually exists in this build, what the locked-coins and coin-health screens show, and what is not available.
 - [Connect an application](https://bitcoinuniverseio.github.io/docs-wallet/tasks/connect-an-application): Approve a site's connection request, choose the idle window, and check the one line on the screen that a hostile page cannot forge.
 - [Hardware wallets](https://bitcoinuniverseio.github.io/docs-wallet/tasks/hardware-wallet): Keystone is the one hardware integration present in this build. Ledger and Trezor are shown as coming soon and cannot be connected.
 - [Locking and passwords](https://bitcoinuniverseio.github.io/docs-wallet/tasks/lock-and-password): What the password actually protects, how to set the auto-lock window, and what changing a password does and does not do.
-- [Manage connections](https://bitcoinuniverseio.github.io/docs-wallet/tasks/manage-connections): See every site that can reach the wallet, what each one can read, when it was last used, and how to end one or all of them.
+- [Manage connections](https://bitcoinuniverseio.github.io/docs-wallet/tasks/manage-connections): Inspect connected website origins, revoke their wallet access, and verify that the change was saved.
 - [Receive](https://bitcoinuniverseio.github.io/docs-wallet/tasks/receive): Get an address, create a payment request with an amount and a note, and understand what appears while a payment is still unconfirmed.
 - [Review a PSBT](https://bitcoinuniverseio.github.io/docs-wallet/tasks/review-a-psbt): How to read a partially signed transaction someone else built, which sighash flags change what you are agreeing to, and when to refuse outright.
 - [Review a transaction](https://bitcoinuniverseio.github.io/docs-wallet/tasks/review-a-transaction): How to read the approval screen in the order it is built, the four lines that matter most, and the ones that should make you reject.

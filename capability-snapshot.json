@@ -50,7 +50,7 @@
       ]
     }
   ],
-  "protocolCount": 42,
+  "protocolCount": 43,
   "supportedProtocolCount": 0,
   "anyProtocolSupported": false,
   "protocols": [
@@ -752,6 +752,22 @@
       "intendedOperations": [
         "explore",
         "read"
+      ],
+      "supportedOperations": [],
+      "supportState": "not-in-this-release"
+    },
+    {
+      "id": "zcash",
+      "name": "Zcash",
+      "networks": [
+        "zcash:mainnet",
+        "zcash:testnet"
+      ],
+      "intendedOperations": [
+        "broadcast",
+        "read",
+        "send",
+        "sign"
       ],
       "supportedOperations": [],
       "supportState": "not-in-this-release"

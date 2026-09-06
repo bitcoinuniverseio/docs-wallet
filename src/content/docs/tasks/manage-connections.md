@@ -1,70 +1,67 @@
 ---
 title: Manage connections
-description: See every site that can reach the wallet, what each one can read, when it was last used, and how to end one or all of them.
+description: Inspect connected website origins, revoke their wallet access, and verify that the change was saved.
 sourceRepo: bitcoinuniverseio/wallet
-sourcePath: frontend/ui/pages/ConnectedSites
+sourcePath: frontend/ui/pages/Approval/ConnectedSitesScreen.tsx, frontend/ui/pages/DeveloperPlatform/DeveloperPermissionsScreen.tsx, backend/background/service/permission.ts
 lifecycle: experimental
-lastVerified: 2026-09-01
+lastVerified: 2026-09-06
 ---
 
-**Intended reader:** anyone who has connected sites, which is anyone who has used a marketplace.
-**Goal:** a connection list you recognise, with nothing on it you cannot account for.
+**Intended reader:** anyone who has connected a website to the wallet.
+**Goal:** retain only website permissions you recognize and need.
 **Prerequisites:** an unlocked wallet.
-**Safety:** disconnecting is always safe. It cannot lose funds and cannot break anything permanently.
+**Chain and network:** inspect the chain shown for each connection and the current network before
+approving a later request.
+**Safety:** disconnecting cannot retract a signature or transaction already delivered.
 
 ## Steps
 
-1. Open **Connected sites**.
-2. Read the list. Each entry shows the origin, the address and network it can read, and when it was
-   last used.
-3. Disconnect anything you do not recognise, or no longer use.
-4. There is a control to end every connection at once. Use it if you are unsure.
+1. Open **Connected sites**, or **Connected dApps** from the developer tools.
+2. Read the exact origin for each entry. A site name or icon is not its identity.
+3. Review the displayed chain, connection expiry and prior signature status.
+4. Use **Disconnect** or **Revoke** for an unwanted origin. In Connected sites, confirm the dialog.
+5. Wait for the change to complete, then reopen or refresh the list and confirm that the entry is gone.
 
-## What the list tells you
-
-- **Origin.** What the browser reported. This is the identity that matters.
-- **Scope.** Which address, on which network, this site can read.
-- **Last used.** How recently it interacted with the wallet. An old date on a site you use daily
-  means it is not the connection you think it is.
-
-Universe Wallet also scores connections for risk locally, on your device, and offers to revoke risky
-sites in one step.
-
-## Housekeeping worth doing
-
-- Disconnect anything you tried once and never returned to.
-- Disconnect anything whose origin you do not recognise.
-- After finishing a trade or a mint, disconnect the site. Reconnecting takes one approval.
-- Review the list after anything unexpected happens.
+Both screens use the same saved permissions. The local audit in Connected sites can highlight risky
+or stale entries and offer a group revoke action. Its score is guidance, not proof that a site or
+transaction is safe.
 
 ## Expected result
 
-The list contains only sites you recognise and still use. Disconnected sites must ask again from the
-beginning, and you see the full approval screen when they do.
+A successful revoke removes the origin's saved permission and ends its live wallet session.
+Unexecuted requests must pass the current permission checks before signing or submission. Each new
+signature still requires review; a label showing a prior signature does not authorize future ones.
 
-## What disconnecting does not do
+These changes describe the source candidate. They do not establish a new published release or
+compatibility with every website provider. See
+[Capability evidence](/docs-wallet/reference/capability-evidence).
 
-Disconnecting stops a site from asking for anything new. It does not:
+## How to verify
 
-- reverse a transaction you approved,
-- revoke a signature you already gave, including a partial signature someone can still complete,
-- remove an offer from a marketplace's order book.
+Reload the wallet's list after revoking. A site's own connected indicator can be stale. When the site
+next requests wallet access, inspect the new approval rather than assuming a previous connection
+still applies.
 
-See [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes) for why that
-distinction matters, especially for listings.
+## Common failures and recovery
 
-If you are here because something went wrong, disconnect first, then go to
-[If your wallet is compromised](/docs-wallet/safety/compromised-wallet).
+| What you see | What to do |
+| --- | --- |
+| The wallet reports that revocation failed | Do not assume access ended. Retry, then reload the wallet list |
+| Connected sites cannot be loaded | Retry the read; a load error is not proof that no permissions exist |
+| A site reappears | Check whether you approved a new connection; revoke it again if unwanted |
+| The website still displays a connection | Check the wallet's list and reload the website |
 
-## Common failures
+Do not clear wallet storage as a repair for a failed permission read or write. If the failure
+continues, use [support](/docs-wallet/help/support).
 
-| What you see | What it means | What to do |
-| --- | --- | --- |
-| A site you do not recognise | You connected and forgot, or a page you visited requested it | Disconnect. Then check activity for anything you did not authorize. |
-| A site reappears after disconnecting | It requested again and you approved again | Read the approval window before approving |
-| A site still shows you as connected on its own page | Its display is stale | The wallet's list is authoritative. Reload the page. |
+## What remains valid after disconnecting
+
+Disconnecting does not reverse a transaction, invalidate a signature already supplied, or remove an
+offer from a marketplace's order book. A partial signature may still be usable by someone who holds
+it. See [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes).
 
 ## Related
 
 - [Connection permissions](/docs-wallet/concepts/connections)
 - [Security dashboard](/docs-wallet/tasks/security-dashboard)
+- [If your wallet is compromised](/docs-wallet/safety/compromised-wallet)
