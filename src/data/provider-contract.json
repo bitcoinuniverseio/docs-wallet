@@ -1,7 +1,7 @@
 {
   "schemaVersion": "universe-provider-contract-v1",
   "walletVersion": "1.7.5.8",
-  "walletSourceCommit": "95219da7ba6a4e1e8c68aa1336d6b2798ecd2ad2",
+  "walletSourceCommit": "90a723664e99437aea375299869a8949462d7ecd",
   "generatedFrom": [
     "backend/content-script/pageProvider/index.ts",
     "backend/content-script/pageProvider/pushEventHandlers.ts",
@@ -10,7 +10,7 @@
     "docs/PROTOCOL-RELEASE-MATRIX.json",
     "docs/PUBLIC-CAPABILITY-SUMMARY.json"
   ],
-  "generatedAt": "2026-09-02T19:00:07.076Z",
+  "generatedAt": "2026-09-06T11:12:50.905Z",
   "providerNamespaces": [
     "tapwallet",
     "tap_wallet",
@@ -40,10 +40,10 @@
   ],
   "releaseAuthorization": {
     "supportedProtocolCount": 0,
-    "protocolCount": 42,
+    "protocolCount": 43,
     "anyProtocolSupported": false
   },
-  "methodCount": 48,
+  "methodCount": 49,
   "methods": [
     {
       "id": "analyzeBip110",
@@ -800,6 +800,30 @@
       "requiresApproval": true,
       "protocol": "runes",
       "operation": "transfer",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
+      "id": "sendZcashPayment",
+      "requestMethod": "sendZcashPayment",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "request",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "zcash",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "zcash",
+      "operation": "payment.send",
       "semanticIntent": null,
       "releaseStatus": "not-authorized-in-this-release",
       "releaseEvidence": null
