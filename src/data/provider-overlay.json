@@ -415,6 +415,15 @@
         "unauthorized"
       ]
     },
+    "sendZcashPayment": {
+      "explanation": "Requests review and submission of a Zcash payment through the wallet's payment flow. The generated contract requires a connected, unlocked account and explicit approval.",
+      "safetyNote": "Not authorized in the imported source baseline. Method presence does not establish availability. A response timeout can leave an unknown outcome; retain the original request identity and check its recorded status before attempting another payment.",
+      "example": "try {\n  const result = await provider.sendZcashPayment(request);\n  renderRecordedResult(result);\n} catch {\n  renderUnavailableOrUnknownState();\n}",
+      "relatedGuide": "/docs-wallet/tasks/activity",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
     "signZcashTransaction": {
       "explanation": "Requests a Zcash transaction signature.",
       "safetyNote": "Unauthorized in this release. Zcash signing commits Zcash keys; the Bitcoin authorization snapshot says nothing about it.",
