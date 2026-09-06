@@ -2,9 +2,9 @@
 title: Review a PSBT
 description: How to read a partially signed transaction someone else built, which sighash flags change what you are agreeing to, and when to refuse outright.
 sourceRepo: bitcoinuniverseio/wallet
-sourcePath: backend/shared/utils/psbt-safety.ts, frontend/ui/pages/Approval/components/SignPsbt.tsx
+sourcePath: backend/shared/utils/psbt-safety.ts, frontend/ui/pages/Approval/components/SignPsbt.tsx, backend/background/controller/provider/product-provider-boundary.ts
 lifecycle: experimental
-lastVerified: 2026-09-01
+lastVerified: 2026-09-06
 ---
 
 import Approval from '../../../components/Approval.astro';
@@ -85,6 +85,12 @@ transaction you control.
 - The wallet could not decode part of the request.
 
 ## Expected result
+
+The source candidate checks that selected signing inputs belong to the current account and that the
+returned approval still matches the reviewed transaction. Changing accounts or networks, locking the
+wallet, or revoking the requesting site can invalidate an unexecuted approval. If that happens,
+return to the current request and review it again; do not broaden the selected inputs to bypass a
+refusal. These checks do not establish that every hardware or website integration is available.
 
 Approving returns your signature to the requesting site. It does not necessarily broadcast anything:
 the site may hold your signature until a counterparty completes the transaction.
