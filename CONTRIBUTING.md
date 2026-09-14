@@ -43,6 +43,12 @@ Run `npm test` before opening a pull request. It fails on:
 
 Write plainly. Short paragraphs. Prefer a diagram or a table over three paragraphs of text.
 
+## Browser checks
+
+CI installs the pinned Playwright browser and uses system libraries provisioned on
+the shared runners. Repository jobs do not install operating-system packages.
+The accessibility and overflow audit still checks every built page in both themes.
+
 ## Page structure
 
 Every task guide states, in this order: intended reader, goal, prerequisites, chain and network,

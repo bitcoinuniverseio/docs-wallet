@@ -62,7 +62,9 @@ jobs:
         run: npm run check:bundle
 
       - name: Install a browser for the accessibility audit
-        run: npx playwright install --with-deps chromium
+        # System libraries are provisioned in the shared runner image.
+        # Do not contend for the host package manager during a repository job.
+        run: npx playwright install chromium
 
       # A plain static server rather than the dev toolchain, so the audit tests
       # exactly the bytes that will be deployed and does not depend on a dev
