@@ -2,34 +2,6 @@
   "schemaVersion": "universe-provider-docs-overlay-v1",
   "_comment": "Documentation overlay keyed by generated provider method ID. Every generated method must appear here and every key here must exist in the generated contract. import-provider-contract.mjs enforces both directions.",
   "methods": {
-    "initialize": {
-      "explanation": "Prepares the injected provider for the page. Every wallet site calls this once before anything else; it resolves as soon as the provider can answer requests.",
-      "safetyNote": "Initialization carries no account data and asks for nothing. If it never resolves, the wallet is locked, absent, or mid-approval; show a 'wallet not detected' state instead of retrying in a loop.",
-      "example": "const provider = window.universe;\nawait provider.initialize();",
-      "relatedGuide": "/docs-wallet/developers/integration",
-      "simulatedScenarios": [
-        "success",
-        "disconnected"
-      ]
-    },
-    "tryDetectTab": {
-      "explanation": "Registers the current tab with the wallet so the provider knows which origin it is talking to. Called during initialization; sites normally never call it directly.",
-      "safetyNote": "Detection is origin bookkeeping. It never grants account access; that still requires an explicit connection approval.",
-      "example": "// handled by initialize(); shown here for completeness\nawait provider.tryDetectTab();",
-      "relatedGuide": "/docs-wallet/developers/integration",
-      "simulatedScenarios": [
-        "success"
-      ]
-    },
-    "keepAlive": {
-      "explanation": "Long-lived pages (dashboards, games) call this periodically so the background stays warm while the user works.",
-      "safetyNote": "Keep-alive traffic carries no data. Throttle it; a call per frame wastes the user's battery for nothing.",
-      "example": "setInterval(() => provider.keepAlive().catch(() => {}), 30_000);",
-      "relatedGuide": "/docs-wallet/developers/integration",
-      "simulatedScenarios": [
-        "success"
-      ]
-    },
     "requestAccounts": {
       "explanation": "Opens the connection approval. If the user approves, the site receives the account identifier it may show; if they reject, the promise rejects.",
       "safetyNote": "This is the one call that may interrupt the user with a window. Call it only from a direct, labeled user action such as a Connect button, and always handle rejection as a normal outcome, not an error state.",
@@ -168,24 +140,6 @@
       "safetyNote": "Verification is pure and public: it never touches the user's wallet. A valid proof says the key holder signed; it says nothing about why.",
       "example": "const ok = await provider.verifyMessageOfBIP322Simple({\n  address,\n  message,\n  signature,\n});",
       "relatedGuide": "/docs-wallet/tasks/sign-a-message",
-      "simulatedScenarios": [
-        "success"
-      ]
-    },
-    "getBip110DeploymentState": {
-      "explanation": "Reads the deployment state the wallet has recorded for BIP-110 pay-to-contract identifiers.",
-      "safetyNote": "The state reflects what the wallet's configured sources report. Treat it as a cache, not an oracle.",
-      "example": "const state = await provider.getBip110DeploymentState();",
-      "relatedGuide": "/docs-wallet/assets/protocol-registry",
-      "simulatedScenarios": [
-        "success"
-      ]
-    },
-    "analyzeBip110": {
-      "explanation": "Analyzes a BIP-110 identifier and returns what the wallet can determine about it.",
-      "safetyNote": "Analysis is read-only. Nothing in the response authorizes a transfer.",
-      "example": "const analysis = await provider.analyzeBip110(identifier);",
-      "relatedGuide": "/docs-wallet/assets/protocol-registry",
       "simulatedScenarios": [
         "success"
       ]
@@ -438,6 +392,24 @@
       "safetyNote": "Unauthorized in this release. Broadcasting is irreversible on every chain.",
       "example": "try {\n  await provider.broadcastZcashTransaction(request);\n} catch {\n  renderUnavailableState();\n}",
       "relatedGuide": "/docs-wallet/concepts/inputs-outputs-fees",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "sendZcashPayment": {
+      "explanation": "Requests approval to send a Zcash payment.",
+      "safetyNote": "Unavailable in this release. Requires wallet permission, an unlocked account, and explicit approval; check the current capability response before offering this action.",
+      "example": "try {\n  await provider.sendZcashPayment(request);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/concepts/what-a-signature-authorizes",
+      "simulatedScenarios": [
+        "unauthorized"
+      ]
+    },
+    "signZcashMarketSettlement": {
+      "explanation": "Requests a signature for a Zcash market settlement.",
+      "safetyNote": "Unavailable in this release. Requires wallet permission, an unlocked account, and explicit approval; check the current capability response before offering this action.",
+      "example": "try {\n  await provider.signZcashMarketSettlement(request);\n} catch {\n  renderUnavailableState();\n}",
+      "relatedGuide": "/docs-wallet/concepts/what-a-signature-authorizes",
       "simulatedScenarios": [
         "unauthorized"
       ]

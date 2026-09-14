@@ -121,7 +121,7 @@ rather than assuming. See [Capability evidence](/docs-wallet/reference/capabilit
 const caps = await window.tapwallet.getCapabilities();
 // caps.namespace === 'bitcoinuniverse'
 // caps.capabilitiesVersion === 2
-// caps.bitcoin, caps.dogecoin, caps.zcash, caps.bip110, caps.atomicals,
+// caps.bitcoin, caps.dogecoin, caps.zcash, caps.atomicals,
 // caps.protocols, caps.protocolOperations are boolean maps.
 ```
 
@@ -471,7 +471,7 @@ const signed = await window.tapwallet.signPsbt('70736274ff01007d...', {
 
 `signAndPushPsbt(psbtHex, options?)`
 
-**Returns** `Promise<Object>`: `psbtHex`, `rawtx`, `txid`, and `bip110`.
+**Returns** `Promise<Object>`: `psbtHex`, `rawtx`, and `txid`.
 
 `signAndBroadcastPsbt(psbtHex, options?)` is an alias for this method.
 
@@ -491,8 +491,6 @@ These carry protocol and operation gates, so they can be unavailable in a build.
 | `inscribeTransfer` | `(ticker: string, amount: string)`, returns `{inscriptionId, inscriptionNumber, ticker, amount}` |
 | `requestMint` | `(options?: Object)`, returns `{status, orderId, txid, psbtHex?}` |
 | `requestArc20Mint` | `(options?: Object)`, delegates to `requestMint` |
-| `getBip110DeploymentState` | `()` |
-| `analyzeBip110` | `({ psbtHex })` or `({ rawtx })`, exactly one of the two |
 | `isAtomicalsEnabled` | `()`, returns `boolean` |
 | `getDogecoinMarketplaceAccount` | `()`, returns `{address, publicKey, network}` or `null` |
 | `getDogecoinMarketplaceFundingInputs` | `(minimumValueSats: string, maxInputs = 20)` |
