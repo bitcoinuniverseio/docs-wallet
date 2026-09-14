@@ -127,22 +127,6 @@
       "supportState": "not-in-this-release"
     },
     {
-      "id": "bip-110",
-      "name": "BIP-110",
-      "networks": [
-        "bitcoin:mainnet",
-        "bitcoin:signet",
-        "bitcoin:testnet",
-        "bitcoin:testnet4"
-      ],
-      "intendedOperations": [
-        "explore",
-        "read"
-      ],
-      "supportedOperations": [],
-      "supportState": "not-in-this-release"
-    },
-    {
       "id": "bitcoin",
       "name": "Bitcoin",
       "networks": [
@@ -757,6 +741,23 @@
       "supportState": "not-in-this-release"
     },
     {
+      "id": "zcash",
+      "name": "Zcash",
+      "networks": [
+        "zcash:mainnet",
+        "zcash:testnet"
+      ],
+      "intendedOperations": [
+        "broadcast",
+        "payment.send",
+        "read",
+        "send",
+        "sign"
+      ],
+      "supportedOperations": [],
+      "supportState": "not-in-this-release"
+    },
+    {
       "id": "zerdinals",
       "name": "Zerdinals",
       "networks": [
@@ -767,6 +768,9 @@
         "broadcast",
         "explore",
         "inscribe",
+        "market-buy",
+        "market-list",
+        "market-settle",
         "read",
         "sign",
         "transfer"

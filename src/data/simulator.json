@@ -1,10 +1,10 @@
 {
   "schemaVersion": "universe-docs-simulator-imported-v1",
-  "importedAt": "2026-09-02T20:24:32.637Z",
+  "importedAt": "2026-09-14T18:51:41.535Z",
   "walletVersion": "1.7.5.8",
-  "walletSourceCommit": "95219da7ba6a4e1e8c68aa1336d6b2798ecd2ad2",
+  "walletSourceCommit": "85ec7b70dd810472efd3602215b2ebf12354aa08",
   "artifactPath": "simulator/app/",
-  "entrySha256": "91b8ed2879562c1f3c873601f281db4a72d4b293bf28a7909f879657a9fbd2fa",
+  "entrySha256": "29daff05e369c2c6c4df8172eca2bd82b4daad91b98ed0f8d3f40996048b6d93",
   "isolation": {
     "offlineByConstruction": true,
     "noExtensionApis": true,

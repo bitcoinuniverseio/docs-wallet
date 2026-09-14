@@ -1,7 +1,7 @@
 {
   "schemaVersion": "universe-provider-contract-v1",
   "walletVersion": "1.7.5.8",
-  "walletSourceCommit": "95219da7ba6a4e1e8c68aa1336d6b2798ecd2ad2",
+  "walletSourceCommit": "85ec7b70dd810472efd3602215b2ebf12354aa08",
   "generatedFrom": [
     "backend/content-script/pageProvider/index.ts",
     "backend/content-script/pageProvider/pushEventHandlers.ts",
@@ -10,7 +10,7 @@
     "docs/PROTOCOL-RELEASE-MATRIX.json",
     "docs/PUBLIC-CAPABILITY-SUMMARY.json"
   ],
-  "generatedAt": "2026-09-02T19:00:07.076Z",
+  "generatedAt": "2026-09-14T18:47:05.517Z",
   "providerNamespaces": [
     "tapwallet",
     "tap_wallet",
@@ -43,32 +43,8 @@
     "protocolCount": 42,
     "anyProtocolSupported": false
   },
-  "methodCount": 48,
+  "methodCount": 45,
   "methods": [
-    {
-      "id": "analyzeBip110",
-      "requestMethod": "analyzeBip110",
-      "aliases": [],
-      "parameters": [
-        {
-          "name": "params",
-          "type": "{ psbtHex?: string; rawtx?: string }",
-          "optional": false
-        }
-      ],
-      "category": "public-read",
-      "effect": "read",
-      "public": true,
-      "accountSensitive": false,
-      "requiresPermission": false,
-      "requiresUnlock": false,
-      "requiresApproval": false,
-      "protocol": "bip-110",
-      "operation": "read",
-      "semanticIntent": null,
-      "releaseStatus": "not-authorized-in-this-release",
-      "releaseEvidence": null
-    },
     {
       "id": "broadcastZcashTransaction",
       "requestMethod": "broadcastZcashTransaction",
@@ -163,24 +139,6 @@
       "operation": null,
       "semanticIntent": null,
       "releaseStatus": "available-without-protocol-authorization",
-      "releaseEvidence": null
-    },
-    {
-      "id": "getBip110DeploymentState",
-      "requestMethod": "getBip110DeploymentState",
-      "aliases": [],
-      "parameters": [],
-      "category": "public-read",
-      "effect": "read",
-      "public": true,
-      "accountSensitive": false,
-      "requiresPermission": false,
-      "requiresUnlock": false,
-      "requiresApproval": false,
-      "protocol": "bip-110",
-      "operation": "read",
-      "semanticIntent": null,
-      "releaseStatus": "not-authorized-in-this-release",
       "releaseEvidence": null
     },
     {
@@ -451,24 +409,6 @@
       "releaseEvidence": null
     },
     {
-      "id": "initialize",
-      "requestMethod": "getProviderState",
-      "aliases": [],
-      "parameters": [],
-      "category": "account-read",
-      "effect": "read",
-      "public": true,
-      "accountSensitive": true,
-      "requiresPermission": false,
-      "requiresUnlock": false,
-      "requiresApproval": false,
-      "protocol": null,
-      "operation": null,
-      "semanticIntent": null,
-      "releaseStatus": "available-without-protocol-authorization",
-      "releaseEvidence": null
-    },
-    {
       "id": "inscribeTransfer",
       "requestMethod": "inscribeTransfer",
       "aliases": [],
@@ -500,24 +440,6 @@
     {
       "id": "isAtomicalsEnabled",
       "requestMethod": "isAtomicalsEnabled",
-      "aliases": [],
-      "parameters": [],
-      "category": "public-read",
-      "effect": "read",
-      "public": true,
-      "accountSensitive": false,
-      "requiresPermission": false,
-      "requiresUnlock": false,
-      "requiresApproval": false,
-      "protocol": null,
-      "operation": null,
-      "semanticIntent": null,
-      "releaseStatus": "available-without-protocol-authorization",
-      "releaseEvidence": null
-    },
-    {
-      "id": "keepAlive",
-      "requestMethod": "keepAlive",
       "aliases": [],
       "parameters": [],
       "category": "public-read",
@@ -805,6 +727,30 @@
       "releaseEvidence": null
     },
     {
+      "id": "sendZcashPayment",
+      "requestMethod": "sendZcashPayment",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "request",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "zcash",
+      "effect": "broadcast",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "zcash",
+      "operation": "payment.send",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
       "id": "signAndBroadcastPsbt",
       "requestMethod": "signAndPushPsbt",
       "aliases": [
@@ -1053,6 +999,30 @@
       "releaseEvidence": null
     },
     {
+      "id": "signZcashMarketSettlement",
+      "requestMethod": "signZcashMarketSettlement",
+      "aliases": [],
+      "parameters": [
+        {
+          "name": "request",
+          "type": "unknown",
+          "optional": false
+        }
+      ],
+      "category": "zcash",
+      "effect": "sign",
+      "public": false,
+      "accountSensitive": true,
+      "requiresPermission": true,
+      "requiresUnlock": true,
+      "requiresApproval": true,
+      "protocol": "zerdinals",
+      "operation": "market-settle",
+      "semanticIntent": null,
+      "releaseStatus": "not-authorized-in-this-release",
+      "releaseEvidence": null
+    },
+    {
       "id": "signZcashTransaction",
       "requestMethod": "signZcashTransaction",
       "aliases": [],
@@ -1118,24 +1088,6 @@
       "requiresPermission": true,
       "requiresUnlock": true,
       "requiresApproval": true,
-      "protocol": null,
-      "operation": null,
-      "semanticIntent": null,
-      "releaseStatus": "available-without-protocol-authorization",
-      "releaseEvidence": null
-    },
-    {
-      "id": "tryDetectTab",
-      "requestMethod": "tabCheckin",
-      "aliases": [],
-      "parameters": [],
-      "category": "connection-mutation",
-      "effect": "mutation",
-      "public": true,
-      "accountSensitive": false,
-      "requiresPermission": false,
-      "requiresUnlock": false,
-      "requiresApproval": false,
       "protocol": null,
       "operation": null,
       "semanticIntent": null,
