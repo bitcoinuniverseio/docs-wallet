@@ -67,7 +67,7 @@
 - [What this release authorizes](https://bitcoinuniverseio.github.io/docs-wallet/assets/support-state): The generated answer to which protocol operations Universe Wallet 1.7.5.8 authorizes, and why the number is what it is.
 - [What a digital artifact is](https://bitcoinuniverseio.github.io/docs-wallet/assets/what-a-digital-artifact-is): How an inscription, a token balance, and a rare satoshi actually exist on Bitcoin, and why that makes them fragile in an ordinary wallet.
 - [Why an action is unavailable](https://bitcoinuniverseio.github.io/docs-wallet/assets/why-unavailable): What the unavailable screen means, what it is not, and the list of things that will not change it.
-- [Zcash market listings](https://bitcoinuniverseio.github.io/docs-wallet/assets/zcash-market-listings): What a Zerdinal listing signature commits you to, why the approval can be blocked outright, and why cancelling a listing is only advisory.
+- [Zcash market listings](https://bitcoinuniverseio.github.io/docs-wallet/assets/zcash-market-listings): Review Zerdinal listings and full token lots with exact total prices, clear quantities, and a separate purchase approval.
 
 ## Safety
 
