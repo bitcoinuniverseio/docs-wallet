@@ -66,14 +66,10 @@ jobs:
         # Do not contend for the host package manager during a repository job.
         run: npx playwright install chromium
 
-      # A plain static server rather than the dev toolchain, so the audit tests
-      # exactly the bytes that will be deployed and does not depend on a dev
-      # server starting inside a fixed window.
-      - name: Serve the built site
-        run: npm run serve:dist &
-
+      # One process owns a loopback ephemeral-port preview and its audit child.
+      # Readiness checks the per-run identity and exact build, with bounded waits.
       - name: Accessibility and horizontal overflow, every page, both themes
-        run: npx wait-on http://localhost:4328/docs-wallet/ && npm run check:a11y
+        run: npm run check:a11y
 
       - name: Secret scan (full history)
         uses: trufflesecurity/trufflehog@v3.90.5
