@@ -5,7 +5,7 @@
 // the source intends. Fails on any axe violation at serious or critical impact,
 // and on any page that scrolls horizontally at 320px.
 //
-// Run: npx astro preview --port 4323 & node scripts/check-accessibility.mjs
+// Run: npm run check:a11y (owns and verifies its built preview).
 
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';

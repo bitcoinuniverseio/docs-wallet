@@ -1,88 +1,96 @@
 ---
 title: Zcash market listings
-description: What a Zerdinal listing signature commits you to, why the approval can be blocked outright, and why cancelling a listing is only advisory.
+description: Review Zerdinal listings and full token lots with exact total prices, clear quantities, and a separate purchase approval.
 sourceRepo: bitcoinuniverseio/wallet
-sourcePath: backend/shared/utils/zcash-tx.ts, frontend/ui/pages/Approval/components/ZcashSignMarketListing.tsx
+sourcePath: backend/shared/utils/zcash-market-settlement.ts, frontend/ui/pages/Approval/components/ZcashSignMarketSettlement/index.tsx
 chain: [zcash]
 lifecycle: not-released
-lastVerified: 2026-09-01
+lastVerified: 2026-09-17
 ---
 
 import { Aside } from '@astrojs/starlight/components';
-import snapshot from '../../../../capability-snapshot.json';
 
-Universe Wallet implements listing signatures for the Universe market's signed-order protocol, ZMarket
-Orders v1: a fixed-price offer to sell a Zerdinal inscription.
+Universe Wallet's source supports Zerdinal listings and full-lot purchases of ZRune and ZRC-20
+tokens. A full lot moves everything listed on one outpoint in one purchase. It does not split the
+lot into partial fills.
 
-<Aside type="danger" title="Not available in any released build">
-`market-list` sits on the Zerdinals intent list, and the release matrix authorizes it nowhere. In
-{snapshot.walletVersion} the authorized count is {snapshot.supportedProtocolCount} of{' '}
-{snapshot.protocolCount}. The build currently served by the Chrome Web Store is older still and
-predates Zcash support entirely, so it cannot sign a Zerdinal under any circumstance. Until a release
-carries the evidence, a listing request fails closed and names what is missing. See
-[Which version you are running](/docs-wallet/start/versions).
+<Aside type="caution" title="Check your installed build">
+This source update is not an extension release. Listing and purchase signing require the installed
+build to authorize the corresponding operation. Source tests alone do not make the controls
+available. If the wallet reports that an operation is unavailable, keep that restriction in place.
+See [Which version you are running](/docs-wallet/start/versions) and
+[What this release authorizes](/docs-wallet/assets/support-state).
 </Aside>
 
-## One signature, one exact outcome
+## What you are buying
 
-A listing is a single signature under `SIGHASH_SINGLE | ANYONECANPAY` over a Zcash transaction digest
-computed from the listing terms alone. It binds your asset outpoint to exactly one outcome: any
-transaction that spends that outpoint must pay your own address the exact listed price. Everything
-else about the final settlement is the buyer's to build, and your signature deliberately does not
-constrain it.
+| Asset | What the lot represents |
+| --- | --- |
+| ZRune | The listed token balance carried by one outpoint |
+| ZRC-20 (zord) | One pending transfer inscription evaluated under zord rules |
+| ZRC-20 (zecscriptions) | One pending transfer inscription evaluated under zecscriptions rules |
 
-There is no escrow and no service custody. The market cannot move your asset, and equally your
-signature cannot choose the buyer: anyone holding it can settle the offer by paying you.
+The two ZRC-20 rulesets have separate identities and balances. A matching ticker does not make them
+interchangeable. The purchase approval names the selected ruleset.
 
-## What the wallet checks before showing the approval
+## Read the quantity and total together
 
-- The request contains exactly the listing terms and optional asset evidence. Any other field is
-  rejected before anything is reviewed.
-- The seller address is the connected account's own Zcash address, and the payout script pays that
-  same address, so the wallet never authorizes a sale of someone else's asset or a payout to anyone
-  else.
-- The network in the terms matches the active wallet chain.
-- The pinned consensus branch matches the network's next block, so the listing becomes invalid by
-  construction across a network upgrade.
-- The price is above the relayable floor, and the platform fee amount and fee script are consistent
-  with each other.
+The approval shows **Full lot** in base units and **Total lot price** in ZEC or testnet ZEC.
+Base units are the token's smallest units, not necessarily whole tokens. For a token with 18 decimal
+places, `100000000000000000000` base units represent 100 tokens. Confirm the token's decimal places
+and lot on the market before approving.
 
-## Why the approval can be blocked
+New total-price lots can have a price smaller than one zatoshi per base unit. The wallet shows their
+exact total without inventing a rounded unit price. Existing per-unit listings retain their exact
+price per base unit and also show the derived total.
 
-The signature sells everything the listed outpoint carries, so the wallet requires an asset verdict
-for that outpoint before it lets you approve.
+Review **Buyer debit**, the seller proceeds, creator payout, platform fee, network fee, change, and
+maximum debit. Check the delivery address separately from the address receiving your change.
+A signature does not mean the asset has arrived: delivery remains pending until the transaction is
+confirmed and indexed.
 
-- An outpoint with **no asset verdict** blocks the approval, because what the signature would sell
-  cannot be shown.
-- A verdict that **does not carry the listed asset** blocks the approval and names the mismatch.
-- An outpoint carrying **more than the listed asset** is shown in full, because a sale delivers all of
-  it together.
+## What a listing signature allows
 
-Blocked is not a warning you can click through. The approve control stays disabled and the screen
-states the reason in the same words the wallet enforces.
+A listing signature commits one asset outpoint to an exact seller payout. The payout must return
+to your connected wallet address. Anyone holding the signature can settle a conforming purchase;
+it does not reserve the offer for a particular buyer.
 
-## The three consequences of approving
+There is no escrow or service custody. Review the exact amount you will receive, the listed
+outpoint and everything it carries, its expiry, and the selected network before signing.
 
-1. **A listing is a public offer.** Anyone can settle it at exactly these terms.
-2. **Cancellation is advisory.** Cancelling removes the listing from the market. The signature stays
-   valid until the asset moves or the expiry block passes. The only certain revocation is transferring
-   the asset to yourself.
-3. **The ZEC riding on the asset outpoint transfers to the buyer with the asset.** Set the price with
-   that in mind.
+## Why an approval can be blocked
 
-The screen also shows the exact amount you are paid, the platform fee, which the buyer pays, the block
-at which the offer dies, the consensus branch, the outpoint being committed, and the digest the
-signature is over.
+The wallet refuses an unverifiable asset outpoint, a mismatched account or network, a changed
+consensus branch, invalid transaction bytes, or a buyer debit above the approved maximum.
+A token purchase must settle the full lot from one outpoint. Partial fills and additional lot
+outpoints are refused.
+
+The wallet verifies its own funding and checks asset claims from Universe-operated services.
+The market and indexer establish the token quantity and ruleset. Missing or conflicting evidence
+must be resolved before approval; a disabled approve control is not a warning to click through.
+
+## Cancellation and expiry
+
+1. **A listing is public.** Anyone can settle it while its signature remains valid.
+2. **Cancellation removes the market offer.** It does not revoke a signature already supplied.
+   A confirmed spend of the listed outpoint invalidates that offer. A positive expiry also limits
+   the signature; an offer marked **No expiry** has no expiry block.
+3. **The ZEC riding on the asset outpoint transfers with it.** Consider that value when setting
+   your selling price.
+
+Disconnecting a site does not revoke a previously issued listing signature.
 
 ## After you approve
 
-Approval alone signs nothing. The wallet re-reviews the exact terms after your approval and before any
-key material is touched, and checks the consensus branch against the network again. If the terms no
-longer match what you saw, or the asset can no longer be verified, the wallet refuses instead of
-signing.
+The wallet checks the request again before signing. Changes to the account, network, site,
+reviewed order, transaction, or maximum debit require a fresh approval. Purchase signing touches
+only the reviewed buyer inputs and preserves the seller's authorization and transaction outputs.
+
+If a submitted purchase has an unknown outcome, retain its execution identity and check its
+recorded status before retrying. Do not assume an interrupted page means the transaction failed.
 
 ## Related
 
 - [What a signature authorizes](/docs-wallet/concepts/what-a-signature-authorizes)
-- [Review a PSBT](/docs-wallet/tasks/review-a-psbt)
+- [Connection permissions](/docs-wallet/concepts/connections)
 - [What this release authorizes](/docs-wallet/assets/support-state)
