@@ -1,6 +1,6 @@
 ---
 title: Manage connections
-description: See every site that can reach the wallet, what each one can read, when it was last used, and how to end one or all of them.
+description: Identify connected sites by origin and chain, read the displayed connection state, and verify that revocation was saved.
 sourceRepo: bitcoinuniverseio/wallet
 sourcePath: frontend/ui/pages/Approval/ConnectedSitesScreen.tsx, backend/background/service/permission.ts
 lifecycle: experimental
@@ -15,8 +15,7 @@ lastVerified: 2026-09-17
 ## Steps
 
 1. Open **Connected sites**.
-2. Read the list. Each entry shows the origin, the address and network it can read, and when it was
-   last used.
+2. Read the exact origin and displayed chain for each entry. A site name or icon is not its identity.
 3. Disconnect anything you do not recognise, or no longer use.
 4. If you use a group revoke action, check the result for each affected site.
 5. Wait for the wallet to confirm that removal was saved. Reload the wallet's connection list and
@@ -24,10 +23,12 @@ lastVerified: 2026-09-17
 
 ## What the list tells you
 
-- **Origin.** What the browser reported. This is the identity that matters.
-- **Scope.** Which address, on which network, this site can read.
-- **Last used.** How recently it interacted with the wallet. An old date on a site you use daily
-  means it is not the connection you think it is.
+- **Origin.** The exact website origin reported to the wallet.
+- **Chain.** The chain shown on the connection card.
+- **Signature status.** The card shows **Signed** or **Unsigned**. This does not replace reviewing
+  a new signature request.
+- **Connection state.** The card shows **Active** or **Stored only** for the saved record.
+- **Expiry.** Read the expiry text displayed for that connection.
 
 Universe Wallet also scores connections for risk locally, on your device, and offers to revoke risky
 sites in one step.
