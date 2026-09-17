@@ -2,9 +2,9 @@
 title: Read your activity
 description: What pending really means, how many confirmations to wait for, and what to do about a transaction that will not confirm.
 sourceRepo: bitcoinuniverseio/wallet
-sourcePath: frontend/ui/pages/Wallet/HistoryScreen.tsx
+sourcePath: frontend/ui/pages/Wallet/HistoryScreen/index.tsx
 lifecycle: experimental
-lastVerified: 2026-09-01
+lastVerified: 2026-09-17
 ---
 
 import { Aside } from '@astrojs/starlight/components';
@@ -19,7 +19,13 @@ import { Aside } from '@astrojs/starlight/components';
 | --- | --- |
 | Pending | Broadcast, sitting in the mempool, not in a block. It can still be dropped. |
 | Confirmed | Included in a block. Each new block adds a confirmation. |
-| Failed | The network rejected it. Nothing moved and no fee was paid. |
+| Failed | A failure was reported. Check the recorded evidence to distinguish a rejected request from an unknown outcome. |
+
+A timeout, interrupted page or error message alone does not establish that no funds moved or no fee
+was paid. For a marketplace purchase, keep the existing execution or request reference and return to
+that purchase to check its recorded status. Do not start a replacement purchase or clear wallet
+storage to resolve an uncertain outcome. See
+[Zcash market listings](/docs-wallet/assets/zcash-market-listings).
 
 ## How many confirmations
 
