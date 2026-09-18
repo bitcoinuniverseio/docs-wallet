@@ -1,8 +1,8 @@
 {
   "schemaVersion": "universe-education-fixtures-v1",
   "walletVersion": "1.7.5.8",
-  "walletSourceCommit": "ad696c7dbadab0ae2dbc1fc18551c7b647628386",
-  "generatedAt": "2026-09-02T18:50:15.179Z",
+  "walletSourceCommit": "a971a076d5786ca789fc93a17a126a840aac8e6b",
+  "generatedAt": "2026-09-06T11:35:42.407Z",
   "privacyNotes": "All addresses are synthetic examples, all txids are repeated-letter patterns, and no key material, signature, or seed phrase exists in any fixture.",
   "fixtureCount": 9,
   "fixtures": [
