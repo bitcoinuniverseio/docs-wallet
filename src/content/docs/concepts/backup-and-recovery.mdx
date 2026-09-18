@@ -24,12 +24,9 @@ authorize moving them, and the recovery phrase reproduces those keys anywhere.
 
 ## What the phrase restores
 
-Everything that is money:
+The phrase restores keys derived from that phrase when the receiving wallet uses the same passphrase, derivation paths, network and address formats. BIP-39 compatibility alone does not establish support for every account or product.
 
-- every account in the wallet,
-- every network,
-- every address type,
-- on any device, in any BIP-39 compatible wallet, not only this one.
+Separately imported keys and hardware-wallet keys require their own backups. This page does not promise seed-only recovery of Lightning channel state, Taproot Assets proofs and databases, Spark recovery data or mobile pairing state.
 
 ## What the phrase does not restore
 
@@ -41,8 +38,7 @@ Everything that is a setting:
 - coins you locked yourself,
 - spending limits.
 
-These live on the device. After a restore, your funds and assets are all there, and your preferences
-are not. Expect to set them up again. Nothing about that indicates a failed restore.
+These settings live on the device. After restoring keys, check known addresses, the selected network and authoritative balances before using the wallet. Restore separate product backups where required. Missing history or preferences does not by itself prove that funds were lost.
 
 ## The five situations
 
@@ -88,3 +84,9 @@ The window closes the moment anything happens to that browser profile.
 - [Back up your recovery phrase](/docs-wallet/start/back-up)
 - [Import an existing wallet](/docs-wallet/start/import-a-wallet)
 - [Locking and passwords](/docs-wallet/tasks/lock-and-password)
+
+## Interrupted operations and device pairing
+
+A storage error or missing reply does not prove that a payment failed. Keep the original operation reference and check that operation instead of creating another payment. Do not erase unresolved history to clear an error.
+
+Development work on atomic mobile metadata receipts does not mean mobile pairing is publicly released. Pairing keys, replay counters and metadata history are not recreated by the recovery phrase. Do not copy an old counter backward or reuse an old pairing key after a reset. Public capabilities remain those listed by the current release, not those present only in source.
