@@ -37,7 +37,8 @@ repository's verified artifacts:
 1. **The published Chrome Web Store build is 1.0.13, from 15 April 2025.** This documentation is
    written against the 1.7.5.8 source tree, which has not been submitted or published. Where the
    documentation and a reader's wallet disagree, the wallet is correct.
-2. **The committed protocol baseline authorizes 0 of 42 protocols.** Authorization is attached at
+2. **The committed protocol baseline carries no authorized protocol operations.** Read the generated
+   `capability-snapshot.json` for the current inventory. Authorization is attached at
    release time from evidence covering the whole path behind an operation. Nothing here may present an
    unreleased operation as available.
 

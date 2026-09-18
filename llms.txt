@@ -48,6 +48,7 @@
 - [Coin control](https://bitcoinuniverseio.github.io/docs-wallet/tasks/coin-control): Where manual coin selection actually exists in this build, what the locked-coins and coin-health screens show, and what is not available.
 - [Connect an application](https://bitcoinuniverseio.github.io/docs-wallet/tasks/connect-an-application): Approve a site's connection request, choose the idle window, and check the one line on the screen that a hostile page cannot forge.
 - [Hardware wallets](https://bitcoinuniverseio.github.io/docs-wallet/tasks/hardware-wallet): Keystone is the one hardware integration present in this build. Ledger and Trezor are shown as coming soon and cannot be connected.
+- [Inspect a Lightning invoice](https://bitcoinuniverseio.github.io/docs-wallet/tasks/inspect-lightning-invoice): Read invoice details without sending a payment.
 - [Locking and passwords](https://bitcoinuniverseio.github.io/docs-wallet/tasks/lock-and-password): What the password actually protects, how to set the auto-lock window, and what changing a password does and does not do.
 - [Manage connections](https://bitcoinuniverseio.github.io/docs-wallet/tasks/manage-connections): Identify connected sites by origin and chain, read the displayed connection state, and verify that revocation was saved.
 - [Receive](https://bitcoinuniverseio.github.io/docs-wallet/tasks/receive): Get an address, create a payment request with an amount and a note, and understand what appears while a payment is still unconfirmed.
