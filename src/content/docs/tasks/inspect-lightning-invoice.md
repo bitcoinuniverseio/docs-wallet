@@ -1,6 +1,10 @@
 ---
 title: Inspect a Lightning invoice
 description: Read invoice details without sending a payment.
+sourceRepo: bitcoinuniverseio/wallet
+sourcePath: frontend/ui/pages/Lightning/LightningInvoiceInspector.tsx
+lifecycle: experimental
+lastVerified: 2026-09-14
 ---
 
 This flow belongs to the unreleased Wallet source candidate. It is not a claim
