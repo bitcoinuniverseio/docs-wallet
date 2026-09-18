@@ -12,7 +12,7 @@ import BackupRecovery from '../../../components/diagrams/BackupRecovery.astro';
 import { Aside } from '@astrojs/starlight/components';
 
 Your coins are not in the extension. They are on the chain. The extension holds the keys that
-authorize moving them, and the recovery phrase reproduces those keys anywhere.
+authorize moving them. A compatible wallet can reproduce phrase-derived keys from the same recovery details.
 
 <Diagram title="Which loss the recovery phrase covers, and the one it does not">
   <BackupRecovery />
@@ -89,4 +89,4 @@ The window closes the moment anything happens to that browser profile.
 
 A storage error or missing reply does not prove that a payment failed. Keep the original operation reference and check that operation instead of creating another payment. Do not erase unresolved history to clear an error.
 
-Development work on atomic mobile metadata receipts does not mean mobile pairing is publicly released. Pairing keys, replay counters and metadata history are not recreated by the recovery phrase. Do not copy an old counter backward or reuse an old pairing key after a reset. Public capabilities remain those listed by the current release, not those present only in source.
+Development work on authenticated mobile metadata receipts and interrupted-pairing recovery does not mean mobile pairing is publicly released. Pairing keys, replay counters and metadata history are not recreated by the recovery phrase. Do not copy an old counter backward or reuse an old pairing key after a reset. Public capabilities remain those listed by the current release, not those present only in source.
