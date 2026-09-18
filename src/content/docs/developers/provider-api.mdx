@@ -4,7 +4,7 @@ description: The JavaScript provider Universe Wallet injects into pages, with th
 sourceRepo: bitcoinuniverseio/wallet
 sourcePath: backend/content-script/pageProvider/index.ts, backend/background/controller/provider/controller.ts
 lifecycle: experimental
-lastVerified: 2026-09-01
+lastVerified: 2026-09-06
 ---
 
 import { Aside } from '@astrojs/starlight/components';
@@ -497,8 +497,15 @@ These carry protocol and operation gates, so they can be unavailable in a build.
 | `signDogecoinMessage` | `(message: string)`, returns `string` |
 | `signDogecoinMarketplaceAction` | `(preparedAction)` |
 | `getZcashAccount`, `getZcashBalance` | `()`, returns an object or `null` |
+| `sendZcashPayment` | `(request)`, requires connection, unlock and explicit approval; unavailable in the imported source baseline |
 | `signZcashTransaction`, `broadcastZcashTransaction`, `signZcashMarketListing` | `(request)` |
 | `getVersion` | `()`, returns the build version string |
+
+A method appearing in the generated contract does not establish that it is enabled. In particular,
+`sendZcashPayment` remains gated by the exact Zcash payment operation's release evidence. A submitted
+payment identifier is not settlement proof. Preserve the original request identity across a lost
+response and use the wallet's recorded status before initiating another payment. See
+[Read your activity](/docs-wallet/tasks/activity).
 
 ## Events
 
