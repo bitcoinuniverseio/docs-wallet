@@ -2,7 +2,7 @@
 title: Universe Web Wallet
 description: The extension-free Universe Web Wallet and Universe Shielded Wallet, why they are not yet available, how they differ from the extension, and what a wallet stored in a browser page can lose.
 sourceRepo: bitcoinuniverseio/wallet
-sourcePath: backend/shared/web-wallet/, frontend/ui/web-wallet/
+sourcePath: backend/shared/web-wallet/, frontend/web-wallet/
 lifecycle: experimental
 lastVerified: 2026-09-29
 ---
