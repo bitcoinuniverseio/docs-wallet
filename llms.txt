@@ -27,6 +27,7 @@
 - [Install](https://bitcoinuniverseio.github.io/docs-wallet/start/install): Where the real extension is, which browsers can run it, which permissions it asks for, and how to check that what you installed is what you meant to install.
 - [Holding your own keys](https://bitcoinuniverseio.github.io/docs-wallet/start/self-custody): What self-custody actually transfers to you, the four irreversible facts it creates, and the habits that keep it survivable.
 - [Which version you are running](https://bitcoinuniverseio.github.io/docs-wallet/start/versions): The published Chrome Web Store build is 1.0.13 from April 2025. This documentation describes the 1.7.5.8 source tree, which has not been published. Here is exactly what that means for you.
+- [Universe Web Wallet](https://bitcoinuniverseio.github.io/docs-wallet/start/web-wallet): The extension-free Universe Web Wallet and Universe Shielded Wallet, why they are not yet available, how they differ from the extension, and what a wallet stored in a browser page can lose.
 - [What Universe Wallet is](https://bitcoinuniverseio.github.io/docs-wallet/start/what-this-is): A self-custody browser extension for Bitcoin, Dogecoin, Zcash, and Fractal Bitcoin, built so that coins carrying digital artifacts never fund an ordinary payment.
 
 ## How it works
