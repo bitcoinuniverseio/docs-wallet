@@ -130,6 +130,7 @@ export default defineConfig({
             { label: 'Back up your recovery phrase', slug: 'start/back-up' },
             { label: 'Receive for the first time', slug: 'start/first-receive' },
             { label: 'Send for the first time', slug: 'start/first-send' },
+            { label: 'Universe Web Wallet', slug: 'start/web-wallet' },
           ],
         },
         {
