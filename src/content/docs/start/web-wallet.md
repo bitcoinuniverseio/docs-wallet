@@ -63,9 +63,15 @@ than six seconds, the wallet says so instead of showing an empty wallet.
   shows **Network mismatch**, and balance, history, and sending stay blocked.
 - When the coin safety check is unavailable, no coins can be spent. Receiving and backups still work.
 
-Each of these has a **Retry** button. The wallet also tries again after 5, 15, and 30 seconds, and
+Each failed read has a **Retry** button. Automatic retries run after 5, 15, and 30 seconds, or later
+when the service asks the wallet to wait. Loading older history uses its own Retry button. The wallet
 waits while the tab is hidden or offline. Receiving, showing your address, and downloading a backup
 never depend on these reads.
+
+History and rpow availability do not prevent Bitcoin payments when the network, coins, safety
+checks, and fee rate are valid. If fee suggestions are unavailable, you can enter a fee rate.
+The rpow custody panel shows its own unavailable state and Retry control. Previously loaded records
+stay visible with their update time when a refresh fails; dependent actions stay off until recovery.
 
 ## Backups
 
