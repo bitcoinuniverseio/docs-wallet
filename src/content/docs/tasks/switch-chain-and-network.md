@@ -2,9 +2,9 @@
 title: Switch chain and network
 description: Change which chain and network the wallet is showing, and understand what that does to connected sites and to your addresses.
 sourceRepo: bitcoinuniverseio/wallet
-sourcePath: frontend/ui/pages/Settings/NetworkTypeScreen.tsx
+sourcePath: frontend/ui/pages/Settings/SwitchChainModal.tsx, frontend/ui/state/accounts/hooks.ts
 lifecycle: experimental
-lastVerified: 2026-09-01
+lastVerified: 2026-09-18
 ---
 
 **Intended reader:** anyone using more than one chain, or testing on a test network.
@@ -15,10 +15,10 @@ an address.
 
 ## Steps
 
-1. Open **Settings**, then **Network**.
+1. Open the network selector in the wallet header.
 2. The screen lists every network the build knows about, and states how many are selectable.
-3. Choose one. Entries a build has not enabled are marked **Coming soon** and cannot be selected.
-4. Confirm the network name now shown at the top of the wallet.
+3. Choose one. Unavailable entries cannot be selected.
+4. Confirm both the network name and the selected account before copying an address or reviewing a request.
 
 ## The list
 
@@ -35,7 +35,7 @@ Dogecoin Testnet, Zcash, Zcash Testnet, Fractal Bitcoin, and Fractal Bitcoin Tes
 
 ## What does not change
 
-- Your recovery phrase. One phrase covers every network.
+- Your saved recovery phrase or separately imported keys. Switching does not replace them.
 - Anything on any chain. Switching is a view change, not a transaction.
 - Existing connections. A connection is granted for one address on one network, and switching does
   not extend it to another. A site that needs the other network has to request it.
@@ -52,7 +52,7 @@ The wallet header shows the network you chose, and the balance and assets are th
 ## How to verify
 
 - The network name in the wallet header is the one you selected.
-- The receiving address has the prefix you expect for that network.
+- The receiving address matches the selected account. A prefix alone does not distinguish Bitcoin Signet from Testnet or Testnet4.
 - The balance matches what you expect for that network, which for a test network is usually zero until
   you use a faucet.
 
@@ -60,10 +60,11 @@ The wallet header shows the network you chose, and the balance and assets are th
 
 | What you see | What it means | What to do |
 | --- | --- | --- |
-| Balance is zero after switching | Correct. That network holds nothing yet. | Switch back, or fund it |
-| An entry is marked Coming soon | The build did not enable that network | Nothing you can change locally |
+| Balance is missing or zero after switching | The account may be unfunded, or its data may still be loading or unavailable | Check the account and network, then wait for the balance read to finish |
+| An entry is unavailable | The build did not enable that network | Use an enabled network; do not try to override the restriction |
 | A connected site stops working | Its grant was for the other network | Reconnect on the network you are using |
 | A switch prompt appeared unexpectedly | A page requested it | Read the network being requested. Reject if unclear. |
+| A request reports an account or network mismatch | Its response does not match the selected wallet context | Reopen it for the selected account; check an existing operation before starting another payment |
 
 ## Related
 
