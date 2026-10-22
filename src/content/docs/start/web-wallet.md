@@ -4,7 +4,7 @@ description: The extension-free Universe Web Wallet and Universe Shielded Wallet
 sourceRepo: bitcoinuniverseio/wallet
 sourcePath: backend/shared/web-wallet/, frontend/web-wallet/
 lifecycle: experimental
-lastVerified: 2026-09-29
+lastVerified: 2026-10-21
 ---
 
 **Status:** not yet available. The web wallet is built and tested on a private test network, but it
@@ -46,6 +46,32 @@ see the same addresses. The two stay separate: connecting one never connects the
 
 The wallet locks after 15 minutes without use. A send only uses coins that Universe has checked
 carry no inscription, rune, or Atomicals asset.
+
+## When the network service is unavailable
+
+The wallet reads balances, history, and fees from Universe servers. When a read fails or takes longer
+than six seconds, the wallet says so instead of showing an empty wallet.
+
+- **Balance unavailable** means the wallet could not read your coins. It does not mean your balance
+  is zero. If the wallet read a balance earlier, that amount stays on screen with the time it was
+  read and **Refresh unavailable**.
+- **Transaction history unavailable** means the wallet could not read your history. It does not mean
+  you have no transactions. If a later page fails, the rows already shown stay, with **More history
+  could not be loaded**.
+- **Unable to verify the Bitcoin network** means the wallet could not check which network the server
+  serves. Sending stays off until the check works. A server that answers for a different network
+  shows **Network mismatch**, and balance, history, and sending stay blocked.
+- When the coin safety check is unavailable, no coins can be spent. Receiving and backups still work.
+
+Each failed read has a **Retry** button. Automatic retries run after 5, 15, and 30 seconds, or later
+when the service asks the wallet to wait. Loading older history uses its own Retry button. The wallet
+waits while the tab is hidden or offline. Receiving, showing your address, and downloading a backup
+never depend on these reads.
+
+History and rpow availability do not prevent Bitcoin payments when the network, coins, safety
+checks, and fee rate are valid. If fee suggestions are unavailable, you can enter a fee rate.
+The rpow custody panel shows its own unavailable state and Retry control. Previously loaded records
+stay visible with their update time when a refresh fails; dependent actions stay off until recovery.
 
 ## Backups
 
