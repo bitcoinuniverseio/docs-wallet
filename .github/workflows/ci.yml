@@ -4,6 +4,7 @@ on:
   push:
     branches: [develop, main]
   pull_request:
+  workflow_dispatch:
 
 # This repository is public, so checks run on the organization's public-safe
 # capacity preset. A fork pull request must never reach self-hosted
