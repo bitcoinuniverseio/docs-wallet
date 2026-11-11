@@ -1,0 +1,64 @@
+.universe-dca__content {
+  padding-top: var(--u-space-2) !important;
+}
+.universe-dca__full {
+  width: 100%;
+}
+.universe-dca__wrap {
+  flex-wrap: wrap;
+}
+.universe-dca__grow {
+  flex: 1 1;
+}
+.universe-dca__stack-start {
+  align-items: flex-start;
+  flex: 1 1;
+}
+.universe-dca__strategy-card {
+  padding: var(--u-space-3);
+}
+.universe-dca__run-card {
+  padding: 10px;
+}
+.universe-dca__panel {
+  margin-bottom: var(--u-space-3);
+}
+.universe-dca__chip-tap {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+.universe-dca__stat {
+  flex: 1 1;
+  min-width: 120px;
+}
+.universe-dca__stat--wide {
+  min-width: 140px;
+}
+.universe-dca__field {
+  flex: 1 1;
+  min-width: 120px !important;
+}
+.universe-dca__field--narrow {
+  min-width: 96px !important;
+}
+.universe-dca__field--budget {
+  min-width: 118px !important;
+}
+.universe-dca__metric {
+  flex: 1 1;
+  min-width: 112px !important;
+  padding: 10px;
+  border-radius: var(--u-radius-sm);
+  border: 1px solid var(--u-border);
+  background: rgba(0, 0, 0, 0.16);
+}
+.universe-dca__draft {
+  padding: 10px;
+  border-radius: var(--u-radius-sm);
+  border: 1px solid var(--u-border);
+  background: var(--u-surface-1);
+}
+.universe-dca__draft--duplicate {
+  border-color: color-mix(in srgb, var(--u-warning) 30%, transparent);
+  background: color-mix(in srgb, var(--u-warning) 6%, transparent);
+}

@@ -1,0 +1,669 @@
+{
+  "schemaVersion": "universe-docs-catalog-v1",
+  "walletVersion": "1.7.5.8",
+  "releaseCatalog": "api/releases.json",
+  "capabilities": "api/capabilities.json",
+  "journeys": "api/journeys.json",
+  "providerContract": "api/provider-contract.json",
+  "captures": {
+    "count": 57,
+    "walletVersion": "1.7.5.8",
+    "exportManifestSha256": "f25b3ac458f49cf7ef2435cfef9a9500135dc23a6d1c03ec0678aa2e41c6f17d"
+  },
+  "pages": [
+    {
+      "path": "404.html",
+      "markdown": "markdown/404.md",
+      "title": "Page not found | Universe Wallet",
+      "contentSha256": "92d6890d61b9ab0d3ba18a2ed91d548b6bad7e89f36b97947fd1920db80867b6"
+    },
+    {
+      "path": "answer/index.html",
+      "markdown": "markdown/answer.md",
+      "title": "Answer Center | Universe Wallet",
+      "contentSha256": "53f5a943e1637880beaa1754bfb052f2b99d7dc04cfa34499ef9032e14a51794"
+    },
+    {
+      "path": "assets-and-protocols/dogecoin-marketplace/index.html",
+      "markdown": "markdown/assets-and-protocols/dogecoin-marketplace.md",
+      "title": "Redirecting to: /docs-wallet/assets/dogecoin-marketplace",
+      "contentSha256": "d4fb69858d4b0750f6b71e46e93d3c56b3525a9d904eabd1c336505062bcebdc"
+    },
+    {
+      "path": "assets-and-protocols/overview/index.html",
+      "markdown": "markdown/assets-and-protocols/overview.md",
+      "title": "Redirecting to: /docs-wallet/assets/support-state",
+      "contentSha256": "b61e5edf375bb2bb694d89eebe03e89383228cd5171db8d4fbb1c7d33c2066af"
+    },
+    {
+      "path": "assets-and-protocols/protected-outputs/index.html",
+      "markdown": "markdown/assets-and-protocols/protected-outputs.md",
+      "title": "Redirecting to: /docs-wallet/concepts/protected-outputs",
+      "contentSha256": "c67e1776295b59109e3aba3e5eecd6240d812fd026bb37bef629820a12e1f6b7"
+    },
+    {
+      "path": "assets-and-protocols/supported-protocols/index.html",
+      "markdown": "markdown/assets-and-protocols/supported-protocols.md",
+      "title": "Redirecting to: /docs-wallet/assets/protocol-registry",
+      "contentSha256": "e3f75704966328ba062718acb378263d911c41c1c7635d4c15d1d932d5fd5737"
+    },
+    {
+      "path": "assets-and-protocols/zcash-market-listings/index.html",
+      "markdown": "markdown/assets-and-protocols/zcash-market-listings.md",
+      "title": "Redirecting to: /docs-wallet/assets/zcash-market-listings",
+      "contentSha256": "24ee85627e3e80c5f8e27ec9ce1f827b97ab477914d610129a2008139c61228a"
+    },
+    {
+      "path": "assets/dogecoin-marketplace/index.html",
+      "markdown": "markdown/assets/dogecoin-marketplace.md",
+      "title": "Dogecoin marketplace | Universe Wallet",
+      "contentSha256": "c2b23fbde2780f887fbf3468a3ef82d175a6aa5fc26876199f90b241ed0ee584"
+    },
+    {
+      "path": "assets/media-and-performance/index.html",
+      "markdown": "markdown/assets/media-and-performance.md",
+      "title": "Media and large portfolios | Universe Wallet",
+      "contentSha256": "8b227970b345aac1d6b6b4c94db2967b1a2e6067f3804a412248ea74b21f1529"
+    },
+    {
+      "path": "assets/protocol-registry/index.html",
+      "markdown": "markdown/assets/protocol-registry.md",
+      "title": "The protocol registry | Universe Wallet",
+      "contentSha256": "578af4c9318b3f18aa8e885467d834cf4df8c76223e9b2696b0217108a1a1f5f"
+    },
+    {
+      "path": "assets/support-state/index.html",
+      "markdown": "markdown/assets/support-state.md",
+      "title": "What this release authorizes | Universe Wallet",
+      "contentSha256": "301d7ede563fe4cb4fdaef110efe90aa887682d456753c7e971e1a2b8fe820a8"
+    },
+    {
+      "path": "assets/what-a-digital-artifact-is/index.html",
+      "markdown": "markdown/assets/what-a-digital-artifact-is.md",
+      "title": "What a digital artifact is | Universe Wallet",
+      "contentSha256": "8f95072af50eef6544719908c03fb1c5441bca51bf16cd8e452544c5645149cf"
+    },
+    {
+      "path": "assets/why-unavailable/index.html",
+      "markdown": "markdown/assets/why-unavailable.md",
+      "title": "Why an action is unavailable | Universe Wallet",
+      "contentSha256": "65bdda9c23741b5799a2f0d38a6f9ad3537c14ff697a957a415bf553cc3bf1a7"
+    },
+    {
+      "path": "assets/zcash-market-listings/index.html",
+      "markdown": "markdown/assets/zcash-market-listings.md",
+      "title": "Zcash market listings | Universe Wallet",
+      "contentSha256": "6124edd38b36b53aa62f92fd7bc469b092018cc86ef1d18f730e0d79a093d675"
+    },
+    {
+      "path": "atlas/index.html",
+      "markdown": "markdown/atlas.md",
+      "title": "Screen Atlas | Universe Wallet",
+      "contentSha256": "27cdb53b454533df2893c209fc5c8610883bdba2e79906dbf2a671237c3107f2"
+    },
+    {
+      "path": "concepts/address-types/index.html",
+      "markdown": "markdown/concepts/address-types.md",
+      "title": "Address types | Universe Wallet",
+      "contentSha256": "7eb7488b2b987106eae029a3cd792c1223575a06c3b8b2bc30f2549cf15da3e4"
+    },
+    {
+      "path": "concepts/addresses/index.html",
+      "markdown": "markdown/concepts/addresses.md",
+      "title": "Payment and asset addresses | Universe Wallet",
+      "contentSha256": "a75508771cad735ee7f06cdfab27dc8877f45101b2a77b153ff15d2422c4fd79"
+    },
+    {
+      "path": "concepts/backup-and-recovery/index.html",
+      "markdown": "markdown/concepts/backup-and-recovery.md",
+      "title": "Backup and recovery | Universe Wallet",
+      "contentSha256": "5624187dd0038efa04d61f1ee6dc2d9531bc7ca122862d624aab7c49d61236d9"
+    },
+    {
+      "path": "concepts/chains-and-networks/index.html",
+      "markdown": "markdown/concepts/chains-and-networks.md",
+      "title": "Chains and networks | Universe Wallet",
+      "contentSha256": "5d73316e3992790aea686a968a196dc98a2f9fcf973cf1fc885127afcb69ad40"
+    },
+    {
+      "path": "concepts/confidence-marks/index.html",
+      "markdown": "markdown/concepts/confidence-marks.md",
+      "title": "Confidence marks | Universe Wallet",
+      "contentSha256": "eb709d70293f23e58ba08f18a6497994fff5e2aa7fda40124807bbc246030238"
+    },
+    {
+      "path": "concepts/connections/index.html",
+      "markdown": "markdown/concepts/connections.md",
+      "title": "Connection permissions | Universe Wallet",
+      "contentSha256": "e591893cae8dfbc0db9a137d36b4c9e236c711f58e1b3e2cd96432b3d3ed0f44"
+    },
+    {
+      "path": "concepts/inputs-outputs-fees/index.html",
+      "markdown": "markdown/concepts/inputs-outputs-fees.md",
+      "title": "Inputs, outputs, fees, change | Universe Wallet",
+      "contentSha256": "fac495da535336e91de239def51eac116303550460f703b3d959b85d6a4196f4"
+    },
+    {
+      "path": "concepts/protected-outputs/index.html",
+      "markdown": "markdown/concepts/protected-outputs.md",
+      "title": "Protected outputs | Universe Wallet",
+      "contentSha256": "71da5292ef2dac00fddd7a567d979da10b6db6cf2267f6ac62684c28b0061b6a"
+    },
+    {
+      "path": "concepts/what-a-signature-authorizes/index.html",
+      "markdown": "markdown/concepts/what-a-signature-authorizes.md",
+      "title": "What a signature authorizes | Universe Wallet",
+      "contentSha256": "41f469cbc684ce17d73d028774a673d267a3767bf5de8db52a3d103e9b60f1cc"
+    },
+    {
+      "path": "developers/integration/index.html",
+      "markdown": "markdown/developers/integration.md",
+      "title": "Integrating with the wallet | Universe Wallet",
+      "contentSha256": "a27d7421adc7f2b43687470409d655f1a55d6b984d185dd6948df4c321c65d70"
+    },
+    {
+      "path": "developers/machine-readable/index.html",
+      "markdown": "markdown/developers/machine-readable.md",
+      "title": "Machine-readable documentation and MCP | Universe Wallet",
+      "contentSha256": "cfab4b7063ebae5bbc2aeda5fdad1259bf8ae37e038a4c164c535ea5e9b903b2"
+    },
+    {
+      "path": "developers/provider-api/index.html",
+      "markdown": "markdown/developers/provider-api.md",
+      "title": "Provider API | Universe Wallet",
+      "contentSha256": "832c3c2afdf2f3468f419c51259ebda6d8e9df8b8ded248b9a537bb36bfb045c"
+    },
+    {
+      "path": "emergency/index.html",
+      "markdown": "markdown/emergency.md",
+      "title": "Emergency handbook | Universe Wallet",
+      "contentSha256": "88fb0ead138dc8562eb9915fac1ce7dc94147bafde7820235ec4d79a46488649"
+    },
+    {
+      "path": "getting-started/connect-hardware/index.html",
+      "markdown": "markdown/getting-started/connect-hardware.md",
+      "title": "Redirecting to: /docs-wallet/tasks/hardware-wallet",
+      "contentSha256": "59a1cedf7c5481fcc1e3baabf885b14c24740596b1026bd6ebccf0f96b4af635"
+    },
+    {
+      "path": "getting-started/create-a-wallet/index.html",
+      "markdown": "markdown/getting-started/create-a-wallet.md",
+      "title": "Redirecting to: /docs-wallet/start/create-a-wallet",
+      "contentSha256": "92affd02ed0c22faa99dccce98373cc7174116a7ea4755856013351ab2b7e52d"
+    },
+    {
+      "path": "getting-started/first-receive/index.html",
+      "markdown": "markdown/getting-started/first-receive.md",
+      "title": "Redirecting to: /docs-wallet/start/first-receive",
+      "contentSha256": "dd45375ed9821012fe37a0bea1b6a69a62941bceaeb8035fc1d295a3fe058076"
+    },
+    {
+      "path": "getting-started/first-send/index.html",
+      "markdown": "markdown/getting-started/first-send.md",
+      "title": "Redirecting to: /docs-wallet/start/first-send",
+      "contentSha256": "087b3ee82f8978efacb2da02e569f9e1605988e7c1c4c6ede2952bcbe3a81fef"
+    },
+    {
+      "path": "getting-started/import-a-wallet/index.html",
+      "markdown": "markdown/getting-started/import-a-wallet.md",
+      "title": "Redirecting to: /docs-wallet/start/import-a-wallet",
+      "contentSha256": "8700bee2c6a49f56c73bdf25e0ef61ce1f996146d7b86558a9f39a08e136677e"
+    },
+    {
+      "path": "getting-started/install/index.html",
+      "markdown": "markdown/getting-started/install.md",
+      "title": "Redirecting to: /docs-wallet/start/install",
+      "contentSha256": "eb68942647111575cf17279b7d092bf60b8571815f3f56f461a57a2e926a27ab"
+    },
+    {
+      "path": "help/faq/index.html",
+      "markdown": "markdown/help/faq.md",
+      "title": "Frequently asked questions | Universe Wallet",
+      "contentSha256": "3aad8d8a3d7b977d266bf101060b2ba842f202ea2aef8ae29268f97ea11cf2a6"
+    },
+    {
+      "path": "help/support/index.html",
+      "markdown": "markdown/help/support.md",
+      "title": "Support and reporting | Universe Wallet",
+      "contentSha256": "14b96585a164bdfcc7e339612a3406be465a6d0e71400376c9164414cddd9940"
+    },
+    {
+      "path": "help/troubleshooting/index.html",
+      "markdown": "markdown/help/troubleshooting.md",
+      "title": "Troubleshooting | Universe Wallet",
+      "contentSha256": "b6f6182ab18ee48ce2bbfc32bc74fd52565e425e0894cf9c200c4c287b05dc4e"
+    },
+    {
+      "path": "index.html",
+      "markdown": "markdown/index.md",
+      "title": "Universe Wallet documentation | Universe Wallet",
+      "contentSha256": "a6918df190aa861271f2e31c1c31d1e4c21a11e2639076063d18af76fb31beb3"
+    },
+    {
+      "path": "journeys/compromised-response/index.html",
+      "markdown": "markdown/journeys/compromised-response.md",
+      "title": "Respond to a suspected compromised wallet | Universe Wallet",
+      "contentSha256": "9d55d58fbb557efef6e9fe6891e33bc37708a6afbbb1db283d6eebc10de89d94"
+    },
+    {
+      "path": "journeys/connect-and-review/index.html",
+      "markdown": "markdown/journeys/connect-and-review.md",
+      "title": "Connect to a site and review requested access | Universe Wallet",
+      "contentSha256": "3e17c9d9b8264c2eba8b5b8d15c883c33e026dd178c0a2b81f057c23704c2402"
+    },
+    {
+      "path": "journeys/create-a-wallet/index.html",
+      "markdown": "markdown/journeys/create-a-wallet.md",
+      "title": "Create a wallet and secure its recovery material | Universe Wallet",
+      "contentSha256": "7a39d6d30b5c4974529aed022e21d4aa7e97bc8ea930f0a68248f1771cb9a859"
+    },
+    {
+      "path": "journeys/create-or-import/index.html",
+      "markdown": "markdown/journeys/create-or-import.md",
+      "title": "Choose between creating and importing | Universe Wallet",
+      "contentSha256": "0381d2a9e5cfb4ccb6abb29b1e9753f9014431169c121506ca91569d36d8b7fe"
+    },
+    {
+      "path": "journeys/developer-first-connection/index.html",
+      "markdown": "markdown/journeys/developer-first-connection.md",
+      "title": "Complete a first developer connection using the simulated provider | Universe Wallet",
+      "contentSha256": "c8af350fb319829ddb5b1ffa5477d268cbaad7d4bb5b94ab667fdbfe7a0e5ac9"
+    },
+    {
+      "path": "journeys/emergency-offline/index.html",
+      "markdown": "markdown/journeys/emergency-offline.md",
+      "title": "Save the emergency handbook for offline use | Universe Wallet",
+      "contentSha256": "c5f2e54fcb554da3a1c706c054b4bf18d48b6838eb44d008173f4ecea6616a65"
+    },
+    {
+      "path": "journeys/identify-version/index.html",
+      "markdown": "markdown/journeys/identify-version.md",
+      "title": "Identify the installed wallet and the right documentation release | Universe Wallet",
+      "contentSha256": "9f9b7d97369f484a32f5926c6ef79cdbd175af45c49b27e872ae6e2dcceeb998"
+    },
+    {
+      "path": "journeys/import-safely/index.html",
+      "markdown": "markdown/journeys/import-safely.md",
+      "title": "Import a wallet safely | Universe Wallet",
+      "contentSha256": "b60a5062a46f78e511af2a16e9d3e7d9fe0723afc17b597eca3d126d8b1646b2"
+    },
+    {
+      "path": "journeys/index.html",
+      "markdown": "markdown/journeys.md",
+      "title": "Guided journeys | Universe Wallet",
+      "contentSha256": "a12fcc0638a19d8630f617f84419e2a787e157204e50c9cf4d0cff53520a4cca"
+    },
+    {
+      "path": "journeys/inspect-history/index.html",
+      "markdown": "markdown/journeys/inspect-history.md",
+      "title": "Inspect transaction history and confirmation state | Universe Wallet",
+      "contentSha256": "ba26517d6e4fdaab1aa54e1b5508bf13fdcfbe0f4b52ff16ff4eefe206bbd00f"
+    },
+    {
+      "path": "journeys/install-and-verify/index.html",
+      "markdown": "markdown/journeys/install-and-verify.md",
+      "title": "Install and verify the authentic extension | Universe Wallet",
+      "contentSha256": "4dfed0c343eff69df5a2ef0c967feb973baa8399f63acf495070f947577cddba"
+    },
+    {
+      "path": "journeys/phishing-defense/index.html",
+      "markdown": "markdown/journeys/phishing-defense.md",
+      "title": "Recognize fake support and phishing | Universe Wallet",
+      "contentSha256": "a25f8f28a6a488c50fbff2e0ad0e87e6980c8f12a77d716e2f7f16609c50276f"
+    },
+    {
+      "path": "journeys/receive-funds/index.html",
+      "markdown": "markdown/journeys/receive-funds.md",
+      "title": "Receive funds for the first time | Universe Wallet",
+      "contentSha256": "bd69cdc754a1010df3854ece36a6b9041b154b8d5f0e716d3fc2c527712a5f07"
+    },
+    {
+      "path": "journeys/review-transaction/index.html",
+      "markdown": "markdown/journeys/review-transaction.md",
+      "title": "Review a transaction or PSBT before signing | Universe Wallet",
+      "contentSha256": "35bbdf32531702481b4cbcf0c9d5a28a5acd3dc852704dbcda062dbf05c05581"
+    },
+    {
+      "path": "journeys/send-safely/index.html",
+      "markdown": "markdown/journeys/send-safely.md",
+      "title": "Send funds safely | Universe Wallet",
+      "contentSha256": "af2c43ae85f8f40e58b48d9f17285911cf9ed301a3dbe9e19277a3e455342466"
+    },
+    {
+      "path": "journeys/switch-chain-safely/index.html",
+      "markdown": "markdown/journeys/switch-chain-safely.md",
+      "title": "Switch chain or network safely | Universe Wallet",
+      "contentSha256": "91ab9f57a1db641f442a38c03cec97499b55e68fe1ca30d30df5cb18df4209f7"
+    },
+    {
+      "path": "journeys/understand-balances/index.html",
+      "markdown": "markdown/journeys/understand-balances.md",
+      "title": "Understand available, unavailable, and protected balance | Universe Wallet",
+      "contentSha256": "9a59794f03600b4114c28c528fd290d6db3fea0983ced3f01a790a11c2f8b52f"
+    },
+    {
+      "path": "reference/capability-evidence/index.html",
+      "markdown": "markdown/reference/capability-evidence.md",
+      "title": "Capability evidence | Universe Wallet",
+      "contentSha256": "bfb0a84a2654aaf4f53ef8f0ddd0f1c96fb1bb2306d2ba2e670ecf0316c080a6"
+    },
+    {
+      "path": "reference/diagram-conventions/index.html",
+      "markdown": "markdown/reference/diagram-conventions.md",
+      "title": "Diagram conventions | Universe Wallet",
+      "contentSha256": "b9c695b01b0ca65468f4b7bb1e0936ca2daf65e71e512bb05a3d072b76c962a7"
+    },
+    {
+      "path": "reference/glossary/index.html",
+      "markdown": "markdown/reference/glossary.md",
+      "title": "Glossary | Universe Wallet",
+      "contentSha256": "341277d15ee1b5fc150a14e6360ec9d709433ac8750c81ab31aa2ac831fdf663"
+    },
+    {
+      "path": "reference/known-limitations/index.html",
+      "markdown": "markdown/reference/known-limitations.md",
+      "title": "Known limitations | Universe Wallet",
+      "contentSha256": "941debc80b56426f3476396c91666f4f1d42103be13a40883c5fec464f9fe240"
+    },
+    {
+      "path": "reference/release-notes/index.html",
+      "markdown": "markdown/reference/release-notes.md",
+      "title": "Release notes | Universe Wallet",
+      "contentSha256": "498065db17722ff0a796bfd9b009a0ebdec3ea2a0c04124dd391780458a9b5fb"
+    },
+    {
+      "path": "reference/supported-features/index.html",
+      "markdown": "markdown/reference/supported-features.md",
+      "title": "Supported features | Universe Wallet",
+      "contentSha256": "3f2335711840418242a01a2911c94b8918a651bb8e1b31559e05db9d84f05e76"
+    },
+    {
+      "path": "safety-lab/index.html",
+      "markdown": "markdown/safety-lab.md",
+      "title": "Transaction and Approval Safety Lab | Universe Wallet",
+      "contentSha256": "8d24c2107573418cd78d793409cd3813be474b97e3b4a8a902566f8ff8880f87"
+    },
+    {
+      "path": "safety/compromised-wallet/index.html",
+      "markdown": "markdown/safety/compromised-wallet.md",
+      "title": "If your wallet is compromised | Universe Wallet",
+      "contentSha256": "309a072c9633b604ae4025d79d40d9d937487d9217438906133801b936af3ad4"
+    },
+    {
+      "path": "safety/phishing/index.html",
+      "markdown": "markdown/safety/phishing.md",
+      "title": "Phishing and impostors | Universe Wallet",
+      "contentSha256": "4655a4efb653218bdba82efb2da1da00913a7baec3f1cffe85725a477f4f8f77"
+    },
+    {
+      "path": "safety/privacy/index.html",
+      "markdown": "markdown/safety/privacy.md",
+      "title": "Privacy | Universe Wallet",
+      "contentSha256": "a75695badf2ddfdadb3ae8a475228c41297cb524297ac9a751641cdbe6698bdc"
+    },
+    {
+      "path": "safety/security-model/index.html",
+      "markdown": "markdown/safety/security-model.md",
+      "title": "Security model | Universe Wallet",
+      "contentSha256": "39d74ce159ecf2597006696baef4b25e00812607485783733aac4694c3da196e"
+    },
+    {
+      "path": "security-and-recovery/backup/index.html",
+      "markdown": "markdown/security-and-recovery/backup.md",
+      "title": "Redirecting to: /docs-wallet/start/back-up",
+      "contentSha256": "89a9a34613d25ed376ea2bdf96bb21ee83470fc78ec4a29ca22fede6e8a6fa5e"
+    },
+    {
+      "path": "security-and-recovery/compromised-wallet/index.html",
+      "markdown": "markdown/security-and-recovery/compromised-wallet.md",
+      "title": "Redirecting to: /docs-wallet/safety/compromised-wallet",
+      "contentSha256": "8aead2233a512070179566503c0c595b397c8f1b91e3103a6b2f74606bd4a1bf"
+    },
+    {
+      "path": "security-and-recovery/privacy/index.html",
+      "markdown": "markdown/security-and-recovery/privacy.md",
+      "title": "Redirecting to: /docs-wallet/safety/privacy",
+      "contentSha256": "dbf35c3722829478218dd237981e8e3974ccda8957371df1c6f6f0cc46333a80"
+    },
+    {
+      "path": "security-and-recovery/restore/index.html",
+      "markdown": "markdown/security-and-recovery/restore.md",
+      "title": "Redirecting to: /docs-wallet/concepts/backup-and-recovery",
+      "contentSha256": "d2c7f438cb3f0d1fd2f94c48e8a5f9156b1d2e96e9f54f5ee73eb747aa6f04d1"
+    },
+    {
+      "path": "security-and-recovery/security-model/index.html",
+      "markdown": "markdown/security-and-recovery/security-model.md",
+      "title": "Redirecting to: /docs-wallet/safety/security-model",
+      "contentSha256": "3491df7522b76e3bb87078ac32331dac41c80c7f3d2b78b33ac3b3b508008be2"
+    },
+    {
+      "path": "security-and-recovery/watch-only/index.html",
+      "markdown": "markdown/security-and-recovery/watch-only.md",
+      "title": "Redirecting to: /docs-wallet/tasks/watch-only",
+      "contentSha256": "992ddbc1ee15cb255765f85f15a93266132f81c6cac8034134bb7735a041de3a"
+    },
+    {
+      "path": "start/back-up/index.html",
+      "markdown": "markdown/start/back-up.md",
+      "title": "Back up your recovery phrase | Universe Wallet",
+      "contentSha256": "c088c6a7911a2e2b57aff75fe050faf2cd64caa6e937afae7db2e9759bf4c813"
+    },
+    {
+      "path": "start/create-a-wallet/index.html",
+      "markdown": "markdown/start/create-a-wallet.md",
+      "title": "Create a wallet | Universe Wallet",
+      "contentSha256": "2e2785ab48f53ff1853695f1b2ef4a9900d56d48f0f1da1f5b46eedde83ba4ac"
+    },
+    {
+      "path": "start/first-receive/index.html",
+      "markdown": "markdown/start/first-receive.md",
+      "title": "Receive for the first time | Universe Wallet",
+      "contentSha256": "e4e883efc1e765cac1a8394dbb8119e30ec63d4e9b326217e0b6d26fb68f5651"
+    },
+    {
+      "path": "start/first-send/index.html",
+      "markdown": "markdown/start/first-send.md",
+      "title": "Send for the first time | Universe Wallet",
+      "contentSha256": "27576f7a753e5d61a4271b724d6c6806bf081a224f5bc7505c4cd1a90b05d6cc"
+    },
+    {
+      "path": "start/import-a-wallet/index.html",
+      "markdown": "markdown/start/import-a-wallet.md",
+      "title": "Import an existing wallet | Universe Wallet",
+      "contentSha256": "db84e189366ce49eede5978adac77f14548e2400296bc5c32a5dde244048f4aa"
+    },
+    {
+      "path": "start/install/index.html",
+      "markdown": "markdown/start/install.md",
+      "title": "Install | Universe Wallet",
+      "contentSha256": "f2374b071e2edfecdfaa608ef8cf673b06294a9c0366367d1b7645333d8fec6a"
+    },
+    {
+      "path": "start/self-custody/index.html",
+      "markdown": "markdown/start/self-custody.md",
+      "title": "Holding your own keys | Universe Wallet",
+      "contentSha256": "4cf6aeb40e440945f8b4390abae44d15105020438c74865c115eff8470036971"
+    },
+    {
+      "path": "start/versions/index.html",
+      "markdown": "markdown/start/versions.md",
+      "title": "Which version you are running | Universe Wallet",
+      "contentSha256": "1c7028139903dcf61905eaff7f70c60964d6e4e5be21ebb707b1f2b136c5ca18"
+    },
+    {
+      "path": "start/what-this-is/index.html",
+      "markdown": "markdown/start/what-this-is.md",
+      "title": "What Universe Wallet is | Universe Wallet",
+      "contentSha256": "5b060e51fdafe7887eb133b6946a22a13588016ae4c3e695448e81b3f469e491"
+    },
+    {
+      "path": "studio/index.html",
+      "markdown": "markdown/studio.md",
+      "title": "Developer Integration Studio | Universe Wallet",
+      "contentSha256": "1c6df6fe261e14641b3073aae806918f289831b057a9df6bf2124d5e6de57845"
+    },
+    {
+      "path": "support/index.html",
+      "markdown": "markdown/support.md",
+      "title": "Redirecting to: /docs-wallet/help/support",
+      "contentSha256": "afb14f93f2c8583d2907846d7cb34a0fca528e4dd25f1943412a62c7fcbc1b5c"
+    },
+    {
+      "path": "tasks/activity/index.html",
+      "markdown": "markdown/tasks/activity.md",
+      "title": "Read your activity | Universe Wallet",
+      "contentSha256": "2952b41b05508fb1ec48d1b4297ca11b5143153eb598eebd320cc731c1d1507a"
+    },
+    {
+      "path": "tasks/choose-a-fee/index.html",
+      "markdown": "markdown/tasks/choose-a-fee.md",
+      "title": "Choose a fee | Universe Wallet",
+      "contentSha256": "9d0cab369e5836fb465d6b8f8c7ee537759b9f5d1644f30ba8f6109d5f8df93f"
+    },
+    {
+      "path": "tasks/coin-control/index.html",
+      "markdown": "markdown/tasks/coin-control.md",
+      "title": "Coin control | Universe Wallet",
+      "contentSha256": "10043bbd52fc02c98e5f43e5579796f6babe72de2a781874d873f7ffce3ecf7a"
+    },
+    {
+      "path": "tasks/connect-an-application/index.html",
+      "markdown": "markdown/tasks/connect-an-application.md",
+      "title": "Connect an application | Universe Wallet",
+      "contentSha256": "fa694286e519a35405863080ccc5c1e149396f461f80c19e735b25ec7e64f297"
+    },
+    {
+      "path": "tasks/hardware-wallet/index.html",
+      "markdown": "markdown/tasks/hardware-wallet.md",
+      "title": "Hardware wallets | Universe Wallet",
+      "contentSha256": "e0a1719bb95be68c7420b186286a3a4de8921a596e6b5498f92b1d138039d2c7"
+    },
+    {
+      "path": "tasks/inspect-lightning-invoice/index.html",
+      "markdown": "markdown/tasks/inspect-lightning-invoice.md",
+      "title": "Inspect a Lightning invoice | Universe Wallet",
+      "contentSha256": "00ed2401f4f550fa2d64a26d8ebb835023cd63cce2b2b7c48b917fca09422f83"
+    },
+    {
+      "path": "tasks/lock-and-password/index.html",
+      "markdown": "markdown/tasks/lock-and-password.md",
+      "title": "Locking and passwords | Universe Wallet",
+      "contentSha256": "d88960f6d57fa40f27535c3cb6828daa80ccef59ff71b680c472336b7fbefbfc"
+    },
+    {
+      "path": "tasks/manage-connections/index.html",
+      "markdown": "markdown/tasks/manage-connections.md",
+      "title": "Manage connections | Universe Wallet",
+      "contentSha256": "5aa97058e476c0e31b88c5635677030f87671a8d37da6a44fbe9e0aff1089b36"
+    },
+    {
+      "path": "tasks/receive/index.html",
+      "markdown": "markdown/tasks/receive.md",
+      "title": "Receive | Universe Wallet",
+      "contentSha256": "e20c06a46bf6e4268b35700e00dc83916c7dde415b2c82caa4b650a465a82e85"
+    },
+    {
+      "path": "tasks/review-a-psbt/index.html",
+      "markdown": "markdown/tasks/review-a-psbt.md",
+      "title": "Review a PSBT | Universe Wallet",
+      "contentSha256": "35eb59bffe5ed60a8b5a498e023ea612386ae26aa3ffa5aa40df38d1bb841017"
+    },
+    {
+      "path": "tasks/review-a-transaction/index.html",
+      "markdown": "markdown/tasks/review-a-transaction.md",
+      "title": "Review a transaction | Universe Wallet",
+      "contentSha256": "92a0671c2465c38cb4e141b1d3fbaed7e5a233b364258fffc76b6b0bd2aed050"
+    },
+    {
+      "path": "tasks/security-dashboard/index.html",
+      "markdown": "markdown/tasks/security-dashboard.md",
+      "title": "Security dashboard | Universe Wallet",
+      "contentSha256": "dfe0fb0b53c86f09a7ef55a45b4f9c3a748b00bd5288c564e108de7788c94b6a"
+    },
+    {
+      "path": "tasks/send/index.html",
+      "markdown": "markdown/tasks/send.md",
+      "title": "Send bitcoin | Universe Wallet",
+      "contentSha256": "8031c5bebb50a61ccee0211ef56bb3f168415aa651bf4fee4eb9a4bcd68d91e2"
+    },
+    {
+      "path": "tasks/sign-a-message/index.html",
+      "markdown": "markdown/tasks/sign-a-message.md",
+      "title": "Sign a message | Universe Wallet",
+      "contentSha256": "4b31df9f59f0bc14c6f9a937343c9fae5a00f0dfafbcf5eea06ec40c82d43ca5"
+    },
+    {
+      "path": "tasks/switch-chain-and-network/index.html",
+      "markdown": "markdown/tasks/switch-chain-and-network.md",
+      "title": "Switch chain and network | Universe Wallet",
+      "contentSha256": "36bde3978efaa3e4b2560e1be836f76ce7ca6be7dea1ee665a64aa2ab745b6e3"
+    },
+    {
+      "path": "tasks/watch-only/index.html",
+      "markdown": "markdown/tasks/watch-only.md",
+      "title": "Watch-only wallets | Universe Wallet",
+      "contentSha256": "ba4610cd0b432b36e923eb33f009eea075ecfb84a4ab7c8d3070a10b46a1d6f6"
+    },
+    {
+      "path": "troubleshooting/index.html",
+      "markdown": "markdown/troubleshooting.md",
+      "title": "Redirecting to: /docs-wallet/help/troubleshooting",
+      "contentSha256": "3838626702128e13dce31bc84b0a04c738cd5bd7d718e5f27b322d7d61e26298"
+    },
+    {
+      "path": "using-wallet/coin-control/index.html",
+      "markdown": "markdown/using-wallet/coin-control.md",
+      "title": "Redirecting to: /docs-wallet/tasks/coin-control",
+      "contentSha256": "1fd3b73475b645a093425b789e2aae57678e3af4a95bb7b2a307ab749f1cb576"
+    },
+    {
+      "path": "using-wallet/connections/index.html",
+      "markdown": "markdown/using-wallet/connections.md",
+      "title": "Redirecting to: /docs-wallet/concepts/connections",
+      "contentSha256": "9b9724ace2af86743c26834017b92749b23b617f6655fa44f142f16f9eefaa23"
+    },
+    {
+      "path": "using-wallet/reviewing-a-transaction/index.html",
+      "markdown": "markdown/using-wallet/reviewing-a-transaction.md",
+      "title": "Redirecting to: /docs-wallet/tasks/review-a-transaction",
+      "contentSha256": "8c06d47b7215bfa24e043f1a2377ed9957d73e0c3be023acfde5a066334c6f02"
+    },
+    {
+      "path": "using-wallet/signing-a-message/index.html",
+      "markdown": "markdown/using-wallet/signing-a-message.md",
+      "title": "Redirecting to: /docs-wallet/tasks/sign-a-message",
+      "contentSha256": "c0415b0e81352e5cc99acea1ba63a119ec063de8aaef72fd9b07d81562d63aa1"
+    },
+    {
+      "path": "wallet-basics/accounts-and-networks/index.html",
+      "markdown": "markdown/wallet-basics/accounts-and-networks.md",
+      "title": "Redirecting to: /docs-wallet/concepts/chains-and-networks",
+      "contentSha256": "83a0bfe84cb52a849f9679befddd45618dbedde9df4dfa4b8bc78b2760cea1cf"
+    },
+    {
+      "path": "wallet-basics/activity/index.html",
+      "markdown": "markdown/wallet-basics/activity.md",
+      "title": "Redirecting to: /docs-wallet/tasks/activity",
+      "contentSha256": "3b5a2dd0d244a055610a557d19e553b07c94f7d242ebd3f9db2c01d01a6c9da9"
+    },
+    {
+      "path": "wallet-basics/balances/index.html",
+      "markdown": "markdown/wallet-basics/balances.md",
+      "title": "Redirecting to: /docs-wallet/concepts/inputs-outputs-fees",
+      "contentSha256": "96e3702dfe4f51578536a41614559822bbb699eb383aeae42d41de72ef587dcb"
+    },
+    {
+      "path": "wallet-basics/fees/index.html",
+      "markdown": "markdown/wallet-basics/fees.md",
+      "title": "Redirecting to: /docs-wallet/tasks/choose-a-fee",
+      "contentSha256": "03b600365c4b88605495dfc4297ff00300e215185d276287d4bc18b2a0d2e1f8"
+    },
+    {
+      "path": "wallet-basics/performance-and-media/index.html",
+      "markdown": "markdown/wallet-basics/performance-and-media.md",
+      "title": "Redirecting to: /docs-wallet/assets/media-and-performance",
+      "contentSha256": "b51a791d70810a25c11d8aefcdfb5ce874e0fd82c957a3775d1c6ac06e710b5f"
+    }
+  ]
+}

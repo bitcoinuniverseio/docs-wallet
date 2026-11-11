@@ -1,0 +1,1 @@
+function e(e,t){let n=()=>{document.querySelectorAll(e).forEach(e=>{e.dataset.universeMounted!==`1`&&(e.dataset.universeMounted=`1`,t(e))})};document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,n):n()}export{e as t};

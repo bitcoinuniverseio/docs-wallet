@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "universe-doc-releases-v1",
+  "generatedAt": "2026-09-02T17:14:40.501Z",
+  "defaultReleaseId": "wallet-1.7.5.8",
+  "releases": [
+    {
+      "id": "wallet-1.0.13-store",
+      "version": "1.0.13",
+      "channel": "store",
+      "publicationStatus": "published",
+      "publishedAt": "2025-04-15",
+      "sourceCommit": null,
+      "capabilitySnapshotSha256": null,
+      "chains": [
+        {
+          "chain": "bitcoin",
+          "networks": [
+            "mainnet"
+          ]
+        }
+      ],
+      "documentationStatus": "reference-only",
+      "knownLimitations": [
+        "Predates the current documentation by more than a year; screens described here may not exist in this build.",
+        "Predates Zcash support entirely.",
+        "Protocol authorization state is not verifiable from this site for this build."
+      ],
+      "notes": "The build published to the Chrome Web Store in April 2025. Where this documentation and that build disagree, the installed build is correct for you."
+    },
+    {
+      "id": "wallet-1.7.5.8",
+      "version": "1.7.5.8",
+      "channel": "source-development",
+      "publicationStatus": "unpublished",
+      "publishedAt": null,
+      "sourceCommit": "cf0b6d60d00a3086f93b6be83375bbc90b2c4acd",
+      "capabilitySnapshotSha256": "d80abc66ab386b59d704c8ada9e3aba1cf029a1346c00c36bcf3d79aec3ea366",
+      "chains": [
+        {
+          "chain": "bitcoin",
+          "networks": [
+            "mainnet",
+            "signet",
+            "testnet",
+            "testnet4"
+          ]
+        },
+        {
+          "chain": "cosmos",
+          "networks": [
+            "bbn-1"
+          ]
+        },
+        {
+          "chain": "dogecoin",
+          "networks": [
+            "mainnet",
+            "testnet"
+          ]
+        },
+        {
+          "chain": "fractal",
+          "networks": [
+            "mainnet",
+            "testnet"
+          ]
+        },
+        {
+          "chain": "zcash",
+          "networks": [
+            "mainnet",
+            "testnet"
+          ]
+        }
+      ],
+      "documentationStatus": "described",
+      "knownLimitations": [
+        "This source tree authorizes 0 of 42 protocols; every write operation fails closed.",
+        "Not submitted to the Chrome Web Store; no user has this build unless they built it from source."
+      ],
+      "notes": "The source tree every page on this site was verified against. Its capture set, simulator, and provider contract all pin this version."
+    },
+    {
+      "id": "wallet-qualification-candidate-2026-08",
+      "version": "1.7.5.8",
+      "channel": "candidate",
+      "publicationStatus": "unpublished",
+      "publishedAt": null,
+      "sourceCommit": null,
+      "capabilitySnapshotSha256": null,
+      "chains": [
+        {
+          "chain": "bitcoin",
+          "networks": [
+            "mainnet"
+          ]
+        }
+      ],
+      "documentationStatus": "not-described",
+      "knownLimitations": [
+        "A qualification campaign covering thirteen Zerdinals and ZRunes operations completed against one candidate commit, and that authorization was never published.",
+        "The candidate build is not documented on this site because no artifact users could install came from it."
+      ],
+      "notes": "Recorded so the release history is honest: an authorizable artifact exists, and it has not been published."
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+# Universe Wallet documentation
+
+> User documentation for Universe Wallet, a self-custody browser extension for Bitcoin, Dogecoin,
+> Zcash, and Fractal Bitcoin. It keeps coins carrying digital artifacts out of ordinary payments
+> and puts a readable account of every signature in front of the user.
+
+## Facts that govern every claim on this site
+
+- Documented version: Universe Wallet 1.7.5.8, from the source tree.
+- Published version: 1.0.13, on the Chrome Web Store since 2025-04-15.
+- 1.7.5.8 has NOT been submitted or published.
+- Protocol authorization in the committed baseline: 0 of 42 protocols.
+- No protocol operation is available in any released build. Ordinary Bitcoin sending is also gated.
+- There is no fee bump, no speed up, and no child-pays-for-parent flow anywhere in the product.
+- Universe cannot recover a lost recovery phrase, move funds, or reverse a transaction.
+- Lifecycle: experimental. Chains: Bitcoin, Dogecoin, Zcash, Fractal Bitcoin.
+
+- [Documentation home](https://bitcoinuniverseio.github.io/docs-wallet/): entry point, current version position, and safety index.
+
+## Start here
+
+- [Back up your recovery phrase](https://bitcoinuniverseio.github.io/docs-wallet/start/back-up): How to record the phrase so it survives fire, theft, moving house, and your own memory, and how to prove the backup actually works.
+- [Create a wallet](https://bitcoinuniverseio.github.io/docs-wallet/start/create-a-wallet): Generate a new 12-word wallet, choose a password, pick an address type, and finish the backup check before any money is involved.
+- [Receive for the first time](https://bitcoinuniverseio.github.io/docs-wallet/start/first-receive): Get an address, check it in more than one place, and use a small test amount before anything that matters.
+- [Send for the first time](https://bitcoinuniverseio.github.io/docs-wallet/start/first-send): Your first outgoing payment, done in the order that makes a mistake survivable, with the two facts about sending that surprise people most.
+- [Import an existing wallet](https://bitcoinuniverseio.github.io/docs-wallet/start/import-a-wallet): Bring a wallet in from a recovery phrase or a private key, including the derivation-path presets for Unisat, Sparrow, Xverse, and Ordinals Wallet.
+- [Install](https://bitcoinuniverseio.github.io/docs-wallet/start/install): Where the real extension is, which browsers can run it, which permissions it asks for, and how to check that what you installed is what you meant to install.
+- [Holding your own keys](https://bitcoinuniverseio.github.io/docs-wallet/start/self-custody): What self-custody actually transfers to you, the four irreversible facts it creates, and the habits that keep it survivable.
+- [Which version you are running](https://bitcoinuniverseio.github.io/docs-wallet/start/versions): The published Chrome Web Store build is 1.0.13 from April 2025. This documentation describes the 1.7.5.8 source tree, which has not been published. Here is exactly what that means for you.
+- [What Universe Wallet is](https://bitcoinuniverseio.github.io/docs-wallet/start/what-this-is): A self-custody browser extension for Bitcoin, Dogecoin, Zcash, and Fractal Bitcoin, built so that coins carrying digital artifacts never fund an ordinary payment.
+
+## How it works
+
+- [Address types](https://bitcoinuniverseio.github.io/docs-wallet/concepts/address-types): The six Bitcoin address variants Universe Wallet derives, their derivation paths, their prefixes, and which to choose.
+- [Payment and asset addresses](https://bitcoinuniverseio.github.io/docs-wallet/concepts/addresses): Why people talk about a payment address and an asset address, why Bitcoin has no such distinction, and what actually decides where your artifacts live.
+- [Backup and recovery](https://bitcoinuniverseio.github.io/docs-wallet/concepts/backup-and-recovery): What the recovery phrase restores, what it does not, and which of the five ways to lose a wallet has no way back.
+- [Chains and networks](https://bitcoinuniverseio.github.io/docs-wallet/concepts/chains-and-networks): The ten networks the wallet can switch between, what switching does and does not change, and why a test network address must never receive real money.
+- [Confidence marks](https://bitcoinuniverseio.github.io/docs-wallet/concepts/confidence-marks): Every interpreted fact on an approval screen carries EXACT, ESTIMATED, or UNKNOWN. What each one means, and why unknown is never rounded to zero.
+- [Connection permissions](https://bitcoinuniverseio.github.io/docs-wallet/concepts/connections): What a connected site is granted, the five things it is never granted, and how the idle window ends access on its own.
+- [Inputs, outputs, fees, change](https://bitcoinuniverseio.github.io/docs-wallet/concepts/inputs-outputs-fees): What a Bitcoin transaction is actually made of, why the fee is not a field you fill in, and why a missing change output is the most expensive thing you can fail to notice.
+- [Protected outputs](https://bitcoinuniverseio.github.io/docs-wallet/concepts/protected-outputs): Why part of your balance refuses to spend, what puts a coin into that state, and why a coin the wallet could not check is held back rather than released.
+- [What a signature authorizes](https://bitcoinuniverseio.github.io/docs-wallet/concepts/what-a-signature-authorizes): Four kinds of approval, the exact boundary of each, and the one shape of signature that lets a stranger finish the transaction without asking you again.
+
+## Everyday tasks
+
+- [Read your activity](https://bitcoinuniverseio.github.io/docs-wallet/tasks/activity): What pending really means, how many confirmations to wait for, and what to do about a transaction that will not confirm.
+- [Choose a fee](https://bitcoinuniverseio.github.io/docs-wallet/tasks/choose-a-fee): What the presets mean, how to pick a custom rate, and why the choice matters more here than in most wallets.
+- [Coin control](https://bitcoinuniverseio.github.io/docs-wallet/tasks/coin-control): Where manual coin selection actually exists in this build, what the locked-coins and coin-health screens show, and what is not available.
+- [Connect an application](https://bitcoinuniverseio.github.io/docs-wallet/tasks/connect-an-application): Approve a site's connection request, choose the idle window, and check the one line on the screen that a hostile page cannot forge.
+- [Hardware wallets](https://bitcoinuniverseio.github.io/docs-wallet/tasks/hardware-wallet): Keystone is the one hardware integration present in this build. Ledger and Trezor are shown as coming soon and cannot be connected.
+- [Locking and passwords](https://bitcoinuniverseio.github.io/docs-wallet/tasks/lock-and-password): What the password actually protects, how to set the auto-lock window, and what changing a password does and does not do.
+- [Manage connections](https://bitcoinuniverseio.github.io/docs-wallet/tasks/manage-connections): See every site that can reach the wallet, what each one can read, when it was last used, and how to end one or all of them.
+- [Receive](https://bitcoinuniverseio.github.io/docs-wallet/tasks/receive): Get an address, create a payment request with an amount and a note, and understand what appears while a payment is still unconfirmed.
+- [Review a PSBT](https://bitcoinuniverseio.github.io/docs-wallet/tasks/review-a-psbt): How to read a partially signed transaction someone else built, which sighash flags change what you are agreeing to, and when to refuse outright.
+- [Review a transaction](https://bitcoinuniverseio.github.io/docs-wallet/tasks/review-a-transaction): How to read the approval screen in the order it is built, the four lines that matter most, and the ones that should make you reject.
+- [Security dashboard](https://bitcoinuniverseio.github.io/docs-wallet/tasks/security-dashboard): What the security dashboard tracks, what it can tell you, and the limits of what any dashboard can see.
+- [Send bitcoin](https://bitcoinuniverseio.github.io/docs-wallet/tasks/send): Make an outgoing payment, understand the replaceable flag, and know what the wallet does not offer if the transaction gets stuck.
+- [Sign a message](https://bitcoinuniverseio.github.io/docs-wallet/tasks/sign-a-message): What message signing proves, why the wallet has no screen for composing one yourself, and why raw data signing is off by default.
+- [Switch chain and network](https://bitcoinuniverseio.github.io/docs-wallet/tasks/switch-chain-and-network): Change which chain and network the wallet is showing, and understand what that does to connected sites and to your addresses.
+- [Watch-only wallets](https://bitcoinuniverseio.github.io/docs-wallet/tasks/watch-only): What the cold-wallet import actually is in this build, where its entry point lives, and what you cannot do with it.
+
+## Assets and protocols
+
+- [Dogecoin marketplace](https://bitcoinuniverseio.github.io/docs-wallet/assets/dogecoin-marketplace): What the wallet verifies before signing an integrated Dogecoin marketplace transaction, and what it still leaves for you to check.
+- [Media and large portfolios](https://bitcoinuniverseio.github.io/docs-wallet/assets/media-and-performance): How the wallet renders thousands of assets without stalling, where images come from, and what a dimmed number means.
+- [The protocol registry](https://bitcoinuniverseio.github.io/docs-wallet/assets/protocol-registry): Every protocol the wallet knows about, the chains it runs on, the operations the product intends, and what this release actually authorizes.
+- [What this release authorizes](https://bitcoinuniverseio.github.io/docs-wallet/assets/support-state): The generated answer to which protocol operations Universe Wallet 1.7.5.8 authorizes, and why the number is what it is.
+- [What a digital artifact is](https://bitcoinuniverseio.github.io/docs-wallet/assets/what-a-digital-artifact-is): How an inscription, a token balance, and a rare satoshi actually exist on Bitcoin, and why that makes them fragile in an ordinary wallet.
+- [Why an action is unavailable](https://bitcoinuniverseio.github.io/docs-wallet/assets/why-unavailable): What the unavailable screen means, what it is not, and the list of things that will not change it.
+- [Zcash market listings](https://bitcoinuniverseio.github.io/docs-wallet/assets/zcash-market-listings): What a Zerdinal listing signature commits you to, why the approval can be blocked outright, and why cancelling a listing is only advisory.
+
+## Safety
+
+- [If your wallet is compromised](https://bitcoinuniverseio.github.io/docs-wallet/safety/compromised-wallet): What to do first, in order, when you think your phrase was seen, a signature went wrong, or coins moved without you.
+- [Phishing and impostors](https://bitcoinuniverseio.github.io/docs-wallet/safety/phishing): The small number of attacks that account for almost all losses, the one rule that defeats most of them, and what the wallet does and does not filter.
+- [Privacy](https://bitcoinuniverseio.github.io/docs-wallet/safety/privacy): What leaves your device by design, what never does, what a connected site can learn, and the limit no wallet can pass.
+- [Security model](https://bitcoinuniverseio.github.io/docs-wallet/safety/security-model): Where your keys live, what protects them, what Universe can and cannot do, and which decisions stay yours no matter what the product does.
+
+## Reference
+
+- [Capability evidence](https://bitcoinuniverseio.github.io/docs-wallet/reference/capability-evidence): The rule that decides whether an operation ships, what counts as evidence, and how to check a claim yourself instead of taking anyone's word.
+- [Diagram conventions](https://bitcoinuniverseio.github.io/docs-wallet/reference/diagram-conventions): The rules every diagram on this site follows, so that a contributor can add one that matches and a reader knows what the drawing is claiming.
+- [Glossary](https://bitcoinuniverseio.github.io/docs-wallet/reference/glossary): The words this documentation uses, defined precisely, including the ones that mean something different here than elsewhere.
+- [Known limitations](https://bitcoinuniverseio.github.io/docs-wallet/reference/known-limitations): Every limit of Universe Wallet 1.7.5.8 that could be established from source, including the ones that are inconvenient to admit.
+- [Release notes](https://bitcoinuniverseio.github.io/docs-wallet/reference/release-notes): What changed between the wallet builds this documentation can verify, and what has and has not reached users.
+- [Supported features](https://bitcoinuniverseio.github.io/docs-wallet/reference/supported-features): What is present with no gate, what is present behind a release gate, and what does not exist at all in Universe Wallet 1.7.5.8.
+
+## Developers
+
+- [Integrating with the wallet](https://bitcoinuniverseio.github.io/docs-wallet/developers/integration): How to build an integration that a careful user will approve, what to never ask for, and the failure modes to handle before you ship.
+- [Provider API](https://bitcoinuniverseio.github.io/docs-wallet/developers/provider-api): The JavaScript provider Universe Wallet injects into pages, with the object name, every method, its real parameters and return type, the event API, and the error codes.
+
+## Help
+
+- [Frequently asked questions](https://bitcoinuniverseio.github.io/docs-wallet/help/faq): Direct answers to the questions people actually ask, including the ones with uncomfortable answers.
+- [Support and reporting](https://bitcoinuniverseio.github.io/docs-wallet/help/support): Where to ask a question, where to report a security issue, what to include, and the one thing nobody will ever ask you for.
+- [Troubleshooting](https://bitcoinuniverseio.github.io/docs-wallet/help/troubleshooting): The failures people actually hit, what each one means about your funds, and what to do about it.
+
+## Source
+
+- [Product source](https://github.com/bitcoinuniverseio/wallet): the wallet extension, private to the organization.
+- [Documentation source](https://github.com/bitcoinuniverseio/docs-wallet): this site.
+- [Release candidates](https://github.com/bitcoinuniverseio/wallet/releases): pre-releases named by commit. A pre-release is not an authorized build.
+- [Bitcoin Universe documentation portal](https://docs.bitcoinuniverse.io): every component.
