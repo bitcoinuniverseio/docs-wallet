@@ -78,6 +78,14 @@ nothing outside that scope.
 **That artifact has not been published.** See
 [Which version you are running](/docs-wallet/start/versions).
 
+## When build checks are delayed
+
+A queued or interrupted build has not passed validation. Runner recovery and changes
+that reduce test memory use do not authorize a release by themselves. The exact
+source commit still needs every required check, including the complete coverage
+suite and the existing browser comparisons. Results from an earlier commit cannot
+stand in for that evidence.
+
 ## Related
 
 - [What this release authorizes](/docs-wallet/assets/support-state)
